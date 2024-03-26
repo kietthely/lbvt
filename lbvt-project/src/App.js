@@ -1,12 +1,12 @@
 import "./App.css";
-import Spline from "@splinetool/react-spline";
-import db from "./firebase.js"; 
+import db from "./firebase.js";
 // to pass, get info to firebase
 import { collection, addDoc, getDocs } from "firebase/firestore";
-import {useState, useEffect} from "react";
+import React, { useState, useEffect, Suspense } from "react";
+import Spline from "@splinetool/react-spline";
 
 export default function App() {
-
+  /*
   // Fetch info to get Program info.
   // Get all info about the program(LBVT)
   const [programs, setProgram] = useState([]);
@@ -26,6 +26,7 @@ export default function App() {
     // fetch data from "Firebase"
     const programData = collection(db, "Program");
     getDocs(programData).then((snapshot) => {
+<<<<<<< HEAD
       // set information to the programs then split it to each category
       const program = snapshot.docs.map((doc) => ({...doc.data()}))
       const courses = program[0].Courses;
@@ -106,8 +107,39 @@ function onLoad(Spline){
     */
   }
   
+=======
+      // set information to the programs
+      //console.log(snapshot.docs.map((doc) => ({...doc.data()})));
+      setProgram(snapshot.docs.map((doc) => ({ ...doc.data() })));
+      setCourses(programs[0].Courses);
+    });
+  }, []);
+
+  console.log(courses);
+*/
+  // spline section
+  const display = {};
+
+  function onMouseDown(e) {
+    if (e.target.name === "year1__lbvt_building_1") {
+      console.log("year 1 building have been clicked!");
+    } else if (e.target.name === "year1_lbvt_building_2") {
+      console.log("year 1 building 2 have been clicked!");
+      display = {};
+    } else if (e.target.name === "year1_lbvt_building_3") {
+      console.log("year 1 building 3 have been clicked!");
+    } else if (e.target.name === "year1_lbvt_building_4") {
+      console.log("year 1 building 4 have been clicked!");
+    }
+  }
+>>>>>>> add-id-to-building
   return (
     // need to find a way how to set the info to the each building
-    <Spline scene="https://prod.spline.design/RUIIGY18trV33sg0/scene.splinecode" />
+    <div id="canvas3d">
+      <Spline
+        scene="https://prod.spline.design/RUIIGY18trV33sg0/scene.splinecode"
+        onMouseDown={onMouseDown}
+      />
+    </div>
   );
 }
