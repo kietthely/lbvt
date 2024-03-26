@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const Login = ({ setLoggedIn, setEmail }) => {
   const [email, setEmailState] = useState("");
   const [password, setPasswordState] = useState("");
-  const navigate = useNavigate();
+
   // retrieve email/ account ... firebase query
+  function submitForm() {}
   return (
     <div className="login-wrapper">
-      <h1>Please Log In</h1>
+      <h1>Welcome to UniSA</h1>
       <form>
         <label>
           <p>Email</p>
@@ -27,7 +27,7 @@ const Login = ({ setLoggedIn, setEmail }) => {
           />
         </label>
         <div>
-          <button type="button" onClick={onButtonClick}>
+          <button type="button" onClick={submitForm}>
             Submit
           </button>
         </div>

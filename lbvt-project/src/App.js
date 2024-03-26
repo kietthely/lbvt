@@ -4,7 +4,7 @@ import db from "./firebase.js";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import React, { useState, useEffect, Suspense } from "react";
 import Spline from "@splinetool/react-spline";
-
+import Login from "./components/Login/Login.js";
 export default function App() {
   /*
   // Fetch info to get Program info.
@@ -55,10 +55,10 @@ function onLoad(Spline){
       task:  need to add buildings to the map for each Year course.
     */
 
-  let isLogin = false;
+  //let isLogin = false;
 
   // has not debug it yet.
-  const obj_Welcome = Spline.findObjectByName("Great Hall - Starting");
+  //const obj_Welcome = Spline.findObjectByName("Great Hall - Starting");
   //obj_Welcome.text = "Done!"
 
   /* 
@@ -121,7 +121,6 @@ function onLoad(Spline){
       console.log("year 1 building have been clicked!");
     } else if (e.target.name === "year1_lbvt_building_2") {
       console.log("year 1 building 2 have been clicked!");
-      display = {};
     } else if (e.target.name === "year1_lbvt_building_3") {
       console.log("year 1 building 3 have been clicked!");
     } else if (e.target.name === "year1_lbvt_building_4") {
@@ -131,6 +130,7 @@ function onLoad(Spline){
   return (
     // need to find a way how to set the info to the each building
     <div id="canvas3d">
+      <Login></Login>
       <Spline
         scene="https://prod.spline.design/RUIIGY18trV33sg0/scene.splinecode"
         onMouseDown={onMouseDown}
