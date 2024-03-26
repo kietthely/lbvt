@@ -26,7 +26,6 @@ export default function App() {
     // fetch data from "Firebase"
     const programData = collection(db, "Program");
     getDocs(programData).then((snapshot) => {
-<<<<<<< HEAD
       // set information to the programs then split it to each category
       const program = snapshot.docs.map((doc) => ({...doc.data()}))
       const courses = program[0].Courses;
@@ -56,20 +55,19 @@ function onLoad(Spline){
       task:  need to add buildings to the map for each Year course.
     */
 
-    let isLogin = false;
-    
-    // has not debug it yet.
-    const obj_Welcome = Spline.findObjectByName("Great Hall - Starting");
-    //obj_Welcome.text = "Done!"
+  let isLogin = false;
 
+  // has not debug it yet.
+  const obj_Welcome = Spline.findObjectByName("Great Hall - Starting");
+  //obj_Welcome.text = "Done!"
 
-    /* 
+  /* 
       if ( student has enrolled elective course){
         change text on the building and info for building.
       }
     */
 
-    /*
+  /*
         // Year 1 (sp2)
     const obj_BIOL1014 = Spline.findObjectByName("year1_lbvt_building_4")
     const obj_BIOL1015 = Spline.findObjectById("year1_lbvt_building_3");
@@ -105,9 +103,8 @@ function onLoad(Spline){
     const obj_EE6 = Spline.findObjectById();
     const obj_UE1= Spline.findObjectById();
     */
-  }
-  
-=======
+
+  /*
       // set information to the programs
       //console.log(snapshot.docs.map((doc) => ({...doc.data()})));
       setProgram(snapshot.docs.map((doc) => ({ ...doc.data() })));
@@ -118,7 +115,6 @@ function onLoad(Spline){
   console.log(courses);
 */
   // spline section
-  const display = {};
 
   function onMouseDown(e) {
     if (e.target.name === "year1__lbvt_building_1") {
@@ -132,7 +128,6 @@ function onLoad(Spline){
       console.log("year 1 building 4 have been clicked!");
     }
   }
->>>>>>> add-id-to-building
   return (
     // need to find a way how to set the info to the each building
     <div id="canvas3d">
