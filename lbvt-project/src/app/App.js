@@ -1,10 +1,9 @@
-import "./App.css";
-import db from "./firebase.js";
+import db from "../firebase.js";
 // to pass, get info to firebase
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import React, { useState, useEffect, Suspense } from "react";
 import Spline from "@splinetool/react-spline";
-import Login from "./components/Login/Login.js";
+import Login from "../components/Login/Login.js";
 export default function App() {
   /*
   // Fetch info to get Program info.
