@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./Home";
-import Login from "../src/components/Login/Login.js";
-import { useState } from "react";
 
-function Route() {
+import Login from "../components/Login/Login.js";
+import { useState } from "react";
+import App from "../app/App.js";
+
+function RouteTable() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [email, setEmail] = useState("");
 
@@ -11,16 +12,7 @@ function Route() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                email={email}
-                loggedIn={loggedIn}
-                setLoggedIn={setLoggedIn}
-              />
-            }
-          />
+          <Route path="/" element={<App></App>} />
           <Route
             path="/login"
             element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />}
@@ -31,4 +23,4 @@ function Route() {
   );
 }
 
-export default Route;
+export default RouteTable;

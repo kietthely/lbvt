@@ -1,4 +1,4 @@
-import db from "../firebase.js";
+import db from "../database/firebase.js";
 // to pass, get info to firebase
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import React, { useState, useEffect, Suspense } from "react";
@@ -129,7 +129,6 @@ function onLoad(Spline){
   return (
     // need to find a way how to set the info to the each building
     <div id="canvas3d">
-      <Login></Login>
       <Spline
         scene="https://prod.spline.design/RUIIGY18trV33sg0/scene.splinecode"
         onMouseDown={onMouseDown}
