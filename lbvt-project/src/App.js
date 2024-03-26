@@ -27,14 +27,17 @@ export default function App() {
   console.log(courses);
 */
   // spline section
+  const display = {};
+
   function onMouseDown(e) {
-    if (e.target.name === "year1_building_1") {
+    if (e.target.name === "year1__lbvt_building_1") {
       console.log("year 1 building have been clicked!");
-    } else if (e.target.name === "year1_building_2") {
+    } else if (e.target.name === "year1_lbvt_building_2") {
       console.log("year 1 building 2 have been clicked!");
-    } else if (e.target.name === "year1_building_3") {
+      display = {};
+    } else if (e.target.name === "year1_lbvt_building_3") {
       console.log("year 1 building 3 have been clicked!");
-    } else if (e.target.name === "year1_building_4") {
+    } else if (e.target.name === "year1_lbvt_building_4") {
       console.log("year 1 building 4 have been clicked!");
     }
   }
