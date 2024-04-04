@@ -19,7 +19,6 @@ export default function App() {
   const [environmentalE, setEnvironmentalE] = useState([]);
   const [undergraduateE, setUnderGraduateE] = useState([]);
 
-
   
   useEffect(() => {
     // fetch data from "Firebase"
@@ -47,6 +46,66 @@ export default function App() {
       setUnderGraduateE(uE);
 
     });
+  }, []);
+
+function onLoad(Spline){
+    /*  Connect variable and object in Spline from Spline's objName, then modify the map information 
+      status: Not finish yet. This function will create after finishing Login functions with student account. 
+      propose: Display thier course program situation on the map such as Elective 1 -> EART3020 or display thier Grade for the course.
+
+      task:  need to add buildings to the map for each Year course.
+    */
+
+    let isLogin = false;
+    
+    // has not debug it yet.
+    const obj_Welcome = Spline.findObjectByName("Great Hall - Starting");
+    //obj_Welcome.text = "Done!"
+
+
+    /* 
+      if ( student has enrolled elective course){
+        change text on the building and info for building.
+      }
+    */
+
+    /*
+        // Year 1 (sp2)
+    const obj_BIOL1014 = Spline.findObjectByName("year1_lbvt_building_4")
+    const obj_BIOL1015 = Spline.findObjectById("year1_lbvt_building_3");
+    const obj_EART1010 = Spline.findObjectById("year1_lbvt_building_2");
+    const obj_EART1011 = Spline.findObjectById("year1_lbvt_building_1");
+
+    // Year 1 (sp5)
+    const obj_ENVT1013 = Spline.findObjectById();
+    const obj_ENVT1016 = Spline.findObjectById();
+    const obj_GEOE1018 = Spline.findObjectById();
+    const obj_GEOE2026 = Spline.findObjectById();
+
+    // Year 2 (sp2)
+    const obj_BIOL2023 = Spline.findObjectById("year2_lbvt_building_4");
+    const obj_EART3012 = Spline.findObjectById("year2_lbvt_building_1");
+    const obj_ENVT1019 = Spline.findObjectById("year2_lbvt_building_3");
+    const obj_ENVT3016 = Spline.findObjectById("year2_lbvt_building_2");
+
+    // Year 2 (sp5)
+    const obj_EE1 = Spline.findObjectById();
+    const obj_EE2 = Spline.findObjectById();
+    const obj_GEOE2022= Spline.findObjectById();
+    const obj_GEOE3019= Spline.findObjectById();
+
+    // Year 3 (sp2)
+    const obj_ENVT3030 = Spline.findObjectById("year3_lbvt_building_4");
+    const obj_ENVT3031 = Spline.findObjectById("year3_lbvt_building_3");
+    const obj_EE3 = Spline.findObjectById("year3_lbvt_building_2");
+    const obj_EE4 = Spline.findObjectById("year3_lbvt_building_1");
+
+    // Year 3 (sp5)
+    const obj_EE5 = Spline.findObjectById();
+    const obj_EE6 = Spline.findObjectById();
+    const obj_UE1= Spline.findObjectById();
+    */
+  }
 
   }, []);
 
