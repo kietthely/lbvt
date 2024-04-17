@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE repository "">
 <repository>
 	<schema></schema>
 	<version>1.0.0</version>
@@ -10,13 +9,13 @@
         <duration>3</duration> <!-- to modify the map. if we need to accept multiple program, we need to consider about the program with different year, don't we?-->
         <!--I might add more in for to here about the program details later.-->
 
-        <courses>
+        <courses> <!--Information for courses in each building-->
             <year1>
                 <sp2>
                     <course>
                         <id>BIOL1014</id> 
-                        <name>Biodiversity for the Environment<name> 
-                        <courseID>010889<courseId> <!--Do we need it? this is like a 010889 in the unisa's webpage. but it could be miss-leading in future-->
+                        <name>Biodiversity for the Environment</name> 
+                        <courseId>010889</courseId> <!--Do we need it? this is like a 010889 in the unisa's webpage. but it could be miss-leading in future-->
                         <courseCoordinators> <!--in case of several course corrdinators-->
                             <courseCoordinator>
                                 <name>Associate Professor Gunnar Keppel</name> 
@@ -30,7 +29,7 @@
                         <offeredExternally>false</offeredExternally>
                         <prerequisites> <!--in case of several course prerequisite-->
                             <prerequisite>
-                                <id><id>
+                                <id></id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/courses/010899/2024</url> <!--URL for course page in Uni SA-->
@@ -43,8 +42,8 @@
                     </course>
                     <course>
                         <id>EART1010</id> 
-                        <name>Earth and Climate Systems<name> 
-                        <courseID>101119<courseId> 
+                        <name>Earth and Climate Systems</name> 
+                        <courseId>101119</courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name>Associate Professor Justin Payne</name> 
@@ -54,21 +53,21 @@
                         <offeredExternally>false</offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id><id>
+                                <id></id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/courses/101119/2024</url> 
-                            <notes>
-                                <note></note>
-                            </notes> 
-                            <rules>
-                                <rule></rule>
-                            </rules>  
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>  
                     </course>
                     <course>
                         <id>ENVT1013</id> 
-                        <name>Environment, Society and Climate<name> 
-                        <courseID>008664<courseId> 
+                        <name>Environment, Society and Climate</name> 
+                        <courseId>008664</courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name>Dr Brianna Le Busque</name> 
@@ -82,7 +81,7 @@
                         <offeredExternally>false</offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id><id>
+                                <id></id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/courses/008664/2024</url> 
@@ -95,8 +94,8 @@
                     </course>
                     <course>
                         <id>GEOE1018</id> 
-                        <name>Introduction to Surveying and Spatial Sciences<name> 
-                        <courseID>101550<courseId> 
+                        <name>Introduction to Surveying and Spatial Sciences</name> 
+                        <courseId>101550</courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name>Dr Paul Corcoran</name> 
@@ -106,7 +105,7 @@
                         <offeredExternally>false</offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id><id>
+                                <id></id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/courses/101550/2024</url> 
@@ -121,8 +120,8 @@
                 <sp5>
                     <course>
                         <id>BIOL1015</id> 
-                        <name>Sustainable Ecosystems<name> 
-                        <courseID>010900<courseId> 
+                        <name>Sustainable Ecosystems</name> 
+                        <courseId>010900</courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name>Associate Professor S. "Topa" Petit</name> 
@@ -132,7 +131,7 @@
                         <offeredExternally>false</offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id>BIOL1014<id>
+                                <id>BIOL1014</id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/courses/010900/2024</url>
@@ -145,8 +144,8 @@
                     </course>
                     <course>
                         <id>EART1011</id> 
-                        <name>Soils in the Australian Landscape<name> 
-                        <courseID>101121<courseId> 
+                        <name>Soils in the Australian Landscape</name> 
+                        <courseId>101121</courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name>Dr Casey Doolette</name> 
@@ -156,7 +155,7 @@
                         <offeredExternally>false</offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id><id>
+                                <id></id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/courses/101121/2024</url> 
@@ -169,8 +168,8 @@
                     </course>
                     <course>
                         <id>ENVT1016</id> 
-                        <name>Environmental Analytical Methods<name> 
-                        <courseID>105607<courseId> 
+                        <name>Environmental Analytical Methods</name> 
+                        <courseId>105607</courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name>Associate Professor S. "Topa" Petit</name> 
@@ -180,7 +179,7 @@
                         <offeredExternally>false</offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id><id>
+                                <id></id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/courses/105607/2024</url>
@@ -193,8 +192,8 @@
                     </course>
                     <course>
                         <id>GEOE2026</id> 
-                        <name>Spatial Data Acquisition and Analysis<name> 
-                        <courseID><courseId> 
+                        <name>Spatial Data Acquisition and Analysis</name> 
+                        <courseId></courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name>Dr Paul Corcoran</name> 
@@ -204,7 +203,7 @@
                         <offeredExternally>false</offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id>GEOE1018<id>
+                                <id>GEOE1018</id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/courses/105610/2024</url>
@@ -221,8 +220,8 @@
                 <sp2>
                     <course>
                         <id>BIOL2023</id> 
-                        <name>Ecology<name> 
-                        <courseID>012566<courseId> 
+                        <name>Ecology</name> 
+                        <courseId>012566</courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name>Associate Professor Gunnar Keppel</name> 
@@ -232,10 +231,10 @@
                         <offeredExternally>false</offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id>BIOL1015<id>
+                                <id>BIOL1015</id>
                             </prerequisite>
                             <prerequisite>
-                                <id>BIOL1014<id>
+                                <id>BIOL1014</id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/courses/012566/2024</url> 
@@ -249,8 +248,8 @@
 
                     <course>
                         <id>EART3012</id> 
-                        <name>Engineering and Environmental Geology<name> 
-                        <courseID>010163<courseId> 
+                        <name>Engineering and Environmental Geology</name> 
+                        <courseId>010163</courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name>Dr Laura Morrissey</name> 
@@ -264,7 +263,7 @@
                         <offeredExternally>true</offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id><id>
+                                <id></id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/courses/010163/2024</url>
@@ -277,8 +276,8 @@
                     </course>
                     <course>
                         <id>ENVT3016</id> 
-                        <name>Environmental Interpretation and Community Engagement<name> 
-                        <courseID>012751<courseId> 
+                        <name>Environmental Interpretation and Community Engagement</name> 
+                        <courseId>012751</courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name>Professor Delene Weber</name> 
@@ -288,7 +287,7 @@
                         <offeredExternally>false</offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id>ENVT1013<id>
+                                <id>ENVT1013</id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/courses/012751/2024</url> 
@@ -301,8 +300,8 @@
                     </course>
                     <course>
                         <id>GEOE2022</id> 
-                        <name>Environmental Remote Sensing<name> 
-                        <courseID>101126<courseId> 
+                        <name>Environmental Remote Sensing</name> 
+                        <courseId>101126</courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name>Dr Stefan Peters</name> 
@@ -312,7 +311,7 @@
                         <offeredExternally>false</offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id>GEOE2026<id>
+                                <id>GEOE2026</id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/courses/101126/2024</url> 
@@ -327,8 +326,8 @@
                 <sp5>
                     <course>
                         <id>ENVT1019</id> 
-                        <name>Environmental Chemistry<name> 
-                        <courseID>167985<courseId> 
+                        <name>Environmental Chemistry</name> 
+                        <courseId>167985</courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name>Associate Professor Gary Owens</name> 
@@ -338,7 +337,7 @@
                         <offeredExternally>false</offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id><id>
+                                <id></id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/courses/167985/2024</url> 
@@ -351,8 +350,8 @@
                     </course>
                     <course>
                         <id>GEOE3019</id> 
-                        <name>Web Cartography<name> 
-                        <courseID>155790<courseId> 
+                        <name>Web Cartography</name> 
+                        <courseId>155790</courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name>Dr Stefan Peters</name> 
@@ -362,7 +361,7 @@
                         <offeredExternally>false</offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id>GEOE2026<id>
+                                <id>GEOE2026</id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/courses/155790/2024</url>
@@ -375,8 +374,8 @@
                     </course>
                     <course>
                         <id>EE1</id> <!--Should I make unique id for environmental elective? or just EE is fine?-->
-                        <name>Environmental Elective 1<name> 
-                        <courseID><courseId> 
+                        <name>Environmental Elective 1</name> 
+                        <courseId></courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name></name> 
@@ -386,7 +385,7 @@
                         <offeredExternally></offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id><id>
+                                <id></id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/degrees/bachelor-of-environmental-science</url>
@@ -399,8 +398,8 @@
                     </course>
                     <course>
                         <id>EE2</id> 
-                        <name>Environmental Elective 2<name> 
-                        <courseID><courseId> 
+                        <name>Environmental Elective 2</name> 
+                        <courseId></courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name></name> 
@@ -410,7 +409,7 @@
                         <offeredExternally></offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id><id>
+                                <id></id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/degrees/bachelor-of-environmental-science</url>
@@ -427,8 +426,8 @@
                 <sp2>
                     <course>
                         <id>UG1</id> 
-                        <name>Undergraduate Elective<name> 
-                        <courseID><courseId> 
+                        <name>Undergraduate Elective</name> 
+                        <courseId></courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name></name> 
@@ -438,7 +437,7 @@
                         <offeredExternally></offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id><id>
+                                <id></id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/electives/iee</url> 
@@ -451,8 +450,8 @@
                     </course>
                     <course>
                         <id>EE3</id> 
-                        <name>Environmental Elective 3<name> 
-                        <courseID><courseId> 
+                        <name>Environmental Elective 3</name> 
+                        <courseId></courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name></name> 
@@ -462,7 +461,7 @@
                         <offeredExternally></offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id><id>
+                                <id></id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/degrees/bachelor-of-environmental-science</url>
@@ -475,8 +474,8 @@
                     </course>
                     <course>
                         <id>EE4</id> 
-                        <name>Environmental Elective 4<name> 
-                        <courseID><courseId> 
+                        <name>Environmental Elective 4</name> 
+                        <courseId></courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name></name> 
@@ -486,7 +485,7 @@
                         <offeredExternally></offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id><id>
+                                <id></id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/degrees/bachelor-of-environmental-science</url>
@@ -499,8 +498,8 @@
                     </course>
                     <course>
                         <id>EE5</id> 
-                        <name>Environmental Elective 5<name> 
-                        <courseID><courseId> 
+                        <name>Environmental Elective 5</name> 
+                        <courseId></courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name></name> 
@@ -510,7 +509,7 @@
                         <offeredExternally></offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id><id>
+                                <id></id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/degrees/bachelor-of-environmental-science</url>
@@ -525,8 +524,8 @@
                 <sp5>
                     <course>
                         <id>ENVT3030</id> 
-                        <name>Environmental and Geospatial Field Project<name> 
-                        <courseID>156302<courseId> 
+                        <name>Environmental and Geospatial Field Project</name> 
+                        <courseId>156302</courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name>Professor Delene Weber</name> 
@@ -544,7 +543,7 @@
                         <offeredExternally>false</offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id><id>
+                                <id></id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/courses/156302/2024</url> 
@@ -557,8 +556,8 @@
                     </course>
                     <course>
                         <id>ENVT3031</id> 
-                        <name>Ecosystem Monitoring<name> 
-                        <courseID>156301<courseId> 
+                        <name>Ecosystem Monitoring</name> 
+                        <courseId>156301</courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name>Mr Shaun O'Sullivan</name> 
@@ -568,13 +567,13 @@
                         <offeredExternally></offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id>GEOE2022<id>
+                                <id>GEOE2022</id>
                             </prerequisite>
                             <prerequisite>
-                                <id>ENVT1016<id>
+                                <id>ENVT1016</id>
                             </prerequisite>
                             <prerequisite>
-                                <id>BIOL2023<id>
+                                <id>BIOL2023</id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/courses/156301/2024</url> 
@@ -587,8 +586,8 @@
                     </course>
                     <course>
                         <id>EE6</id> 
-                        <name>Environmental Elective 6<name> 
-                        <courseID><courseId> 
+                        <name>Environmental Elective 6</name> 
+                        <courseId></courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name></name> 
@@ -598,7 +597,7 @@
                         <offeredExternally></offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id><id>
+                                <id></id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/degrees/bachelor-of-environmental-science</url>
@@ -616,8 +615,8 @@
                     <advanced>                   
                         <course>
                             <id>EART3020</id> 
-                            <name>Earth and Landscape Evolution<name> 
-                            <courseID>105609<courseId> 
+                            <name>Earth and Landscape Evolution</name> 
+                            <courseId>105609</courseId> 
                             <courseCoordinators> 
                                 <courseCoordinator>
                                     <name>Dr Casey Doolette</name> 
@@ -631,7 +630,7 @@
                             <offeredExternally>false</offeredExternally>
                             <prerequisites> 
                                 <prerequisite>
-                                    <id>EART3012<id>
+                                    <id>EART3012</id>
                                 </prerequisite>
                             </prerequisites>
                             <url>https://study.unisa.edu.au/courses/105609/2024</url> 
@@ -644,8 +643,8 @@
                         </course>
                         <course>
                             <id>ENVT2004</id> 
-                            <name>Park and Ecotourism Management<name> 
-                            <courseID>012570<courseId> 
+                            <name>Park and Ecotourism Management</name> 
+                            <courseId>012570</courseId> 
                             <courseCoordinators> 
                                 <courseCoordinator>
                                     <name>Dr Brianna Le Busque</name> 
@@ -659,7 +658,7 @@
                             <offeredExternally>false</offeredExternally>
                             <prerequisites> 
                                 <prerequisite>
-                                    <id>ENVT3016<id>
+                                    <id>ENVT3016</id>
                                 </prerequisite>
                             </prerequisites>
                             <url>https://study.unisa.edu.au/courses/012570/2024</url> 
@@ -672,8 +671,8 @@
                         </course>
                         <course>
                             <id>ENVT2015</id> 
-                            <name>Microbial Ecology<name> 
-                            <courseID>169532<courseId> 
+                            <name>Microbial Ecology</name> 
+                            <courseId>169532</courseId> 
                             <courseCoordinators> 
                                 <courseCoordinator>
                                     <name>Dr Barbara Drigo</name> 
@@ -683,7 +682,7 @@
                             <offeredExternally>false</offeredExternally>
                             <prerequisites> 
                                 <prerequisite>
-                                    <id><id>
+                                    <id></id>
                                 </prerequisite>
                             </prerequisites>
                             <url>https://study.unisa.edu.au/courses/169532/2024</url> 
@@ -696,8 +695,8 @@
                         </course>
                         <course>
                             <id>ENVT3028</id> 
-                            <name>Restoration Ecology<name> 
-                            <courseID>105613<courseId> 
+                            <name>Restoration Ecology</name> 
+                            <courseId>105613</courseId> 
                             <courseCoordinators> 
                                 <courseCoordinator>
                                     <name>Associate Professor S. "Topa" Petit</name> 
@@ -707,7 +706,7 @@
                             <offeredExternally>false</offeredExternally>
                             <prerequisites> 
                                 <prerequisite>
-                                    <id>BIOL2023<id>
+                                    <id>BIOL2023</id>
                                 </prerequisite>
                             </prerequisites>
                             <url>https://study.unisa.edu.au/courses/105613/2024</url> 
@@ -720,8 +719,8 @@
                         </course>
                         <course>
                             <id>ENVT4031</id> 
-                            <name>Environmental Pollution and Monitoring<name> 
-                            <courseID>167264<courseId> 
+                            <name>Environmental Pollution and Monitoring</name> 
+                            <courseId>167264</courseId> 
                             <courseCoordinators> 
                                 <courseCoordinator>
                                     <name>Associate Professor Gary Owens</name> 
@@ -731,7 +730,7 @@
                             <offeredExternally>false</offeredExternally>
                             <prerequisites> 
                                 <prerequisite>
-                                    <id><id>
+                                    <id></id>
                                 </prerequisite>
                             </prerequisites>
                             <url>https://study.unisa.edu.au/courses/167264/2024</url> 
@@ -744,8 +743,8 @@
                         </course>
                         <course>
                             <id>ENVT4032</id> 
-                            <name>Fire and Culture<name> 
-                            <courseID>171251<courseId> 
+                            <name>Fire and Culture</name> 
+                            <courseId>171251</courseId> 
                             <courseCoordinators> 
                                 <courseCoordinator>
                                     <name>Professor Delene Weber</name> 
@@ -759,7 +758,7 @@
                             <offeredExternally>false</offeredExternally>
                             <prerequisites> 
                                 <prerequisite>
-                                    <id><id>
+                                    <id></id>
                                 </prerequisite>
                             </prerequisites>
                             <url>https://study.unisa.edu.au/courses/171251/2024</url> 
@@ -774,8 +773,8 @@
                     <intermediate>
                         <course>
                             <id>BIOL2022</id> 
-                            <name>Conservation Biology<name> 
-                            <courseID>167264<courseId> 
+                            <name>Conservation Biology</name> 
+                            <courseId>167264</courseId> 
                             <courseCoordinators> 
                                 <courseCoordinator>
                                     <name>Associate Professor Gunnar Keppel</name> 
@@ -785,7 +784,7 @@
                             <offeredExternally>false</offeredExternally>
                             <prerequisites> 
                                 <prerequisite>
-                                    <id>BIOL2023<id>
+                                    <id>BIOL2023</id>
                                 </prerequisite>
                             </prerequisites>
                             <url>https://study.unisa.edu.au/courses/008663/2024</url> 
@@ -798,8 +797,8 @@
                         </course>
                         <course>
                             <id>BIOL4001</id> 
-                            <name>Coastal Environments<name> 
-                            <courseID>012568<courseId> 
+                            <name>Coastal Environments</name> 
+                            <courseId>012568</courseId> 
                             <courseCoordinators> 
                                 <courseCoordinator>
                                     <name>Associate Professor Craig Styan</name> 
@@ -809,7 +808,7 @@
                             <offeredExternally>false</offeredExternally>
                             <prerequisites> 
                                 <prerequisite>
-                                    <id><id>
+                                    <id></id>
                                 </prerequisite>
                             </prerequisites>
                             <url>https://study.unisa.edu.au/courses/012568/2024</url> 
@@ -822,8 +821,8 @@
                         </course>
                         <course>
                             <id>ENVT2014</id> 
-                            <name>Environmental and Social Impact Assessment<name> 
-                            <courseID>105608<courseId> 
+                            <name>Environmental and Social Impact Assessment</name> 
+                            <courseId>105608</courseId> 
                             <courseCoordinators> 
                                 <courseCoordinator>
                                     <name>Dr Casey Doolette</name> 
@@ -833,7 +832,7 @@
                             <offeredExternally>false</offeredExternally>
                             <prerequisites> 
                                 <prerequisite>
-                                    <id><id>
+                                    <id></id>
                                 </prerequisite>
                             </prerequisites>
                             <url>https://study.unisa.edu.au/courses/105608/2024</url> 
@@ -846,8 +845,8 @@
                         </course>
                         <course>
                             <id>ENVT2016</id> 
-                            <name>Climate and Sustainability<name> 
-                            <courseID>173170<courseId> 
+                            <name>Climate and Sustainability</name> 
+                            <courseId>173170</courseId> 
                             <courseCoordinators> 
                                 <courseCoordinator>
                                     <name>Dr Laura Falkenberg</name> 
@@ -857,7 +856,7 @@
                             <offeredExternally>false</offeredExternally>
                             <prerequisites> 
                                 <prerequisite>
-                                    <id>ENVT1013<id>
+                                    <id>ENVT1013</id>
                                 </prerequisite>
                             </prerequisites>
                             <url>https://study.unisa.edu.au/courses/173170/2024</url> 
@@ -873,8 +872,8 @@
                 <undergraduate>
                     <course>
                         <id>UG1</id> 
-                        <name>Undergraduate Elective<name> 
-                        <courseID><courseId> 
+                        <name>Undergraduate Elective</name> 
+                        <courseId></courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name></name> 
@@ -884,7 +883,7 @@
                         <offeredExternally></offeredExternally>
                         <prerequisites> 
                             <prerequisite>
-                                <id><id>
+                                <id></id>
                             </prerequisite>
                         </prerequisites>
                         <url>https://study.unisa.edu.au/electives/iee</url> 
@@ -899,10 +898,44 @@
             </elective>
         </courses>
     </program>
-    <assistance>
-    </assistance>
-    <industry>
-    </industry>
-    <alumni>
-    </alumni>
+    <assistances> <!--Information for assistance building-->
+        <assistance>
+            <name>Library</name>
+            <url>https://www.library.unisa.edu.au/</url>
+        </assistance>
+        <assistance>
+            <name>Refferencing</name>
+            <url>https://lo.unisa.edu.au/course/view.php?id=3839</url>
+        </assistance>
+        <assistance>
+            <name>Elective</name>
+            <url>https://study.unisa.edu.au/electives/iee</url>
+        </assistance>
+
+    </assistances>
+    <industries>    <!--Information for industry building-->
+        <industry>
+            <name>Home</name>
+            <url>https://www.unisa.edu.au/research/#industry-expertise</url>
+        </industry>
+        <industry>
+            <name>Australian Constructors Association</name>
+            <url>https://www.constructors.com.au/</url>
+        </industry>
+        <industry>
+            <name>Australian Geological Survey Organization Network</name>
+            <url>https://www.geoscience.gov.au/</url>
+        </industry>
+
+    </industries>
+    <alumnus> <!--Information for alumni building-->
+        <alumni>
+            <name>Home</name>
+            <url>https://www.unisa.edu.au/connect/alumni-network/</url>
+        </alumni>
+        <alumni>
+            <name>News</name>
+            <url>https://www.unisa.edu.au/connect/alumni-network/alumni-news/</url>
+        </alumni>
+    </alumnus>
 </repository>
