@@ -610,7 +610,21 @@
                     </course>
                 </sp5>
             </year3>
-            <elective>
+        </courses>
+    </program>
+    <assistances> <!--Information for assistance building-->
+        <library>
+            <name>Library</name>
+            <url>https://www.library.unisa.edu.au/</url>
+        </library>
+        <refferencing>
+            <name>Refferencing</name>
+            <url>https://lo.unisa.edu.au/course/view.php?id=3839</url>
+        </refferencing>
+        <elective>
+            <name>Elective</name>
+            <url>https://study.unisa.edu.au/electives/iee</url>
+            <electiveCourses>
                 <environmental>
                     <advanced>                   
                         <course>
@@ -895,23 +909,8 @@
                         </rules>  
                     </course>
                 </undergraduate>
-            </elective>
-        </courses>
-    </program>
-    <assistances> <!--Information for assistance building-->
-        <assistance>
-            <name>Library</name>
-            <url>https://www.library.unisa.edu.au/</url>
-        </assistance>
-        <assistance>
-            <name>Refferencing</name>
-            <url>https://lo.unisa.edu.au/course/view.php?id=3839</url>
-        </assistance>
-        <assistance>
-            <name>Elective</name>
-            <url>https://study.unisa.edu.au/electives/iee</url>
-        </assistance>
-
+            </electiveCourses>
+        </elective>
     </assistances>
     <industries>    <!--Information for industry building-->
         <industry>
