@@ -8,7 +8,6 @@ const App = () => {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/help" element={"Help"} />
         </Routes>
       </Router>
     </main>
