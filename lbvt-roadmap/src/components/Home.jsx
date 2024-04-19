@@ -23,9 +23,9 @@ const Home = () => {
       const building = scene.getObjectByName("year1_sp2_building_1");
       if (building) {
         console.log(building.userData); // logs the custom properties
-
+        console.log(building.userData.course_id); // logs the course_id (e.g. 1)
         // Access individual properties
-        console.log(building.userData.course_id);
+        // console.log(building.userData.course_id);
 
         // etc.
       } else {
