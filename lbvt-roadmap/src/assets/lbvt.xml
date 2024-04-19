@@ -9,7 +9,7 @@
         <duration>3</duration> <!-- to modify the map. if we need to accept multiple program, we need to consider about the program with different year, don't we?-->
         <!--I might add more in for to here about the program details later.-->
 
-        <courses>
+        <courses> <!--Information for courses in each building-->
             <year1>
                 <sp2>
                     <course>
@@ -610,7 +610,21 @@
                     </course>
                 </sp5>
             </year3>
-            <elective>
+        </courses>
+    </program>
+    <assistances> <!--Information for assistance building-->
+        <library>
+            <name>Library</name>
+            <url>https://www.library.unisa.edu.au/</url>
+        </library>
+        <refferencing>
+            <name>Refferencing</name>
+            <url>https://lo.unisa.edu.au/course/view.php?id=3839</url>
+        </refferencing>
+        <elective>
+            <name>Elective</name>
+            <url>https://study.unisa.edu.au/electives/iee</url>
+            <electiveCourses>
                 <environmental>
                     <advanced>                   
                         <course>
@@ -895,13 +909,32 @@
                         </rules>  
                     </course>
                 </undergraduate>
-            </elective>
-        </courses>
-    </program>
-    <assistance>
-    </assistance>
-    <industry>
-    </industry>
-    <alumni>
-    </alumni>
+            </electiveCourses>
+        </elective>
+    </assistances>
+    <industries>    <!--Information for industry building-->
+        <industry>
+            <name>Home</name>
+            <url>https://www.unisa.edu.au/research/#industry-expertise</url>
+        </industry>
+        <industry>
+            <name>Australian Constructors Association</name>
+            <url>https://www.constructors.com.au/</url>
+        </industry>
+        <industry>
+            <name>Australian Geological Survey Organization Network</name>
+            <url>https://www.geoscience.gov.au/</url>
+        </industry>
+
+    </industries>
+    <alumnus> <!--Information for alumni building-->
+        <alumni>
+            <name>Home</name>
+            <url>https://www.unisa.edu.au/connect/alumni-network/</url>
+        </alumni>
+        <alumni>
+            <name>News</name>
+            <url>https://www.unisa.edu.au/connect/alumni-network/alumni-news/</url>
+        </alumni>
+    </alumnus>
 </repository>
