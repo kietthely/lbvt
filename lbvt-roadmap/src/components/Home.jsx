@@ -16,6 +16,9 @@ const Home = () => {
     );
     renderer = new Three.WebGLRenderer();
 
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    ref.current.appendChild(renderer.domElement);
+
     const loader = new GLTFLoader();
     loader.load("/models/lbvt.glb", function (gltf) {
       scene.add(gltf.scene);
@@ -32,9 +35,6 @@ const Home = () => {
         console.log("Building not found");
       }
     });
-
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    ref.current.appendChild(renderer.domElement);
 
     const animate = function () {
       requestAnimationFrame(animate);
