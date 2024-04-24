@@ -1,19 +1,33 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+
 import * as Three from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 const Home = () => {
   const ref = useRef();
+  const [camera, setCamera] = useState(null);
 
   useEffect(() => {
     var scene, camera, renderer;
+
     scene = new Three.Scene();
+    scene.background = new Three.Color(0xffffff);
     camera = new Three.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
     );
+
+    camera.position.y = 30;
+    camera.position.z = 50;
+    camera.rotation.x = -Math.PI / 6;
+
+    setCamera(camera);
+
+    const ambientLight = new Three.AmbientLight(0xffffff, 1.5);
+    scene.add(ambientLight);
+
     renderer = new Three.WebGLRenderer();
 
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -26,7 +40,7 @@ const Home = () => {
       const building = scene.getObjectByName("year1_sp2_building_1");
       if (building) {
         console.log(building.userData); // logs the custom properties
-        console.log(building.userData.course_id); // logs the course_id (e.g. 1)
+        // console.log(building.userData.course_id); // logs the course_id (e.g. 1)
         // Access individual properties
         // console.log(building.userData.course_id);
 
@@ -43,8 +57,75 @@ const Home = () => {
 
     animate();
   }, []);
-
-  return <div ref={ref} />;
+  const moveCameraRight = () => {
+    if (camera) {
+      camera.position.x += 1;
+    }
+  };
+  const moveCameraLeft = () => {
+    if (camera) {
+      camera.position.x -= 1;
+    }
+  };
+  const moveCameraTop = () => {
+    if (camera) {
+      camera.position.z += 1;
+    }
+  };
+  const moveCameraBottom = () => {
+    if (camera) {
+      camera.position.z -= 1;
+    }
+  };
+  return (
+    <div style={{ position: "relative" }}>
+      <div ref={ref} />
+      <button
+        style={{
+          position: "absolute",
+          top: "10px",
+          right: "10px",
+          bottom: "10px",
+        }}
+        onClick={moveCameraRight}
+      >
+        Right
+      </button>
+      <button
+        style={{
+          position: "absolute",
+          top: "10px",
+          right: "100px",
+          bottom: "10px",
+        }}
+        onClick={moveCameraLeft}
+      >
+        Left
+      </button>
+      <button
+        style={{
+          position: "absolute",
+          top: "10px",
+          right: "100px",
+          bottom: "150px",
+        }}
+        onClick={moveCameraBottom}
+      >
+        Up
+      </button>
+      <button
+        style={{
+          position: "absolute",
+          top: "10px",
+          right: "10px",
+          bottom: "150px",
+        }}
+        onClick={moveCameraTop}
+      >
+        Down
+      </button>
+    </div>
+  );
 };
 
 export default Home;
