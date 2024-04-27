@@ -66,12 +66,12 @@ const Home = () => {
   };
   const moveCameraTop = () => {
     if (camera) {
-      camera.position.z += 1;
+      camera.position.z -= 1;
     }
   };
   const moveCameraBottom = () => {
     if (camera) {
-      camera.position.z -= 1;
+      camera.position.z += 1;
     }
   };
   return (
