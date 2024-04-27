@@ -3,10 +3,11 @@ import React, { useEffect, useRef, useState } from "react";
 import * as Three from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import ControlPanel from "./ControlPanel";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 const Home = () => {
   const ref = useRef();
   const [camera, setCamera] = useState(null);
-
+  const controls = useRef();
   useEffect(() => {
     var scene, camera, renderer;
     scene = new Three.Scene();
@@ -29,6 +30,27 @@ const Home = () => {
     scene.add(ambientLight);
     renderer.setSize(window.innerWidth, window.innerHeight);
     ref.current.appendChild(renderer.domElement);
+
+    // Camera controls by mouse
+    controls.current = new OrbitControls(camera, renderer.domElement);
+    // Restrict left mouse movement
+    controls.minPolarAngle = Math.PI / 6; // 30 degrees
+    controls.maxPolarAngle = Math.PI / 2; // 90 degrees
+    // Restrict right mouse movement
+    controls.enablePan = true; // Enable panning
+    controls.screenSpacePanning = false;
+    // Restrict zoom
+    controls.minDistance = 10;
+    controls.maxDistance = 100;
+
+    // Restrict camera target view
+    controls.current.addEventListener("change", () => {
+      const maxPanDistance = 200; // Maximum panning distance
+
+      if (camera.position.length() > maxPanDistance) {
+        controls.current.reset();
+      }
+    });
 
     const loader = new GLTFLoader();
     loader.load("/models/lbvt.glb", function (gltf) {
@@ -54,6 +76,7 @@ const Home = () => {
 
     animate();
   }, []);
+  // Camera movement functions using buttons
   const moveCameraRight = () => {
     if (camera) {
       camera.position.x += 1;
@@ -74,6 +97,11 @@ const Home = () => {
       camera.position.z += 1;
     }
   };
+  const resetCamera = () => {
+    if (controls.current) {
+      controls.current.reset();
+    }
+  };
   return (
     <div style={{ position: "relative" }}>
       {/*Put the model to background.
@@ -85,6 +113,7 @@ const Home = () => {
         moveCameraRight={moveCameraRight}
         moveCameraTop={moveCameraTop}
         moveCameraBottom={moveCameraBottom}
+        resetCamera={resetCamera}
       />
     </div>
   );
