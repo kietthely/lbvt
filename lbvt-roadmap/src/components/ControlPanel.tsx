@@ -1,4 +1,11 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowUp,
+  faArrowDown,
+  faArrowLeft,
+  faArrowRight,
+} from "@fortawesome/free-solid-svg-icons";
 import Button from "./Button";
 
 const ControlPanel = ({
@@ -9,16 +16,16 @@ const ControlPanel = ({
 }) => (
   <div style={{ position: "absolute", top: "10px", right: "10px" }}>
     <Button onClick={moveCameraLeft} className="btn-control">
-      Left
+      <FontAwesomeIcon icon={faArrowLeft} />
     </Button>
     <Button onClick={moveCameraRight} className="btn-control">
-      Right
+      <FontAwesomeIcon icon={faArrowRight} />
     </Button>
     <Button onClick={moveCameraTop} className="btn-control">
-      Up
+      <FontAwesomeIcon icon={faArrowUp} />
     </Button>
     <Button onClick={moveCameraBottom} className="btn-control">
-      Down
+      <FontAwesomeIcon icon={faArrowDown} />
     </Button>
   </div>
 );
