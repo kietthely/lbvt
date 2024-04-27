@@ -5,6 +5,7 @@ import {
   faArrowDown,
   faArrowLeft,
   faArrowRight,
+  faSync,
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "./Button";
 
@@ -13,6 +14,7 @@ const ControlPanel = ({
   moveCameraRight,
   moveCameraTop,
   moveCameraBottom,
+  resetCamera,
 }) => (
   <div style={{ position: "absolute", top: "10px", right: "10px" }}>
     <Button onClick={moveCameraLeft} className="btn-control">
@@ -26,6 +28,9 @@ const ControlPanel = ({
     </Button>
     <Button onClick={moveCameraBottom} className="btn-control">
       <FontAwesomeIcon icon={faArrowDown} />
+    </Button>
+    <Button onClick={resetCamera} className="btn-control">
+      <FontAwesomeIcon icon={faSync} />
     </Button>
   </div>
 );
