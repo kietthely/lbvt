@@ -34,18 +34,18 @@ const Home = () => {
     // Camera controls by mouse
     controls.current = new OrbitControls(camera, renderer.domElement);
     // Restrict left mouse movement
-    controls.minPolarAngle = Math.PI / 6; // 30 degrees
-    controls.maxPolarAngle = Math.PI / 2; // 90 degrees
+    controls.current.minPolarAngle = Math.PI / 6; // 30 degrees
+    controls.current.maxPolarAngle = Math.PI / 2; // 90 degrees
     // Restrict right mouse movement
-    controls.enablePan = true; // Enable panning
-    controls.screenSpacePanning = false;
+    controls.current.enablePan = true; // Enable panning
+    controls.current.screenSpacePanning = false;
     // Restrict zoom
-    controls.minDistance = 10;
-    controls.maxDistance = 100;
+    controls.current.minDistance = 10;
+    controls.current.maxDistance = 100;
 
     // Restrict camera target view
     controls.current.addEventListener("change", () => {
-      const maxPanDistance = 200; // Maximum panning distance
+      const maxPanDistance = 125; // Maximum panning distance
 
       if (camera.position.length() > maxPanDistance) {
         controls.current.reset();
