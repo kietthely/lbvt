@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 import * as Three from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import Button from "./Button";
+import ControlPanel from "./ControlPanel";
 const Home = () => {
   const ref = useRef();
   const [camera, setCamera] = useState(null);
@@ -76,10 +76,16 @@ const Home = () => {
   };
   return (
     <div style={{ position: "relative" }}>
+      {/*Put the model to background.
+        Allows other components to be on top of the model.
+      */}
       <div ref={ref} style={{ position: "fixed", zIndex: -1 }} />
-      <Button onClick={moveCameraLeft} className="btn-control">
-        Left
-      </Button>
+      <ControlPanel
+        moveCameraLeft={moveCameraLeft}
+        moveCameraRight={moveCameraRight}
+        moveCameraTop={moveCameraTop}
+        moveCameraBottom={moveCameraBottom}
+      />
     </div>
   );
 };
