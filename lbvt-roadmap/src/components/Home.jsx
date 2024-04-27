@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 import * as Three from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-
+import Button from "./Button";
 const Home = () => {
   const ref = useRef();
   const [camera, setCamera] = useState(null);
@@ -76,51 +76,10 @@ const Home = () => {
   };
   return (
     <div style={{ position: "relative" }}>
-      <div ref={ref} />
-      <button
-        style={{
-          position: "absolute",
-          top: "10px",
-          right: "10px",
-          bottom: "10px",
-        }}
-        onClick={moveCameraRight}
-      >
-        Right
-      </button>
-      <button
-        style={{
-          position: "absolute",
-          top: "10px",
-          right: "100px",
-          bottom: "10px",
-        }}
-        onClick={moveCameraLeft}
-      >
+      <div ref={ref} style={{ position: "fixed", zIndex: -1 }} />
+      <Button onClick={moveCameraLeft} className="btn-control">
         Left
-      </button>
-      <button
-        style={{
-          position: "absolute",
-          top: "10px",
-          right: "100px",
-          bottom: "150px",
-        }}
-        onClick={moveCameraBottom}
-      >
-        Up
-      </button>
-      <button
-        style={{
-          position: "absolute",
-          top: "10px",
-          right: "10px",
-          bottom: "150px",
-        }}
-        onClick={moveCameraTop}
-      >
-        Down
-      </button>
+      </Button>
     </div>
   );
 };
