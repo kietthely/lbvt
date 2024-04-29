@@ -8,6 +8,7 @@ const Home = () => {
   const ref = useRef();
   const [camera, setCamera] = useState(null);
   const controls = useRef();
+
   useEffect(() => {
     var scene, camera, renderer;
     scene = new Three.Scene();
@@ -19,6 +20,7 @@ const Home = () => {
       0.1,
       1000
     );
+
     renderer = new Three.WebGLRenderer();
     camera.position.y = 30;
     camera.position.z = 50;
@@ -62,11 +64,13 @@ const Home = () => {
         console.log(building.userData.course_id); // logs the course_id (e.g. 1)
         // Access individual properties
         // console.log(building.userData.course_id);
-
-        // etc.
       } else {
         console.log("Building not found");
       }
+
+      // add click events to scene
+      // if year1_sp2_building_1, year1_sp2_building_2, year1_sp2_building_3, year1_sp2_building_4
+      // output userData to console
     });
 
     const animate = function () {
@@ -75,6 +79,43 @@ const Home = () => {
     };
 
     animate();
+
+    // click events
+    const raycaster = new Three.Raycaster();
+    const mouse = new Three.Vector2();
+
+    function onMouseClick(event) {
+      // mouse position
+      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+
+      // Calculate objects intersecting the picking ray
+      const intersects = raycaster.intersectObjects(scene.children, true);
+
+      // if year1_sp2_building_1, year1_sp2_building_2, year1_sp2_building_3, year1_sp2_building_4
+      switch (intersects[0].object.parent.name) {
+        case "year1_sp2_building_1":
+          console.log("year1_sp2_building_1 clicked");
+          break;
+        case "year1_sp2_building_2":
+          console.log("year1_sp2_building_2 clicked");
+          break;
+        case "year1_sp2_building_3":
+          console.log("year1_sp2_building_3 clicked");
+          break;
+        case "year1_sp2_building_4":
+          console.log("year1_sp2_building_4 clicked");
+          break;
+        // more ifs here
+      }
+    }
+
+    window.addEventListener("click", onMouseClick);
+    return () => {
+      window.removeEventListener("click", onMouseClick);
+    };
   }, []);
   // Camera movement functions using buttons
   const moveCameraRight = () => {
