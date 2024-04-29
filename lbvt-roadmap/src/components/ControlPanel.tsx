@@ -16,7 +16,10 @@ const ControlPanel = ({
   moveCameraBottom,
   resetCamera,
 }) => (
-  <div style={{ position: "absolute", top: "10px", right: "10px" }}>
+  <div
+    className="control-panel"
+    style={{ position: "absolute", top: "10px", right: "10px" }}
+  >
     <Button onClick={moveCameraLeft} className="btn-control">
       <FontAwesomeIcon icon={faArrowLeft} />
     </Button>
