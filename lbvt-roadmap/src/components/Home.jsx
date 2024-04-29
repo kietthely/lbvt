@@ -169,6 +169,8 @@ const Home = () => {
         moveCameraTop={moveCameraTop}
         moveCameraBottom={moveCameraBottom}
         resetCamera={resetCamera}
+        zoomIn={zoomIn}
+        zoomOut={zoomOut}
       />
     </div>
   );
