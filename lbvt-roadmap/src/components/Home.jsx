@@ -143,6 +143,20 @@ const Home = () => {
       controls.current.reset();
     }
   };
+  const zoomIn = () => {
+    if (camera) {
+      camera.fov = Math.max(1, camera.fov - 2);
+      camera.updateProjectionMatrix();
+    }
+  };
+
+  const zoomOut = () => {
+    if (camera) {
+      camera.fov = Math.min(75, camera.fov + 2);
+      camera.updateProjectionMatrix();
+    }
+  };
+
   return (
     <div style={{ position: "relative" }}>
       {/*Put the model to background.
