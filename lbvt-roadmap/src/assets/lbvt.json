@@ -1,0 +1,744 @@
+{
+  "repository": {
+    "schema": null,
+    "version": "1.0.0",
+    "agency": "University of South Australia",
+    "program": {
+      "programCode": "LBVT",
+      "programName": "Bachelor of Environmental Science",
+      "duration": "3",
+      "courses": {
+        "year1": {
+          "sp2": {
+            "course": [
+              {
+                "id": "BIOL1014",
+                "name": "Biodiversity for the Environment",
+                "courseId": "010889",
+                "courseCoordinators": {
+                  "courseCoordinator": [
+                    {
+                      "name": "Associate Professor Gunnar Keppel",
+                      "url": "https://people.unisa.edu.au/Gunnar.Keppel?_gl=1*rzpfkx*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    },
+                    {
+                      "name": "Dr Farzana Kastury",
+                      "url": "https://people.unisa.edu.au/Farzana.Kastury?_gl=1*rzpfkx*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    }
+                  ]
+                },
+                "offeredExternally": "false",
+                "prerequisites": { "prerequisite": [{ "id": null }] },
+                "url": "https://study.unisa.edu.au/courses/010899/2024",
+                "notes": { "note": null },
+                "rules": { "rule": null }
+              },
+              {
+                "id": "EART1010",
+                "name": "Earth and Climate Systems",
+                "courseId": "101119",
+                "courseCoordinators": {
+                  "courseCoordinator": [
+                    {
+                      "name": "Associate Professor Justin Payne",
+                      "url": "https://people.unisa.edu.au/Justin.Payne?_gl=1*yhcc*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    }
+                  ]
+                },
+                "offeredExternally": "false",
+                "prerequisites": { "prerequisite": [{ "id": null }] },
+                "url": "https://study.unisa.edu.au/courses/101119/2024",
+                "notes": { "note": null },
+                "rules": { "rule": null }
+              },
+              {
+                "id": "ENVT1013",
+                "name": "Environment, Society and Climate",
+                "courseId": "008664",
+                "courseCoordinators": {
+                  "courseCoordinator": [
+                    {
+                      "name": "Dr Brianna Le Busque",
+                      "url": "https://people.unisa.edu.au/Brianna.LeBusque?_gl=1*1hej83t*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    },
+                    {
+                      "name": "Dr Mira Cooper (Beknazarova)",
+                      "url": "https://people.unisa.edu.au/Mira.Cooper?_gl=1*1hej83t*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    }
+                  ]
+                },
+                "offeredExternally": "false",
+                "prerequisites": { "prerequisite": [{ "id": null }] },
+                "url": "https://study.unisa.edu.au/courses/008664/2024",
+                "notes": { "note": null },
+                "rules": { "rule": null }
+              },
+              {
+                "id": "GEOE1018",
+                "name": "Introduction to Surveying and Spatial Sciences",
+                "courseId": "101550",
+                "courseCoordinators": {
+                  "courseCoordinator": [
+                    {
+                      "name": "Dr Paul Corcoran",
+                      "url": "https://people.unisa.edu.au/Paul.Corcoran?_gl=1*pfjnk7*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    }
+                  ]
+                },
+                "offeredExternally": "false",
+                "prerequisites": { "prerequisite": [{ "id": null }] },
+                "url": "https://study.unisa.edu.au/courses/101550/2024",
+                "notes": { "note": null },
+                "rules": { "rule": null }
+              }
+            ]
+          },
+          "sp5": {
+            "course": [
+              {
+                "id": "BIOL1015",
+                "name": "Sustainable Ecosystems",
+                "courseId": "010900",
+                "courseCoordinators": {
+                  "courseCoordinator": [
+                    {
+                      "name": "Associate Professor S. \"Topa\" Petit",
+                      "url": "https://people.unisa.edu.au/Sophie.Petit?_gl=1*13a1n72*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    }
+                  ]
+                },
+                "offeredExternally": "false",
+                "prerequisites": { "prerequisite": [{ "id": "BIOL1014" }] },
+                "url": "https://study.unisa.edu.au/courses/010900/2024",
+                "notes": { "note": null },
+                "rules": { "rule": null }
+              },
+              {
+                "id": "EART1011",
+                "name": "Soils in the Australian Landscape",
+                "courseId": "101121",
+                "courseCoordinators": {
+                  "courseCoordinator": [
+                    {
+                      "name": "Dr Casey Doolette",
+                      "url": "https://people.unisa.edu.au/Casey.Doolette?_gl=1*lmimgb*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    }
+                  ]
+                },
+                "offeredExternally": "false",
+                "prerequisites": { "prerequisite": [{ "id": null }] },
+                "url": "https://study.unisa.edu.au/courses/101121/2024",
+                "notes": { "note": null },
+                "rules": { "rule": null }
+              },
+              {
+                "id": "ENVT1016",
+                "name": "Environmental Analytical Methods",
+                "courseId": "105607",
+                "courseCoordinators": {
+                  "courseCoordinator": [
+                    {
+                      "name": "Associate Professor S. \"Topa\" Petit",
+                      "url": "https://people.unisa.edu.au/Sophie.Petit?_gl=1*13a1n72*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    }
+                  ]
+                },
+                "offeredExternally": "false",
+                "prerequisites": { "prerequisite": [{ "id": null }] },
+                "url": "https://study.unisa.edu.au/courses/105607/2024",
+                "notes": { "note": null },
+                "rules": { "rule": null }
+              },
+              {
+                "id": "GEOE2026",
+                "name": "Spatial Data Acquisition and Analysis",
+                "courseId": null,
+                "courseCoordinators": {
+                  "courseCoordinator": [
+                    {
+                      "name": "Dr Paul Corcoran",
+                      "url": "https://people.unisa.edu.au/Paul.Corcoran?_gl=1*pfjnk7*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    }
+                  ]
+                },
+                "offeredExternally": "false",
+                "prerequisites": { "prerequisite": [{ "id": "GEOE1018" }] },
+                "url": "https://study.unisa.edu.au/courses/105610/2024",
+                "notes": { "note": null },
+                "rules": { "rule": null }
+              }
+            ]
+          }
+        },
+        "year2": {
+          "sp2": {
+            "course": [
+              {
+                "id": "BIOL2023",
+                "name": "Ecology",
+                "courseId": "012566",
+                "courseCoordinators": {
+                  "courseCoordinator": [
+                    {
+                      "name": "Associate Professor Gunnar Keppel",
+                      "url": "https://people.unisa.edu.au/Gunnar.Keppel?_gl=1*rzpfkx*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    }
+                  ]
+                },
+                "offeredExternally": "false",
+                "prerequisites": {
+                  "prerequisite": [{ "id": "BIOL1015" }, { "id": "BIOL1014" }]
+                },
+                "url": "https://study.unisa.edu.au/courses/012566/2024",
+                "notes": { "note": null },
+                "rules": { "rule": null }
+              },
+              {
+                "id": "EART3012",
+                "name": "Engineering and Environmental Geology",
+                "courseId": "010163",
+                "courseCoordinators": {
+                  "courseCoordinator": [
+                    {
+                      "name": "Dr Laura Morrissey",
+                      "url": "https://people.unisa.edu.au/Laura.Morrissey?_gl=1*1782rnm*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    },
+                    {
+                      "name": "Dr Alicia Pollett",
+                      "url": "https://people.unisa.edu.au/Alicia.Pollett?_gl=1*gcrqk8*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    }
+                  ]
+                },
+                "offeredExternally": "true",
+                "prerequisites": { "prerequisite": [{ "id": null }] },
+                "url": "https://study.unisa.edu.au/courses/010163/2024",
+                "notes": { "note": null },
+                "rules": { "rule": null }
+              },
+              {
+                "id": "ENVT3016",
+                "name": "Environmental Interpretation and Community Engagement",
+                "courseId": "012751",
+                "courseCoordinators": {
+                  "courseCoordinator": [
+                    {
+                      "name": "Professor Delene Weber",
+                      "url": "https://people.unisa.edu.au/Delene.Weber?_gl=1*1i4slxj*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    }
+                  ]
+                },
+                "offeredExternally": "false",
+                "prerequisites": { "prerequisite": [{ "id": "ENVT1013" }] },
+                "url": "https://study.unisa.edu.au/courses/012751/2024",
+                "notes": { "note": null },
+                "rules": { "rule": null }
+              },
+              {
+                "id": "GEOE2022",
+                "name": "Environmental Remote Sensing",
+                "courseId": "101126",
+                "courseCoordinators": {
+                  "courseCoordinator": [
+                    {
+                      "name": "Dr Stefan Peters",
+                      "url": "https://people.unisa.edu.au/Stefan.Peters?_gl=1*lssr1h*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    }
+                  ]
+                },
+                "offeredExternally": "false",
+                "prerequisites": { "prerequisite": [{ "id": "GEOE2026" }] },
+                "url": "https://study.unisa.edu.au/courses/101126/2024",
+                "notes": { "note": null },
+                "rules": { "rule": null }
+              }
+            ]
+          },
+          "sp5": {
+            "course": [
+              {
+                "id": "ENVT1019",
+                "name": "Environmental Chemistry",
+                "courseId": "167985",
+                "courseCoordinators": {
+                  "courseCoordinator": [
+                    {
+                      "name": "Associate Professor Gary Owens",
+                      "url": "https://people.unisa.edu.au/Gary.Owens?_gl=1*1ewob8a*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    }
+                  ]
+                },
+                "offeredExternally": "false",
+                "prerequisites": { "prerequisite": [{ "id": null }] },
+                "url": "https://study.unisa.edu.au/courses/167985/2024",
+                "notes": { "note": null },
+                "rules": { "rule": null }
+              },
+              {
+                "id": "GEOE3019",
+                "name": "Web Cartography",
+                "courseId": "155790",
+                "courseCoordinators": {
+                  "courseCoordinator": [
+                    {
+                      "name": "Dr Stefan Peters",
+                      "url": "https://people.unisa.edu.au/Stefan.Peters?_gl=1*evwwv3*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    }
+                  ]
+                },
+                "offeredExternally": "false",
+                "prerequisites": { "prerequisite": [{ "id": "GEOE2026" }] },
+                "url": "https://study.unisa.edu.au/courses/155790/2024",
+                "notes": { "note": null },
+                "rules": { "rule": null }
+              },
+              {
+                "id": "EE1",
+                "name": "Environmental Elective 1",
+                "courseId": null,
+                "courseCoordinators": {
+                  "courseCoordinator": [{ "name": null, "url": null }]
+                },
+                "offeredExternally": null,
+                "prerequisites": { "prerequisite": [{ "id": null }] },
+                "url": "https://study.unisa.edu.au/degrees/bachelor-of-environmental-science",
+                "notes": {
+                  "note": "Not all electives will be offered every year. Other options not listed here may only be taken with the prior agreement of the Program Director."
+                },
+                "rules": {
+                  "rule": "Students must complete at least three Advanced Environmental Electives."
+                }
+              },
+              {
+                "id": "EE2",
+                "name": "Environmental Elective 2",
+                "courseId": null,
+                "courseCoordinators": {
+                  "courseCoordinator": [{ "name": null, "url": null }]
+                },
+                "offeredExternally": null,
+                "prerequisites": { "prerequisite": [{ "id": null }] },
+                "url": "https://study.unisa.edu.au/degrees/bachelor-of-environmental-science",
+                "notes": {
+                  "note": "Not all electives will be offered every year. Other options not listed here may only be taken with the prior agreement of the Program Director."
+                },
+                "rules": {
+                  "rule": "Students must complete at least three Advanced Environmental Electives."
+                }
+              }
+            ]
+          }
+        },
+        "year3": {
+          "sp2": {
+            "course": [
+              {
+                "id": "UG1",
+                "name": "Undergraduate Elective",
+                "courseId": null,
+                "courseCoordinators": {
+                  "courseCoordinator": [{ "name": null, "url": null }]
+                },
+                "offeredExternally": null,
+                "prerequisites": { "prerequisite": [{ "id": null }] },
+                "url": "https://study.unisa.edu.au/electives/iee",
+                "notes": {
+                  "note": "The Undergraduate Elective is a course that students freely choose from any area of the University, generally outside of their specialist field of study. Students must choose one Undergraduate Elective based on availability and fulfilment of any prerequisites."
+                },
+                "rules": { "rule": null }
+              },
+              {
+                "id": "EE3",
+                "name": "Environmental Elective 3",
+                "courseId": null,
+                "courseCoordinators": {
+                  "courseCoordinator": [{ "name": null, "url": null }]
+                },
+                "offeredExternally": null,
+                "prerequisites": { "prerequisite": [{ "id": null }] },
+                "url": "https://study.unisa.edu.au/degrees/bachelor-of-environmental-science",
+                "notes": {
+                  "note": "Not all electives will be offered every year. Other options not listed here may only be taken with the prior agreement of the Program Director."
+                },
+                "rules": {
+                  "rule": "Students must complete at least three Advanced Environmental Electives."
+                }
+              },
+              {
+                "id": "EE4",
+                "name": "Environmental Elective 4",
+                "courseId": null,
+                "courseCoordinators": {
+                  "courseCoordinator": [{ "name": null, "url": null }]
+                },
+                "offeredExternally": null,
+                "prerequisites": { "prerequisite": [{ "id": null }] },
+                "url": "https://study.unisa.edu.au/degrees/bachelor-of-environmental-science",
+                "notes": {
+                  "note": "Not all electives will be offered every year. Other options not listed here may only be taken with the prior agreement of the Program Director."
+                },
+                "rules": {
+                  "rule": "Students must complete at least three Advanced Environmental Electives."
+                }
+              },
+              {
+                "id": "EE5",
+                "name": "Environmental Elective 5",
+                "courseId": null,
+                "courseCoordinators": {
+                  "courseCoordinator": [{ "name": null, "url": null }]
+                },
+                "offeredExternally": null,
+                "prerequisites": { "prerequisite": [{ "id": null }] },
+                "url": "https://study.unisa.edu.au/degrees/bachelor-of-environmental-science",
+                "notes": {
+                  "note": "Not all electives will be offered every year. Other options not listed here may only be taken with the prior agreement of the Program Director."
+                },
+                "rules": {
+                  "rule": "Students must complete at least three Advanced Environmental Electives."
+                }
+              }
+            ]
+          },
+          "sp5": {
+            "course": [
+              {
+                "id": "ENVT3030",
+                "name": "Environmental and Geospatial Field Project",
+                "courseId": "156302",
+                "courseCoordinators": {
+                  "courseCoordinator": [
+                    {
+                      "name": "Professor Delene Weber",
+                      "url": "https://people.unisa.edu.au/Delene.Weber?_gl=1*yphmq*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    },
+                    {
+                      "name": "Associate Professor S. \"Topa\" Petit",
+                      "url": "https://people.unisa.edu.au/Sophie.Petit?_gl=1*yphmq*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    },
+                    {
+                      "name": "Dr Stefan Peters",
+                      "url": "https://people.unisa.edu.au/Stefan.Peters?_gl=1*evwwv3*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    }
+                  ]
+                },
+                "offeredExternally": "false",
+                "prerequisites": { "prerequisite": [{ "id": null }] },
+                "url": "https://study.unisa.edu.au/courses/156302/2024",
+                "notes": {
+                  "note": "Students must have completed 72 units of study in a relevant program."
+                },
+                "rules": { "rule": null }
+              },
+              {
+                "id": "ENVT3031",
+                "name": "Ecosystem Monitoring",
+                "courseId": "156301",
+                "courseCoordinators": {
+                  "courseCoordinator": [
+                    {
+                      "name": "Mr Shaun O'Sullivan",
+                      "url": "https://people.unisa.edu.au/Shaun.OSullivan?_gl=1*13ntjds*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                    }
+                  ]
+                },
+                "offeredExternally": null,
+                "prerequisites": {
+                  "prerequisite": [
+                    { "id": "GEOE2022" },
+                    { "id": "ENVT1016" },
+                    { "id": "BIOL2023" }
+                  ]
+                },
+                "url": "https://study.unisa.edu.au/courses/156301/2024",
+                "notes": { "note": null },
+                "rules": { "rule": null }
+              },
+              {
+                "id": "EE6",
+                "name": "Environmental Elective 6",
+                "courseId": null,
+                "courseCoordinators": {
+                  "courseCoordinator": [{ "name": null, "url": null }]
+                },
+                "offeredExternally": null,
+                "prerequisites": { "prerequisite": [{ "id": null }] },
+                "url": "https://study.unisa.edu.au/degrees/bachelor-of-environmental-science",
+                "notes": {
+                  "note": "Not all electives will be offered every year. Other options not listed here may only be taken with the prior agreement of the Program Director."
+                },
+                "rules": {
+                  "rule": "Students must complete at least three Advanced Environmental Electives."
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "assistances": {
+      "library": {
+        "name": "Library",
+        "url": "https://www.library.unisa.edu.au/"
+      },
+      "refferencing": {
+        "name": "Refferencing",
+        "url": "https://lo.unisa.edu.au/course/view.php?id=3839"
+      },
+      "elective": {
+        "name": "Elective",
+        "url": "https://study.unisa.edu.au/electives/iee",
+        "electiveCourses": {
+          "environmental": {
+            "advanced": {
+              "course": [
+                {
+                  "id": "EART3020",
+                  "name": "Earth and Landscape Evolution",
+                  "courseId": "105609",
+                  "courseCoordinators": {
+                    "courseCoordinator": [
+                      {
+                        "name": "Dr Casey Doolette",
+                        "url": "https://people.unisa.edu.au/Casey.Doolette?_gl=1*1j51fmd*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                      },
+                      {
+                        "name": "Associate Professor Justin Payne",
+                        "url": "https://people.unisa.edu.au/Justin.Payne?_gl=1*1j51fmd*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                      }
+                    ]
+                  },
+                  "offeredExternally": "false",
+                  "prerequisites": { "prerequisite": [{ "id": "EART3012" }] },
+                  "url": "https://study.unisa.edu.au/courses/105609/2024",
+                  "notes": { "note": null },
+                  "rules": { "rule": null }
+                },
+                {
+                  "id": "ENVT2004",
+                  "name": "Park and Ecotourism Management",
+                  "courseId": "012570",
+                  "courseCoordinators": {
+                    "courseCoordinator": [
+                      {
+                        "name": "Dr Brianna Le Busque",
+                        "url": "https://people.unisa.edu.au/Brianna.LeBusque?_gl=1*1akzwq2*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                      },
+                      {
+                        "name": "Professor Delene Weber",
+                        "url": "https://people.unisa.edu.au/Delene.Weber?_gl=1*1akzwq2*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                      }
+                    ]
+                  },
+                  "offeredExternally": "false",
+                  "prerequisites": { "prerequisite": [{ "id": "ENVT3016" }] },
+                  "url": "https://study.unisa.edu.au/courses/012570/2024",
+                  "notes": { "note": null },
+                  "rules": { "rule": null }
+                },
+                {
+                  "id": "ENVT2015",
+                  "name": "Microbial Ecology",
+                  "courseId": "169532",
+                  "courseCoordinators": {
+                    "courseCoordinator": [
+                      {
+                        "name": "Dr Barbara Drigo",
+                        "url": "https://people.unisa.edu.au/Barbara.Drigo?_gl=1*q3dvth*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                      }
+                    ]
+                  },
+                  "offeredExternally": "false",
+                  "prerequisites": { "prerequisite": [{ "id": null }] },
+                  "url": "https://study.unisa.edu.au/courses/169532/2024",
+                  "notes": { "note": null },
+                  "rules": { "rule": null }
+                },
+                {
+                  "id": "ENVT3028",
+                  "name": "Restoration Ecology",
+                  "courseId": "105613",
+                  "courseCoordinators": {
+                    "courseCoordinator": [
+                      {
+                        "name": "Associate Professor S. \"Topa\" Petit",
+                        "url": "https://people.unisa.edu.au/Sophie.Petit?_gl=1*1mor4qf*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                      }
+                    ]
+                  },
+                  "offeredExternally": "false",
+                  "prerequisites": { "prerequisite": [{ "id": "BIOL2023" }] },
+                  "url": "https://study.unisa.edu.au/courses/105613/2024",
+                  "notes": { "note": null },
+                  "rules": { "rule": null }
+                },
+                {
+                  "id": "ENVT4031",
+                  "name": "Environmental Pollution and Monitoring",
+                  "courseId": "167264",
+                  "courseCoordinators": {
+                    "courseCoordinator": [
+                      {
+                        "name": "Associate Professor Gary Owens",
+                        "url": "https://people.unisa.edu.au/Gary.Owens?_gl=1*17yexu8*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                      }
+                    ]
+                  },
+                  "offeredExternally": "false",
+                  "prerequisites": { "prerequisite": [{ "id": null }] },
+                  "url": "https://study.unisa.edu.au/courses/167264/2024",
+                  "notes": { "note": null },
+                  "rules": { "rule": null }
+                },
+                {
+                  "id": "ENVT4032",
+                  "name": "Fire and Culture",
+                  "courseId": "171251",
+                  "courseCoordinators": {
+                    "courseCoordinator": [
+                      {
+                        "name": "Professor Delene Weber",
+                        "url": "https://people.unisa.edu.au/Delene.Weber?_gl=1*5inqr6*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                      },
+                      {
+                        "name": "Ms Jayne Boase",
+                        "url": "https://people.unisa.edu.au/Jayne.Boase?_gl=1*5inqr6*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                      }
+                    ]
+                  },
+                  "offeredExternally": "false",
+                  "prerequisites": { "prerequisite": [{ "id": null }] },
+                  "url": "https://study.unisa.edu.au/courses/171251/2024",
+                  "notes": { "note": null },
+                  "rules": { "rule": null }
+                }
+              ]
+            },
+            "intermediate": {
+              "course": [
+                {
+                  "id": "BIOL2022",
+                  "name": "Conservation Biology",
+                  "courseId": "167264",
+                  "courseCoordinators": {
+                    "courseCoordinator": [
+                      {
+                        "name": "Associate Professor Gunnar Keppel",
+                        "url": "https://people.unisa.edu.au/Gunnar.Keppel?_gl=1*11sh0qk*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                      }
+                    ]
+                  },
+                  "offeredExternally": "false",
+                  "prerequisites": { "prerequisite": [{ "id": "BIOL2023" }] },
+                  "url": "https://study.unisa.edu.au/courses/008663/2024",
+                  "notes": { "note": null },
+                  "rules": { "rule": null }
+                },
+                {
+                  "id": "BIOL4001",
+                  "name": "Coastal Environments",
+                  "courseId": "012568",
+                  "courseCoordinators": {
+                    "courseCoordinator": [
+                      {
+                        "name": "Associate Professor Craig Styan",
+                        "url": "https://people.unisa.edu.au/Craig.Styan?_gl=1*1iwc8ez*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                      }
+                    ]
+                  },
+                  "offeredExternally": "false",
+                  "prerequisites": { "prerequisite": [{ "id": null }] },
+                  "url": "https://study.unisa.edu.au/courses/012568/2024",
+                  "notes": {
+                    "note": "Prerequisite: None, but it is recommended that students have completed introductory courses in biology and earth systems before attempting this course."
+                  },
+                  "rules": { "rule": null }
+                },
+                {
+                  "id": "ENVT2014",
+                  "name": "Environmental and Social Impact Assessment",
+                  "courseId": "105608",
+                  "courseCoordinators": {
+                    "courseCoordinator": [
+                      {
+                        "name": "Dr Casey Doolette",
+                        "url": "https://people.unisa.edu.au/Casey.Doolette?_gl=1*k2g589*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                      }
+                    ]
+                  },
+                  "offeredExternally": "false",
+                  "prerequisites": { "prerequisite": [{ "id": null }] },
+                  "url": "https://study.unisa.edu.au/courses/105608/2024",
+                  "notes": { "note": null },
+                  "rules": { "rule": null }
+                },
+                {
+                  "id": "ENVT2016",
+                  "name": "Climate and Sustainability",
+                  "courseId": "173170",
+                  "courseCoordinators": {
+                    "courseCoordinator": [
+                      {
+                        "name": "Dr Laura Falkenberg",
+                        "url": "https://people.unisa.edu.au/Laura.Falkenberg?_gl=1*k2g589*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI."
+                      }
+                    ]
+                  },
+                  "offeredExternally": "false",
+                  "prerequisites": { "prerequisite": [{ "id": "ENVT1013" }] },
+                  "url": "https://study.unisa.edu.au/courses/173170/2024",
+                  "notes": { "note": null },
+                  "rules": { "rule": null }
+                }
+              ]
+            }
+          },
+          "undergraduate": {
+            "course": {
+              "id": "UG1",
+              "name": "Undergraduate Elective",
+              "courseId": null,
+              "courseCoordinators": {
+                "courseCoordinator": [{ "name": null, "url": null }]
+              },
+              "offeredExternally": null,
+              "prerequisites": { "prerequisite": [{ "id": null }] },
+              "url": "https://study.unisa.edu.au/electives/iee",
+              "notes": {
+                "note": "The Undergraduate Elective is a course that students freely choose from any area of the University, generally outside of their specialist field of study. Students must choose one Undergraduate Elective based on availability and fulfilment of any prerequisites."
+              },
+              "rules": { "rule": null }
+            }
+          }
+        }
+      }
+    },
+    "industries": {
+      "industry": [
+        {
+          "name": "Home",
+          "url": "https://www.unisa.edu.au/research/#industry-expertise"
+        },
+        {
+          "name": "Australian Constructors Association",
+          "url": "https://www.constructors.com.au/"
+        },
+        {
+          "name": "Australian Geological Survey Organization Network",
+          "url": "https://www.geoscience.gov.au/"
+        }
+      ]
+    },
+    "alumnus": {
+      "alumni": [
+        {
+          "name": "Home",
+          "url": "https://www.unisa.edu.au/connect/alumni-network/"
+        },
+        {
+          "name": "News",
+          "url": "https://www.unisa.edu.au/connect/alumni-network/alumni-news/"
+        }
+      ]
+    }
+  }
+}
