@@ -937,4 +937,35 @@
             <url>https://www.unisa.edu.au/connect/alumni-network/alumni-news/</url>
         </alumni>
     </alumnus>
+    <start> <!--Information for the start(welcome) building.-->
+        <name>Bachelor of Environmental Science</name>
+        <videos>
+            <video>
+                <name>Study Environmental Science at UniSA</name>
+                <url>https://www.youtube.com/watch?v=JeFbAGlFaic</url>
+            </video>
+            <video>
+                <name>Hear from Kiara Sparks, Environmental Science student</name>
+                <url>https://www.youtube.com/watch?v=IKnCz9KYZfo</url>
+            </video>
+            <video>
+                <name>Environmental Science - University of South Australia</name>
+                <url>https://www.youtube.com/watch?v=oISf32xz3Dw</url>
+            </video>
+            <video>
+                <name>Geospatial Science - University of South Australia</name>
+                <url>https://www.youtube.com/watch?v=p1tOqnmrX5s</url>
+            </video>
+            <video>
+                <name>UniSA Mawson Lakes Campus | International student selfie tour</name>
+                <url>https://www.youtube.com/watch?v=m5ZqHMmztek</url>
+            </video>
+            <!-- The video is bit old. so no idea it is still working.
+            <video>
+                <name>Environmental Science students at the Onkaparinga River - University of South Australia</name>
+                <url>https://www.youtube.com/watch?v=BdGWxIAq3tU</url>
+            </video>
+            -->
+        </videos>
+    </start>
 </repository>
