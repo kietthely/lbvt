@@ -8,6 +8,7 @@ import {
   faSync,
   faPlus,
   faMinus,
+  faArrowCircleUp,
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "./Button";
 
