@@ -211,17 +211,25 @@ const Home = () => {
         // for Elective
         case "elective_lbvt":
           console.log("elective clicked");
-          console.log(intersects[0].object.parent);
+          console.log(intersects[0].object);
           break;
 
         // for Alumni
         case "alumni_lbvt":
           console.log("alumni clicked");
+          console.log(intersects[0].object);
           break;
 
         // for Industry
         case "industry_lbvt":
           console.log("industry clicked");
+          break;
+        // for great hall
+        case "great_hall":
+          console.log("great hall clicked");
+          break;
+        default:
+          console.log(intersects[0].object);
           break;
       }
     }
