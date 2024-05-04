@@ -2,33 +2,28 @@ import React, { useState } from "react";
 import Button from "./Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
-function ControlButtons({ camera }) {
-  const [fov, setFov] = useState(camera.fov);
+function CameraSlider({ camera, setCamera }) {
+  const [distance, setDistance] = useState(camera.position.z);
 
   const handleFovChange = (event) => {
-    const newFov = event.target.value;
-    setFov(newFov);
+    const newDistance = 100 - event.target.value;
+    setDistance(newDistance);
     if (camera) {
-      camera.fov = newFov;
-      camera.updateProjectionMatrix();
+      const newCamera = { ...camera };
+      newCamera.position.y = newDistance;
+      setCamera(newCamera);
     }
   };
 
   const handleZoomIn = () => {
-    const newFov = Math.max(10, fov - 1);
-    setFov(newFov);
     if (camera) {
-      camera.fov = newFov;
-      camera.updateProjectionMatrix();
+      camera.position.y = Math.max(30, camera.position.y - 1);
     }
   };
 
   const handleZoomOut = () => {
-    const newFov = Math.min(100, fov + 1);
-    setFov(newFov);
     if (camera) {
-      camera.fov = newFov;
-      camera.updateProjectionMatrix();
+      camera.position.y = Math.min(90, camera.position.y + 1);
     }
   };
 
@@ -39,9 +34,9 @@ function ControlButtons({ camera }) {
       </Button>
       <input
         type="range"
-        min="10"
-        max="100"
-        value={fov}
+        min="30"
+        max="90"
+        value={100 - camera.position.y}
         onChange={handleFovChange}
       />
       <Button onClick={handleZoomIn}>
@@ -51,4 +46,4 @@ function ControlButtons({ camera }) {
   );
 }
 
-export default ControlButtons;
+export default CameraSlider;

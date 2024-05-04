@@ -11,11 +11,11 @@ const Home = () => {
   const controls = useRef();
 
   useEffect(() => {
-    var scene, camera, renderer;
+    var scene, cam, renderer;
     scene = new Three.Scene();
     scene.background = new Three.Color(0xffffff);
 
-    camera = new Three.PerspectiveCamera(
+    cam = new Three.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
       0.1,
@@ -23,60 +23,45 @@ const Home = () => {
     );
 
     renderer = new Three.WebGLRenderer();
-    camera.position.y = 30;
-    camera.position.z = 50;
-    camera.rotation.x = -Math.PI / 6;
+    cam.position.y = 30;
+    cam.position.z = 50;
+    cam.rotation.x = -Math.PI / 6;
 
-    setCamera(camera);
-
+    setCamera(cam);
+    if (camera) {
+      cam = camera;
+    }
     const ambientLight = new Three.AmbientLight(0xffffff, 1.5);
     scene.add(ambientLight);
     renderer.setSize(window.innerWidth, window.innerHeight);
     ref.current.appendChild(renderer.domElement);
 
     // Camera controls by mouse
-    controls.current = new OrbitControls(camera, renderer.domElement);
+    controls.current = new OrbitControls(cam, renderer.domElement);
     // Restrict left mouse movement
     controls.current.minPolarAngle = Math.PI / 6; // 30 degrees
     controls.current.maxPolarAngle = Math.PI / 2; // 90 degrees
     // Restrict right mouse movement
     controls.current.enablePan = true; // Enable panning
     controls.current.screenSpacePanning = false;
-    // Restrict zoom
-    controls.current.minDistance = 10;
-    controls.current.maxDistance = 100;
 
     // Restrict camera target view
     controls.current.addEventListener("change", () => {
       const maxPanDistance = 125; // Maximum panning distance
 
-      if (camera.position.length() > maxPanDistance) {
+      if (cam.position.length() > maxPanDistance) {
         controls.current.reset();
       }
     });
-
+    // load the scene
     const loader = new GLTFLoader();
     loader.load("/models/lbvt.glb", function (gltf) {
       scene.add(gltf.scene);
-
-      const building = scene.getObjectByName("year1_sp2_building_1");
-      if (building) {
-        console.log(building.userData); // logs the custom properties
-        console.log(building.userData.course_id); // logs the course_id (e.g. 1)
-        // Access individual properties
-        // console.log(building.userData.course_id);
-      } else {
-        console.log("Building not found");
-      }
-
-      // add click events to scene
-      // if year1_sp2_building_1, year1_sp2_building_2, year1_sp2_building_3, year1_sp2_building_4
-      // output userData to console
     });
 
     const animate = function () {
       requestAnimationFrame(animate);
-      renderer.render(scene, camera);
+      renderer.render(scene, cam);
     };
 
     animate();
@@ -90,7 +75,7 @@ const Home = () => {
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-      raycaster.setFromCamera(mouse, camera);
+      raycaster.setFromCamera(mouse, cam);
 
       // Calculate objects intersecting the picking ray
       const intersects = raycaster.intersectObjects(scene.children, true);
@@ -265,20 +250,6 @@ const Home = () => {
       controls.current.reset();
     }
   };
-  const zoomIn = () => {
-    if (camera) {
-      camera.fov = Math.max(1, camera.fov - 2);
-      camera.updateProjectionMatrix();
-    }
-  };
-
-  const zoomOut = () => {
-    if (camera) {
-      camera.fov = Math.min(75, camera.fov + 2);
-      camera.updateProjectionMatrix();
-    }
-  };
-
   function displayCourseUI(evt) {
     // display UI for course information with the related event
     // parameter: -> userData (course information from click event)
@@ -391,10 +362,8 @@ const Home = () => {
         moveCameraTop={moveCameraTop}
         moveCameraBottom={moveCameraBottom}
         resetCamera={resetCamera}
-        zoomIn={zoomIn}
-        zoomOut={zoomOut}
       />
-      {camera && <CameraSlider camera={camera} />}
+      {camera && <CameraSlider camera={camera} setCamera={setCamera} />}
     </div>
   );
 };
