@@ -8,7 +8,6 @@ import {
   faSync,
   faPlus,
   faMinus,
-  faArrowCircleUp,
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "./Button";
 
@@ -18,8 +17,6 @@ const ControlPanel = ({
   moveCameraTop,
   moveCameraBottom,
   resetCamera,
-  zoomIn,
-  zoomOut,
 }) => (
   <div
     className="control-panel"
@@ -55,12 +52,6 @@ const ControlPanel = ({
     </Button>
     <Button onClick={resetCamera} className="btn-control" title="Reset Camera">
       <FontAwesomeIcon icon={faSync} />
-    </Button>
-    <Button onClick={zoomIn} className="btn-control" title="Zoom In">
-      <FontAwesomeIcon icon={faPlus} />
-    </Button>
-    <Button onClick={zoomOut} className="btn-control" title="Zoom Out">
-      <FontAwesomeIcon icon={faMinus} />
     </Button>
   </div>
 );
