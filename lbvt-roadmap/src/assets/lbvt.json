@@ -739,6 +739,33 @@
           "url": "https://www.unisa.edu.au/connect/alumni-network/alumni-news/"
         }
       ]
+    },
+    "start": {
+      "name": "Bachelor of Environmental Science",
+      "videos": {
+        "video": [
+          {
+            "name": "Study Environmental Science at UniSA",
+            "url": "https://www.youtube.com/watch?v=JeFbAGlFaic"
+          },
+          {
+            "name": "Hear from Kiara Sparks, Environmental Science student",
+            "url": "https://www.youtube.com/watch?v=IKnCz9KYZfo"
+          },
+          {
+            "name": "Environmental Science - University of South Australia",
+            "url": "https://www.youtube.com/watch?v=oISf32xz3Dw"
+          },
+          {
+            "name": "Geospatial Science - University of South Australia",
+            "url": "https://www.youtube.com/watch?v=p1tOqnmrX5s"
+          },
+          {
+            "name": "UniSA Mawson Lakes Campus | International student selfie tour",
+            "url": "https://www.youtube.com/watch?v=m5ZqHMmztek"
+          }
+        ]
+      }
     }
   }
 }
