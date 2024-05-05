@@ -9,9 +9,8 @@ function CameraSlider({ camera, setCamera }) {
     const newDistance = 100 - event.target.value;
     setDistance(newDistance);
     if (camera) {
-      const newCamera = { ...camera };
-      newCamera.position.y = newDistance;
-      setCamera(newCamera);
+      camera.position.y = newDistance;
+      setCamera({ ...camera });
     }
   };
 

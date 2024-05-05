@@ -6,8 +6,6 @@ import {
   faArrowLeft,
   faArrowRight,
   faSync,
-  faPlus,
-  faMinus,
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "./Button";
 

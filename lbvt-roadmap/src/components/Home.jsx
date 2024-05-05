@@ -28,9 +28,7 @@ const Home = () => {
     cam.rotation.x = -Math.PI / 6;
 
     setCamera(cam);
-    if (camera) {
-      cam = camera;
-    }
+
     const ambientLight = new Three.AmbientLight(0xffffff, 1.5);
     scene.add(ambientLight);
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -48,7 +46,7 @@ const Home = () => {
     // Restrict camera target view
     controls.current.addEventListener("change", () => {
       const maxPanDistance = 125; // Maximum panning distance
-
+      setCamera({ ...cam });
       if (cam.position.length() > maxPanDistance) {
         controls.current.reset();
       }
