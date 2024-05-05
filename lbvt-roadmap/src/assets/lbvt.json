@@ -740,28 +740,33 @@
         }
       ]
     },
-    "start": {
+    "welcome": {
       "name": "Bachelor of Environmental Science",
-      "videos": {
+      "videos":{
         "video": [
           {
             "name": "Study Environmental Science at UniSA",
+            "embd": "https://www.youtube.com/embed/JeFbAGlFaic?si=cikOWoy4n0DY15lG",
             "url": "https://www.youtube.com/watch?v=JeFbAGlFaic"
           },
           {
             "name": "Hear from Kiara Sparks, Environmental Science student",
+            "embd": "https://www.youtube.com/embed/IKnCz9KYZfo?si=dCzP9piJsVCDsybd",
             "url": "https://www.youtube.com/watch?v=IKnCz9KYZfo"
           },
           {
             "name": "Environmental Science - University of South Australia",
+            "embd": "https://www.youtube.com/embed/oISf32xz3Dw?si=tLldU32HOdINHtiW",
             "url": "https://www.youtube.com/watch?v=oISf32xz3Dw"
           },
           {
             "name": "Geospatial Science - University of South Australia",
+            "embd": "https://www.youtube.com/embed/p1tOqnmrX5s?si=xT3lbkC-Neg_ZAT-",
             "url": "https://www.youtube.com/watch?v=p1tOqnmrX5s"
           },
           {
             "name": "UniSA Mawson Lakes Campus | International student selfie tour",
+            "embd": "https://www.youtube.com/embed/m5ZqHMmztek?si=cwDB8H70BOxM0aM2",
             "url": "https://www.youtube.com/watch?v=m5ZqHMmztek"
           }
         ]
