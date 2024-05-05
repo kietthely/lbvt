@@ -4,6 +4,8 @@ import * as Three from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import ControlPanel from "./ControlPanel";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import data from '../assets/lbvt.json';
+import Alumni from "./Alumni";
 const Home = () => {
   const ref = useRef();
   const [camera, setCamera] = useState(null);
@@ -210,20 +212,26 @@ const Home = () => {
         // for Elective
         case "elective_lbvt":
           console.log("elective clicked");
-          console.log(intersects[0].object.parent);
+          displayElectiveUI();
           break;
 
         // for Alumni
         case "alumni_lbvt":
           console.log("alumni clicked");
+          //<Alumni/>
+          displayAlumniUI();
           break;
 
         // for Industry
         case "industry_lbvt":
           console.log("industry clicked");
+          displayIndustryUI();
           break;
+          
+        // for welcome building
         case "great_hall":
           console.log("great hall clicked");
+          displayWelcomeUI();
           break;
       }
     }
@@ -372,6 +380,85 @@ const Home = () => {
       courseUI.document.write("</div>");
     }
   }
+    function displayElectiveUI(){
+    // display UI for elective information with the related event
+    // source data is came from "src\assets\lbvt.json"
+    
+    const electiveData = data.repository.assistances.elective;
+    console.log(electiveData);
+
+    //var courseUI = window.open('', '_blank', 'width=600, height=400');
+    //courseUI.document.write("<div id ='electiveUI'>");
+    //courseUI.document.write("</div>");
+}
+
+function displayAlumniUI(){
+  // display UI for Alumni information with the related event
+  // source data is came from "src\assets\lbvt.json"
+  const alumniData = data.repository.alumnus;
+  console.log(data.repository);
+  var courseUI = window.open('', '_blank', 'width=600, height=400'); // need to consider to change design
+  courseUI.document.write("<div id ='alumniUI'>");
+
+  courseUI.document.write("<h2>Alumni</h2>");
+  if ("alumni" in alumniData){
+    for (let i = 0; i < alumniData.alumni.length; i ++){
+      courseUI.document.write("<p>" + alumniData.alumni[i].name + "<br/>");
+      courseUI.document.write("<a href=" + alumniData.alumni[i].url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
+    }
+  } else {
+    courseUI.document.write("<p>Oops, There is no data for Alumni.<p/>");
+  }
+  courseUI.document.write("</div>");
+}
+
+function displayIndustryUI(){
+  // display UI for industry information with the related event
+  // source data is came from "src\assets\lbvt.json"
+  const industryData = data.repository.industries;
+  var courseUI = window.open('', '_blank', 'width=600, height=400'); // need to consider to change design
+  courseUI.document.write("<div id ='industryUI'>");
+
+  courseUI.document.write("<h2>Industry</h2>");
+  if ("industry" in industryData){ // need to change here after modify py code
+      for (let i = 0; i < industryData.industry.length; i ++){
+        courseUI.document.write("<p>" + "Name: " + industryData.industry[i].name + "<br/>");
+        courseUI.document.write("<a href=" + industryData.industry[i].url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
+        }
+    } else {
+      courseUI.document.write("<p>Oops, There is no data for Industry.<p/>");
+    }
+  courseUI.document.write("</div>");
+}
+
+function displayWelcomeUI(){
+  // display UI for the welcome message, and youtube videos which are related to LBVT in UniSA's youtube account
+  // source data is came from "src\assets\lbvt.json"
+  const welcomeData = data.repository.welcome;
+  var courseUI = window.open('', '_blank', 'width=800, height=650'); // need to consider to change design
+  courseUI.document.write("<head>" + '<meta http-equiv="Permissions-Policy" content="*">' + "</head>");
+  courseUI.document.write("<div id ='welcomeUI'>");
+
+  courseUI.document.write("<h2>Welcome to "+ welcomeData.name+ "</h2>");
+  courseUI.document.write("<p>You can find information from each building on the map.</p>"); 
+  courseUI.document.write("<p>In this building, you can check videos that are related to the program.</p>"); 
+
+  courseUI.document.write("<h3>Video</h3>");
+  console.log(welcomeData.videos.video.length)
+
+  if ("videos" in welcomeData){ // need to change here after modify py code
+      for (let i = 0; i < welcomeData.videos.video.length; i ++){
+        courseUI.document.write("<div id ='video'>");
+        courseUI.document.write("<p><b>" + welcomeData.videos.video[i].name + "</b></p>");
+        courseUI.document.write('<iframe width="560" height="315" src="' + welcomeData.videos.video[i].embd+'" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>');
+        //courseUI.document.write("<p>Your browser doesn't support HTML video. Here is a <a href="+ welcomeData.videos.video[i].url + ">link to the video</a> instead.</p>");
+        courseUI.document.write("</div>");
+      }
+    } else {
+      courseUI.document.write("<p>Oops, There is no data for video to display.<p/>");
+    }
+  courseUI.document.write("</div>");
+}
 
   return (
     <div style={{ position: "relative" }}>
