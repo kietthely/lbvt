@@ -222,6 +222,15 @@ const Home = () => {
       window.removeEventListener("click", onMouseClick);
     };
   }, []);
+
+  // consistently update the camera
+  useEffect(() => {
+    if (camera && controls.current) {
+      controls.current.object.position.copy(camera.position);
+      controls.current.update();
+    }
+  }, [camera]);
+
   // Camera movement functions using buttons
   const moveCameraRight = () => {
     if (camera) {
