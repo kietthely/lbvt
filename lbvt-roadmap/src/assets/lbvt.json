@@ -713,20 +713,64 @@
       }
     },
     "industries": {
-      "industry": [
+      "partner": [
         {
-          "name": "Home",
+          "name": "Uni SA research Home",
           "url": "https://www.unisa.edu.au/research/#industry-expertise"
         },
         {
-          "name": "Australian Constructors Association",
-          "url": "https://www.constructors.com.au/"
+          "name": "Uni SA Engineering & construction",
+          "url": "https://www.unisa.edu.au/connect/industries/engineering-construction/"
         },
         {
-          "name": "Australian Geological Survey Organization Network",
-          "url": "https://www.geoscience.gov.au/"
+          "name": "Smr",
+          "url": "https://www.smr-automotive.com/en"
+        },
+        {
+          "name": "INCONMAT AUSTRALIA",
+          "url": null
+        },        
+        {
+          "name": "ecas",
+          "url": null
+        },
+        {
+          "name": "LOCKHEED MARTIN",
+          "url": "https://www.lockheedmartin.com/en-au/index.html"
+        },
+        {
+          "name": "SA Power Networks",
+          "url": "https://www.sapowernetworks.com.au/"
+        },
+        {
+          "name": "SA Water",
+          "url": "https://www.sawater.com.au/"
+        },
+        {
+          "name": "SAAB",
+          "url": "https://www.saab.com/markets/australia"
+        },
+        {
+          "name": "ULC Engineering",
+          "url": null
+        },
+        {
+          "name": "CITY OF Salisbury",
+          "url": null
         }
-      ]
+      ],
+      "associations": {
+        "association" : [
+          {
+            "name": "Australian Constructors Association",
+            "url": "https://www.constructors.com.au/"
+          },
+          {
+            "name": "Australian Geological Survey Organization Network",
+            "url": "https://www.geoscience.gov.au/"
+          }
+        ]
+      }
     },
     "alumnus": {
       "alumni": [
