@@ -489,6 +489,13 @@
         "url": "https://study.unisa.edu.au/electives/iee",
         "electiveCourses": {
           "environmental": {
+            "notes": {
+              "note": "Not all electives will be offered every year. Other options not listed here may only be taken with the prior agreement of the Program Director."
+            },
+            "rules": {
+              "rule": "Students must complete at least three Advanced Environmental Electives."
+            },
+            "url": "https://study.unisa.edu.au/degrees/bachelor-of-environmental-science",
             "advanced": {
               "course": [
                 {
