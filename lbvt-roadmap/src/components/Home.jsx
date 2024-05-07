@@ -32,23 +32,26 @@ const Home = () => {
     cam.rotation.x = -Math.PI / 6;
 
     setCamera(cam);
+    // cast ambient light - sunlight
     const ambientLight = new Three.AmbientLight(0xffffff, 2.5);
     scene.add(ambientLight);
+
+    // set scene size
     renderer.setSize(window.innerWidth, window.innerHeight);
     ref.current.appendChild(renderer.domElement);
 
+    // effects/animations
     const composer = new EffectComposer(renderer);
     const renderPass = new RenderPass(scene, cam);
 
     composer.addPass(renderPass);
+    // outline effect size
     const outlinePass = new OutlinePass(
       new Three.Vector2(window.innerWidth, window.innerHeight),
       scene,
       cam
     );
     composer.addPass(outlinePass);
-    outlinePass.edgeColor = new Three.Color("red");
-    outlinePass.edgeStrength = 3;
 
     // Camera controls by mouse
     controls.current = new OrbitControls(cam, renderer.domElement);
