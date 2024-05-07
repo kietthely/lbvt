@@ -420,11 +420,22 @@ function displayIndustryUI(){
   courseUI.document.write("<div id ='industryUI'>");
 
   courseUI.document.write("<h2>Industry</h2>");
-  if ("industry" in industryData){ // need to change here after modify py code
-      for (let i = 0; i < industryData.industry.length; i ++){
-        courseUI.document.write("<p>" + "Name: " + industryData.industry[i].name + "<br/>");
-        courseUI.document.write("<a href=" + industryData.industry[i].url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
+  courseUI.document.write("<p>You can check partner companies from list below.</p>");
+  if ("partner" in industryData){ 
+    courseUI.document.write("<h3>Partner companies</h3>");
+      for (let i = 0; i < industryData.partner.length; i ++){ // display all partner companies which are on the Uni SA's web page
+        courseUI.document.write("<p>" + "Name: " + industryData.partner[i].name + "<br/>");
+        if (industryData.partner[i].url != null){ // display all partners url links, Only if we could found the page.
+          courseUI.document.write("<a href=" + industryData.partner[i].url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
         }
+      }
+      courseUI.document.write("<h3>Related associations</h3>");
+      for (let i = 0; i < industryData.associations.association.length; i++){ // display the related associations for the program
+        courseUI.document.write("<p>" + "Name: " + industryData.associations.association[i].name + "<br/>");
+        if (industryData.associations.association[i].url != null){
+          courseUI.document.write("<a href=" + industryData.associations.association[i].url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
+      }
+    }
     } else {
       courseUI.document.write("<p>Oops, There is no data for Industry.<p/>");
     }
