@@ -4,19 +4,26 @@ import * as Three from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import ControlPanel from "./ControlPanel";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import data from '../assets/lbvt.json';
+import data from "../assets/lbvt.json";
 import Alumni from "./Alumni";
+import CameraSlider from "./CameraSlider";
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
+import { OutlinePass } from "three/examples/jsm/postprocessing/OutlinePass.js";
+import lbvt_data from "../assets/lbvt.json";
 const Home = () => {
   const ref = useRef();
   const [camera, setCamera] = useState(null);
   const controls = useRef();
-
+  // lbvt data
+  const courses_data = lbvt_data.repository.program.courses;
   useEffect(() => {
-    var scene, camera, renderer;
+    // initialize world
+    var scene, cam, renderer;
     scene = new Three.Scene();
     scene.background = new Three.Color(0xffffff);
 
-    camera = new Three.PerspectiveCamera(
+    cam = new Three.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
       0.1,
@@ -24,60 +31,59 @@ const Home = () => {
     );
 
     renderer = new Three.WebGLRenderer();
-    camera.position.y = 30;
-    camera.position.z = 50;
-    camera.rotation.x = -Math.PI / 6;
+    cam.position.y = 30;
+    cam.position.z = 50;
+    cam.rotation.x = -Math.PI / 6;
 
-    setCamera(camera);
-
-    const ambientLight = new Three.AmbientLight(0xffffff, 1.5);
+    setCamera(cam);
+    // cast ambient light - sunlight
+    const ambientLight = new Three.AmbientLight(0xffffff, 2.5);
     scene.add(ambientLight);
+
+    // set scene size
     renderer.setSize(window.innerWidth, window.innerHeight);
     ref.current.appendChild(renderer.domElement);
 
+    // effects/animations
+    const composer = new EffectComposer(renderer);
+    const renderPass = new RenderPass(scene, cam);
+
+    composer.addPass(renderPass);
+    // outline effect size
+    const outlinePass = new OutlinePass(
+      new Three.Vector2(window.innerWidth, window.innerHeight),
+      scene,
+      cam
+    );
+    composer.addPass(outlinePass);
+
     // Camera controls by mouse
-    controls.current = new OrbitControls(camera, renderer.domElement);
+    controls.current = new OrbitControls(cam, renderer.domElement);
     // Restrict left mouse movement
     controls.current.minPolarAngle = Math.PI / 6; // 30 degrees
     controls.current.maxPolarAngle = Math.PI / 2; // 90 degrees
     // Restrict right mouse movement
     controls.current.enablePan = true; // Enable panning
     controls.current.screenSpacePanning = false;
-    // Restrict zoom
-    controls.current.minDistance = 10;
-    controls.current.maxDistance = 100;
 
     // Restrict camera target view
     controls.current.addEventListener("change", () => {
       const maxPanDistance = 125; // Maximum panning distance
-
-      if (camera.position.length() > maxPanDistance) {
+      setCamera({ ...cam });
+      if (cam.position.length() > maxPanDistance) {
         controls.current.reset();
       }
     });
-
+    // load the scene
     const loader = new GLTFLoader();
     loader.load("/models/lbvt.glb", function (gltf) {
       scene.add(gltf.scene);
-
-      const building = scene.getObjectByName("year1_sp2_building_1");
-      if (building) {
-        console.log(building.userData); // logs the custom properties
-        console.log(building.userData.course_id); // logs the course_id (e.g. 1)
-        // Access individual properties
-        // console.log(building.userData.course_id);
-      } else {
-        console.log("Building not found");
-      }
-
-      // add click events to scene
-      // if year1_sp2_building_1, year1_sp2_building_2, year1_sp2_building_3, year1_sp2_building_4
-      // output userData to console
     });
 
     const animate = function () {
       requestAnimationFrame(animate);
-      renderer.render(scene, camera);
+      renderer.render(scene, cam);
+      composer.render();
     };
 
     animate();
@@ -91,36 +97,45 @@ const Home = () => {
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-      raycaster.setFromCamera(mouse, camera);
+      raycaster.setFromCamera(mouse, cam);
 
       // Calculate objects intersecting the picking ray
       const intersects = raycaster.intersectObjects(scene.children, true);
+      if (intersects.length > 0) {
+        const selectedObject = intersects[0].object;
+        outlinePass.selectedObjects = [selectedObject];
+      }
+      // course data
 
       // if year1_sp2_building_1, year1_sp2_building_2, year1_sp2_building_3, year1_sp2_building_4
       switch (intersects[0].object.parent.name) {
         // for year1 sp2
         case "year1_sp2_building_1":
           console.log("year1_sp2_building_1 clicked");
-          console.log(intersects[0].object.parent.userData);
+          let sp2_course_1 = courses_data.year1.sp2.course[0];
+          console.log(sp2_course_1);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "year1_sp2_building_2":
           console.log("year1_sp2_building_2 clicked");
+          console.log(courses_data[1]);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "year1_sp2_building_3":
           console.log("year1_sp2_building_3 clicked");
+          console.log(courses_data[2]);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "year1_sp2_building_4":
           console.log("year1_sp2_building_4 clicked");
+          console.log(courses_data[3]);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
 
         // for year1 sp5
         case "year1_sp5_building_1":
           console.log("year1_sp5_building_1 clicked");
-          console.log(intersects[0].object.parent.userData);
+          console.log(courses_data);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "year1_sp5_building_2":
@@ -139,7 +154,7 @@ const Home = () => {
         // for year2 sp2
         case "year2_sp2_building_1":
           console.log("year2_sp2_building_1 clicked");
-          console.log(intersects[0].object.parent.userData);
+
           displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "year2_sp2_building_2":
@@ -158,7 +173,7 @@ const Home = () => {
         // for year2 sp5
         case "year2_sp5_building_1":
           console.log("year2_sp5_building_1 clicked");
-          console.log(intersects[0].object.parent.userData);
+
           displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "year2_sp5_building_2":
@@ -227,11 +242,18 @@ const Home = () => {
           console.log("industry clicked");
           displayIndustryUI();
           break;
-          
+
         // for welcome building
         case "great_hall":
           console.log("great hall clicked");
           displayWelcomeUI();
+          break;
+        // for great hall
+        case "great_hall":
+          console.log("great hall clicked");
+          break;
+        default:
+          console.log(intersects[0].object);
           break;
       }
     }
@@ -241,6 +263,15 @@ const Home = () => {
       window.removeEventListener("click", onMouseClick);
     };
   }, []);
+
+  // consistently update the camera
+  useEffect(() => {
+    if (camera && controls.current) {
+      controls.current.object.position.copy(camera.position);
+      controls.current.update();
+    }
+  }, [camera]);
+
   // Camera movement functions using buttons
   const moveCameraRight = () => {
     if (camera) {
@@ -267,20 +298,6 @@ const Home = () => {
       controls.current.reset();
     }
   };
-  const zoomIn = () => {
-    if (camera) {
-      camera.fov = Math.max(1, camera.fov - 2);
-      camera.updateProjectionMatrix();
-    }
-  };
-
-  const zoomOut = () => {
-    if (camera) {
-      camera.fov = Math.min(75, camera.fov + 2);
-      camera.updateProjectionMatrix();
-    }
-  };
-
   function displayCourseUI(evt) {
     // display UI for course information with the related event
     // parameter: -> userData (course information from click event)
@@ -380,112 +397,159 @@ const Home = () => {
       courseUI.document.write("</div>");
     }
   }
-    function displayElectiveUI(){
+  function displayElectiveUI() {
     // display UI for elective information with the related event
     // source data is came from "src\assets\lbvt.json"
-    
+
     const electiveData = data.repository.assistances.elective;
     console.log(electiveData);
 
     //var courseUI = window.open('', '_blank', 'width=600, height=400');
     //courseUI.document.write("<div id ='electiveUI'>");
     //courseUI.document.write("</div>");
-}
-
-function displayAlumniUI(){
-  // display UI for Alumni information with the related event
-  // source data is came from "src\assets\lbvt.json"
-  const alumniData = data.repository.alumnus;
-  console.log(data.repository);
-  var courseUI = window.open('', '_blank', 'width=600, height=400'); // need to consider to change design
-  courseUI.document.write("<div id ='alumniUI'>");
-
-  courseUI.document.write("<h2>Alumni</h2>");
-  if ("alumni" in alumniData){
-    for (let i = 0; i < alumniData.alumni.length; i ++){
-      courseUI.document.write("<p>" + alumniData.alumni[i].name + "<br/>");
-      courseUI.document.write("<a href=" + alumniData.alumni[i].url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
-    }
-  } else {
-    courseUI.document.write("<p>Oops, There is no data for Alumni.<p/>");
   }
-  courseUI.document.write("</div>");
-}
 
-function displayIndustryUI(){
-  // display UI for industry information with the related event
-  // source data is came from "src\assets\lbvt.json"
-  const industryData = data.repository.industries;
-  var courseUI = window.open('', '_blank', 'width=600, height=400'); // need to consider to change design
-  courseUI.document.write("<div id ='industryUI'>");
+  function displayAlumniUI() {
+    // display UI for Alumni information with the related event
+    // source data is came from "src\assets\lbvt.json"
+    const alumniData = data.repository.alumnus;
+    console.log(data.repository);
+    var courseUI = window.open("", "_blank", "width=600, height=400"); // need to consider to change design
+    courseUI.document.write("<div id ='alumniUI'>");
 
-  courseUI.document.write("<h2>Industry</h2>");
-  courseUI.document.write("<p>You can check partner companies from list below.</p>");
-  if ("partner" in industryData){ 
-    courseUI.document.write("<h3>Partner companies</h3>");
-      for (let i = 0; i < industryData.partner.length; i ++){ // display all partner companies which are on the Uni SA's web page
-        courseUI.document.write("<p>" + "Name: " + industryData.partner[i].name + "<br/>");
-        if (industryData.partner[i].url != null){ // display all partners url links, Only if we could found the page.
-          courseUI.document.write("<a href=" + industryData.partner[i].url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
+    courseUI.document.write("<h2>Alumni</h2>");
+    if ("alumni" in alumniData) {
+      for (let i = 0; i < alumniData.alumni.length; i++) {
+        courseUI.document.write("<p>" + alumniData.alumni[i].name + "<br/>");
+        courseUI.document.write(
+          "<a href=" +
+            alumniData.alumni[i].url +
+            ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+        );
+      }
+    } else {
+      courseUI.document.write("<p>Oops, There is no data for Alumni.<p/>");
+    }
+    courseUI.document.write("</div>");
+  }
+
+  function displayIndustryUI() {
+    // display UI for industry information with the related event
+    // source data is came from "src\assets\lbvt.json"
+    const industryData = data.repository.industries;
+    var courseUI = window.open("", "_blank", "width=600, height=400"); // need to consider to change design
+    courseUI.document.write("<div id ='industryUI'>");
+
+    courseUI.document.write("<h2>Industry</h2>");
+    courseUI.document.write(
+      "<p>You can check partner companies from list below.</p>"
+    );
+    if ("partner" in industryData) {
+      courseUI.document.write("<h3>Partner companies</h3>");
+      for (let i = 0; i < industryData.partner.length; i++) {
+        // display all partner companies which are on the Uni SA's web page
+        courseUI.document.write(
+          "<p>" + "Name: " + industryData.partner[i].name + "<br/>"
+        );
+        if (industryData.partner[i].url != null) {
+          // display all partners url links, Only if we could found the page.
+          courseUI.document.write(
+            "<a href=" +
+              industryData.partner[i].url +
+              ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+          );
         }
       }
       courseUI.document.write("<h3>Related associations</h3>");
-      for (let i = 0; i < industryData.associations.association.length; i++){ // display the related associations for the program
-        courseUI.document.write("<p>" + "Name: " + industryData.associations.association[i].name + "<br/>");
-        if (industryData.associations.association[i].url != null){
-          courseUI.document.write("<a href=" + industryData.associations.association[i].url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
+      for (let i = 0; i < industryData.associations.association.length; i++) {
+        // display the related associations for the program
+        courseUI.document.write(
+          "<p>" +
+            "Name: " +
+            industryData.associations.association[i].name +
+            "<br/>"
+        );
+        if (industryData.associations.association[i].url != null) {
+          courseUI.document.write(
+            "<a href=" +
+              industryData.associations.association[i].url +
+              ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+          );
+        }
       }
-    }
     } else {
       courseUI.document.write("<p>Oops, There is no data for Industry.<p/>");
     }
-  courseUI.document.write("</div>");
-}
+    courseUI.document.write("</div>");
+  }
 
-function displayWelcomeUI(){
-  // display UI for the welcome message, and youtube videos which are related to LBVT in UniSA's youtube account
-  // source data is came from "src\assets\lbvt.json"
-  const welcomeData = data.repository.welcome;
-  var courseUI = window.open('', '_blank', 'width=800, height=650'); // need to consider to change design
-  courseUI.document.write("<head>" + '<meta http-equiv="Permissions-Policy" content="*">' + "</head>");
-  courseUI.document.write("<div id ='welcomeUI'>");
+  function displayWelcomeUI() {
+    // display UI for the welcome message, and youtube videos which are related to LBVT in UniSA's youtube account
+    // source data is came from "src\assets\lbvt.json"
+    const welcomeData = data.repository.welcome;
+    var courseUI = window.open("", "_blank", "width=800, height=650"); // need to consider to change design
+    courseUI.document.write(
+      "<head>" +
+        '<meta http-equiv="Permissions-Policy" content="*">' +
+        "</head>"
+    );
+    courseUI.document.write("<div id ='welcomeUI'>");
 
-  courseUI.document.write("<h2>Welcome to "+ welcomeData.name+ "</h2>");
-  courseUI.document.write("<p>You can find information from each building on the map.</p>"); 
-  courseUI.document.write("<p>In this building, you can check videos that are related to the program.</p>"); 
+    courseUI.document.write("<h2>Welcome to " + welcomeData.name + "</h2>");
+    courseUI.document.write(
+      "<p>You can find information from each building on the map.</p>"
+    );
+    courseUI.document.write(
+      "<p>In this building, you can check videos that are related to the program.</p>"
+    );
 
-  courseUI.document.write("<h3>Video</h3>");
-  console.log(welcomeData.videos.video.length)
+    courseUI.document.write("<h3>Video</h3>");
+    console.log(welcomeData.videos.video.length);
 
-  if ("videos" in welcomeData){ // need to change here after modify py code
-      for (let i = 0; i < welcomeData.videos.video.length; i ++){
+    if ("videos" in welcomeData) {
+      // need to change here after modify py code
+      for (let i = 0; i < welcomeData.videos.video.length; i++) {
         courseUI.document.write("<div id ='video'>");
-        courseUI.document.write("<p><b>" + welcomeData.videos.video[i].name + "</b></p>");
-        courseUI.document.write('<iframe width="560" height="315" src="' + welcomeData.videos.video[i].embd+'" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>');
+        courseUI.document.write(
+          "<p><b>" + welcomeData.videos.video[i].name + "</b></p>"
+        );
+        courseUI.document.write(
+          '<iframe width="560" height="315" src="' +
+            welcomeData.videos.video[i].embd +
+            '" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+        );
         //courseUI.document.write("<p>Your browser doesn't support HTML video. Here is a <a href="+ welcomeData.videos.video[i].url + ">link to the video</a> instead.</p>");
         courseUI.document.write("</div>");
       }
     } else {
-      courseUI.document.write("<p>Oops, There is no data for video to display.<p/>");
+      courseUI.document.write(
+        "<p>Oops, There is no data for video to display.<p/>"
+      );
     }
-  courseUI.document.write("</div>");
-}
+    courseUI.document.write("</div>");
+  }
 
   return (
-    <div style={{ position: "relative" }}>
+    <div>
       {/*Put the model to background.
-        Allows other components to be on top of the model.
-      */}
-      <div ref={ref} style={{ position: "fixed", zIndex: -1 }} />
-      <ControlPanel
-        moveCameraLeft={moveCameraLeft}
-        moveCameraRight={moveCameraRight}
-        moveCameraTop={moveCameraTop}
-        moveCameraBottom={moveCameraBottom}
-        resetCamera={resetCamera}
-        zoomIn={zoomIn}
-        zoomOut={zoomOut}
+    Allows other components to be on top of the model.
+  */}
+      <div
+        ref={ref}
+        className="ref"
+        style={{ position: "fixed", zIndex: -1 }}
       />
+      <div className="control-panel-container">
+        <ControlPanel
+          moveCameraLeft={moveCameraLeft}
+          moveCameraRight={moveCameraRight}
+          moveCameraTop={moveCameraTop}
+          moveCameraBottom={moveCameraBottom}
+          resetCamera={resetCamera}
+        />
+
+        {camera && <CameraSlider camera={camera} setCamera={setCamera} />}
+      </div>
     </div>
   );
 };
