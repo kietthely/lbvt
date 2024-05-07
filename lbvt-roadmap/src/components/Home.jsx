@@ -358,19 +358,26 @@ const Home = () => {
   }
 
   return (
-    <div style={{ position: "relative" }}>
+    <div>
       {/*Put the model to background.
-        Allows other components to be on top of the model.
-      */}
-      <div ref={ref} style={{ position: "fixed", zIndex: -1 }} />
-      <ControlPanel
-        moveCameraLeft={moveCameraLeft}
-        moveCameraRight={moveCameraRight}
-        moveCameraTop={moveCameraTop}
-        moveCameraBottom={moveCameraBottom}
-        resetCamera={resetCamera}
+    Allows other components to be on top of the model.
+  */}
+      <div
+        ref={ref}
+        className="ref"
+        style={{ position: "fixed", zIndex: -1 }}
       />
-      {camera && <CameraSlider camera={camera} setCamera={setCamera} />}
+      <div className="control-panel-container">
+        <ControlPanel
+          moveCameraLeft={moveCameraLeft}
+          moveCameraRight={moveCameraRight}
+          moveCameraTop={moveCameraTop}
+          moveCameraBottom={moveCameraBottom}
+          resetCamera={resetCamera}
+        />
+
+        {camera && <CameraSlider camera={camera} setCamera={setCamera} />}
+      </div>
     </div>
   );
 };

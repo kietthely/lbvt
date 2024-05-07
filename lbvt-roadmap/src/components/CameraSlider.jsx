@@ -27,7 +27,7 @@ function CameraSlider({ camera, setCamera }) {
   };
 
   return (
-    <div>
+    <div className="slider-container">
       <Button onClick={handleZoomOut}>
         <FontAwesomeIcon icon={faMinus} />
       </Button>
@@ -37,6 +37,7 @@ function CameraSlider({ camera, setCamera }) {
         max="90"
         value={100 - camera.position.y}
         onChange={handleFovChange}
+        className="slider"
       />
       <Button onClick={handleZoomIn}>
         <FontAwesomeIcon icon={faPlus} />
