@@ -8,11 +8,13 @@ import CameraSlider from "./CameraSlider";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { OutlinePass } from "three/examples/jsm/postprocessing/OutlinePass.js";
+import lbvt_data from "../assets/lbvt.json";
 const Home = () => {
   const ref = useRef();
   const [camera, setCamera] = useState(null);
   const controls = useRef();
-
+  // lbvt data
+  const courses_data = lbvt_data.repository.program.courses;
   useEffect(() => {
     // initialize world
     var scene, cam, renderer;
@@ -101,33 +103,37 @@ const Home = () => {
         const selectedObject = intersects[0].object;
         outlinePass.selectedObjects = [selectedObject];
       }
-      // selected object
+      // course data
 
       // if year1_sp2_building_1, year1_sp2_building_2, year1_sp2_building_3, year1_sp2_building_4
       switch (intersects[0].object.parent.name) {
         // for year1 sp2
         case "year1_sp2_building_1":
           console.log("year1_sp2_building_1 clicked");
-          console.log(intersects[0].object.parent.userData);
+          let sp2_course_1 = courses_data.year1.sp2.course[0];
+          console.log(sp2_course_1);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "year1_sp2_building_2":
           console.log("year1_sp2_building_2 clicked");
+          console.log(courses_data[1]);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "year1_sp2_building_3":
           console.log("year1_sp2_building_3 clicked");
+          console.log(courses_data[2]);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "year1_sp2_building_4":
           console.log("year1_sp2_building_4 clicked");
+          console.log(courses_data[3]);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
 
         // for year1 sp5
         case "year1_sp5_building_1":
           console.log("year1_sp5_building_1 clicked");
-          console.log(intersects[0].object.parent.userData);
+          console.log(courses_data);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "year1_sp5_building_2":
@@ -146,7 +152,7 @@ const Home = () => {
         // for year2 sp2
         case "year2_sp2_building_1":
           console.log("year2_sp2_building_1 clicked");
-          console.log(intersects[0].object.parent.userData);
+
           displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "year2_sp2_building_2":
@@ -165,7 +171,7 @@ const Home = () => {
         // for year2 sp5
         case "year2_sp5_building_1":
           console.log("year2_sp5_building_1 clicked");
-          console.log(intersects[0].object.parent.userData);
+
           displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "year2_sp5_building_2":
