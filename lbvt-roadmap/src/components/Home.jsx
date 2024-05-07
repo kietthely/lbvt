@@ -9,6 +9,8 @@ import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { OutlinePass } from "three/examples/jsm/postprocessing/OutlinePass.js";
 import lbvt_data from "../assets/lbvt.json";
+import findConnections from "../utils/connectionCourses";
+import _ from "lodash";
 const Home = () => {
   // private variables
   const ref = useRef();
@@ -89,7 +91,37 @@ const Home = () => {
     // click events
     const raycaster = new Three.Raycaster();
     const mouse = new Three.Vector2();
+    function findConnection(courseId, courses) {
+      let connectedCourses = [];
+      //console.log(courses);
+      const coursePeriods = [
+        "year1.sp2",
+        "year1.sp5",
+        "year2.sp2",
+        "year2.sp5",
+        "year3.sp2",
+        "year3.sp5",
+      ];
 
+      for (let period of coursePeriods) {
+        let periodCourses = _.get(courses, period + ".course", []);
+        for (let course of periodCourses) {
+          if (
+            course.prerequisites &&
+            Array.isArray(course.prerequisites.prerequisite) // might be null or empty
+          ) {
+            for (let prerequisite of course.prerequisites.prerequisite) {
+              if (prerequisite.id === courseId) {
+                connectedCourses.push(course);
+              }
+            }
+          }
+        }
+      }
+      console.log(connectedCourses);
+
+      return connectedCourses;
+    }
     function onMouseClick(event) {
       // mouse position - model intersection
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -109,10 +141,12 @@ const Home = () => {
       switch (intersects[0].object.parent.name) {
         // for year1 sp2
         case "year1_sp2_building_1":
-          console.log("year1_sp2_building_1 clicked");
           let sp2_course_1 = courses_data.year1.sp2.course[0];
-          console.log(sp2_course_1);
-          displayCourseUI(intersects[0].object.parent.userData);
+
+          let courseId = sp2_course_1.id;
+          let connectedCourses = findConnection(courseId, courses_data);
+
+          //displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "year1_sp2_building_2":
           console.log("year1_sp2_building_2 clicked");
