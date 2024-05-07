@@ -10,6 +10,7 @@ import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { OutlinePass } from "three/examples/jsm/postprocessing/OutlinePass.js";
 import lbvt_data from "../assets/lbvt.json";
 const Home = () => {
+  // private variables
   const ref = useRef();
   const [camera, setCamera] = useState(null);
   const controls = useRef();
@@ -35,7 +36,7 @@ const Home = () => {
 
     setCamera(cam);
     // cast ambient light - sunlight
-    const ambientLight = new Three.AmbientLight(0xffffff, 2.5);
+    const ambientLight = new Three.AmbientLight(0xffffff, 3);
     scene.add(ambientLight);
 
     // set scene size
@@ -80,7 +81,6 @@ const Home = () => {
 
     const animate = function () {
       requestAnimationFrame(animate);
-      renderer.render(scene, cam);
       composer.render();
     };
 
@@ -91,7 +91,7 @@ const Home = () => {
     const mouse = new Three.Vector2();
 
     function onMouseClick(event) {
-      // mouse position
+      // mouse position - model intersection
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
