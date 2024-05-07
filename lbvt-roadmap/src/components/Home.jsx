@@ -339,7 +339,10 @@ function displayCourseUI(course) {
       for (let i = 0; i < course.prerequisites.prerequisite.length; i++) {
         // display all prerequisite information
         if (course.prerequisites.prerequisite[i].id != null){
-          courseUI.document.write("<p>Prerequisite: " +course.prerequisites.prerequisite[i].id +"</p>");
+          // get the prerequisite course information then set the course name and url as a link
+          var prerequisite = getPrerequisite(course.prerequisites.prerequisite[i].id);
+          courseUI.document.write("<p>Prerequisite: <a href="+ prerequisite.url +' target="_blank" rel="noopener noreferrer">'+prerequisite.name + " (" + prerequisite.id+ ")</a></p>");
+
         } else {
           // case for the course does not have prerequisite
           courseUI.document.write("<p>Prerequisite: N/A</p>");
@@ -385,7 +388,7 @@ function displayCourseUI(course) {
       courseUI.document.write("<div className='environmental'>");
       courseUI.document.write("<h3>Environment electives</h3>");  // section for intermediate electives
 
-      courseUI.document.write("<div id ='Intermediate' display: none;>");
+      courseUI.document.write("<div id ='Intermediate' display: block;>");
       courseUI.document.write("<p><b>Intermediate</b></p>");
       for (let i = 0; i < environmentElective.intermediate.course.length; i++){
         courseUI.document.write("<h4>"+environmentElective.intermediate.course[i].name+"</h4>");
@@ -400,10 +403,13 @@ function displayCourseUI(course) {
           // case for there is only 1 course coordinator
           courseUI.document.write("<p>Course coordinator: <a href="+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[0].url +' target="_blank" rel="noopener noreferrer">'+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[0].name +"</a></p>");
         }
+        
         for (let j = 0; j < environmentElective.intermediate.course[i].prerequisites.prerequisite.length; j++){
+          // displaying all prerequisite for the course
           if (environmentElective.intermediate.course[i].prerequisites.prerequisite[j].id != null){ 
-            // displaying all prerequisite for the course
-            courseUI.document.write("<p>Prerequisite: " +environmentElective.intermediate.course[i].prerequisites.prerequisite[j].id +"</p>");
+            // get the prerequisite course information then set the course name and url as a link
+            var prerequisite = getPrerequisite(environmentElective.intermediate.course[i].prerequisites.prerequisite[j].id);
+            courseUI.document.write("<p>Prerequisite: <a href="+ prerequisite.url +' target="_blank" rel="noopener noreferrer">'+prerequisite.name + " (" + prerequisite.id+ ")</a></p>");
           } else {
             // case for there is no prerequisite
             courseUI.document.write("<p>Prerequisite: N/A</p>");
@@ -429,10 +435,13 @@ function displayCourseUI(course) {
           // case for there is only 1 course coordinator
           courseUI.document.write("<p>Course coordinator: <a href="+environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[0].url +' target="_blank" rel="noopener noreferrer">'+environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[0].name +"</a></p>");
         }
+        
         for (let j = 0; j < environmentElective.advanced.course[i].prerequisites.prerequisite.length; j++){
+          // displaying all prerequisite for the course
           if (environmentElective.advanced.course[i].prerequisites.prerequisite[j].id != null){ 
-            // displaying all prerequisite for the course
-            courseUI.document.write("<p>Prerequisite: " +environmentElective.advanced.course[i].prerequisites.prerequisite[j].id +"</p>");
+            // get the prerequisite course information then set the course name and url as a link
+            prerequisite = getPrerequisite(environmentElective.advanced.course[i].prerequisites.prerequisite[j].id);
+            courseUI.document.write("<p>Prerequisite: <a href="+ prerequisite.url +' target="_blank" rel="noopener noreferrer">'+prerequisite.name + " (" + prerequisite.id+ ")</a></p>");
           } else {
             // case for there is no prerequisite
             courseUI.document.write("<p>Prerequisite: N/A</p>");
@@ -570,6 +579,56 @@ function displayCourseUI(course) {
     }
     courseUI.document.write("</div>");
   }
+function getPrerequisite(courseID){
+  // search and return the prerequisite course which is in general course.
+  // parameter: course ID as string (ex:GEOE2026)
+  // return : course information as object
+
+  const courses_data = data.repository.program.courses;
+
+  for (let i = 0; i < courses_data.year1.sp2.course.length; i++ ){ 
+    // search course in year1 sp2
+    if (courses_data.year1.sp2.course[i].id === courseID){
+      return courses_data.year1.sp2.course[i];
+    }
+  }
+
+  for (let i = 0; i < courses_data.year1.sp5.course.length; i++ ){ 
+    // search course in year1 sp5
+    if (courses_data.year1.sp5.course[i].id === courseID){
+      return courses_data.year1.sp5.course[i];
+    }
+  }
+
+  for (let i = 0; i < courses_data.year2.sp2.course.length; i++ ){ 
+    // search course in year2 sp2
+    if (courses_data.year2.sp2.course[i].id === courseID){
+      return courses_data.year2.sp2.course[i];
+    }
+  }
+
+  for (let i = 0; i < courses_data.year2.sp5.course.length; i++ ){ 
+    // search course in year2 sp5
+    if (courses_data.year2.sp5.course[i].id === courseID){
+      return courses_data.year2.sp5.course[i];
+    }
+  }
+  for (let i = 0; i < courses_data.year3.sp2.course.length; i++ ){ 
+    // search course in year3 sp2
+    if (courses_data.year3.sp2.course[i].id === courseID){
+      return courses_data.year3.sp2.course[i];
+    }
+  }
+
+  for (let i = 0; i < courses_data.year3.sp5.course.length; i++ ){ 
+    // search course in year3 sp5
+    if (courses_data.year3.sp5.course[i].id === courseID){
+      return courses_data.year3.sp5.course[i];
+    }
+  }
+  // case for no match in the general courses
+  return null; 
+}
 
   return (
     <div>
