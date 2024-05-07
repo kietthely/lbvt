@@ -5,12 +5,16 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import ControlPanel from "./ControlPanel";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import CameraSlider from "./CameraSlider";
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
+import { OutlinePass } from "three/examples/jsm/postprocessing/OutlinePass.js";
 const Home = () => {
   const ref = useRef();
   const [camera, setCamera] = useState(null);
   const controls = useRef();
 
   useEffect(() => {
+    // initialize world
     var scene, cam, renderer;
     scene = new Three.Scene();
     scene.background = new Three.Color(0xffffff);
@@ -28,11 +32,23 @@ const Home = () => {
     cam.rotation.x = -Math.PI / 6;
 
     setCamera(cam);
-
-    const ambientLight = new Three.AmbientLight(0xffffff, 1.5);
+    const ambientLight = new Three.AmbientLight(0xffffff, 2.5);
     scene.add(ambientLight);
     renderer.setSize(window.innerWidth, window.innerHeight);
     ref.current.appendChild(renderer.domElement);
+
+    const composer = new EffectComposer(renderer);
+    const renderPass = new RenderPass(scene, cam);
+
+    composer.addPass(renderPass);
+    const outlinePass = new OutlinePass(
+      new Three.Vector2(window.innerWidth, window.innerHeight),
+      scene,
+      cam
+    );
+    composer.addPass(outlinePass);
+    outlinePass.edgeColor = new Three.Color("red");
+    outlinePass.edgeStrength = 3;
 
     // Camera controls by mouse
     controls.current = new OrbitControls(cam, renderer.domElement);
@@ -60,6 +76,7 @@ const Home = () => {
     const animate = function () {
       requestAnimationFrame(animate);
       renderer.render(scene, cam);
+      composer.render();
     };
 
     animate();
@@ -77,6 +94,11 @@ const Home = () => {
 
       // Calculate objects intersecting the picking ray
       const intersects = raycaster.intersectObjects(scene.children, true);
+      if (intersects.length > 0) {
+        const selectedObject = intersects[0].object;
+        outlinePass.selectedObjects = [selectedObject];
+      }
+      // selected object
 
       // if year1_sp2_building_1, year1_sp2_building_2, year1_sp2_building_3, year1_sp2_building_4
       switch (intersects[0].object.parent.name) {
