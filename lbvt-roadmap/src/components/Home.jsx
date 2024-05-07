@@ -397,17 +397,97 @@ const Home = () => {
       courseUI.document.write("</div>");
     }
   }
-  function displayElectiveUI() {
+  function displayElectiveUI(){
     // display UI for elective information with the related event
     // source data is came from "src\assets\lbvt.json"
-
+    
     const electiveData = data.repository.assistances.elective;
-    console.log(electiveData);
+    var undergraduateElective = electiveData.electiveCourses.undergraduate;
 
-    //var courseUI = window.open('', '_blank', 'width=600, height=400');
-    //courseUI.document.write("<div id ='electiveUI'>");
-    //courseUI.document.write("</div>");
-  }
+    var courseUI = window.open('', '_blank', 'width=600, height=400');
+    courseUI.document.write("<div className='electiveUI'>");
+    courseUI.document.write("<h2>Elective</h2>");
+    courseUI.document.write("<p>You can find the courses' information for electives.</p>");
+
+    courseUI.document.write("<div id='undergraduate'>"); // section for undergraduate elective
+    courseUI.document.write("<h3>Undergraduate elective</h3>");
+    courseUI.document.write("<p>"+ undergraduateElective.course.notes.note+"</p>");
+    courseUI.document.write("You can find the course from <a href="+undergraduateElective.course.url + ' target="_blank" rel="noopener noreferrer">here.</a></p>');
+    courseUI.document.write("</div>");
+
+    if ("environmental" in electiveData.electiveCourses){ 
+      // only for LBVT course. section for environment electives
+
+      var environmentElective = electiveData.electiveCourses.environmental;
+      //console.log("has enviromnemtal")
+      courseUI.document.write("<div className='environmental'>");
+      courseUI.document.write("<h3>Environment electives</h3>");  // section for intermediate electives
+
+      courseUI.document.write("<div id ='Intermediate' display: none;>");
+      courseUI.document.write("<p><b>Intermediate</b></p>");
+      for (let i = 0; i < environmentElective.intermediate.course.length; i++){
+        courseUI.document.write("<h4>"+environmentElective.intermediate.course[i].name+"</h4>");
+        courseUI.document.write("<p>course ID: "+environmentElective.intermediate.course[i].id +"</p>");
+
+        if (environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator.length > 1){
+                      // display all information for course coordinators in the course
+          for (let j = 0; j <environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator.length; j++){
+            courseUI.document.write("<p>Course coordinator: <a href="+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[j].url +' target="_blank" rel="noopener noreferrer">'+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[j].name +"</a></p>");
+          }
+        } else {
+          // case for there is only 1 course coordinator
+          courseUI.document.write("<p>Course coordinator: <a href="+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[0].url +' target="_blank" rel="noopener noreferrer">'+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[0].name +"</a></p>");
+        }
+        for (let j = 0; j < environmentElective.intermediate.course[i].prerequisites.prerequisite.length; j++){
+          if (environmentElective.intermediate.course[i].prerequisites.prerequisite[j].id != null){ 
+            // displaying all prerequisite for the course
+            courseUI.document.write("<p>Prerequisite: " +environmentElective.intermediate.course[i].prerequisites.prerequisite[j].id +"</p>");
+          } else {
+            // case for there is no prerequisite
+            courseUI.document.write("<p>Prerequisite: N/A</p>");
+          }
+        }
+        courseUI.document.write("<p>More information about the course: <a href="+environmentElective.intermediate.course[i].url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
+      }
+      courseUI.document.write("</div>");      
+
+      courseUI.document.write("<div id='Advanced' display: none;>"); // section for advanced electives
+      courseUI.document.write("<p><b>Advanced</b></p>"); 
+      for (let i = 0; i < environmentElective.advanced.course.length; i++){
+      // display all courses for advanced elective
+        courseUI.document.write("<h4>"+environmentElective.advanced.course[i].name+"</h4>");
+        courseUI.document.write("<p>course ID: "+environmentElective.advanced.course[i].id +"</p>");
+  
+        if (environmentElective.advanced.course[i].courseCoordinators.courseCoordinator.length > 1){
+          // display all information for course coordinators in the course
+          for (let j = 0; j <environmentElective.advanced.course[i].courseCoordinators.courseCoordinator.length; j++){
+            courseUI.document.write("<p>Course coordinator: <a href="+environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[j].url +' target="_blank" rel="noopener noreferrer">'+environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[j].name +"</a></p>");
+          }
+        } else {
+          // case for there is only 1 course coordinator
+          courseUI.document.write("<p>Course coordinator: <a href="+environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[0].url +' target="_blank" rel="noopener noreferrer">'+environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[0].name +"</a></p>");
+        }
+        for (let j = 0; j < environmentElective.advanced.course[i].prerequisites.prerequisite.length; j++){
+          if (environmentElective.advanced.course[i].prerequisites.prerequisite[j].id != null){ 
+            // displaying all prerequisite for the course
+            courseUI.document.write("<p>Prerequisite: " +environmentElective.advanced.course[i].prerequisites.prerequisite[j].id +"</p>");
+          } else {
+            // case for there is no prerequisite
+            courseUI.document.write("<p>Prerequisite: N/A</p>");
+          }
+        }
+        courseUI.document.write("<p>More information about the course: <a href="+environmentElective.advanced.course[i].url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
+      }
+      courseUI.document.write("</div'>"); 
+
+      courseUI.document.write("<p><b>Note: "+environmentElective.notes.note + "</b></p>");
+      courseUI.document.write("<p><b>Rule: "+ environmentElective.rules.rule+"</b></p>");
+      courseUI.document.write("<p>More information about environment electives: <a href="+environmentElective.url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
+      courseUI.document.write("</div>");
+    }
+    courseUI.document.write("</div>");
+}
+
 
   function displayAlumniUI() {
     // display UI for Alumni information with the related event
