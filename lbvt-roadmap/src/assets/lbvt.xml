@@ -913,19 +913,56 @@
         </elective>
     </assistances>
     <industries>    <!--Information for industry building-->
-        <industry>
-            <name>Home</name>
+        <partner>
+            <name>Uni SA research Home</name>
             <url>https://www.unisa.edu.au/research/#industry-expertise</url>
-        </industry>
-        <industry>
-            <name>Australian Constructors Association</name>
-            <url>https://www.constructors.com.au/</url>
-        </industry>
-        <industry>
-            <name>Australian Geological Survey Organization Network</name>
-            <url>https://www.geoscience.gov.au/</url>
-        </industry>
-
+        </partner>
+        <partner>
+            <name>Uni SA Engineering construction</name>
+            <url>https://www.unisa.edu.au/connect/industries/engineering-construction/</url>
+        </partner>
+        <partner>
+            <name>Smr</name>
+            <url>https://www.smr-automotive.com/en</url>
+        </partner>
+        <partner>
+            <name>INCONMAT AUSTRALIA</name>
+            <url></url>
+        </partner>
+        <partner>
+            <name>LOCKHEED MARTIN</name>
+            <url>https://www.lockheedmartin.com/en-au/index.html</url>
+        </partner>
+        <partner>
+            <name>SA Power Networks</name>
+            <url>https://www.sapowernetworks.com.au/</url>
+        </partner>
+        <partner>
+            <name>SA Water</name>
+            <url>https://www.sawater.com.au/</url>
+        </partner>
+        <partner>
+            <name>SAAB</name>
+            <url>https://www.saab.com/markets/australia</url>
+        </partner>
+        <partner>
+            <name>ULC Engineering</name>
+            <url></url>
+        </partner>
+        <partner>
+            <name>CITY OF Salisbury</name>
+            <url></url>
+        </partner>
+        <associations>
+            <association>
+                <name>Australian Constructors Association</name>
+                <url>https://www.constructors.com.au/</url>
+            </association>
+            <association>
+                <name>Australian Geological Survey Organization Network</name>
+                <url>https://www.geoscience.gov.au/</url>
+            </association>
+        </associations>
     </industries>
     <alumnus> <!--Information for alumni building-->
         <alumni>
