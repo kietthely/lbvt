@@ -5,7 +5,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import ControlPanel from "./ControlPanel";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import data from "../assets/lbvt.json";
-import Alumni from "./Alumni";
+//import Alumni from "./Alumni";
 import CameraSlider from "./CameraSlider";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
@@ -253,12 +253,12 @@ const Home = () => {
           break;
 
         // for Industry
-        case "industry_lbvt":
+        case "industry_lbvt_":
           displayIndustryUI();
           break;
 
         // for welcome building
-        case "great_hall":
+        case "Great_Hall_-_Starting":
           displayWelcomeUI();
           break;
 
