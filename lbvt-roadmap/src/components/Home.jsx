@@ -11,6 +11,46 @@ import { OutlinePass } from "three/examples/jsm/postprocessing/OutlinePass.js";
 import lbvt_data from "../assets/lbvt.json";
 import findConnections from "../utils/connectionCourses";
 import _ from "lodash";
+function getCoursesData(courses_data) {
+  const course_data_list = [];
+  const coursePeriods = [
+    "year1.sp2",
+    "year1.sp5",
+    "year2.sp2",
+    "year2.sp5",
+    "year3.sp2",
+    "year3.sp5",
+  ];
+
+  for (let period of coursePeriods) {
+    let periodCourses = _.get(courses_data, period + ".course", []);
+    for (let course of periodCourses) {
+      course_data_list.push(course);
+    }
+  }
+  return course_data_list;
+}
+function findConnection(courseId, courses) {
+  let connectedCourses = new Set();
+  for (let course of courses) {
+    if (
+      course.prerequisites &&
+      Array.isArray(course.prerequisites.prerequisite)
+    ) {
+      for (let prerequisite of course.prerequisites.prerequisite) {
+        if (prerequisite.id === courseId) {
+          connectedCourses.add(course);
+          let newConnections = findConnection(course.id, courses);
+          newConnections.forEach((connectedCourse) =>
+            connectedCourses.add(connectedCourse)
+          );
+        }
+      }
+    }
+  }
+
+  return connectedCourses;
+}
 const Home = () => {
   // private variables
   const ref = useRef();
@@ -18,6 +58,8 @@ const Home = () => {
   const controls = useRef();
   // lbvt data
   const courses_data = lbvt_data.repository.program.courses;
+  // turn into a list for easy traversal
+  const course_data_list = getCoursesData(courses_data);
   useEffect(() => {
     // initialize world
     var scene, cam, renderer;
@@ -91,37 +133,7 @@ const Home = () => {
     // click events
     const raycaster = new Three.Raycaster();
     const mouse = new Three.Vector2();
-    function findConnection(courseId, courses) {
-      let connectedCourses = [];
-      //console.log(courses);
-      const coursePeriods = [
-        "year1.sp2",
-        "year1.sp5",
-        "year2.sp2",
-        "year2.sp5",
-        "year3.sp2",
-        "year3.sp5",
-      ];
 
-      for (let period of coursePeriods) {
-        let periodCourses = _.get(courses, period + ".course", []);
-        for (let course of periodCourses) {
-          if (
-            course.prerequisites &&
-            Array.isArray(course.prerequisites.prerequisite) // might be null or empty
-          ) {
-            for (let prerequisite of course.prerequisites.prerequisite) {
-              if (prerequisite.id === courseId) {
-                connectedCourses.push(course);
-              }
-            }
-          }
-        }
-      }
-      console.log(connectedCourses);
-
-      return connectedCourses;
-    }
     function onMouseClick(event) {
       // mouse position - model intersection
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -135,17 +147,16 @@ const Home = () => {
         const selectedObject = intersects[0].object;
         outlinePass.selectedObjects = [selectedObject];
       }
-      // course data
 
       // if year1_sp2_building_1, year1_sp2_building_2, year1_sp2_building_3, year1_sp2_building_4
       switch (intersects[0].object.parent.name) {
         // for year1 sp2
         case "year1_sp2_building_1":
-          let sp2_course_1 = courses_data.year1.sp2.course[0];
-
-          let courseId = sp2_course_1.id;
-          let connectedCourses = findConnection(courseId, courses_data);
-
+          let connectedCourses = findConnection(
+            course_data_list[0].id,
+            course_data_list
+          );
+          console.log(connectedCourses);
           //displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "year1_sp2_building_2":
