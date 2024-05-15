@@ -64,7 +64,7 @@ const Home = () => {
     // initialize world
     var scene, cam, renderer;
     scene = new Three.Scene();
-    scene.background = new Three.Color(0xffffff);
+    scene.background = new Three.Color(0x000000);
 
     cam = new Three.PerspectiveCamera(
       75,
@@ -80,7 +80,7 @@ const Home = () => {
 
     setCamera(cam);
     // cast ambient light - sunlight
-    const ambientLight = new Three.AmbientLight(0xffffff, 3);
+    const ambientLight = new Three.AmbientLight(0xffffff, 4);
     scene.add(ambientLight);
 
     // set scene size
@@ -144,12 +144,14 @@ const Home = () => {
       // Calculate objects intersecting the picking ray
       const intersects = raycaster.intersectObjects(scene.children, true);
       if (intersects.length > 0) {
-        const selectedObject = intersects[0].object;
+        const selectedObject = intersects[0].object.parent;
         outlinePass.selectedObjects = [selectedObject];
       }
-
+      selectedObject = intersects[0].object.parent.name;
+      //
+      console.log(intersects[0].object.parent.parent.userData);
       // if year1_sp2_building_1, year1_sp2_building_2, year1_sp2_building_3, year1_sp2_building_4
-      switch (intersects[0].object.parent.name) {
+      switch (selectedObject) {
         // for year1 sp2
         case "year1_sp2_building_1":
           let connectedCourses = findConnection(
@@ -174,7 +176,6 @@ const Home = () => {
           console.log(courses_data[3]);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
-
         // for year1 sp5
         case "year1_sp5_building_1":
           console.log("year1_sp5_building_1 clicked");
@@ -265,6 +266,10 @@ const Home = () => {
         case "year3_sp5_building_3":
           console.log("year3_sp5_building_3 clicked");
           displayCourseUI(intersects[0].object.parent.userData);
+          break;
+        case "year3_sp5_building_4":
+          console.log("year3_sp5_building_3 clicked");
+          console.log(intersects[0].object.parent.userData);
           break;
 
         // for Elective
