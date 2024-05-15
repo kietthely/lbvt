@@ -10,6 +10,7 @@ import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { OutlinePass } from "three/examples/jsm/postprocessing/OutlinePass.js";
 import lbvt_data from "../assets/lbvt.json";
 import findConnections from "../utils/connectionCourses";
+
 import _ from "lodash";
 function getCoursesData(courses_data) {
   const course_data_list = [];
@@ -82,7 +83,8 @@ const Home = () => {
     // cast ambient light - sunlight
     const ambientLight = new Three.AmbientLight(0xffffff, 4);
     scene.add(ambientLight);
-
+    // add fog
+    scene.fog = new Three.Fog(0xffffff, 0.015, 100);
     // set scene size
     renderer.setSize(window.innerWidth, window.innerHeight);
     ref.current.appendChild(renderer.domElement);
