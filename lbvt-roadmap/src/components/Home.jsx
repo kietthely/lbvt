@@ -75,16 +75,20 @@ const Home = () => {
     );
 
     renderer = new Three.WebGLRenderer();
+    cam.position.x += 25;
     cam.position.y = 30;
-    cam.position.z = 50;
+    cam.position.z = -20;
+
     cam.rotation.x = -Math.PI / 6;
 
     setCamera(cam);
+
     // cast ambient light - sunlight
     const ambientLight = new Three.AmbientLight(0xffffff, 4);
     scene.add(ambientLight);
     // add fog
-    scene.fog = new Three.Fog(0xffffff, 0.015, 100);
+    scene.fog = new Three.FogExp2(0xffffff, 0.04);
+
     // set scene size
     renderer.setSize(window.innerWidth, window.innerHeight);
     ref.current.appendChild(renderer.domElement);
@@ -100,10 +104,14 @@ const Home = () => {
       scene,
       cam
     );
+    outlinePass.visibleEdgeColor.set("#ff0000"); // set visible edge color to red
+    outlinePass.hiddenEdgeColor.set("#ff0000"); // set hidden edge color to red
     composer.addPass(outlinePass);
 
     // Camera controls by mouse
     controls.current = new OrbitControls(cam, renderer.domElement);
+    controls.current.target.set(15, controls.current.target.y, 25); // set initial target.x and target.z
+    controls.current.update(); // apply the changes
     // Restrict left mouse movement
     controls.current.minPolarAngle = Math.PI / 6; // 30 degrees
     controls.current.maxPolarAngle = Math.PI / 2; // 90 degrees
@@ -115,6 +123,7 @@ const Home = () => {
     controls.current.addEventListener("change", () => {
       const maxPanDistance = 125; // Maximum panning distance
       setCamera({ ...cam });
+
       if (cam.position.length() > maxPanDistance) {
         controls.current.reset();
       }
@@ -146,16 +155,17 @@ const Home = () => {
       // Calculate objects intersecting the picking ray
       const intersects = raycaster.intersectObjects(scene.children, true);
       if (intersects.length > 0) {
-        const selectedObject = intersects[0].object.parent;
+        const selectedObject = intersects[0].object.parent.parent;
+        console.log(selectedObject.userData);
         outlinePass.selectedObjects = [selectedObject];
       }
-      selectedObject = intersects[0].object.parent.name;
+
       //
-      console.log(intersects[0].object.parent.parent.userData);
+      // console.log(intersects[0].object.parent.parent.userData);
       // if year1_sp2_building_1, year1_sp2_building_2, year1_sp2_building_3, year1_sp2_building_4
-      switch (selectedObject) {
+      switch (intersects[0].object.parent.parent.name) {
         // for year1 sp2
-        case "year1_sp2_building_1":
+        case "building_1":
           let connectedCourses = findConnection(
             course_data_list[0].id,
             course_data_list
@@ -163,115 +173,111 @@ const Home = () => {
           console.log(connectedCourses);
           //displayCourseUI(intersects[0].object.parent.userData);
           break;
-        case "year1_sp2_building_2":
+        case "building_2":
           console.log("year1_sp2_building_2 clicked");
           console.log(courses_data[1]);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
-        case "year1_sp2_building_3":
+        case "building_3":
           console.log("year1_sp2_building_3 clicked");
           console.log(courses_data[2]);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
-        case "year1_sp2_building_4":
+        case "building_4":
           console.log("year1_sp2_building_4 clicked");
           console.log(courses_data[3]);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
         // for year1 sp5
-        case "year1_sp5_building_1":
+        case "building_5":
           console.log("year1_sp5_building_1 clicked");
           console.log(courses_data);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
-        case "year1_sp5_building_2":
+        case "building_6":
           console.log("year1_sp5_building_2 clicked");
           displayCourseUI(intersects[0].object.parent.userData);
           break;
-        case "year1_sp5_building_3":
+        case "building_7":
           console.log("year1_sp5_building_3 clicked");
           displayCourseUI(intersects[0].object.parent.userData);
           break;
-        case "year1_sp5_building_4":
+        case "building_8":
           console.log("year1_sp5_building_4 clicked");
           displayCourseUI(intersects[0].object.parent.userData);
           break;
 
         // for year2 sp2
-        case "year2_sp2_building_1":
+        case "building_9":
           console.log("year2_sp2_building_1 clicked");
 
           displayCourseUI(intersects[0].object.parent.userData);
           break;
-        case "year2_sp2_building_2":
+        case "building_10":
           console.log("year2_sp2_building_2 clicked");
           displayCourseUI(intersects[0].object.parent.userData);
           break;
-        case "year2_sp2_building_3":
+        case "building_11":
           console.log("year2_sp2_building_3 clicked");
           displayCourseUI(intersects[0].object.parent.userData);
           break;
-        case "year2_sp2_building_4":
+        case "building_12":
           console.log("year2_sp2_building_4 clicked");
           displayCourseUI(intersects[0].object.parent.userData);
           break;
 
         // for year2 sp5
-        case "year2_sp5_building_1":
+        case "building_13":
           console.log("year2_sp5_building_1 clicked");
 
           displayCourseUI(intersects[0].object.parent.userData);
           break;
-        case "year2_sp5_building_2":
+        case "building_14":
           console.log("year2_sp5_building_2 clicked");
           displayCourseUI(intersects[0].object.parent.userData);
           break;
-        case "year2_sp5_building_3":
+        case "building_15":
           console.log("year2_sp5_building_3 clicked");
           displayCourseUI(intersects[0].object.parent.userData);
           break;
-        case "year2_sp5_building_4":
+        case "building_16":
           console.log("year2_sp5_building_4 clicked");
           displayCourseUI(intersects[0].object.parent.userData);
           break;
 
         // for year3 sp2
-        case "year3_sp2_building_1":
+        case "building_17":
           console.log("year3_sp2_building_1 clicked");
           console.log(intersects[0].object.parent.userData);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
-        case "year3_sp2_building_2":
+        case "building_18":
           console.log("year3_sp2_building_2 clicked");
           displayCourseUI(intersects[0].object.parent.userData);
           break;
-        case "year3_sp2_building_3":
+        case "building_19":
           console.log("year3_sp2_building_3 clicked");
           displayCourseUI(intersects[0].object.parent.userData);
           break;
-        case "year3_sp2_building_4":
+        case "building_20":
           console.log("year3_sp2_building_4 clicked");
           displayCourseUI(intersects[0].object.parent.userData);
           break;
 
         // for year3 sp5
-        case "year3_sp5_building_1":
+        case "building_21":
           console.log("year3_sp5_building_1 clicked");
           console.log(intersects[0].object.parent.userData);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
-        case "year3_sp5_building_2":
+        case "building_22":
           console.log("year3_sp5_building_2 clicked");
           console.log(intersects[0].object.parent.userData);
           displayCourseUI(intersects[0].object.parent.userData);
           break;
-        case "year3_sp5_building_3":
+        case "building_23":
           console.log("year3_sp5_building_3 clicked");
           displayCourseUI(intersects[0].object.parent.userData);
-          break;
-        case "year3_sp5_building_4":
-          console.log("year3_sp5_building_3 clicked");
-          console.log(intersects[0].object.parent.userData);
           break;
 
         // for Elective
@@ -317,22 +323,32 @@ const Home = () => {
   // Camera movement functions using buttons
   const moveCameraRight = () => {
     if (camera) {
+      // move camera
       camera.position.x += 1;
+      // move target / focus point
+      controls.current.target.x += 1;
+      controls.current.update();
     }
   };
   const moveCameraLeft = () => {
     if (camera) {
       camera.position.x -= 1;
+      controls.current.target.x -= 1;
+      controls.current.update();
     }
   };
   const moveCameraTop = () => {
     if (camera) {
       camera.position.z -= 1;
+      controls.current.target.z -= 1;
+      controls.current.update();
     }
   };
   const moveCameraBottom = () => {
     if (camera) {
       camera.position.z += 1;
+      controls.current.target.z += 1;
+      controls.current.update();
     }
   };
   const resetCamera = () => {
