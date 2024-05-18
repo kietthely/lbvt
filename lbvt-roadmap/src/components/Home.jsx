@@ -104,8 +104,8 @@ const Home = () => {
       scene,
       cam
     );
-    outlinePass.visibleEdgeColor.set("#ff0000"); // set visible edge color to red
-    outlinePass.hiddenEdgeColor.set("#ff0000"); // set hidden edge color to red
+    outlinePass.visibleEdgeColor.set("#39FF14");
+    outlinePass.hiddenEdgeColor.set("#39FF14");
     composer.addPass(outlinePass);
 
     // Camera controls by mouse
@@ -129,8 +129,15 @@ const Home = () => {
       }
     });
     // load the scene
+    const buildings = {};
     const loader = new GLTFLoader();
     loader.load("/models/lbvt.glb", function (gltf) {
+      gltf.scene.traverse(function (object) {
+        if (object.name.startsWith("building")) {
+          buildings[object.name] = object;
+          console.log(buildings);
+        }
+      });
       scene.add(gltf.scene);
     });
 
@@ -160,7 +167,6 @@ const Home = () => {
         outlinePass.selectedObjects = [selectedObject];
       }
 
-      //
       // console.log(intersects[0].object.parent.parent.userData);
       // if year1_sp2_building_1, year1_sp2_building_2, year1_sp2_building_3, year1_sp2_building_4
       switch (intersects[0].object.parent.parent.name) {
@@ -171,7 +177,15 @@ const Home = () => {
             course_data_list
           );
           console.log(connectedCourses);
-          //displayCourseUI(intersects[0].object.parent.userData);
+          const building4 = buildings["building_11"];
+
+          if (building4) {
+            building4.traverse(function (object) {
+              object.fog = false; // ignore fog effect
+            });
+            outlinePass.selectedObjects.push(building4);
+          }
+          displayCourseUI(course_data_list, connectedCourses);
           break;
         case "building_2":
           console.log("year1_sp2_building_2 clicked");
@@ -356,102 +370,71 @@ const Home = () => {
       controls.current.reset();
     }
   };
-  function displayCourseUI(evt) {
-    // display UI for course information with the related event
-    // parameter: -> userData (course information from click event)
-    if (evt.course_id != null) {
-      // check the event has by the specific event (for the course check course id)
-      var courseUI = window.open("", "_blank", "width=600, height=400"); // <- should I change here to the window.alert()?
+  function displayCourseUI(evt, connectedCourses) {
+    const evt_data = evt[0];
+    if (evt_data.id != null) {
+      var courseUI = window.open("", "_blank", "width=600, height=400");
       courseUI.document.write("<div id ='courseUI'>");
 
-      courseUI.document.write(
-        "<p>" + "Course Name: " + evt.course_name + "</p>"
-      );
-      courseUI.document.write("<p>" + "Course ID: " + evt.course_id + "</p>");
+      courseUI.document.write("<p>" + "Course Name: " + evt_data.name + "</p>");
+      courseUI.document.write("<p>" + "Course ID: " + evt_data.id + "</p>");
 
-      if (evt.course_coordinator_size != 0) {
-        // display all course coordinator's information
-
-        // To detect the pattern in the userData.
-        const patternForName = /^course_coordinator_\d+_name$/;
-        const patternForUrl = /^course_coordinator_\d+_url$/;
-        for (let key in evt) {
-          if (patternForName.test(key)) {
-            const keyValueName = key.match(/\d+/)[0]; // detect the amount of coordinators in userData
-            //console.log(`Course Coordinator: ${evt[key]}`)
-            if (evt.course_coordinator_size > 1) {
-              // if the course has several coordinators display index value
-              courseUI.document.write(
-                "<p>" +
-                  "Course coordinator " +
-                  keyValueName +
-                  ": " +
-                  evt[key] +
-                  "<br>"
-              );
-            } else {
-              courseUI.document.write(
-                "<p>" + "Course coordinator: " + evt[key] + "<br>"
-              );
-            }
-          }
-          if (patternForUrl.test(key)) {
-            //const keyValueUrl = key.match(/\d+/)[0]; // detect the amount of coordinator's url in userData
-            courseUI.document.write(
-              "More information: " +
-                "<a href=" +
-                evt[key] +
-                ' target="_blank" rel="noopener noreferrer">Link</a></p>'
-            );
-          }
-        }
+      for (let courseCoordinator of evt_data.courseCoordinators
+        .courseCoordinator) {
+        courseUI.document.write(
+          "<p>" + "Course coordinator: " + courseCoordinator.name + "</p>"
+        );
+        courseUI.document.write(
+          "<p>" +
+            "More information: " +
+            "<a href=" +
+            courseCoordinator.url +
+            ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+        );
       }
-      if (evt.prerequisite_size != 1) {
-        // if the course has prerequisites, display all id of the course
-        // In Sam's code, it seems if there is NO prerequisite, the number will be 1.
 
-        const patternForPrerequisite = /^prerequisite_\d+_id$/; // to detect the prerequisite pattern in for loop
-
-        for (let key in evt) {
-          if (patternForPrerequisite.test(key)) {
-            const keyValueId = key.match(/\d+/)[0]; // detect the amount of prerequisite in userData
-            if (evt.prerequisite_size > 2) {
-              // if the course has several prerequisites display index value
-              courseUI.document.write(
-                "<p>" + "Prerequisite " + keyValueId + ": " + evt[key] + "</p>"
-              );
-            } else {
-              courseUI.document.write(
-                "<p>" + "Prerequisite : " + evt[key] + "</p>"
-              );
-            }
-          }
-        }
+      if (evt_data.prerequisites.prerequisite[0].id) {
+        courseUI.document.write(
+          "<p>" +
+            "Prerequisite : " +
+            evt_data.prerequisites.prerequisite[0].id +
+            "</p>"
+        );
       } else {
         courseUI.document.write("<p>" + "Prerequisite : N/A </p>");
+      }
+      let courseList = "";
+      for (let course of connectedCourses) {
+        courseList += "<br>" + course.id + " " + course.name + " ";
       }
 
       courseUI.document.write(
         "<p>" +
+          evt_data.name +
+          " is a prerequisite to learn " +
+          courseList +
+          "</p>"
+      );
+      courseUI.document.write(
+        "<p>" +
           "Course web page: " +
           "<a href=" +
-          evt.course_url +
+          evt_data.url +
           ' target="_blank" rel="noopener noreferrer">Link</a></p>'
       );
 
-      if ("notes" in evt) {
-        // if the course has any note, display the information
-        //for (let i = 0; i < evt.notes_size; i++ ){
-        courseUI.document.write("<p>" + "Note: " + evt.notes + "</p>");
-        //}
+      if (evt_data.notes.note) {
+        courseUI.document.write(
+          "<p>" + "Note: " + evt_data.notes.note + "</p>"
+        );
       }
 
-      if ("rules" in evt) {
-        // if the course has any rules, display the information
-        //for (let i = 0; i < evt.rules_size; i ++){
-        courseUI.document.write("<p>" + "Rule: " + evt.rules + "</p>");
-        //}
+      if (evt_data.rules.rule) {
+        courseUI.document.write(
+          "<p>" + "Rule: " + evt_data.rules.rule + "</p>"
+        );
       }
+
       courseUI.document.write("</div>");
     }
   }
