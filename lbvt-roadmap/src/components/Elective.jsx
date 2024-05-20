@@ -1,15 +1,15 @@
 import data from '../assets/lbvt.json';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Home from './Home.jsx';
 const Elective = () =>{
 
     const electiveData = data.repository.assistances.elective;
     var undergraduateElective = electiveData.electiveCourses.undergraduate;
+
     /* To show or hide sections for environmental electives */
     const [isVisible, setIsVisible] = useState(true);
     const changeVisibility = () =>{
-        setIsVisible(isVisible);
+        setIsVisible(!isVisible);
     };
 
     /* check the data has environmental electives */
@@ -18,50 +18,56 @@ const Elective = () =>{
 
         var intermediateCourses = [];
         var advancedCourses = [];
+        var k = 0; // make unique key value for some p tag (due to some course coordinators has multiple course in this page)
+
         /* set all intermediate courses in the array */
         for (let i = 0; i < environmentElective.intermediate.course.length; i++){
 
-            intermediateCourses.push(<p><b> {environmentElective.intermediate.course[i].name} </b></p> );
-            intermediateCourses.push(<p>ID: {environmentElective.intermediate.course[i].id}</p>);
+            intermediateCourses.push(<p key={environmentElective.intermediate.course[i].name}><b> {environmentElective.intermediate.course[i].name} </b></p> );
+            intermediateCourses.push(<p key={environmentElective.intermediate.course[i].id}>ID: {environmentElective.intermediate.course[i].id}</p>);
 
             {/*display all information for course coordinators in the course */}
             if (environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator.length > 1){
                 for (let j = 0; j <environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator.length; j++){
-                    intermediateCourses.push(<p>Course coordinator: <a href={environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[j].url} target="_blank" rel="noopener noreferrer">{environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[j].name}</a></p>);
+                    intermediateCourses.push(<p key = {k}>Course coordinator: <a href={environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[j].url} target="_blank" rel="noopener noreferrer">{environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[j].name}</a></p>);
                 }
             } else {             
                 {/*case for there is only 1 course coordinator */}
-                intermediateCourses.push(<p>Course coordinator: <a href={environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[0].url}target="_blank" rel="noopener noreferrer">{environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[0].name}</a></p>);
+                intermediateCourses.push(<p key ={k}>Course coordinator: <a href={environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[0].url}target="_blank" rel="noopener noreferrer">{environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[0].name}</a></p>);
             }
+            k += 1;
 
             {/* displaying all prerequisite for the course */}
             for (let j = 0; j < environmentElective.intermediate.course[i].prerequisites.prerequisite.length; j++){
                 if (environmentElective.intermediate.course[i].prerequisites.prerequisite[j].id != null){   
                     {/*get the prerequisite course information then set the course name and url as a link */}
                     var prerequisite = getPrerequisite(environmentElective.intermediate.course[i].prerequisites.prerequisite[j].id);
-                    intermediateCourses.push(<p>Prerequisite: <a href={prerequisite.url} target="_blank" rel="noopener noreferrer"> {prerequisite.name} ({prerequisite.id})</a></p>);
+                    intermediateCourses.push(<p key={k}>Prerequisite: <a href={prerequisite.url} target="_blank" rel="noopener noreferrer"> {prerequisite.name} ({prerequisite.id})</a></p>);
                 } else {
                     {/*case for there is no prerequisite */}
-                    intermediateCourses.push(<p>Prerequisite: N/A</p>);
+                    intermediateCourses.push(<p key={k}>Prerequisite: N/A</p>);
                 }
+                k +=1;
             }
-            intermediateCourses.push(<p>More information about the course: <a href={environmentElective.intermediate.course[i].url} target="_blank" rel="noopener noreferrer">Link</a></p>);
+            intermediateCourses.push(<p key ={environmentElective.intermediate.course[i].url}>More information about the course: <a href={environmentElective.intermediate.course[i].url} target="_blank" rel="noopener noreferrer">Link</a></p>);
         }
 
         /* set all advanced courses in the array*/
         for (let i = 0; i < environmentElective.advanced.course.length; i++){
-            advancedCourses.push(<p><b> {environmentElective.advanced.course[i].name} </b></p>);
-            advancedCourses.push(<p>course ID: {environmentElective.advanced.course[i].id}</p>);
+            advancedCourses.push(<p key ={environmentElective.advanced.course[i].name}><b> {environmentElective.advanced.course[i].name} </b></p>);
+            advancedCourses.push(<p key = {environmentElective.advanced.course[i].id}>course ID: {environmentElective.advanced.course[i].id}</p>);
 
             {/*display all information for course coordinators in the course */}
             if (environmentElective.advanced.course[i].courseCoordinators.courseCoordinator.length > 1){
                 for (let j = 0; j <environmentElective.advanced.course[i].courseCoordinators.courseCoordinator.length; j++){
-                    advancedCourses.push(<p>Course coordinator: <a href={environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[j].url} target="_blank" rel="noopener noreferrer">{environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[j].name}</a></p>);
+                    advancedCourses.push(<p key ={k} >Course coordinator: <a href={environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[j].url} target="_blank" rel="noopener noreferrer">{environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[j].name}</a></p>);
+                    k +=1;
                 }
             } else {             
                 {/*case for there is only 1 course coordinator */}
-                advancedCourses.push(<p>Course coordinator: <a href={environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[0].url}target="_blank" rel="noopener noreferrer">{environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[0].name}</a></p>);
+                advancedCourses.push(<p key = {k}>Course coordinator: <a href={environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[0].url}target="_blank" rel="noopener noreferrer">{environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[0].name}</a></p>);
             }
+            k +=1;
 
             {/* displaying all prerequisite for the course */}
             for (let j = 0; j < environmentElective.advanced.course[i].prerequisites.prerequisite.length; j++){
@@ -69,14 +75,15 @@ const Elective = () =>{
                     {/*get the prerequisite course information then set the course name and url as a link */}
 
                     prerequisite = getPrerequisite(environmentElective.advanced.course[i].prerequisites.prerequisite[j].id);
-                    advancedCourses.push(<p>Prerequisite: <a href={prerequisite.url} target="_blank" rel="noopener noreferrer"> {prerequisite.name} ({prerequisite.id})</a></p>);
+                    advancedCourses.push(<p key={k}>Prerequisite: <a href={prerequisite.url} target="_blank" rel="noopener noreferrer"> {prerequisite.name} ({prerequisite.id})</a></p>);
                 } else {
 
                     {/*case for there is no prerequisite */}
-                    advancedCourses.push(<p>Prerequisite: N/A</p>);
+                    advancedCourses.push(<p key={k}>Prerequisite: N/A</p>);
                 }
+                k +=1;
             }
-            advancedCourses.push(<p>More information about the course: <a href={environmentElective.advanced.course[i].url} target="_blank" rel="noopener noreferrer">Link</a></p>);
+            advancedCourses.push(<p key={environmentElective.advanced.course[i].url}>More information about the course: <a href={environmentElective.advanced.course[i].url} target="_blank" rel="noopener noreferrer">Link</a></p>);
         }
     }
 
