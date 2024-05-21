@@ -314,12 +314,17 @@ function displayCourseUI(course) {
 
     if (course.id != null) {
       // check the parameter has id (for checking course id)
-      var courseUI = window.open("", "_blank", "width=600, height=400"); 
-      courseUI.document.write("<div id ='courseUI'>");
+      var courseUI = window.open("", "_blank", "width=600, height=400");
+      courseUI.document.write('<html><head><title>' + course.name + '</title>');
+      //courseUI.document.write('<link rel="stylesheet" type="text/css" href="./Home.css">'); reading css or scss file did not work with window.open. Writing directly in here only worked
+      courseUI.document.write('<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }');
+      courseUI.document.write('a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>');
+      courseUI.document.write('</head><body>');
+      courseUI.document.write("<div class ='container'>");
 
       courseUI.document.write("<h3>" + course.name + "</h3>");
       courseUI.document.write("<p>Course ID: " + course.id + "</p>");
-
+      
       if (course.courseCoordinators.courseCoordinator.length != 1) {
         // Check the course has multiple coordinators
         for (let i = 0; i < course.courseCoordinators.courseCoordinator.length; i++) {
@@ -342,7 +347,6 @@ function displayCourseUI(course) {
           // get the prerequisite course information then set the course name and url as a link
           var prerequisite = getPrerequisite(course.prerequisites.prerequisite[i].id);
           courseUI.document.write("<p>Prerequisite: <a href="+ prerequisite.url +' target="_blank" rel="noopener noreferrer">'+prerequisite.name + " (" + prerequisite.id+ ")</a></p>");
-
         } else {
           // case for the course does not have prerequisite
           courseUI.document.write("<p>Prerequisite: N/A</p>");
@@ -360,17 +364,26 @@ function displayCourseUI(course) {
       }
       // display the link for the Uni SA's course page
       courseUI.document.write("<p>More information about the course: <a href="+course.url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
+      courseUI.document.write("</div>");
+      courseUI.document.write('</body></html>');
     }
   }
+  
   function displayElectiveUI(){
     // display UI for elective information with the related event
     // source data is came from "src\assets\lbvt.json"
     
+
     const electiveData = data.repository.assistances.elective;
     var undergraduateElective = electiveData.electiveCourses.undergraduate;
 
     var courseUI = window.open('', '_blank', 'width=600, height=400');
-    courseUI.document.write("<div className='electiveUI'>");
+    courseUI.document.write('<html><head><title>Electives</title>');
+    courseUI.document.write('<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }');
+    courseUI.document.write('.Intermediate{margin-top: 20px;margin-left: 50px; } .Advanced{margin-top: 20px;margin-left: 50px; } ');
+    courseUI.document.write('a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>');
+    courseUI.document.write('</head><body>');
+    courseUI.document.write("<div class ='container'>");
     courseUI.document.write("<h2>Elective</h2>");
     courseUI.document.write("<p>You can find the courses' information for electives.</p>");
 
@@ -386,16 +399,17 @@ function displayCourseUI(course) {
       var environmentElective = electiveData.electiveCourses.environmental;
       //console.log("has enviromnemtal")
       courseUI.document.write("<div className='environmental'>");
-      courseUI.document.write("<h3>Environment electives</h3>");  // section for intermediate electives
+      courseUI.document.write("<h3>Environment electives</h3>");  
 
-      courseUI.document.write("<div id ='Intermediate' display: block;>");
-      courseUI.document.write("<p><b>Intermediate</b></p>");
+      // section for intermediate electives
+      courseUI.document.write("<p><b>Intermediate Elective</b></p>");
+      courseUI.document.write("<div class ='Intermediate' display: block;>");
       for (let i = 0; i < environmentElective.intermediate.course.length; i++){
         courseUI.document.write("<h4>"+environmentElective.intermediate.course[i].name+"</h4>");
         courseUI.document.write("<p>course ID: "+environmentElective.intermediate.course[i].id +"</p>");
 
         if (environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator.length > 1){
-                      // display all information for course coordinators in the course
+          // display all information for course coordinators in the course
           for (let j = 0; j <environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator.length; j++){
             courseUI.document.write("<p>Course coordinator: <a href="+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[j].url +' target="_blank" rel="noopener noreferrer">'+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[j].name +"</a></p>");
           }
@@ -403,24 +417,24 @@ function displayCourseUI(course) {
           // case for there is only 1 course coordinator
           courseUI.document.write("<p>Course coordinator: <a href="+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[0].url +' target="_blank" rel="noopener noreferrer">'+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[0].name +"</a></p>");
         }
-        
+
         for (let j = 0; j < environmentElective.intermediate.course[i].prerequisites.prerequisite.length; j++){
           // displaying all prerequisite for the course
           if (environmentElective.intermediate.course[i].prerequisites.prerequisite[j].id != null){ 
             // get the prerequisite course information then set the course name and url as a link
             var prerequisite = getPrerequisite(environmentElective.intermediate.course[i].prerequisites.prerequisite[j].id);
             courseUI.document.write("<p>Prerequisite: <a href="+ prerequisite.url +' target="_blank" rel="noopener noreferrer">'+prerequisite.name + " (" + prerequisite.id+ ")</a></p>");
-          } else {
+            } else {
             // case for there is no prerequisite
             courseUI.document.write("<p>Prerequisite: N/A</p>");
           }
         }
         courseUI.document.write("<p>More information about the course: <a href="+environmentElective.intermediate.course[i].url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
       }
-      courseUI.document.write("</div>");      
-
-      courseUI.document.write("<div id='Advanced' display: none;>"); // section for advanced electives
-      courseUI.document.write("<p><b>Advanced</b></p>"); 
+      courseUI.document.write("</div>");   
+      
+      courseUI.document.write("<p><b>Advanced Elective</b></p>"); 
+      courseUI.document.write("<div class='Advanced' display: block;>"); // section for advanced electives
       for (let i = 0; i < environmentElective.advanced.course.length; i++){
       // display all courses for advanced elective
         courseUI.document.write("<h4>"+environmentElective.advanced.course[i].name+"</h4>");
@@ -435,7 +449,7 @@ function displayCourseUI(course) {
           // case for there is only 1 course coordinator
           courseUI.document.write("<p>Course coordinator: <a href="+environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[0].url +' target="_blank" rel="noopener noreferrer">'+environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[0].name +"</a></p>");
         }
-        
+
         for (let j = 0; j < environmentElective.advanced.course[i].prerequisites.prerequisite.length; j++){
           // displaying all prerequisite for the course
           if (environmentElective.advanced.course[i].prerequisites.prerequisite[j].id != null){ 
@@ -457,128 +471,107 @@ function displayCourseUI(course) {
       courseUI.document.write("</div>");
     }
     courseUI.document.write("</div>");
+    courseUI.document.write("</div>");
+    courseUI.document.write('</body></html>');
 }
-
 
   function displayAlumniUI() {
     // display UI for Alumni information with the related event
     // source data is came from "src\assets\lbvt.json"
     const alumniData = data.repository.alumnus;
-    console.log(data.repository);
-    var courseUI = window.open("", "_blank", "width=600, height=400"); // need to consider to change design
-    courseUI.document.write("<div id ='alumniUI'>");
+    var courseUI = window.open('', '_blank', 'width=600, height=400'); 
+    courseUI.document.write('<html><head><title>Alumni</title>');
+    courseUI.document.write('<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }');
+    courseUI.document.write('a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>');
+    courseUI.document.write('</head><body>');
+    courseUI.document.write("<div class ='container'>");
 
     courseUI.document.write("<h2>Alumni</h2>");
-    if ("alumni" in alumniData) {
-      for (let i = 0; i < alumniData.alumni.length; i++) {
+    if ("alumni" in alumniData){
+      for (let i = 0; i < alumniData.alumni.length; i ++){
         courseUI.document.write("<p>" + alumniData.alumni[i].name + "<br/>");
-        courseUI.document.write(
-          "<a href=" +
-            alumniData.alumni[i].url +
-            ' target="_blank" rel="noopener noreferrer">Link</a></p>'
-        );
+        courseUI.document.write("<a href=" + alumniData.alumni[i].url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
       }
     } else {
       courseUI.document.write("<p>Oops, There is no data for Alumni.<p/>");
     }
     courseUI.document.write("</div>");
+    courseUI.document.write('</body></html>');
   }
 
   function displayIndustryUI() {
     // display UI for industry information with the related event
     // source data is came from "src\assets\lbvt.json"
     const industryData = data.repository.industries;
-    var courseUI = window.open("", "_blank", "width=600, height=400"); // need to consider to change design
-    courseUI.document.write("<div id ='industryUI'>");
+    var courseUI = window.open('', '_blank', 'width=600, height=400'); 
+    courseUI.document.write('<html><head><title>Industry</title>');
+    courseUI.document.write('<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }');
+    courseUI.document.write('.Partner{ margin-top: 20px;margin-left: 50px; } .Associations{margin-top: 20px;margin-left: 50px;}');
+    courseUI.document.write('a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>');
+    courseUI.document.write('</head><body>');
+    courseUI.document.write("<div class ='container'>");
 
-    courseUI.document.write("<h2>Industry</h2>");
-    courseUI.document.write(
-      "<p>You can check partner companies from list below.</p>"
-    );
-    if ("partner" in industryData) {
-      courseUI.document.write("<h3>Partner companies</h3>");
-      for (let i = 0; i < industryData.partner.length; i++) {
-        // display all partner companies which are on the Uni SA's web page
-        courseUI.document.write(
-          "<p>" + "Name: " + industryData.partner[i].name + "<br/>"
-        );
-        if (industryData.partner[i].url != null) {
-          // display all partners url links, Only if we could found the page.
-          courseUI.document.write(
-            "<a href=" +
-              industryData.partner[i].url +
-              ' target="_blank" rel="noopener noreferrer">Link</a></p>'
-          );
+    courseUI.document.write("<h2><b>Industry</b></h2>");
+    courseUI.document.write("<p>You can check partner companies from list below.</p>");
+    if ("partner" in industryData){ 
+      courseUI.document.write("<h3><b>Partner companies</b></h3>");
+      courseUI.document.write('<div class = Partner>');
+      for (let i = 0; i < industryData.partner.length; i ++){ // display all partner companies which are on the Uni SA's web page
+        if (industryData.partner[i].url != null){ // display all partners url links, Only if we could found the page.
+          courseUI.document.write("<p>" + "Name: <a href=" + industryData.partner[i].url +' target="_blank" rel="noopener noreferrer">'+ industryData.partner[i].name +'</a></p>');
+        } else {
+          courseUI.document.write("<p>" + "Name: " + industryData.partner[i].name + "<br/>");
         }
       }
-      courseUI.document.write("<h3>Related associations</h3>");
-      for (let i = 0; i < industryData.associations.association.length; i++) {
-        // display the related associations for the program
-        courseUI.document.write(
-          "<p>" +
-            "Name: " +
-            industryData.associations.association[i].name +
-            "<br/>"
-        );
-        if (industryData.associations.association[i].url != null) {
-          courseUI.document.write(
-            "<a href=" +
-              industryData.associations.association[i].url +
-              ' target="_blank" rel="noopener noreferrer">Link</a></p>'
-          );
+      courseUI.document.write('</div>');
+      courseUI.document.write("<h3><b>Related associations</b></h3>");
+      courseUI.document.write('<div class = Associations>');
+      for (let i = 0; i < industryData.associations.association.length; i++){ // display the related associations for the program
+
+        if (industryData.associations.association[i].url != null){
+          courseUI.document.write("<p>Name: <a href=" + industryData.associations.association[i].url +' target="_blank" rel="noopener noreferrer">'+ industryData.associations.association[i].name +'</a></p>');
+        } else {
+          courseUI.document.write("<p>" + "Name: " + industryData.associations.association[i].name + "</p>");
         }
-      }
+    }
+    courseUI.document.write('</div>');
     } else {
       courseUI.document.write("<p>Oops, There is no data for Industry.<p/>");
     }
     courseUI.document.write("</div>");
+    courseUI.document.write('</body></html>');
   }
 
   function displayWelcomeUI() {
     // display UI for the welcome message, and youtube videos which are related to LBVT in UniSA's youtube account
     // source data is came from "src\assets\lbvt.json"
     const welcomeData = data.repository.welcome;
-    var courseUI = window.open("", "_blank", "width=800, height=650"); // need to consider to change design
-    courseUI.document.write(
-      "<head>" +
-        '<meta http-equiv="Permissions-Policy" content="*">' +
-        "</head>"
-    );
-    courseUI.document.write("<div id ='welcomeUI'>");
+    var courseUI = window.open('', '_blank', 'width=800, height=650');
+    courseUI.document.write('<html><head><title>Welcome</title><meta http-equiv="Permissions-Policy" content="*">');
+    courseUI.document.write('<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }');
+    courseUI.document.write('.Videos{ margin-top: 20px; margin-left: 50px;}');
+    courseUI.document.write('a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>');
+    courseUI.document.write('</head><body>');
+    courseUI.document.write("<div class ='container'>");
 
-    courseUI.document.write("<h2>Welcome to " + welcomeData.name + "</h2>");
-    courseUI.document.write(
-      "<p>You can find information from each building on the map.</p>"
-    );
-    courseUI.document.write(
-      "<p>In this building, you can check videos that are related to the program.</p>"
-    );
+    courseUI.document.write("<h2>Welcome to "+ welcomeData.name+ "</h2>");
+    courseUI.document.write("<p>You can check videos that are related to the program.</p>"); 
 
     courseUI.document.write("<h3>Video</h3>");
-    console.log(welcomeData.videos.video.length);
-
-    if ("videos" in welcomeData) {
-      // need to change here after modify py code
-      for (let i = 0; i < welcomeData.videos.video.length; i++) {
-        courseUI.document.write("<div id ='video'>");
-        courseUI.document.write(
-          "<p><b>" + welcomeData.videos.video[i].name + "</b></p>"
-        );
-        courseUI.document.write(
-          '<iframe width="560" height="315" src="' +
-            welcomeData.videos.video[i].embd +
-            '" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
-        );
+    courseUI.document.write("<div class ='Videos'>");
+    if ("videos" in welcomeData){ // need to change here after modify py code
+      for (let i = 0; i < welcomeData.videos.video.length; i ++){
+        courseUI.document.write("<p><b>" + welcomeData.videos.video[i].name + "</b></p>");
+        courseUI.document.write('<iframe width="560" height="315" src="' + welcomeData.videos.video[i].embd+'" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>');
         //courseUI.document.write("<p>Your browser doesn't support HTML video. Here is a <a href="+ welcomeData.videos.video[i].url + ">link to the video</a> instead.</p>");
-        courseUI.document.write("</div>");
       }
     } else {
-      courseUI.document.write(
-        "<p>Oops, There is no data for video to display.<p/>"
-      );
+      courseUI.document.write("<p>Oops, There is no data for video to display.</p>");
     }
     courseUI.document.write("</div>");
-  }
+    courseUI.document.write("</div>");
+    courseUI.document.write('</body></html>');
+}
 function getPrerequisite(courseID){
   // search and return the prerequisite course which is in general course.
   // parameter: course ID as string (ex:GEOE2026)
