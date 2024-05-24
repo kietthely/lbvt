@@ -33,17 +33,18 @@ function getCoursesData(courses_data) {
 }
 function findConnection(courseId, courses) {
   let connectedCourses = new Set();
-  for (let course of courses) {
+  for (let i = 0; i < courses.length; i++) {
+    let course = courses[i];
     if (
       course.prerequisites &&
       Array.isArray(course.prerequisites.prerequisite)
     ) {
       for (let prerequisite of course.prerequisites.prerequisite) {
         if (prerequisite.id === courseId) {
-          connectedCourses.add(course);
+          connectedCourses.add(i + 1);
           let newConnections = findConnection(course.id, courses);
-          newConnections.forEach((connectedCourse) =>
-            connectedCourses.add(connectedCourse)
+          newConnections.forEach((connectedCourseIndex) =>
+            connectedCourses.add(connectedCourseIndex)
           );
         }
       }
@@ -106,6 +107,7 @@ const Home = () => {
     );
     outlinePass.visibleEdgeColor.set("#39FF14");
     outlinePass.hiddenEdgeColor.set("#39FF14");
+    outlinePass.edgeThickness = 2.0;
     composer.addPass(outlinePass);
 
     // Camera controls by mouse
@@ -160,138 +162,438 @@ const Home = () => {
       raycaster.setFromCamera(mouse, cam);
 
       // Calculate objects intersecting the picking ray
+      // const intersects = raycaster.intersectObjects(scene.children, true);
+      // if (intersects.length > 0) {
+      //   const selectedObject = intersects[0].object.parent.parent;
+      //   console.log(selectedObject.userData);
+      //   outlinePass.selectedObjects = [selectedObject];
+      // }
       const intersects = raycaster.intersectObjects(scene.children, true);
       if (intersects.length > 0) {
-        const selectedObject = intersects[0].object.parent.parent;
-        console.log(selectedObject.userData);
-        outlinePass.selectedObjects = [selectedObject];
+        let selectedObject = intersects[0].object;
+        while (selectedObject) {
+          if (/^building_\d+$/.test(selectedObject.name)) {
+            console.log(selectedObject.userData);
+            outlinePass.selectedObjects = [selectedObject];
+            break;
+          } else if (selectedObject.name === "elective_lbvt") {
+            outlinePass.selectedObjects = [selectedObject];
+            break;
+          } else if (selectedObject.name === "alumni_lbvt") {
+            outlinePass.selectedObjects = [selectedObject];
+            break;
+          } else if (selectedObject.name === "industry_lbvt") {
+            outlinePass.selectedObjects = [selectedObject];
+            break;
+          }
+          selectedObject = selectedObject.parent;
+        }
       }
-
+      let connectedCourses;
       // console.log(intersects[0].object.parent.parent.userData);
       // if year1_sp2_building_1, year1_sp2_building_2, year1_sp2_building_3, year1_sp2_building_4
       switch (intersects[0].object.parent.parent.name) {
         // for year1 sp2
         case "building_1":
-          let connectedCourses = findConnection(
+          connectedCourses = findConnection(
             course_data_list[0].id,
             course_data_list
           );
-          console.log(connectedCourses);
-          const building4 = buildings["building_11"];
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
 
-          if (building4) {
-            building4.traverse(function (object) {
-              object.fog = false; // ignore fog effect
-            });
-            outlinePass.selectedObjects.push(building4);
-          }
-          displayCourseUI(course_data_list, connectedCourses);
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+
+          // displayCourseUI(course_data_list, connectedCourses);
           break;
         case "building_2":
-          console.log("year1_sp2_building_2 clicked");
-          console.log(courses_data[1]);
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[1].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_3":
-          console.log("year1_sp2_building_3 clicked");
-          console.log(courses_data[2]);
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[2].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_4":
-          console.log("year1_sp2_building_4 clicked");
-          console.log(courses_data[3]);
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[3].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         // for year1 sp5
         case "building_5":
-          console.log("year1_sp5_building_1 clicked");
-          console.log(courses_data);
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[4].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_6":
-          console.log("year1_sp5_building_2 clicked");
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[5].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          }); // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_7":
-          console.log("year1_sp5_building_3 clicked");
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[6].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_8":
-          console.log("year1_sp5_building_4 clicked");
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[7].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
 
         // for year2 sp2
         case "building_9":
-          console.log("year2_sp2_building_1 clicked");
+          connectedCourses = findConnection(
+            course_data_list[8].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
 
-          displayCourseUI(intersects[0].object.parent.userData);
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          console.log(connectedCourses);
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_10":
-          console.log("year2_sp2_building_2 clicked");
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[9].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_11":
-          console.log("year2_sp2_building_3 clicked");
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[10].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_12":
-          console.log("year2_sp2_building_4 clicked");
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[11].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
 
         // for year2 sp5
         case "building_13":
-          console.log("year2_sp5_building_1 clicked");
+          connectedCourses = findConnection(
+            course_data_list[12].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
 
-          displayCourseUI(intersects[0].object.parent.userData);
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_14":
-          console.log("year2_sp5_building_2 clicked");
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[13].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_15":
-          console.log("year2_sp5_building_3 clicked");
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[14].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_16":
-          console.log("year2_sp5_building_4 clicked");
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[15].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
 
         // for year3 sp2
         case "building_17":
-          console.log("year3_sp2_building_1 clicked");
-          console.log(intersects[0].object.parent.userData);
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[16].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_18":
-          console.log("year3_sp2_building_2 clicked");
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[17].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_19":
-          console.log("year3_sp2_building_3 clicked");
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[18].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_20":
-          console.log("year3_sp2_building_4 clicked");
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[19].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
 
         // for year3 sp5
         case "building_21":
-          console.log("year3_sp5_building_1 clicked");
-          console.log(intersects[0].object.parent.userData);
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[20].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_22":
-          console.log("year3_sp5_building_2 clicked");
-          console.log(intersects[0].object.parent.userData);
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[21].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_23":
-          console.log("year3_sp5_building_3 clicked");
-          displayCourseUI(intersects[0].object.parent.userData);
+          connectedCourses = findConnection(
+            course_data_list[22].id,
+            course_data_list
+          );
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
 
         // for Elective
@@ -370,75 +672,6 @@ const Home = () => {
       controls.current.reset();
     }
   };
-  function displayCourseUI(evt, connectedCourses) {
-    const evt_data = evt[0];
-    if (evt_data.id != null) {
-      var courseUI = window.open("", "_blank", "width=600, height=400");
-      courseUI.document.write("<div id ='courseUI'>");
-
-      courseUI.document.write("<p>" + "Course Name: " + evt_data.name + "</p>");
-      courseUI.document.write("<p>" + "Course ID: " + evt_data.id + "</p>");
-
-      for (let courseCoordinator of evt_data.courseCoordinators
-        .courseCoordinator) {
-        courseUI.document.write(
-          "<p>" + "Course coordinator: " + courseCoordinator.name + "</p>"
-        );
-        courseUI.document.write(
-          "<p>" +
-            "More information: " +
-            "<a href=" +
-            courseCoordinator.url +
-            ' target="_blank" rel="noopener noreferrer">Link</a></p>'
-        );
-      }
-
-      if (evt_data.prerequisites.prerequisite[0].id) {
-        courseUI.document.write(
-          "<p>" +
-            "Prerequisite : " +
-            evt_data.prerequisites.prerequisite[0].id +
-            "</p>"
-        );
-      } else {
-        courseUI.document.write("<p>" + "Prerequisite : N/A </p>");
-      }
-      let courseList = "";
-      for (let course of connectedCourses) {
-        courseList += "<br>" + course.id + " " + course.name + " ";
-      }
-
-      courseUI.document.write(
-        "<p>" +
-          evt_data.name +
-          " is a prerequisite to learn " +
-          courseList +
-          "</p>"
-      );
-      courseUI.document.write(
-        "<p>" +
-          "Course web page: " +
-          "<a href=" +
-          evt_data.url +
-          ' target="_blank" rel="noopener noreferrer">Link</a></p>'
-      );
-
-      if (evt_data.notes.note) {
-        courseUI.document.write(
-          "<p>" + "Note: " + evt_data.notes.note + "</p>"
-        );
-      }
-
-      if (evt_data.rules.rule) {
-        courseUI.document.write(
-          "<p>" + "Rule: " + evt_data.rules.rule + "</p>"
-        );
-      }
-
-      courseUI.document.write("</div>");
-    }
-  }
-
   return (
     <div>
       {/*Put the model to background.
