@@ -1,30 +1,39 @@
-import React from "react";
+// FileUpload.jsx
+import React, { useState } from "react";
 
-class UploadFile extends React.Component {
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const file = this.fileInput.files[0];
-    const formData = new FormData();
-    formData.append("file", file);
-    fetch("/upload", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Do something with the JSON data
-        console.log(data);
-      });
+const UploadFile = ({ onUpload, onNext }) => {
+  const [selectedFiles, setSelectedFiles] = useState(null);
+
+  const handleFileChange = (event) => {
+    setSelectedFiles(event.target.files);
   };
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="file" ref={(input) => (this.fileInput = input)} />
-        <button type="submit">Upload</button>
-      </form>
-    );
-  }
-}
+  const handleUpload = async () => {
+    const formData = new FormData();
+    Array.from(selectedFiles).forEach((file) => {
+      formData.append("files", file);
+    });
+
+    const response = await fetch("/upload", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+    onUpload(data);
+  };
+
+  return (
+    <div>
+      <input type="file" multiple onChange={handleFileChange} />
+      <button className="btn" onClick={handleUpload}>
+        Upload
+      </button>
+      <button className="btn" onClick={onNext}>
+        Next
+      </button>
+    </div>
+  );
+};
 
 export default UploadFile;
