@@ -107,138 +107,215 @@ const Home = () => {
       console.log(courses_data);
 
       // if year1_sp2_building_1, year1_sp2_building_2, year1_sp2_building_3, year1_sp2_building_4
+      let connectedCourses;
+      let buildingId;
       switch (intersects[0].object.parent.name) {
+          
         // for year1 sp2
-        case "year1_sp2_building_1": {
-          const y1_sp2_course_1 = courses_data.year1.sp2.course[0];
-          displayCourseUI(y1_sp2_course_1);
-          }
-          break;
-        case "year1_sp2_building_2":{
-          const y1_sp2_course_2 = courses_data.year1.sp2.course[1];
-          displayCourseUI(y1_sp2_course_2);
-          }
-          break;
-        case "year1_sp2_building_3": {
-          const y1_sp2_course_3 = courses_data.year1.sp2.course[2];
-          displayCourseUI(y1_sp2_course_3);
-          }
-          break;
-        case "year1_sp2_building_4": {
-          const y1_sp2_course_4 = courses_data.year1.sp2.course[3];
-          displayCourseUI(y1_sp2_course_4);
-          }
-          break;
+        case "building_1":
+          buildingId = 0;
+          connectedCourses = findConnection(
+            course_data_list[0].id,
+            course_data_list
+          );
+          console.log(connectedCourses);
+          const building4 = buildings["building_11"];
 
+          if (building4) {
+            building4.traverse(function (object) {
+              object.fog = false; // ignore fog effect
+            });
+            outlinePass.selectedObjects.push(building4);
+          }
+          displayCourseUI(course_data_list, connectedCourses, buildingId);
+          break;
+          
+        case "building_2":
+          buildingId = 1;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          break;
+        case "building_3":
+          buildingId=2;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          break;
+        case "building_4":
+          buildingId = 3;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          break;
         // for year1 sp5
-        case "year1_sp5_building_1": {
-          const y1_sp5_course_1 = courses_data.year1.sp5.course[0];
-          displayCourseUI(y1_sp5_course_1);
-          }
+        case "building_5":
+          buildingId = 4;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
-        case "year1_sp5_building_2": {
-          const y1_sp5_course_2 = courses_data.year1.sp5.course[1];
-          displayCourseUI(y1_sp5_course_2);
-          }
+        case "building_6":
+          buildingId = 5;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
-        case "year1_sp5_building_3": {
-          const y1_sp5_course_3 = courses_data.year1.sp5.course[2];
-          displayCourseUI(y1_sp5_course_3);
-          }
+        case "building_7":
+          buildingId = 6;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
-        case "year1_sp5_building_4": {
-          const y1_sp5_course_4 = courses_data.year1.sp5.course[3];
-          displayCourseUI(y1_sp5_course_4);
-          }
+        case "building_8":
+          buildingId = 7;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
 
         // for year2 sp2
-        case "year2_sp2_building_1": {
-          const y2_sp2_course_1 = courses_data.year2.sp2.course[0];
-          displayCourseUI(y2_sp2_course_1);
-          }
-
+        case "building_9":
+          buildingId = 8;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
-        case "year2_sp2_building_2": {
-          const y2_sp2_course_2 = courses_data.year2.sp2.course[1];
-          displayCourseUI(y2_sp2_course_2);
-          }
+        case "building_10":
+          buildingId = 9;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
-        case "year2_sp2_building_3": {
-          const y2_sp2_course_3 = courses_data.year2.sp2.course[2];
-          displayCourseUI(y2_sp2_course_3);
-          }
+        case "building_11":
+          buildingId = 10;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
-        case "year2_sp2_building_4": {
-          const y2_sp2_course_4 = courses_data.year2.sp2.course[3];
-          displayCourseUI(y2_sp2_course_4);
-          }
+        case "building_12":
+          buildingId = 11;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
 
         // for year2 sp5
-        case "year2_sp5_building_1": {
-          const y2_sp5_course_1 = courses_data.year2.sp5.course[0];
-          displayCourseUI(y2_sp5_course_1);
-          }
+        case "building_13":
+          buildingId = 12;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
-        case "year2_sp5_building_2": {
-          const y2_sp5_course_2 = courses_data.year2.sp5.course[1];
-          displayCourseUI(y2_sp5_course_2);
-          }
+        case "building_14":
+          buildingId = 13;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
-        case "year2_sp5_building_3": {
-          const y2_sp5_course_3 = courses_data.year2.sp5.course[2];
-          displayCourseUI(y2_sp5_course_3);
-          }
+        case "building_15":
+          buildingId = 14;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
-        case "year2_sp5_building_4": {
-          const y2_sp5_course_4 = courses_data.year2.sp5.course[3];
-          displayCourseUI(y2_sp5_course_4);
-          }
+        case "building_16":
+          buildingId = 15;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
 
         // for year3 sp2
-        case "year3_sp2_building_1": {
-          const y3_sp2_course_1 = courses_data.year3.sp2.course[0];
-          displayCourseUI(y3_sp2_course_1);
-          }
+        case "building_17":
+          buildingId = 16;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
-        case "year3_sp2_building_2": {
-          const y3_sp2_course_2 = courses_data.year3.sp2.course[1];
-          displayCourseUI(y3_sp2_course_2);
-          }
+        case "building_18":
+          buildingId = 17;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
-        case "year3_sp2_building_3": {
-          const y3_sp2_course_3 = courses_data.year3.sp2.course[2];
-          displayCourseUI(y3_sp2_course_3);
-          }
+        case "building_19":
+          buildingId = 18;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
-        case "year3_sp2_building_4": {
-          const y3_sp2_course_4 = courses_data.year3.sp2.course[3];
-          displayCourseUI(y3_sp2_course_4);
-          }
+        case "building_20":
+          buildingId = 19;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
 
         // for year3 sp5
-        case "year3_sp5_building_1": {
-          console.log("year3_sp5_building_1 clicked");
-          const y3_sp5_course_1 = courses_data.year3.sp5.course[0];
-          displayCourseUI(y3_sp5_course_1);
-          }
+        case "building_21":
+          buildingId = 20;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
-        case "year3_sp5_building_2": {
-          console.log("year3_sp5_building_2 clicked");
-          const y3_sp5_course_2 = courses_data.year3.sp5.course[1];
-          displayCourseUI(y3_sp5_course_2);
-          }
+        case "building_22":
+          buildingId = 21;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
-        case "year3_sp5_building_3": {
-          console.log("year3_sp5_building_3 clicked");
-          const y3_sp5_course_3 = courses_data.year3.sp5.course[2];
-          displayCourseUI(y3_sp5_course_3);
-          }
+        case "building_23":
+          buildingId = 22;
+          connectedCourses = findConnection(
+            course_data_list[buildingId].id,
+            course_data_list
+          );
+          displayCourseUI(course_data_list,connectedCourses, buildingId);
           break;
-
+          
         // for Elective
         case "elective_lbvt":
           console.log("elective clicked");
@@ -319,50 +396,89 @@ const Home = () => {
     }
   };
 
-  function displayCourseUI(course) {
-    // display UI for course information with the related event
-    // parameter: -> the course as object (course information from click event with course building)
-    
-    if (course.id != null) {
-      // check the parameter has id (for checking course id)
-      var courseUI = window.open("", "_blank", "width=600, height=400");
-      courseUI.document.write('<html><head><title>' + course.name + '</title>');
-      //courseUI.document.write('<link rel="stylesheet" type="text/css" href="./Home.css">'); reading css or scss file did not work with window.open. Writing directly in here only worked
+   function displayCourseUI(evt, connectedCourses, id) {
+    const evt_data = evt[id];
+    //console.log(evt);
+    if (evt_data.id != null) {
+      var courseUI = window.open("", "_blank", "width=700, height=600");
+      courseUI.document.write('<html><head><title>' + evt_data.name + '</title>');
+      //courseUI.document.write('<link rel="stylesheet" type="text/css" href="./Home.css">'); reading css or scss file did not work with window.open. Writing css directly in here only worked
       courseUI.document.write('<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }');
       courseUI.document.write('a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>');
       courseUI.document.write('</head><body>');
       courseUI.document.write("<div class ='container'>");
 
-      courseUI.document.write("<h3>" + course.name + "</h3>");
-      courseUI.document.write("<p>Course ID: " + course.id + "</p>");
-      
-      if (course.courseCoordinators.courseCoordinator.length != 1) {
-        // Check the course has multiple coordinators
-        for (let i = 0; i < course.courseCoordinators.courseCoordinator.length; i++) {
-          // display all course coordinator's information
-          courseUI.document.write("<p>Course coordinator: <a href="+course.courseCoordinators.courseCoordinator[i].url +' target="_blank" rel="noopener noreferrer">'+course.courseCoordinators.courseCoordinator[i].name +"</a></p>");
-        }
-      } else {
-        // case for there is only 1 course coordinator
-        if (course.courseCoordinators.courseCoordinator[0].name != null){
-          courseUI.document.write("<p>Course coordinator: <a href="+course.courseCoordinators.courseCoordinator[0].url +' target="_blank" rel="noopener noreferrer">'+course.courseCoordinators.courseCoordinator[0].name +"</a></p>");
+      courseUI.document.write("<h3>" + evt_data.name + "</h3>");
+      courseUI.document.write("<p>" + "Course ID: " + evt_data.id + "</p>");
+
+      for (let courseCoordinator of evt_data.courseCoordinators
+        .courseCoordinator) {
+        if (courseCoordinator.name != null){ // To avoid displaying null value for Electives
+          courseUI.document.write(
+            "<p>" +
+              "Course coordinator: " +
+              "<a href=" +
+              courseCoordinator.url +
+              ' target="_blank" rel="noopener noreferrer">' + courseCoordinator.name + '</a></p>'
+          );
+        } 
+
+      }
+      // display all prerequisite information
+      for (let i = 0; i < evt_data.prerequisites.prerequisite.length; i++) {
+        if (evt_data.prerequisites.prerequisite[0].id) {
+          var prerequisite = getPrerequisite(evt_data.prerequisites.prerequisite[i].id);
+          courseUI.document.write(
+            "<p>" +
+            "Prerequisite : " +
+            prerequisite.id + 
+            " " +
+            "<a href="+ prerequisite.url +' target="_blank" rel="noopener noreferrer">'+ prerequisite.name + "</a>" +
+            "</p>"
+          );
         } else {
-          // case for the course does not have course coordinator (ex. elective courses)
-          courseUI.document.write("<p>Course coordinator: N/A</p>");
+          courseUI.document.write("<p>" + "Prerequisite : N/A </p>");
         }
       }
-        
-      for (let i = 0; i < course.prerequisites.prerequisite.length; i++) {
-        // display all prerequisite information
-        if (course.prerequisites.prerequisite[i].id != null){
-          // get the prerequisite course information then set the course name and url as a link
-          var prerequisite = getPrerequisite(course.prerequisites.prerequisite[i].id);
-          courseUI.document.write("<p>Prerequisite: <a href="+ prerequisite.url +' target="_blank" rel="noopener noreferrer">'+prerequisite.name + " (" + prerequisite.id+ ")</a></p>");
-        } else {
-          // case for the course does not have prerequisite
-          courseUI.document.write("<p>Prerequisite: N/A</p>");
-        }
+      let courseList = "";
+      for (let course of connectedCourses) {
+        courseList += "<br>" + course.id + " " + "<a href="+ course.url +' target="_blank" rel="noopener noreferrer">'+ course.name + "</a>" + " ";
       }
+      if (courseList.length > 0){
+        courseUI.document.write(
+          "<p>" +
+            evt_data.name +
+            " is a prerequisite to learn " +
+            courseList +
+            "</p>"
+        );
+      }
+
+      courseUI.document.write(
+        "<p>" +
+          "Course web page: " +
+          "<a href=" +
+          evt_data.url +
+          ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+      );
+
+      if (evt_data.notes.note) {
+        courseUI.document.write(
+          "<p>" + "Note: " + evt_data.notes.note + "</p>"
+        );
+      }
+
+      if (evt_data.rules.rule) {
+        courseUI.document.write(
+          "<p>" + "Rule: " + evt_data.rules.rule + "</p>"
+        );
+      }
+
+      courseUI.document.write("</div>");
+      courseUI.document.write("</div>");
+      courseUI.document.write('</body></html>');
+    }
+  }
 
       if (course.notes.note != null){
         // check the course has specific information as note.
