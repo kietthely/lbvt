@@ -1,21 +1,6 @@
 .control-panel {
-  border: 2px solid #000; // Change the color as needed
-  padding: 10px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
   align-items: center;
-  justify-content: flex-start;
-  background-color: #fff; // Change the color as needed
-  width: 206px; // Adjust this value as needed
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(100%); // Shift up by half of its own height
-
-  .btn-control {
-    margin: 5px;
-    width: 80px; // Adjust this value as needed
-  }
 }

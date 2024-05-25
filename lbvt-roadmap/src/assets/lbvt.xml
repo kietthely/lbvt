@@ -626,6 +626,13 @@
             <url>https://study.unisa.edu.au/electives/iee</url>
             <electiveCourses>
                 <environmental>
+		    <notes>
+                        <note>Not all electives will be offered every year. Other options not listed here may only be taken with the prior agreement of the Program Director.</note>
+                    <notes>
+                    <rules>
+                        <rule>Students must complete at least three Advanced Environmental Electives.</rule>
+                    </rules>
+                    <url>https://study.unisa.edu.au/degrees/bachelor-of-environmental-science</url>
                     <advanced>                   
                         <course>
                             <id>EART3020</id> 
@@ -974,35 +981,41 @@
             <url>https://www.unisa.edu.au/connect/alumni-network/alumni-news/</url>
         </alumni>
     </alumnus>
-    <start> <!--Information for the start(welcome) building.-->
-        <name>Bachelor of Environmental Science</name>
+    <welcome> <!--Information for the welcome building.-->
+        <name>Bachelor of Environmental Science</name> <!--program name to display on the page-->
         <videos>
             <video>
                 <name>Study Environmental Science at UniSA</name>
-                <url>https://www.youtube.com/watch?v=JeFbAGlFaic</url>
+                <embd>https://www.youtube.com/embed/JeFbAGlFaic?si=cikOWoy4n0DY15lG</embd> <!--For embeding directly on the page-->
+                <url>https://www.youtube.com/watch?v=JeFbAGlFaic</url> <!--For watching youtube video on youtube-->
             </video>
             <video>
                 <name>Hear from Kiara Sparks, Environmental Science student</name>
+                <embd>https://www.youtube.com/embed/IKnCz9KYZfo?si=dCzP9piJsVCDsybd</embd>
                 <url>https://www.youtube.com/watch?v=IKnCz9KYZfo</url>
             </video>
             <video>
                 <name>Environmental Science - University of South Australia</name>
+                <embd>https://www.youtube.com/embed/oISf32xz3Dw?si=tLldU32HOdINHtiW</embd>
                 <url>https://www.youtube.com/watch?v=oISf32xz3Dw</url>
             </video>
             <video>
                 <name>Geospatial Science - University of South Australia</name>
+                <embd>https://www.youtube.com/embed/p1tOqnmrX5s?si=xT3lbkC-Neg_ZAT-</embd>
                 <url>https://www.youtube.com/watch?v=p1tOqnmrX5s</url>
             </video>
             <video>
                 <name>UniSA Mawson Lakes Campus | International student selfie tour</name>
+                <embd>https://www.youtube.com/embed/m5ZqHMmztek?si=cwDB8H70BOxM0aM2</embd>
                 <url>https://www.youtube.com/watch?v=m5ZqHMmztek</url>
             </video>
             <!-- The video is bit old. so no idea it is still working.
             <video>
                 <name>Environmental Science students at the Onkaparinga River - University of South Australia</name>
+                <embd>https://www.youtube.com/embed/BdGWxIAq3tU?si=JU5cpNhvoSX3msxm</embd>
                 <url>https://www.youtube.com/watch?v=BdGWxIAq3tU</url>
             </video>
             -->
         </videos>
-    </start>
+    </welcome>
 </repository>
