@@ -137,7 +137,6 @@ const Home = () => {
       gltf.scene.traverse(function (object) {
         if (object.name.startsWith("building")) {
           buildings[object.name] = object;
-          console.log(buildings);
         }
       });
       scene.add(gltf.scene);
@@ -169,36 +168,43 @@ const Home = () => {
       //   outlinePass.selectedObjects = [selectedObject];
       // }
       const intersects = raycaster.intersectObjects(scene.children, true);
+      let buildingObject;
       if (intersects.length > 0) {
         let selectedObject = intersects[0].object;
         while (selectedObject) {
           if (/^building_\d+$/.test(selectedObject.name)) {
-            console.log(selectedObject.userData);
             outlinePass.selectedObjects = [selectedObject];
+            buildingObject = selectedObject;
             break;
           } else if (selectedObject.name === "elective_lbvt") {
             outlinePass.selectedObjects = [selectedObject];
+            buildingObject = selectedObject;
             break;
           } else if (selectedObject.name === "alumni_lbvt") {
             outlinePass.selectedObjects = [selectedObject];
+            buildingObject = selectedObject;
             break;
           } else if (selectedObject.name === "industry_lbvt") {
             outlinePass.selectedObjects = [selectedObject];
+            buildingObject = selectedObject;
             break;
           }
           selectedObject = selectedObject.parent;
         }
       }
       let connectedCourses;
-      // console.log(intersects[0].object.parent.parent.userData);
-      // if year1_sp2_building_1, year1_sp2_building_2, year1_sp2_building_3, year1_sp2_building_4
-      switch (intersects[0].object.parent.parent.name) {
+
+      switch (buildingObject.name) {
         // for year1 sp2
         case "building_1":
           connectedCourses = findConnection(
             course_data_list[0].id,
             course_data_list
           );
+          // All prerequisites courses
+          // Course index is the index of the course you are looking for -1 in the course_data_list
+          // because it starts at 0 but course index starts at 1
+          // course_data_list contains all the courses in the program (not including electives)
           connectedCourses.forEach((courseIndex) => {
             const building = buildings[`building_${courseIndex}`];
 
@@ -209,7 +215,7 @@ const Home = () => {
               outlinePass.selectedObjects.push(building);
             }
           });
-
+          console.log("building 1");
           // displayCourseUI(course_data_list, connectedCourses);
           break;
         case "building_2":
@@ -348,7 +354,7 @@ const Home = () => {
               outlinePass.selectedObjects.push(building);
             }
           });
-          console.log(connectedCourses);
+
           // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_10":

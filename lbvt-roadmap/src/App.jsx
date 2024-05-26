@@ -21,23 +21,10 @@ const App = () => {
     <main className="bg-slate-300/20">
       <Router>
         <NavBar />
-        {!isUploaded ? (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100vh",
-            }}
-          >
-            <UploadFile onUpload={handleUpload} onNext={handleNextClick} />
-          </div>
-        ) : (
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Help" element={<Help />} />
-          </Routes>
-        )}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Help" element={<Help />} />
+        </Routes>
       </Router>
     </main>
   );
