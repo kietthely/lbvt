@@ -1,27 +1,79 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import * as Three from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import ControlPanel from "./ControlPanel";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import lbvt_data from '../assets/lbvt.json';
+import lbvt_data from "../assets/lbvt.json";
 import Alumni from "./Alumni";
 import Industry from "./Industry";
 import Welcome from "./Welcome";
 import Elective from "./Elective";
 
+import CameraSlider from "./CameraSlider";
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
+import { OutlinePass } from "three/examples/jsm/postprocessing/OutlinePass.js";
+import lbvt_data from "../assets/lbvt.json";
+import findConnections from "../utils/connectionCourses";
 
+import _ from "lodash";
+function getCoursesData(courses_data) {
+  const course_data_list = [];
+  const coursePeriods = [
+    "year1.sp2",
+    "year1.sp5",
+    "year2.sp2",
+    "year2.sp5",
+    "year3.sp2",
+    "year3.sp5",
+  ];
+
+  for (let period of coursePeriods) {
+    let periodCourses = _.get(courses_data, period + ".course", []);
+    for (let course of periodCourses) {
+      course_data_list.push(course);
+    }
+  }
+  return course_data_list;
+}
+function findConnection(courseId, courses) {
+  let connectedCourses = new Set();
+  for (let i = 0; i < courses.length; i++) {
+    let course = courses[i];
+    if (
+      course.prerequisites &&
+      Array.isArray(course.prerequisites.prerequisite)
+    ) {
+      for (let prerequisite of course.prerequisites.prerequisite) {
+        if (prerequisite.id === courseId) {
+          connectedCourses.add(i + 1);
+          let newConnections = findConnection(course.id, courses);
+          newConnections.forEach((connectedCourseIndex) =>
+            connectedCourses.add(connectedCourseIndex)
+          );
+        }
+      }
+    }
+  }
+
+  return connectedCourses;
+}
 const Home = () => {
+  // private variables
   const ref = useRef();
   const [camera, setCamera] = useState(null);
   const controls = useRef();
-  
 
+  // lbvt data
+  const courses_data = lbvt_data.repository.program.courses;
+  // turn into a list for easy traversal
+  const course_data_list = getCoursesData(courses_data);
   useEffect(() => {
     var scene, camera, renderer;
     scene = new Three.Scene();
-    scene.background = new Three.Color(0xffffff);
+    scene.background = new Three.Color(0x000000);
 
     camera = new Three.PerspectiveCamera(
       75,
@@ -31,19 +83,44 @@ const Home = () => {
     );
 
     renderer = new Three.WebGLRenderer();
-    camera.position.y = 30;
-    camera.position.z = 50;
-    camera.rotation.x = -Math.PI / 6;
+    cam.position.x += 25;
+    cam.position.y = 30;
+    cam.position.z = -20;
 
-    setCamera(camera);
+    cam.rotation.x = -Math.PI / 6;
 
-    const ambientLight = new Three.AmbientLight(0xffffff, 1.5);
+    setCamera(cam);
+
+    // cast ambient light - sunlight
+    const ambientLight = new Three.AmbientLight(0xffffff, 4);
     scene.add(ambientLight);
+    // add fog
+    scene.fog = new Three.FogExp2(0xffffff, 0.04);
+
+    // set scene size
     renderer.setSize(window.innerWidth, window.innerHeight);
     ref.current.appendChild(renderer.domElement);
 
+    // effects/animations
+    const composer = new EffectComposer(renderer);
+    const renderPass = new RenderPass(scene, cam);
+
+    composer.addPass(renderPass);
+    // outline effect size
+    const outlinePass = new OutlinePass(
+      new Three.Vector2(window.innerWidth, window.innerHeight),
+      scene,
+      cam
+    );
+    outlinePass.visibleEdgeColor.set("#39FF14");
+    outlinePass.hiddenEdgeColor.set("#39FF14");
+    outlinePass.edgeThickness = 2.0;
+    composer.addPass(outlinePass);
+
     // Camera controls by mouse
-    controls.current = new OrbitControls(camera, renderer.domElement);
+    controls.current = new OrbitControls(cam, renderer.domElement);
+    controls.current.target.set(15, controls.current.target.y, 25); // set initial target.x and target.z
+    controls.current.update(); // apply the changes
     // Restrict left mouse movement
     controls.current.minPolarAngle = Math.PI / 6; // 30 degrees
     controls.current.maxPolarAngle = Math.PI / 2; // 90 degrees
@@ -57,14 +134,22 @@ const Home = () => {
     // Restrict camera target view
     controls.current.addEventListener("change", () => {
       const maxPanDistance = 125; // Maximum panning distance
+      setCamera({ ...cam });
 
-      if (camera.position.length() > maxPanDistance) {
+      if (cam.position.length() > maxPanDistance) {
         controls.current.reset();
       }
     });
-
+    // load the scene
+    const buildings = {};
     const loader = new GLTFLoader();
     loader.load("/models/lbvt.glb", function (gltf) {
+      gltf.scene.traverse(function (object) {
+        if (object.name.startsWith("building")) {
+          buildings[object.name] = object;
+          console.log(buildings);
+        }
+      });
       scene.add(gltf.scene);
 
       const building = scene.getObjectByName("year1_sp2_building_1");
@@ -84,7 +169,7 @@ const Home = () => {
 
     const animate = function () {
       requestAnimationFrame(animate);
-      renderer.render(scene, camera);
+      composer.render();
     };
 
     animate();
@@ -94,228 +179,447 @@ const Home = () => {
     const mouse = new Three.Vector2();
 
     function onMouseClick(event) {
-      // mouse position
+      // mouse position - model intersection
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
       raycaster.setFromCamera(mouse, camera);
 
       // Calculate objects intersecting the picking ray
+      // const intersects = raycaster.intersectObjects(scene.children, true);
+      // if (intersects.length > 0) {
+      //   const selectedObject = intersects[0].object.parent.parent;
+      //   console.log(selectedObject.userData);
+      //   outlinePass.selectedObjects = [selectedObject];
+      // }
       const intersects = raycaster.intersectObjects(scene.children, true);
-      const courses_data = lbvt_data.repository.program.courses;
-
-      console.log(courses_data);
-
-      // if year1_sp2_building_1, year1_sp2_building_2, year1_sp2_building_3, year1_sp2_building_4
+      if (intersects.length > 0) {
+        let selectedObject = intersects[0].object;
+        while (selectedObject) {
+          if (/^building_\d+$/.test(selectedObject.name)) {
+            console.log(selectedObject.userData);
+            outlinePass.selectedObjects = [selectedObject];
+            break;
+          } else if (selectedObject.name === "elective_lbvt") {
+            outlinePass.selectedObjects = [selectedObject];
+            break;
+          } else if (selectedObject.name === "alumni_lbvt") {
+            outlinePass.selectedObjects = [selectedObject];
+            break;
+          } else if (selectedObject.name === "industry_lbvt") {
+            outlinePass.selectedObjects = [selectedObject];
+            break;
+          }
+          selectedObject = selectedObject.parent;
+        }
+      }
       let connectedCourses;
-      let buildingId;
-      switch (intersects[0].object.parent.name) {
-          
+      // console.log(intersects[0].object.parent.parent.userData);
+      // if year1_sp2_building_1, year1_sp2_building_2, year1_sp2_building_3, year1_sp2_building_4
+      switch (intersects[0].object.parent.parent.name) {
         // for year1 sp2
         case "building_1":
-          buildingId = 0;
           connectedCourses = findConnection(
             course_data_list[0].id,
             course_data_list
           );
-          console.log(connectedCourses);
-          const building4 = buildings["building_11"];
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
 
-          if (building4) {
-            building4.traverse(function (object) {
-              object.fog = false; // ignore fog effect
-            });
-            outlinePass.selectedObjects.push(building4);
-          }
-          displayCourseUI(course_data_list, connectedCourses, buildingId);
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+
+          // displayCourseUI(course_data_list, connectedCourses);
           break;
-          
         case "building_2":
-          buildingId = 1;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[1].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_3":
-          buildingId=2;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[2].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_4":
-          buildingId = 3;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[3].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         // for year1 sp5
         case "building_5":
-          buildingId = 4;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[4].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_6":
-          buildingId = 5;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[5].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          }); // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_7":
-          buildingId = 6;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[6].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_8":
-          buildingId = 7;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[7].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
 
         // for year2 sp2
         case "building_9":
-          buildingId = 8;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[8].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          console.log(connectedCourses);
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_10":
-          buildingId = 9;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[9].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_11":
-          buildingId = 10;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[10].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_12":
-          buildingId = 11;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[11].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
 
         // for year2 sp5
         case "building_13":
-          buildingId = 12;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[12].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_14":
-          buildingId = 13;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[13].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_15":
-          buildingId = 14;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[14].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_16":
-          buildingId = 15;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[15].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
 
         // for year3 sp2
         case "building_17":
-          buildingId = 16;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[16].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_18":
-          buildingId = 17;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[17].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_19":
-          buildingId = 18;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[18].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_20":
-          buildingId = 19;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[19].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
 
         // for year3 sp5
         case "building_21":
-          buildingId = 20;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[20].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_22":
-          buildingId = 21;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[21].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
         case "building_23":
-          buildingId = 22;
           connectedCourses = findConnection(
-            course_data_list[buildingId].id,
+            course_data_list[22].id,
             course_data_list
           );
-          displayCourseUI(course_data_list,connectedCourses, buildingId);
+          connectedCourses.forEach((courseIndex) => {
+            const building = buildings[`building_${courseIndex}`];
+
+            if (building) {
+              building.traverse(function (object) {
+                object.fog = false; // ignore fog effect
+              });
+              outlinePass.selectedObjects.push(building);
+            }
+          });
+          // displayCourseUI(intersects[0].object.parent.userData);
           break;
-          
+
         // for Elective
         case "elective_lbvt":
           console.log("elective clicked");
@@ -359,22 +663,32 @@ const Home = () => {
   // Camera movement functions using buttons
   const moveCameraRight = () => {
     if (camera) {
+      // move camera
       camera.position.x += 1;
+      // move target / focus point
+      controls.current.target.x += 1;
+      controls.current.update();
     }
   };
   const moveCameraLeft = () => {
     if (camera) {
       camera.position.x -= 1;
+      controls.current.target.x -= 1;
+      controls.current.update();
     }
   };
   const moveCameraTop = () => {
     if (camera) {
       camera.position.z -= 1;
+      controls.current.target.z -= 1;
+      controls.current.update();
     }
   };
   const moveCameraBottom = () => {
     if (camera) {
       camera.position.z += 1;
+      controls.current.target.z += 1;
+      controls.current.update();
     }
   };
   const resetCamera = () => {
@@ -396,16 +710,22 @@ const Home = () => {
     }
   };
 
-   function displayCourseUI(evt, connectedCourses, id) {
+  function displayCourseUI(evt, connectedCourses, id) {
     const evt_data = evt[id];
     //console.log(evt);
     if (evt_data.id != null) {
       var courseUI = window.open("", "_blank", "width=700, height=600");
-      courseUI.document.write('<html><head><title>' + evt_data.name + '</title>');
+      courseUI.document.write(
+        "<html><head><title>" + evt_data.name + "</title>"
+      );
       //courseUI.document.write('<link rel="stylesheet" type="text/css" href="./Home.css">'); reading css or scss file did not work with window.open. Writing css directly in here only worked
-      courseUI.document.write('<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }');
-      courseUI.document.write('a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>');
-      courseUI.document.write('</head><body>');
+      courseUI.document.write(
+        "<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }"
+      );
+      courseUI.document.write(
+        "a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>"
+      );
+      courseUI.document.write("</head><body>");
       courseUI.document.write("<div class ='container'>");
 
       courseUI.document.write("<h3>" + evt_data.name + "</h3>");
@@ -413,28 +733,36 @@ const Home = () => {
 
       for (let courseCoordinator of evt_data.courseCoordinators
         .courseCoordinator) {
-        if (courseCoordinator.name != null){ // To avoid displaying null value for Electives
+        if (courseCoordinator.name != null) {
+          // To avoid displaying null value for Electives
           courseUI.document.write(
             "<p>" +
               "Course coordinator: " +
               "<a href=" +
               courseCoordinator.url +
-              ' target="_blank" rel="noopener noreferrer">' + courseCoordinator.name + '</a></p>'
+              ' target="_blank" rel="noopener noreferrer">' +
+              courseCoordinator.name +
+              "</a></p>"
           );
-        } 
-
+        }
       }
       // display all prerequisite information
       for (let i = 0; i < evt_data.prerequisites.prerequisite.length; i++) {
         if (evt_data.prerequisites.prerequisite[0].id) {
-          var prerequisite = getPrerequisite(evt_data.prerequisites.prerequisite[i].id);
+          var prerequisite = getPrerequisite(
+            evt_data.prerequisites.prerequisite[i].id
+          );
           courseUI.document.write(
             "<p>" +
-            "Prerequisite : " +
-            prerequisite.id + 
-            " " +
-            "<a href="+ prerequisite.url +' target="_blank" rel="noopener noreferrer">'+ prerequisite.name + "</a>" +
-            "</p>"
+              "Prerequisite : " +
+              prerequisite.id +
+              " " +
+              "<a href=" +
+              prerequisite.url +
+              ' target="_blank" rel="noopener noreferrer">' +
+              prerequisite.name +
+              "</a>" +
+              "</p>"
           );
         } else {
           courseUI.document.write("<p>" + "Prerequisite : N/A </p>");
@@ -442,9 +770,18 @@ const Home = () => {
       }
       let courseList = "";
       for (let course of connectedCourses) {
-        courseList += "<br>" + course.id + " " + "<a href="+ course.url +' target="_blank" rel="noopener noreferrer">'+ course.name + "</a>" + " ";
+        courseList +=
+          "<br>" +
+          course.id +
+          " " +
+          "<a href=" +
+          course.url +
+          ' target="_blank" rel="noopener noreferrer">' +
+          course.name +
+          "</a>" +
+          " ";
       }
-      if (courseList.length > 0){
+      if (courseList.length > 0) {
         courseUI.document.write(
           "<p>" +
             evt_data.name +
@@ -476,309 +813,495 @@ const Home = () => {
 
       courseUI.document.write("</div>");
       courseUI.document.write("</div>");
-      courseUI.document.write('</body></html>');
+      courseUI.document.write("</body></html>");
     }
   }
 
-      if (course.notes.note != null){
-        // check the course has specific information as note.
-          courseUI.document.write("<p>Note: " +course.notes.note +"</p>");
-      }
-
-      if (course.rules.rule != null){
-        // check the course has specific information as rule.
-          courseUI.document.write("<p>Rule: " +course.rules.rule +"</p>");
-      }
-      // display the link for the Uni SA's course page
-      courseUI.document.write("<p>More information about the course: <a href="+course.url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
-      courseUI.document.write("</div>");
-      courseUI.document.write('</body></html>');
-    }
+  if (course.notes.note != null) {
+    // check the course has specific information as note.
+    courseUI.document.write("<p>Note: " + course.notes.note + "</p>");
   }
-  
-  function displayElectiveUI(){
-    // display UI for elective information with the related event
-    // source data is came from "src\assets\lbvt.json"
 
-    //<Link to={"/Elective"} className=""></Link> <-- does not work
-    
-    const electiveData = lbvt_data.repository.assistances.elective;
-    var undergraduateElective = electiveData.electiveCourses.undergraduate;
+  if (course.rules.rule != null) {
+    // check the course has specific information as rule.
+    courseUI.document.write("<p>Rule: " + course.rules.rule + "</p>");
+  }
+  // display the link for the Uni SA's course page
+  courseUI.document.write(
+    "<p>More information about the course: <a href=" +
+      course.url +
+      ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+  );
+  courseUI.document.write("</div>");
+  courseUI.document.write("</body></html>");
+};
 
-    var courseUI = window.open('', '_blank', 'width=600, height=400');
-    courseUI.document.write('<html><head><title>Electives</title>');
-    courseUI.document.write('<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }');
-    courseUI.document.write('.Intermediate{margin-top: 20px;margin-left: 50px; } .Advanced{margin-top: 20px;margin-left: 50px; } ');
-    courseUI.document.write('a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>');
-    courseUI.document.write('</head><body>');
-    courseUI.document.write("<div class ='container'>");
-    courseUI.document.write("<h2>Elective</h2>");
-    courseUI.document.write("<p>You can find the courses' information for electives.</p>");
+function displayElectiveUI() {
+  // display UI for elective information with the related event
+  // source data is came from "src\assets\lbvt.json"
 
-    courseUI.document.write("<div id='undergraduate'>"); // section for undergraduate elective
-    courseUI.document.write("<h3>Undergraduate elective</h3>");
-    courseUI.document.write("<p>"+ undergraduateElective.course.notes.note+"</p>");
-    courseUI.document.write("You can find the course from <a href="+undergraduateElective.course.url + ' target="_blank" rel="noopener noreferrer">here.</a></p>');
+  //<Link to={"/Elective"} className=""></Link> <-- does not work
+
+  const electiveData = lbvt_data.repository.assistances.elective;
+  var undergraduateElective = electiveData.electiveCourses.undergraduate;
+
+  var courseUI = window.open("", "_blank", "width=600, height=400");
+  courseUI.document.write("<html><head><title>Electives</title>");
+  courseUI.document.write(
+    "<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }"
+  );
+  courseUI.document.write(
+    ".Intermediate{margin-top: 20px;margin-left: 50px; } .Advanced{margin-top: 20px;margin-left: 50px; } "
+  );
+  courseUI.document.write(
+    "a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>"
+  );
+  courseUI.document.write("</head><body>");
+  courseUI.document.write("<div class ='container'>");
+  courseUI.document.write("<h2>Elective</h2>");
+  courseUI.document.write(
+    "<p>You can find the courses' information for electives.</p>"
+  );
+
+  courseUI.document.write("<div id='undergraduate'>"); // section for undergraduate elective
+  courseUI.document.write("<h3>Undergraduate elective</h3>");
+  courseUI.document.write(
+    "<p>" + undergraduateElective.course.notes.note + "</p>"
+  );
+  courseUI.document.write(
+    "You can find the course from <a href=" +
+      undergraduateElective.course.url +
+      ' target="_blank" rel="noopener noreferrer">here.</a></p>'
+  );
+  courseUI.document.write("</div>");
+
+  if ("environmental" in electiveData.electiveCourses) {
+    // only for LBVT course. section for environment electives
+
+    var environmentElective = electiveData.electiveCourses.environmental;
+    //console.log("has enviromnemtal")
+    courseUI.document.write("<div className='environmental'>");
+    courseUI.document.write("<h3>Environment electives</h3>");
+
+    // section for intermediate electives
+    courseUI.document.write("<p><b>Intermediate Elective</b></p>");
+    courseUI.document.write("<div class ='Intermediate' display: block;>");
+    for (let i = 0; i < environmentElective.intermediate.course.length; i++) {
+      courseUI.document.write(
+        "<h4>" + environmentElective.intermediate.course[i].name + "</h4>"
+      );
+      courseUI.document.write(
+        "<p>course ID: " +
+          environmentElective.intermediate.course[i].id +
+          "</p>"
+      );
+
+      if (
+        environmentElective.intermediate.course[i].courseCoordinators
+          .courseCoordinator.length > 1
+      ) {
+        // display all information for course coordinators in the course
+        for (
+          let j = 0;
+          j <
+          environmentElective.intermediate.course[i].courseCoordinators
+            .courseCoordinator.length;
+          j++
+        ) {
+          courseUI.document.write(
+            "<p>Course coordinator: <a href=" +
+              environmentElective.intermediate.course[i].courseCoordinators
+                .courseCoordinator[j].url +
+              ' target="_blank" rel="noopener noreferrer">' +
+              environmentElective.intermediate.course[i].courseCoordinators
+                .courseCoordinator[j].name +
+              "</a></p>"
+          );
+        }
+      } else {
+        // case for there is only 1 course coordinator
+        courseUI.document.write(
+          "<p>Course coordinator: <a href=" +
+            environmentElective.intermediate.course[i].courseCoordinators
+              .courseCoordinator[0].url +
+            ' target="_blank" rel="noopener noreferrer">' +
+            environmentElective.intermediate.course[i].courseCoordinators
+              .courseCoordinator[0].name +
+            "</a></p>"
+        );
+      }
+
+      for (
+        let j = 0;
+        j <
+        environmentElective.intermediate.course[i].prerequisites.prerequisite
+          .length;
+        j++
+      ) {
+        // displaying all prerequisite for the course
+        if (
+          environmentElective.intermediate.course[i].prerequisites.prerequisite[
+            j
+          ].id != null
+        ) {
+          // get the prerequisite course information then set the course name and url as a link
+          var prerequisite = getPrerequisite(
+            environmentElective.intermediate.course[i].prerequisites
+              .prerequisite[j].id
+          );
+          courseUI.document.write(
+            "<p>Prerequisite: <a href=" +
+              prerequisite.url +
+              ' target="_blank" rel="noopener noreferrer">' +
+              prerequisite.name +
+              " (" +
+              prerequisite.id +
+              ")</a></p>"
+          );
+        } else {
+          // case for there is no prerequisite
+          courseUI.document.write("<p>Prerequisite: N/A</p>");
+        }
+      }
+      courseUI.document.write(
+        "<p>More information about the course: <a href=" +
+          environmentElective.intermediate.course[i].url +
+          ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+      );
+    }
     courseUI.document.write("</div>");
 
-    if ("environmental" in electiveData.electiveCourses){ 
-      // only for LBVT course. section for environment electives
-
-      var environmentElective = electiveData.electiveCourses.environmental;
-      //console.log("has enviromnemtal")
-      courseUI.document.write("<div className='environmental'>");
-      courseUI.document.write("<h3>Environment electives</h3>");  
-
-      // section for intermediate electives
-      courseUI.document.write("<p><b>Intermediate Elective</b></p>");
-      courseUI.document.write("<div class ='Intermediate' display: block;>");
-      for (let i = 0; i < environmentElective.intermediate.course.length; i++){
-        courseUI.document.write("<h4>"+environmentElective.intermediate.course[i].name+"</h4>");
-        courseUI.document.write("<p>course ID: "+environmentElective.intermediate.course[i].id +"</p>");
-
-        if (environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator.length > 1){
-          // display all information for course coordinators in the course
-          for (let j = 0; j <environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator.length; j++){
-            courseUI.document.write("<p>Course coordinator: <a href="+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[j].url +' target="_blank" rel="noopener noreferrer">'+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[j].name +"</a></p>");
-          }
-        } else {
-          // case for there is only 1 course coordinator
-          courseUI.document.write("<p>Course coordinator: <a href="+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[0].url +' target="_blank" rel="noopener noreferrer">'+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[0].name +"</a></p>");
-        }
-
-        for (let j = 0; j < environmentElective.intermediate.course[i].prerequisites.prerequisite.length; j++){
-          // displaying all prerequisite for the course
-          if (environmentElective.intermediate.course[i].prerequisites.prerequisite[j].id != null){ 
-            // get the prerequisite course information then set the course name and url as a link
-            var prerequisite = getPrerequisite(environmentElective.intermediate.course[i].prerequisites.prerequisite[j].id);
-            courseUI.document.write("<p>Prerequisite: <a href="+ prerequisite.url +' target="_blank" rel="noopener noreferrer">'+prerequisite.name + " (" + prerequisite.id+ ")</a></p>");
-            } else {
-            // case for there is no prerequisite
-            courseUI.document.write("<p>Prerequisite: N/A</p>");
-          }
-        }
-        courseUI.document.write("<p>More information about the course: <a href="+environmentElective.intermediate.course[i].url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
-      }
-      courseUI.document.write("</div>");   
-      
-      courseUI.document.write("<p><b>Advanced Elective</b></p>"); 
-      courseUI.document.write("<div class='Advanced' display: block;>"); // section for advanced electives
-      for (let i = 0; i < environmentElective.advanced.course.length; i++){
+    courseUI.document.write("<p><b>Advanced Elective</b></p>");
+    courseUI.document.write("<div class='Advanced' display: block;>"); // section for advanced electives
+    for (let i = 0; i < environmentElective.advanced.course.length; i++) {
       // display all courses for advanced elective
-        courseUI.document.write("<h4>"+environmentElective.advanced.course[i].name+"</h4>");
-        courseUI.document.write("<p>course ID: "+environmentElective.advanced.course[i].id +"</p>");
-  
-        if (environmentElective.advanced.course[i].courseCoordinators.courseCoordinator.length > 1){
-          // display all information for course coordinators in the course
-          for (let j = 0; j <environmentElective.advanced.course[i].courseCoordinators.courseCoordinator.length; j++){
-            courseUI.document.write("<p>Course coordinator: <a href="+environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[j].url +' target="_blank" rel="noopener noreferrer">'+environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[j].name +"</a></p>");
-          }
-        } else {
-          // case for there is only 1 course coordinator
-          courseUI.document.write("<p>Course coordinator: <a href="+environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[0].url +' target="_blank" rel="noopener noreferrer">'+environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[0].name +"</a></p>");
-        }
+      courseUI.document.write(
+        "<h4>" + environmentElective.advanced.course[i].name + "</h4>"
+      );
+      courseUI.document.write(
+        "<p>course ID: " + environmentElective.advanced.course[i].id + "</p>"
+      );
 
-        for (let j = 0; j < environmentElective.advanced.course[i].prerequisites.prerequisite.length; j++){
-          // displaying all prerequisite for the course
-          if (environmentElective.advanced.course[i].prerequisites.prerequisite[j].id != null){ 
-            // get the prerequisite course information then set the course name and url as a link
-            prerequisite = getPrerequisite(environmentElective.advanced.course[i].prerequisites.prerequisite[j].id);
-            courseUI.document.write("<p>Prerequisite: <a href="+ prerequisite.url +' target="_blank" rel="noopener noreferrer">'+prerequisite.name + " (" + prerequisite.id+ ")</a></p>");
-          } else {
-            // case for there is no prerequisite
-            courseUI.document.write("<p>Prerequisite: N/A</p>");
-          }
+      if (
+        environmentElective.advanced.course[i].courseCoordinators
+          .courseCoordinator.length > 1
+      ) {
+        // display all information for course coordinators in the course
+        for (
+          let j = 0;
+          j <
+          environmentElective.advanced.course[i].courseCoordinators
+            .courseCoordinator.length;
+          j++
+        ) {
+          courseUI.document.write(
+            "<p>Course coordinator: <a href=" +
+              environmentElective.advanced.course[i].courseCoordinators
+                .courseCoordinator[j].url +
+              ' target="_blank" rel="noopener noreferrer">' +
+              environmentElective.advanced.course[i].courseCoordinators
+                .courseCoordinator[j].name +
+              "</a></p>"
+          );
         }
-        courseUI.document.write("<p>More information about the course: <a href="+environmentElective.advanced.course[i].url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
+      } else {
+        // case for there is only 1 course coordinator
+        courseUI.document.write(
+          "<p>Course coordinator: <a href=" +
+            environmentElective.advanced.course[i].courseCoordinators
+              .courseCoordinator[0].url +
+            ' target="_blank" rel="noopener noreferrer">' +
+            environmentElective.advanced.course[i].courseCoordinators
+              .courseCoordinator[0].name +
+            "</a></p>"
+        );
       }
-      courseUI.document.write("</div'>"); 
 
-      courseUI.document.write("<p><b>Note: "+environmentElective.notes.note + "</b></p>");
-      courseUI.document.write("<p><b>Rule: "+ environmentElective.rules.rule+"</b></p>");
-      courseUI.document.write("<p>More information about environment electives: <a href="+environmentElective.url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
-      courseUI.document.write("</div>");
+      for (
+        let j = 0;
+        j <
+        environmentElective.advanced.course[i].prerequisites.prerequisite
+          .length;
+        j++
+      ) {
+        // displaying all prerequisite for the course
+        if (
+          environmentElective.advanced.course[i].prerequisites.prerequisite[j]
+            .id != null
+        ) {
+          // get the prerequisite course information then set the course name and url as a link
+          prerequisite = getPrerequisite(
+            environmentElective.advanced.course[i].prerequisites.prerequisite[j]
+              .id
+          );
+          courseUI.document.write(
+            "<p>Prerequisite: <a href=" +
+              prerequisite.url +
+              ' target="_blank" rel="noopener noreferrer">' +
+              prerequisite.name +
+              " (" +
+              prerequisite.id +
+              ")</a></p>"
+          );
+        } else {
+          // case for there is no prerequisite
+          courseUI.document.write("<p>Prerequisite: N/A</p>");
+        }
+      }
+      courseUI.document.write(
+        "<p>More information about the course: <a href=" +
+          environmentElective.advanced.course[i].url +
+          ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+      );
     }
+    courseUI.document.write("</div'>");
+
+    courseUI.document.write(
+      "<p><b>Note: " + environmentElective.notes.note + "</b></p>"
+    );
+    courseUI.document.write(
+      "<p><b>Rule: " + environmentElective.rules.rule + "</b></p>"
+    );
+    courseUI.document.write(
+      "<p>More information about environment electives: <a href=" +
+        environmentElective.url +
+        ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+    );
     courseUI.document.write("</div>");
-    courseUI.document.write("</div>");
-    courseUI.document.write('</body></html>');
+  }
+  courseUI.document.write("</div>");
+  courseUI.document.write("</div>");
+  courseUI.document.write("</body></html>");
 }
 
-function displayAlumniUI(){
+function displayAlumniUI() {
   // display UI for Alumni information with the related event
   // source data is came from "src\assets\lbvt.json"
   const alumniData = lbvt_data.repository.alumnus;
-  var courseUI = window.open('', '_blank', 'width=600, height=400'); 
-  courseUI.document.write('<html><head><title>Alumni</title>');
-  courseUI.document.write('<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }');
-  courseUI.document.write('a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>');
-  courseUI.document.write('</head><body>');
+  var courseUI = window.open("", "_blank", "width=600, height=400");
+  courseUI.document.write("<html><head><title>Alumni</title>");
+  courseUI.document.write(
+    "<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }"
+  );
+  courseUI.document.write(
+    "a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>"
+  );
+  courseUI.document.write("</head><body>");
   courseUI.document.write("<div class ='container'>");
 
   courseUI.document.write("<h2>Alumni</h2>");
-  if ("alumni" in alumniData){
-    for (let i = 0; i < alumniData.alumni.length; i ++){
+  if ("alumni" in alumniData) {
+    for (let i = 0; i < alumniData.alumni.length; i++) {
       courseUI.document.write("<p>" + alumniData.alumni[i].name + "<br/>");
-      courseUI.document.write("<a href=" + alumniData.alumni[i].url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
+      courseUI.document.write(
+        "<a href=" +
+          alumniData.alumni[i].url +
+          ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+      );
     }
   } else {
     courseUI.document.write("<p>Oops, There is no data for Alumni.<p/>");
   }
   courseUI.document.write("</div>");
-  courseUI.document.write('</body></html>');
+  courseUI.document.write("</body></html>");
 }
 
-function displayIndustryUI(){
+function displayIndustryUI() {
   // display UI for industry information with the related event
   // source data is came from "src\assets\lbvt.json"
   const industryData = lbvt_data.repository.industries;
-  var courseUI = window.open('', '_blank', 'width=600, height=400'); 
-  courseUI.document.write('<html><head><title>Industry</title>');
-  courseUI.document.write('<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }');
-  courseUI.document.write('.Partner{ margin-top: 20px;margin-left: 50px; } .Associations{margin-top: 20px;margin-left: 50px;}');
-  courseUI.document.write('a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>');
-  courseUI.document.write('</head><body>');
+  var courseUI = window.open("", "_blank", "width=600, height=400");
+  courseUI.document.write("<html><head><title>Industry</title>");
+  courseUI.document.write(
+    "<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }"
+  );
+  courseUI.document.write(
+    ".Partner{ margin-top: 20px;margin-left: 50px; } .Associations{margin-top: 20px;margin-left: 50px;}"
+  );
+  courseUI.document.write(
+    "a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>"
+  );
+  courseUI.document.write("</head><body>");
   courseUI.document.write("<div class ='container'>");
 
   courseUI.document.write("<h2><b>Industry</b></h2>");
-  courseUI.document.write("<p>You can check partner companies from list below.</p>");
-  if ("partner" in industryData){ 
+  courseUI.document.write(
+    "<p>You can check partner companies from list below.</p>"
+  );
+  if ("partner" in industryData) {
     courseUI.document.write("<h3><b>Partner companies</b></h3>");
-    courseUI.document.write('<div class = Partner>');
-      for (let i = 0; i < industryData.partner.length; i ++){ // display all partner companies which are on the Uni SA's web page
-        if (industryData.partner[i].url != null){ // display all partners url links, Only if we could found the page.
-          courseUI.document.write("<p>" + "Name: <a href=" + industryData.partner[i].url +' target="_blank" rel="noopener noreferrer">'+ industryData.partner[i].name +'</a></p>');
-        } else {
-          courseUI.document.write("<p>" + "Name: " + industryData.partner[i].name + "<br/>");
-        }
+    courseUI.document.write("<div class = Partner>");
+    for (let i = 0; i < industryData.partner.length; i++) {
+      // display all partner companies which are on the Uni SA's web page
+      if (industryData.partner[i].url != null) {
+        // display all partners url links, Only if we could found the page.
+        courseUI.document.write(
+          "<p>" +
+            "Name: <a href=" +
+            industryData.partner[i].url +
+            ' target="_blank" rel="noopener noreferrer">' +
+            industryData.partner[i].name +
+            "</a></p>"
+        );
+      } else {
+        courseUI.document.write(
+          "<p>" + "Name: " + industryData.partner[i].name + "<br/>"
+        );
       }
-    courseUI.document.write('</div>');
+    }
+    courseUI.document.write("</div>");
     courseUI.document.write("<h3><b>Related associations</b></h3>");
-    courseUI.document.write('<div class = Associations>');
-      for (let i = 0; i < industryData.associations.association.length; i++){ // display the related associations for the program
+    courseUI.document.write("<div class = Associations>");
+    for (let i = 0; i < industryData.associations.association.length; i++) {
+      // display the related associations for the program
 
-        if (industryData.associations.association[i].url != null){
-          courseUI.document.write("<p>Name: <a href=" + industryData.associations.association[i].url +' target="_blank" rel="noopener noreferrer">'+ industryData.associations.association[i].name +'</a></p>');
-        } else {
-          courseUI.document.write("<p>" + "Name: " + industryData.associations.association[i].name + "</p>");
-        }
+      if (industryData.associations.association[i].url != null) {
+        courseUI.document.write(
+          "<p>Name: <a href=" +
+            industryData.associations.association[i].url +
+            ' target="_blank" rel="noopener noreferrer">' +
+            industryData.associations.association[i].name +
+            "</a></p>"
+        );
+      } else {
+        courseUI.document.write(
+          "<p>" +
+            "Name: " +
+            industryData.associations.association[i].name +
+            "</p>"
+        );
+      }
     }
-    courseUI.document.write('</div>');
-    } else {
-      courseUI.document.write("<p>Oops, There is no data for Industry.<p/>");
-    }
+    courseUI.document.write("</div>");
+  } else {
+    courseUI.document.write("<p>Oops, There is no data for Industry.<p/>");
+  }
   courseUI.document.write("</div>");
-  courseUI.document.write('</body></html>');
+  courseUI.document.write("</body></html>");
 }
 
-function displayWelcomeUI(){
+function displayWelcomeUI() {
   // display welcome message and youtube videos which are related to LBVT in UniSA's youtube account
   // source data is came from "src\assets\lbvt.json"
   const welcomeData = lbvt_data.repository.welcome;
-  var courseUI = window.open('', '_blank', 'width=800, height=650');
-  courseUI.document.write('<html><head><title>Welcome</title><meta http-equiv="Permissions-Policy" content="*">');
-  courseUI.document.write('<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }');
-  courseUI.document.write('.Videos{ margin-top: 20px; margin-left: 50px;}');
-  courseUI.document.write('a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>');
-  courseUI.document.write('</head><body>');
+  var courseUI = window.open("", "_blank", "width=800, height=650");
+  courseUI.document.write(
+    '<html><head><title>Welcome</title><meta http-equiv="Permissions-Policy" content="*">'
+  );
+  courseUI.document.write(
+    "<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }"
+  );
+  courseUI.document.write(".Videos{ margin-top: 20px; margin-left: 50px;}");
+  courseUI.document.write(
+    "a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>"
+  );
+  courseUI.document.write("</head><body>");
   courseUI.document.write("<div class ='container'>");
 
-  courseUI.document.write("<h2>Welcome to "+ welcomeData.name+ "</h2>");
-  courseUI.document.write("<p>You can check videos that are related to the program.</p>"); 
+  courseUI.document.write("<h2>Welcome to " + welcomeData.name + "</h2>");
+  courseUI.document.write(
+    "<p>You can check videos that are related to the program.</p>"
+  );
 
   courseUI.document.write("<h3>Video</h3>");
   courseUI.document.write("<div class ='Videos'>");
-  if ("videos" in welcomeData){ // need to change here after modify py code
-      for (let i = 0; i < welcomeData.videos.video.length; i ++){
-
-        courseUI.document.write("<p><b>" + welcomeData.videos.video[i].name + "</b></p>");
-        courseUI.document.write('<iframe width="560" height="315" src="' + welcomeData.videos.video[i].embd+'" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>');
-        //courseUI.document.write("<p>Your browser doesn't support HTML video. Here is a <a href="+ welcomeData.videos.video[i].url + ">link to the video</a> instead.</p>");
-
-      }
-    } else {
-      courseUI.document.write("<p>Oops, There is no data for video to display.</p>");
+  if ("videos" in welcomeData) {
+    // need to change here after modify py code
+    for (let i = 0; i < welcomeData.videos.video.length; i++) {
+      courseUI.document.write(
+        "<p><b>" + welcomeData.videos.video[i].name + "</b></p>"
+      );
+      courseUI.document.write(
+        '<iframe width="560" height="315" src="' +
+          welcomeData.videos.video[i].embd +
+          '" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      );
+      //courseUI.document.write("<p>Your browser doesn't support HTML video. Here is a <a href="+ welcomeData.videos.video[i].url + ">link to the video</a> instead.</p>");
     }
-    courseUI.document.write("</div>");
+  } else {
+    courseUI.document.write(
+      "<p>Oops, There is no data for video to display.</p>"
+    );
+  }
   courseUI.document.write("</div>");
-  courseUI.document.write('</body></html>');
+  courseUI.document.write("</div>");
+  courseUI.document.write("</body></html>");
 }
 
-function getPrerequisite(courseID){
+function getPrerequisite(courseID) {
   // search and return the prerequisite course in general course.
   // parameter: course ID as string (ex:GEOE2026)
   // return : course information as object
 
   const courses_data = lbvt_data.repository.program.courses;
 
-  for (let i = 0; i < courses_data.year1.sp2.course.length; i++ ){ 
+  for (let i = 0; i < courses_data.year1.sp2.course.length; i++) {
     // search course in year1 sp2
-    if (courses_data.year1.sp2.course[i].id === courseID){
+    if (courses_data.year1.sp2.course[i].id === courseID) {
       //console.log(courses_data.year1.sp2.course[i]);
       return courses_data.year1.sp2.course[i];
     }
   }
 
-  for (let i = 0; i < courses_data.year1.sp5.course.length; i++ ){ 
+  for (let i = 0; i < courses_data.year1.sp5.course.length; i++) {
     // search course in year1 sp5
-    if (courses_data.year1.sp5.course[i].id === courseID){
+    if (courses_data.year1.sp5.course[i].id === courseID) {
       //console.log(courses_data.year1.sp5.course[i])
       return courses_data.year1.sp5.course[i];
     }
   }
 
-  for (let i = 0; i < courses_data.year2.sp2.course.length; i++ ){ 
+  for (let i = 0; i < courses_data.year2.sp2.course.length; i++) {
     // search course in year2 sp2
-    if (courses_data.year2.sp2.course[i].id === courseID){
+    if (courses_data.year2.sp2.course[i].id === courseID) {
       //console.log(courses_data.year2.sp2.course[i]);
       return courses_data.year2.sp2.course[i];
     }
   }
 
-  for (let i = 0; i < courses_data.year2.sp5.course.length; i++ ){ 
+  for (let i = 0; i < courses_data.year2.sp5.course.length; i++) {
     // search course in year2 sp5
-    if (courses_data.year2.sp5.course[i].id === courseID){
+    if (courses_data.year2.sp5.course[i].id === courseID) {
       //console.log(courses_data.year2.sp5.course[i]);
       return courses_data.year2.sp5.course[i];
     }
   }
-  for (let i = 0; i < courses_data.year3.sp2.course.length; i++ ){ 
+  for (let i = 0; i < courses_data.year3.sp2.course.length; i++) {
     // search course in year3 sp2
-    if (courses_data.year3.sp2.course[i].id === courseID){
+    if (courses_data.year3.sp2.course[i].id === courseID) {
       //console.log(courses_data.year3.sp2.course[i]);
       return courses_data.year3.sp2.course[i];
     }
   }
 
-  for (let i = 0; i < courses_data.year3.sp5.course.length; i++ ){ 
+  for (let i = 0; i < courses_data.year3.sp5.course.length; i++) {
     // search course in year3 sp5
-    if (courses_data.year3.sp5.course[i].id === courseID){
+    if (courses_data.year3.sp5.course[i].id === courseID) {
       //console.log(courses_data.year3.sp5.course[i]);
       return courses_data.year3.sp5.course[i];
     }
   }
 
   // case for no match in the general courses
-  return null; 
+  return null;
 }
 
-  return (
-    <div style={{ position: "relative" }}>
-      {/*Put the model to background.
+return (
+  <div style={{ position: "relative" }}>
+    {/*Put the model to background.
         Allows other components to be on top of the model.
       */}
-      <div ref={ref} style={{ position: "fixed", zIndex: -1 }} />
-      <ControlPanel
-        moveCameraLeft={moveCameraLeft}
-        moveCameraRight={moveCameraRight}
-        moveCameraTop={moveCameraTop}
-        moveCameraBottom={moveCameraBottom}
-        resetCamera={resetCamera}
-        zoomIn={zoomIn}
-        zoomOut={zoomOut}
-      />
-    </div>
-  );
-};
+    <div ref={ref} style={{ position: "fixed", zIndex: -1 }} />
+    <ControlPanel
+      moveCameraLeft={moveCameraLeft}
+      moveCameraRight={moveCameraRight}
+      moveCameraTop={moveCameraTop}
+      moveCameraBottom={moveCameraBottom}
+      resetCamera={resetCamera}
+      zoomIn={zoomIn}
+      zoomOut={zoomOut}
+    />
+  </div>
+);
 
 export default Home;
-
