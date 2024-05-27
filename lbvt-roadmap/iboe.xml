@@ -1,0 +1,1464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repository>
+	<schema></schema>
+	<version>1.0.0</version>
+	<agency>University of South Australia</agency>
+    <program>
+        <programCode>IBOE</programCode>
+        <programName>Bachelor of Outdoor and Environmental Leadership</programName>
+        <duration>3</duration> <!-- to modify the map. if we need to accept multiple program, we need to consider about the program with different year, don't we?-->
+
+        <courses> <!--Information for courses in each building-->
+            <year1>
+                <sp2>
+                    <course>
+                        <id>BIOL1014</id> 
+                        <name>Biodiversity for the Environment</name> 
+                        <courseId>010889</courseId> <!--Do we need it? this is like a 010889 in the unisa's webpage. but it could be miss-leading in future-->
+                        <courseCoordinators> <!--in case of several course corrdinators-->
+                            <courseCoordinator>
+                                <name>Associate Professor Gunnar Keppel</name> 
+                                <url>https://people.unisa.edu.au/Gunnar.Keppel?_gl=1*rzpfkx*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> <!-- url for him/her page in Uni SA-->
+                            </courseCoordinator>
+                            <courseCoordinator>
+                                <name>Dr Farzana Kastury</name>
+                                <url>https://people.unisa.edu.au/Farzana.Kastury?_gl=1*rzpfkx*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url>
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> <!--in case of several course prerequisite-->
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/010899/2024</url> <!--URL for course page in Uni SA-->
+                        <notes> <!--For the extra information about the course. ex electives -->
+                            <note></note>
+                        </notes> 
+                        <rules> <!--For the extra information about the rule for course. -->
+                            <rule></rule>
+                        </rules> 
+                    </course>
+                    <course>
+                        <id>EART1010</id> 
+                        <name>Earth and Climate Systems</name> 
+                        <courseId>101119</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Associate Professor Justin Payne</name> 
+                                <url>https://people.unisa.edu.au/Justin.Payne?_gl=1*yhcc*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/101119/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>  
+                    </course>
+                    <course>
+                        <id>ENVT1013</id> 
+                        <name>Environment, Society and Climate</name> 
+                        <courseId>008664</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Brianna Le Busque</name> 
+                                <url>https://people.unisa.edu.au/Brianna.LeBusque?_gl=1*1hej83t*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                            <courseCoordinator>
+                                <name>Dr Mira Cooper (Beknazarova)</name> 
+                                <url>https://people.unisa.edu.au/Mira.Cooper?_gl=1*1hej83t*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/008664/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>  
+                    </course>
+                    <course>
+                        <id>HLTH2024</id> 
+                        <name>Foundations of Outdoor Leadership</name> 
+                        <courseId>152961</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Mr Nicholas Glover</name> 
+                                <url>https://people.unisa.edu.au/Nicholas.Glover?_gl=1*3p4kou*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/152961/2024</url> 
+                        <notes>
+                            <note>Students are recommended to have prior experience in lightweight camping. Students must complete the Paddle Australia `Basic Skills Kayaking' course prior to undertaking the canoeing/kayaking field trip. This can be completed at UniSA or externally.</note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                    </course>
+                </sp2>
+                <sp5>
+                    <course>
+                        <id>BIOL1015</id> 
+                        <name>Sustainable Ecosystems</name> 
+                        <courseId>010900</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Associate Professor S. "Topa" Petit</name> 
+                                <url>https://people.unisa.edu.au/Sophie.Petit?_gl=1*13a1n72*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>BIOL1014</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/010900/2024</url>
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                    </course>
+                    <course>
+                        <id>EART1011</id> 
+                        <name>Soils in the Australian Landscape</name> 
+                        <courseId>101121</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Casey Doolette</name> 
+                                <url>https://people.unisa.edu.au/Casey.Doolette?_gl=1*lmimgb*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/101121/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                    </course>
+                    <course>
+                        <id>ENVT1017</id> 
+                        <name>Caring for Country</name> 
+                        <courseId>106072</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Ms Carly Heinrich</name> 
+                                <url>https://people.unisa.edu.au/Carly.Heinrich?_gl=1*nq46kb*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/106072/2024</url>
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                    </course>
+                    <course>
+                        <id>HLTH1017</id> 
+                        <name>Group and Team Leadership</name> 
+                        <courseId>012630</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Mr Scott Adams</name> 
+                                <url>https://people.unisa.edu.au/Scott.Adams?_gl=1*15l69by*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/012630/2024</url>
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                    </course>
+                </sp5>
+            </year1>
+            <year2>
+                <sp2>
+                    <course>
+                        <id>BIOL4001</id> 
+                        <name>Coastal Environments</name> 
+                        <courseId>012568</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Associate Professor Craig Styan</name> 
+                                <url>https://people.unisa.edu.au/Craig.Styan?_gl=1*uwxcun*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/012568/2024</url> 
+                        <notes>
+                            <note>It is recommended that students have completed introductory courses in biology and earth systems before attempting this course.</note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                    </course>
+                    <course>
+                        <id>ENVT3016</id> 
+                        <name>Environmental Interpretation and Community Engagement</name> 
+                        <courseId>012751</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Professor Delene Weber</name> 
+                                <url>https://people.unisa.edu.au/Delene.Weber?_gl=1*1adv6w0*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>ENVT1013</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/012751/2024</url>
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules> 
+                    </course>
+                    <course>
+                        <id>BIOL2045</id> 
+                        <name>Life on Earth A</name> 
+                        <courseId>100174</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Mr Shaun O'Sullivan</name> 
+                                <url>https://people.unisa.edu.au/Shaun.OSullivan?_gl=1*gx6t0u*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/100174/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                    </course>
+                    <course>
+                        <id>E1</id> 
+                        <name>Elective 1</name> 
+                        <courseId></courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name></name> 
+                                <url></url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally></offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/degrees/bachelor-outdoor-and-environmental-leadership/dom</url> 
+                        <notes>
+                            <note>For the Electives, students will be advised to choose a coherent series of courses from either the Community Engagement and Sustainability, Management, Counselling and Interpersonal Skills, Aboriginal Cultures or Biology elective listings. Other options may be approved by the Program Director however students must meet minimum level 3 requirements in their final year.</note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                    </course>
+                </sp2>
+                <sp5>
+                    <course>
+                        <id>BIOL2046</id> 
+                        <name>Life on Earth B</name> 
+                        <courseId>100175</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Mr Shaun O'Sullivan</name> 
+                                <url>https://people.unisa.edu.au/Shaun.OSullivan?_gl=1*pze79t*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>BIOL1014</id>
+                            </prerequisite>
+                            <prerequisite>
+                                <id>BIOL1015</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/100175/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules> 
+                    </course>
+                    <course>
+                        <id>HLTH3052</id> 
+                        <name>Outdoor, Wilderness and Adventure Education</name> 
+                        <courseId>152980</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Scott Polley</name> 
+                                <url>https://people.unisa.edu.au/Scott.Polley?_gl=1*19l6q26*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/152980/2024</url>
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>  
+                    </course>
+                    <course>
+                        <id>HLTH3051</id> 
+                        <name>Leadership in Terrestrial Environments</name> 
+                        <courseId>152920</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Mr Nicholas Glover</name> 
+                                <url>https://people.unisa.edu.au/Nicholas.Glover?_gl=1*1stubd5*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>HLTH2024</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/152920/2024</url>
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>  
+                    </course>
+                    <course>
+                        <id>E2</id> 
+                        <name>Elective 2</name> 
+                        <courseId></courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name></name> 
+                                <url></url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally></offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/degrees/bachelor-outdoor-and-environmental-leadership/dom</url> 
+                        <notes>
+                            <note>For the Electives, students will be advised to choose a coherent series of courses from either the Community Engagement and Sustainability, Management, Counselling and Interpersonal Skills, Aboriginal Cultures or Biology elective listings. Other options may be approved by the Program Director however students must meet minimum level 3 requirements in their final year.</note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                    </course>
+                </sp5>
+            </year2>
+            <year3>
+                <sp2>
+                    <course>
+                        <id>HLTH3050</id> 
+                        <name>Leadership in Aquatic Environments</name> 
+                        <courseId>152960</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Scott Polley</name> 
+                                <url>https://people.unisa.edu.au/Scott.Polley?_gl=1*1dethdu*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>HLTH2024</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/152960/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>  
+                    </course>
+                    <course>
+                        <id>ENVT2004</id> 
+                        <name>Park and Ecotourism Management</name> 
+                        <courseId>012570</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Brianna Le Busque</name> 
+                                <url>https://people.unisa.edu.au/Brianna.LeBusque?_gl=1*180ndp6*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                            <courseCoordinator>
+                                <name>Professor Delene Weber</name> 
+                                <url>https://people.unisa.edu.au/Delene.Weber?_gl=1*180ndp6*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>ENVT3016</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/012570/2024</url>
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>  
+                    </course>
+                    <course>
+                        <id>E3</id> 
+                        <name>Elective 3</name> 
+                        <courseId></courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name></name> 
+                                <url></url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally></offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/degrees/bachelor-outdoor-and-environmental-leadership/dom</url> 
+                        <notes>
+                            <note>For the Electives, students will be advised to choose a coherent series of courses from either the Community Engagement and Sustainability, Management, Counselling and Interpersonal Skills, Aboriginal Cultures or Biology elective listings. Other options may be approved by the Program Director however students must meet minimum level 3 requirements in their final year.</note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                    </course>
+                    <course>
+                        <id>E4</id> 
+                        <name>Elective 4</name> 
+                        <courseId></courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name></name> 
+                                <url></url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally></offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/degrees/bachelor-outdoor-and-environmental-leadership/dom</url> 
+                        <notes>
+                            <note>For the Electives, students will be advised to choose a coherent series of courses from either the Community Engagement and Sustainability, Management, Counselling and Interpersonal Skills, Aboriginal Cultures or Biology elective listings. Other options may be approved by the Program Director however students must meet minimum level 3 requirements in their final year.</note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                    </course>
+                </sp2>
+                <sp5>
+                    <course>
+                        <id>HLTH3068</id> 
+                        <name>Professional Practice in Outdoor Leadership</name> 
+                        <courseId>165661</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Scott Polley</name> 
+                                <url>https://people.unisa.edu.au/Scott.Polley?_gl=1*x91evp*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/165661/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes>
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                    </course>
+                    <course>
+                        <id>SPRC3018</id> 
+                        <name>Leadership in Recreation and Sport</name> 
+                        <courseId>153480</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Nick Takos</name> 
+                                <url>https://people.unisa.edu.au/Nick.Takos?_gl=1*1ez1mhc*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                            <courseCoordinator>
+                                <name>Mr Nicky Ng</name> 
+                                <url>https://people.unisa.edu.au/Nicky.Ng?_gl=1*1ez1mhc*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/153480/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes>
+                        <rules>
+                            <rule>Successful completion of 72 units in any program.</rule>
+                        </rules>
+                    </course>
+                    <course>
+                        <id>E5</id> 
+                        <name>Elective 5</name> 
+                        <courseId></courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name></name> 
+                                <url></url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally></offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/degrees/bachelor-outdoor-and-environmental-leadership/dom</url> 
+                        <notes>
+                            <note>For the Electives, students will be advised to choose a coherent series of courses from either the Community Engagement and Sustainability, Management, Counselling and Interpersonal Skills, Aboriginal Cultures or Biology elective listings. Other options may be approved by the Program Director however students must meet minimum level 3 requirements in their final year.</note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                    </course>
+                    <course>
+                        <id>E6</id> 
+                        <name>Elective 6</name> 
+                        <courseId></courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name></name> 
+                                <url></url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally></offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/degrees/bachelor-outdoor-and-environmental-leadership/dom</url> 
+                        <notes>
+                            <note>For the Electives, students will be advised to choose a coherent series of courses from either the Community Engagement and Sustainability, Management, Counselling and Interpersonal Skills, Aboriginal Cultures or Biology elective listings. Other options may be approved by the Program Director however students must meet minimum level 3 requirements in their final year.</note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                    </course>
+                </sp5>
+            </year3>
+        </courses>
+    </program>
+    <assistances> <!--Information for assistance building-->
+        <library>
+            <name>Library</name>
+            <url>https://www.library.unisa.edu.au/</url>
+        </library>
+        <refferencing>
+            <name>Refferencing</name>
+            <url>https://lo.unisa.edu.au/course/view.php?id=3839</url>
+        </refferencing>
+        <elective>
+            <name>Elective</name>
+            <url>https://study.unisa.edu.au/degrees/bachelor-outdoor-and-environmental-leadership/dom</url>
+            <electiveCourses>
+                <CommunityEngagementAndSustainability>                 
+                    <courses>
+                        <course>
+                            <id>BIOL2022</id> 
+                            <name>Conservation Biology</name> 
+                            <courseId>008663</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Associate Professor Gunnar Keppel</name> 
+                                    <url>https://people.unisa.edu.au/Gunnar.Keppel?_gl=1*1e6d87y*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>false</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id>BIOL2023</id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/008663/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>BIOL2023</id> 
+                            <name>Ecology</name> 
+                            <courseId>012566</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Associate Professor Gunnar Keppel</name> 
+                                    <url>https://people.unisa.edu.au/Gunnar.Keppel?_gl=1*1e6d87y*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>false</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id>BIOL1014</id>
+                                </prerequisite>
+                                <prerequisite>
+                                    <id>BIOL1015</id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/012566/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>ENVT3020</id> 
+                            <name>Environmental Conflict and Public Consultation</name> 
+                            <courseId>012748</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Annette Bardsley</name> 
+                                    <url></url>  <!--No link info in the course page-->
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>false</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id>ENVT1013</id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/012748/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>POLI2019</id> 
+                            <name>Sustainable Development: A Global Perspective</name> 
+                            <courseId>101129</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Keri Hopeward</name> 
+                                    <url>https://people.unisa.edu.au/Keri.Hopeward?_gl=1*193s6b6*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                                <courseCoordinator>
+                                    <name>Associate Professor Craig Styan</name> 
+                                    <url>https://people.unisa.edu.au/Craig.Styan?_gl=1*193s6b6*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>false</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id>ENVT1013</id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/101129/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>EDUC4186</id> 
+                            <name>Community Service Learning Project 1</name> 
+                            <courseId>101716</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Professor Deirdre Tedmanson</name> 
+                                    <url>https://people.unisa.edu.au/Deirdre.Tedmanson?_gl=1*113hvs*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>false</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id></id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/101716/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>ENVT3028</id> 
+                            <name>Restoration Ecology</name> 
+                            <courseId>105613</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Associate Professor S. "Topa" Petit</name> 
+                                    <url>https://people.unisa.edu.au/Sophie.Petit?_gl=1*18bsg23*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>false</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id>BIOL2023</id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/105613/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                    </courses>
+                </CommunityEngagementAndSustainability>
+                <Management>                 
+                    <courses>
+                        <course>
+                            <id>BUSS3087</id> 
+                            <name>Managing Decision Making</name> 
+                            <courseId>160041</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Sandra Barker</name> 
+                                    <url>https://people.unisa.edu.au/Sandra.Barker?_gl=1*1mba88c*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                                <courseCoordinator>
+                                    <name>Dr Vienne Sung</name> 
+                                    <url></url> <!--No link info in the course page-->
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id></id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/160041/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule>Successful completion of 54 units of undergraduate study.</rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>BUSS3050</id> 
+                            <name>Organisational Leadership</name> 
+                            <courseId>101057</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Xiao Lin</name> 
+                                    <url>https://people.unisa.edu.au/Xiao.Lin?_gl=1*kiy12a*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id></id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/101057/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule>Successful completion of 54 units for students undertaking a Bachelor degree.</rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>INFS2022</id> 
+                            <name>Project Management: Principles and Strategies</name> 
+                            <courseId>013624</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr ABM Abdullah</name> 
+                                    <url>https://people.unisa.edu.au/ABM.Abdullah?_gl=1*126hlrb*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url>  
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id></id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/013624/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>BUSS3023</id> 
+                            <name>Strategic Management</name> 
+                            <courseId>006461</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Samir Shrivastava</name> 
+                                    <url>https://people.unisa.edu.au/Samir.Shrivastava?_gl=1*b9xlul*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                                <courseCoordinator>
+                                    <name>Professor You-il Lee</name> 
+                                    <url>https://people.unisa.edu.au/You-il.Lee?_gl=1*b9xlul*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                                <courseCoordinator>
+                                    <name>Mr Paul Lee</name> 
+                                    <url>https://people.unisa.edu.au/Paul.Lee?_gl=1*19ttwsf*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id></id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/006461/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule>72 units</rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>BUSS2046</id> 
+                            <name>Organisational Behaviour</name> 
+                            <courseId>012021</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Mr Alick Kay</name> 
+                                    <url>https://people.unisa.edu.au/Alick.Kay?_gl=1*pqli4g*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id>BUSS2068</id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/012021/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>BUSS2043</id> 
+                            <name>Foundations of Human Resource Management</name> 
+                            <courseId>012071</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Subha Parida</name> 
+                                    <url>https://people.unisa.edu.au/Subha.Parida?_gl=1*17gm26d*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                                <courseCoordinator>
+                                    <name>Mrs Christine Choy</name> 
+                                    <url></url> <!--No link info in the course page-->
+                                </courseCoordinator>
+                                <courseCoordinator>
+                                    <name>Mr Eric Lau</name> 
+                                    <url></url> <!--No link info in the course page-->
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id></id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/012071/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                    </courses>
+                </Management>
+                <CounselingAndInterpersonalSkills>                 
+                    <courses>
+                        <course>
+                            <id>BEHL2009</id> 
+                            <name>Group Work</name> 
+                            <courseId>013123</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Jane Cowie</name> 
+                                    <url>https://people.unisa.edu.au/Jane.Cowie?_gl=1*1j8iua6*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id></id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/013123/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>BEHL1022</id> 
+                            <name>Counselling Foundations</name> 
+                            <courseId>101414</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Eden Thain</name> 
+                                    <url>https://people.unisa.edu.au/Eden.Thain?_gl=1*sciik4*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>false</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id></id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/101414/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>WELF2020</id> 
+                            <name>Interviewing Skills in Social Work and Human Services</name> 
+                            <courseId>105821</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Jane Cowie</name> 
+                                    <url>https://people.unisa.edu.au/Jane.Cowie?_gl=1*1tdom8m*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id>WELF1014</id>
+                                </prerequisite>
+                                <prerequisite>
+                                    <id>WELF1019</id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/105821/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>EDUC4186</id> 
+                            <name>Community Service Learning Project 1</name> 
+                            <courseId>101716</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Professor Deirdre Tedmanson</name> 
+                                    <url>https://people.unisa.edu.au/Deirdre.Tedmanson?_gl=1*12t5itm*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>false</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id></id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/101716/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>BEHL3018</id> 
+                            <name>Counselling Interventions</name> 
+                            <courseId>101745</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Nadine Pelling</name> 
+                                    <url>https://people.unisa.edu.au/Nadine.Pelling?_gl=1*l0mj2n*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>false</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id>BEHL2013</id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/101745/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>BEHL2013</id> 
+                            <name>Counselling Skills</name> 
+                            <courseId>101746</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Nadine Pelling</name> 
+                                    <url>https://people.unisa.edu.au/Nadine.Pelling?_gl=1*l0mj2n*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id>BEHL1022</id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/101746/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                    </courses>
+                </CounselingAndInterpersonalSkills>
+                <AboriginalCultures>                 
+                    <courses>
+                        <course>
+                            <id>SOCU3035</id> 
+                            <name>Aboriginal Rights and Interculturality</name> 
+                            <courseId>155601</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Associate Professor Karen Sinclair</name> 
+                                    <url>https://people.unisa.edu.au/Karen.Sinclair?_gl=1*4gfakk*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id>HUMS1035</id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/155601/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>PHIL3008</id> 
+                            <name>Aboriginal Philosophy: Contesting Knowledge in Social Science</name> 
+                            <courseId>164541</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Frances Wyld</name> 
+                                    <url>https://people.unisa.edu.au/Frances.Wyld?_gl=1*1d64poe*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id>HUMS1035</id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/164541/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>HUMS2017</id> 
+                            <name>Comparative Indigenous Studies</name> 
+                            <courseId>011054</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Frances Wyld</name> 
+                                    <url>https://people.unisa.edu.au/Frances.Wyld?_gl=1*1d64poe*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id></id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/011054/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>COMM2060</id> 
+                            <name>Communication and Reciprocity</name> 
+                            <courseId>100789</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Frances Wyld</name> 
+                                    <url>https://people.unisa.edu.au/Frances.Wyld?_gl=1*1d64poe*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id></id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/100789/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>HUMS1034</id> 
+                            <name>Contemporary Aboriginal Issues</name> 
+                            <courseId>007078</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Cameron Raynes</name> 
+                                    <url>https://people.unisa.edu.au/Cameron.Raynes?_gl=1*1ir5k4j*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id></id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/007078/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>HUMS1035</id> 
+                            <name>Aboriginal Cultures</name> 
+                            <courseId>009996</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Frances Wyld</name> 
+                                    <url>https://people.unisa.edu.au/Frances.Wyld?_gl=1*1d64poe*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id></id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/009996/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                    </courses>
+                </AboriginalCultures>
+                <BiologyForEducation>                 
+                    <courses>
+                        <course>
+                            <id>BIOL3026</id> 
+                            <name>Human Ecology and Global Change</name> 
+                            <courseId>010896</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Chris Della Vedova</name> 
+                                    <url>https://people.unisa.edu.au/Chris.DellaVedova?_gl=1*1837ka0*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id>BIOL2046</id>
+                                </prerequisite>
+                                <prerequisite>
+                                    <id>BIOL2045</id>
+                                </prerequisite>
+                                <prerequisite>
+                                    <id>BIOL2059</id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/010896/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>BIOL3027</id> 
+                            <name>Global Change and Human Health</name> 
+                            <courseId>010897</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Professor Craig Williams</name> 
+                                    <url>https://people.unisa.edu.au/Craig.Williams?_gl=1*q86t4d*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id></id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/010897/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>BIOL1012</id> 
+                            <name>Biology B</name> 
+                            <courseId>010906</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Erin Lousberg</name> 
+                                    <url>https://people.unisa.edu.au/Erin.Lousberg?_gl=1*1yyljdj*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>false</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id></id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/010906/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>BIOL1007</id> 
+                            <name>Biology A</name> 
+                            <courseId>008333</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Revecca Kakavanos-Plew</name> 
+                                    <url>https://people.unisa.edu.au/Revecca.Plew?_gl=1*vovlit*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                                <courseCoordinator>
+                                    <name>Dr Sarah List</name> 
+                                    <url>https://people.unisa.edu.au/Sarah.List?_gl=1*vovlit*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id></id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/008333/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>BIOL2059</id> 
+                            <name>Evolution</name> 
+                            <courseId>157321</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Dr Erin Lousberg</name> 
+                                    <url>https://people.unisa.edu.au/Erin.Lousberg?_gl=1*1yyljdj*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>true</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id>BIOL1007</id>
+                                </prerequisite>
+                                <prerequisite>
+                                    <id>BIOL1012</id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/157321/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                        <course>
+                            <id>ENVT3028</id> 
+                            <name>Restoration Ecology</name> 
+                            <courseId>105613</courseId> 
+                            <courseCoordinators> 
+                                <courseCoordinator>
+                                    <name>Associate Professor S. "Topa" Petit</name> 
+                                    <url>https://people.unisa.edu.au/Sophie.Petit?_gl=1*pafu7z*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                                </courseCoordinator>
+                            </courseCoordinators>
+                            <offeredExternally>false</offeredExternally>
+                            <prerequisites> 
+                                <prerequisite>
+                                    <id>BIOL2023</id>
+                                </prerequisite>
+                            </prerequisites>
+                            <url>https://study.unisa.edu.au/courses/105613/2024</url> 
+                            <notes>
+                                <note></note>
+                            </notes> 
+                            <rules>
+                                <rule></rule>
+                            </rules>  
+                        </course>
+                    </courses>
+                </BiologyForEducation>
+            </electiveCourses>
+        </elective>
+    </assistances>
+    <industries>    <!--Information for industry building-->
+        <partner>
+            <name>Uni SA research Home</name>
+            <url>https://www.unisa.edu.au/research/#industry-expertise</url>
+        </partner>
+        <associations>
+            <association>
+                <name></name>
+                <url></url>
+            </association>
+        </associations>
+    </industries>
+    <alumnus> <!--Information for alumni building-->
+        <alumni>
+            <name>Home</name>
+            <url>https://www.unisa.edu.au/connect/alumni-network/</url>
+        </alumni>
+        <alumni>
+            <name>News</name>
+            <url>https://www.unisa.edu.au/connect/alumni-network/alumni-news/</url>
+        </alumni>
+    </alumnus>
+    <welcome> <!--Information for the welcome building.-->
+        <name>Bachelor of Outdoor and Environmental Leadership</name> <!--program name to display on the page-->
+        <videos>
+            <video>
+                <name>Study Outdoor and Environmental Leadership at UniSA</name>
+                <embd>https://www.youtube.com/embed/DBpITlohB5U?si=CatknfmC8SStcM1e</embd> <!--For embeding directly on the page-->
+                <url>https://www.youtube.com/watch?v=DBpITlohB5U</url> <!--For watching youtube video on youtube-->
+            </video>
+            <video>
+                <name>UniSA City East facilities campus tour</name>
+                <embd>https://www.youtube.com/embed/KoNkCU_AhWk?si=LWl8kRRM3MBU1C8i</embd> <!--For embeding directly on the page-->
+                <url>https://www.youtube.com/watch?v=KoNkCU_AhWk</url> <!--For watching youtube video on youtube-->
+            </video>
+
+        </videos>
+    </welcome>
+</repository>

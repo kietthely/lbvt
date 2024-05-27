@@ -193,7 +193,7 @@
                     <course>
                         <id>GEOE2026</id> 
                         <name>Spatial Data Acquisition and Analysis</name> 
-                        <courseId></courseId> 
+                        <courseId>105610</courseId> 
                         <courseCoordinators> 
                             <courseCoordinator>
                                 <name>Dr Paul Corcoran</name> 
