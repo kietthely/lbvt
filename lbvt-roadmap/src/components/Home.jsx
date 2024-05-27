@@ -76,9 +76,9 @@ const Home = () => {
     );
 
     renderer = new Three.WebGLRenderer();
-    cam.position.x += 25;
-    cam.position.y = 30;
-    cam.position.z = -20;
+    cam.position.x = 8;
+    cam.position.y = 20;
+    cam.position.z = 60;
 
     cam.rotation.x = -Math.PI / 6;
 
@@ -112,7 +112,7 @@ const Home = () => {
 
     // Camera controls by mouse
     controls.current = new OrbitControls(cam, renderer.domElement);
-    controls.current.target.set(15, controls.current.target.y, 25); // set initial target.x and target.z
+    controls.current.target.set(5, controls.current.target.y, 25); // set initial target.x and target.z
     controls.current.update(); // apply the changes
     // Restrict left mouse movement
     controls.current.minPolarAngle = Math.PI / 6; // 30 degrees
@@ -654,6 +654,7 @@ const Home = () => {
   };
   const moveCameraLeft = () => {
     if (camera) {
+      // Move both camera and target
       camera.position.x -= 1;
       controls.current.target.x -= 1;
       controls.current.update();
@@ -661,6 +662,7 @@ const Home = () => {
   };
   const moveCameraTop = () => {
     if (camera) {
+      // Move both camera and target
       camera.position.z -= 1;
       controls.current.target.z -= 1;
       controls.current.update();
@@ -668,6 +670,7 @@ const Home = () => {
   };
   const moveCameraBottom = () => {
     if (camera) {
+      // Move both camera and target
       camera.position.z += 1;
       controls.current.target.z += 1;
       controls.current.update();
@@ -676,6 +679,19 @@ const Home = () => {
   const resetCamera = () => {
     if (controls.current) {
       controls.current.reset();
+
+      // Reset camera position
+      camera.position.x = 8;
+      camera.position.y = 20;
+      camera.position.z = 60;
+
+      // Reset camera rotation
+      camera.rotation.x = -Math.PI / 6;
+
+      // Reset target
+      controls.current.target.set(5, controls.current.target.y, 25);
+
+      controls.current.update();
     }
   };
   return (
