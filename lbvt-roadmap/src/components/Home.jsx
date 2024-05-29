@@ -929,7 +929,7 @@ const Home = () => {
     // display the link for the Uni SA's course page
     courseUI.document.write(
       "<p>More information about the course: <a href=" +
-        course.url +
+        evt_data.url +
         ' target="_blank" rel="noopener noreferrer">Link</a></p>'
     );
     courseUI.document.write("</div>");
