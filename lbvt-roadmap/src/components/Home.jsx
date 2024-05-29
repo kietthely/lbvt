@@ -146,7 +146,6 @@ const Home = () => {
       gltf.scene.traverse(function (object) {
         if (object.name.startsWith("building")) {
           buildings[object.name] = object;
-          console.log(buildings);
         }
       });
       scene.add(gltf.scene);
@@ -180,22 +179,27 @@ const Home = () => {
       //   console.log(selectedObject.userData);
       //   outlinePass.selectedObjects = [selectedObject];
       // }
+      let buildingObject;
       const intersects = raycaster.intersectObjects(scene.children, true);
       if (intersects.length > 0) {
         let selectedObject = intersects[0].object;
+
         while (selectedObject) {
           if (/^building_\d+$/.test(selectedObject.name)) {
-            console.log(selectedObject.userData);
             outlinePass.selectedObjects = [selectedObject];
+            buildingObject = selectedObject;
             break;
           } else if (selectedObject.name === "elective_lbvt") {
             outlinePass.selectedObjects = [selectedObject];
+            buildingObject = selectedObject;
             break;
           } else if (selectedObject.name === "alumni_lbvt") {
             outlinePass.selectedObjects = [selectedObject];
+            buildingObject = selectedObject;
             break;
           } else if (selectedObject.name === "industry_lbvt") {
             outlinePass.selectedObjects = [selectedObject];
+            buildingObject = selectedObject;
             break;
           }
           selectedObject = selectedObject.parent;
@@ -228,7 +232,11 @@ const Home = () => {
             });
             console.log("building 1");
             updateLine();
-            // displayCourseUI(course_data_list, connectedCourses);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[0].id
+            );
             break;
           case "building_2":
             connectedCourses = findConnection(
@@ -246,7 +254,11 @@ const Home = () => {
               }
             });
             updateLine();
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[1].id
+            );
             break;
           case "building_3":
             connectedCourses = findConnection(
@@ -264,7 +276,11 @@ const Home = () => {
               }
             });
             updateLine();
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[2].id
+            );
             break;
           case "building_4":
             connectedCourses = findConnection(
@@ -282,7 +298,11 @@ const Home = () => {
               }
             });
             updateLine();
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[3].id
+            );
             break;
           // for year1 sp5
           case "building_5":
@@ -301,7 +321,11 @@ const Home = () => {
               }
             });
             updateLine();
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[4].id
+            );
             break;
           case "building_6":
             connectedCourses = findConnection(
@@ -320,7 +344,11 @@ const Home = () => {
             });
 
             updateLine();
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[5].id
+            );
             break;
           case "building_7":
             connectedCourses = findConnection(
@@ -338,7 +366,11 @@ const Home = () => {
               }
             });
             updateLine();
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[6].id
+            );
             break;
           case "building_8":
             connectedCourses = findConnection(
@@ -356,7 +388,11 @@ const Home = () => {
               }
             });
             updateLine();
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[7].id
+            );
             break;
 
           // for year2 sp2
@@ -376,7 +412,11 @@ const Home = () => {
               }
             });
 
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[8].id
+            );
             break;
           case "building_10":
             connectedCourses = findConnection(
@@ -393,7 +433,11 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[9].id
+            );
             break;
           case "building_11":
             connectedCourses = findConnection(
@@ -410,7 +454,11 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[10].id
+            );
             break;
           case "building_12":
             connectedCourses = findConnection(
@@ -427,7 +475,11 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[11].id
+            );
             break;
 
           // for year2 sp5
@@ -446,7 +498,11 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[12].id
+            );
             break;
           case "building_14":
             connectedCourses = findConnection(
@@ -463,7 +519,11 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[13].id
+            );
             break;
           case "building_15":
             connectedCourses = findConnection(
@@ -480,7 +540,11 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[14].id
+            );
             break;
           case "building_16":
             connectedCourses = findConnection(
@@ -497,7 +561,11 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[15].id
+            );
             break;
 
           // for year3 sp2
@@ -516,7 +584,11 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[16].id
+            );
             break;
           case "building_18":
             connectedCourses = findConnection(
@@ -533,7 +605,11 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[17].id
+            );
             break;
           case "building_19":
             connectedCourses = findConnection(
@@ -550,7 +626,11 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[18].id
+            );
             break;
           case "building_20":
             connectedCourses = findConnection(
@@ -567,7 +647,11 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[19].id
+            );
             break;
 
           // for year3 sp5
@@ -586,7 +670,11 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[20].id
+            );
             break;
           case "building_22":
             connectedCourses = findConnection(
@@ -603,7 +691,11 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[21].id
+            );
             break;
           case "building_23":
             connectedCourses = findConnection(
@@ -620,28 +712,29 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            // displayCourseUI(intersects[0].object.parent.userData);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[22].id
+            );
             break;
 
           // for Elective
           case "elective_lbvt":
-            console.log("elective clicked");
-            console.log(intersects[0].object);
             break;
 
           // for Alumni
           case "alumni_lbvt":
-            console.log("alumni clicked");
-            console.log(intersects[0].object);
+            displayAlumniUI();
             break;
 
           // for Industry
           case "industry_lbvt":
-            console.log("industry clicked");
+            displayIndustryUI();
             break;
           // for great hall
           case "great_hall":
-            console.log("great hall clicked");
+            displayWelcomeUI();
             break;
           default:
             console.log(intersects[0].object);
@@ -716,10 +809,9 @@ const Home = () => {
       controls.current.update();
     }
   };
-  /*
   function displayCourseUI(evt, connectedCourses, id) {
-    const evt_data = evt[id];
-    //console.log(evt);
+    const evt_data = evt.find((item) => item.id === id);
+    console.log(evt_data);
     if (evt_data.id != null) {
       var courseUI = window.open("", "_blank", "width=700, height=600");
       courseUI.document.write(
@@ -776,26 +868,28 @@ const Home = () => {
         }
       }
       let courseList = "";
-      for (let course of connectedCourses) {
-        courseList +=
-          "<br>" +
-          course.id +
-          " " +
-          "<a href=" +
-          course.url +
-          ' target="_blank" rel="noopener noreferrer">' +
-          course.name +
-          "</a>" +
-          " ";
-      }
-      if (courseList.length > 0) {
-        courseUI.document.write(
-          "<p>" +
-            evt_data.name +
-            " is a prerequisite to learn " +
-            courseList +
-            "</p>"
-        );
+      if (connectedCourses.length > 0) {
+        for (let course of connectedCourses) {
+          courseList +=
+            "<br>" +
+            course.id +
+            " " +
+            "<a href=" +
+            course.url +
+            ' target="_blank" rel="noopener noreferrer">' +
+            course.name +
+            "</a>" +
+            " ";
+        }
+        if (courseList.length > 0) {
+          courseUI.document.write(
+            "<p>" +
+              evt_data.name +
+              " is a prerequisite to learn " +
+              courseList +
+              "</p>"
+          );
+        }
       }
 
       courseUI.document.write(
@@ -822,32 +916,236 @@ const Home = () => {
       courseUI.document.write("</div>");
       courseUI.document.write("</body></html>");
     }
+
+    if (evt_data.notes.note != null) {
+      // check the course has specific information as note.
+      courseUI.document.write("<p>Note: " + evt_data.notes.note + "</p>");
+    }
+
+    if (evt_data.rules.rule != null) {
+      // check the course has specific information as rule.
+      courseUI.document.write("<p>Rule: " + evt_data.rules.rule + "</p>");
+    }
+    // display the link for the Uni SA's course page
+    courseUI.document.write(
+      "<p>More information about the course: <a href=" +
+        course.url +
+        ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+    );
+    courseUI.document.write("</div>");
+    courseUI.document.write("</body></html>");
+  }
+  function getPrerequisite(courseID) {
+    // search and return the prerequisite course in general course.
+    // parameter: course ID as string (ex:GEOE2026)
+    // return : course information as object
+
+    const courses_data = lbvt_data.repository.program.courses;
+
+    for (let i = 0; i < courses_data.year1.sp2.course.length; i++) {
+      // search course in year1 sp2
+      if (courses_data.year1.sp2.course[i].id === courseID) {
+        //console.log(courses_data.year1.sp2.course[i]);
+        return courses_data.year1.sp2.course[i];
+      }
+    }
+
+    for (let i = 0; i < courses_data.year1.sp5.course.length; i++) {
+      // search course in year1 sp5
+      if (courses_data.year1.sp5.course[i].id === courseID) {
+        //console.log(courses_data.year1.sp5.course[i])
+        return courses_data.year1.sp5.course[i];
+      }
+    }
+
+    for (let i = 0; i < courses_data.year2.sp2.course.length; i++) {
+      // search course in year2 sp2
+      if (courses_data.year2.sp2.course[i].id === courseID) {
+        //console.log(courses_data.year2.sp2.course[i]);
+        return courses_data.year2.sp2.course[i];
+      }
+    }
+
+    for (let i = 0; i < courses_data.year2.sp5.course.length; i++) {
+      // search course in year2 sp5
+      if (courses_data.year2.sp5.course[i].id === courseID) {
+        //console.log(courses_data.year2.sp5.course[i]);
+        return courses_data.year2.sp5.course[i];
+      }
+    }
+    for (let i = 0; i < courses_data.year3.sp2.course.length; i++) {
+      // search course in year3 sp2
+      if (courses_data.year3.sp2.course[i].id === courseID) {
+        //console.log(courses_data.year3.sp2.course[i]);
+        return courses_data.year3.sp2.course[i];
+      }
+    }
+
+    for (let i = 0; i < courses_data.year3.sp5.course.length; i++) {
+      // search course in year3 sp5
+      if (courses_data.year3.sp5.course[i].id === courseID) {
+        //console.log(courses_data.year3.sp5.course[i]);
+        return courses_data.year3.sp5.course[i];
+      }
+    }
+
+    // case for no match in the general courses
+    return null;
   }
 
-  if (course.notes.note != null) {
-    // check the course has specific information as note.
-    courseUI.document.write("<p>Note: " + course.notes.note + "</p>");
+  function displayAlumniUI() {
+    // display UI for Alumni information with the related event
+    // source data is came from "src\assets\lbvt.json"
+    const alumniData = lbvt_data.repository.alumnus;
+    var courseUI = window.open("", "_blank", "width=600, height=400");
+    courseUI.document.write("<html><head><title>Alumni</title>");
+    courseUI.document.write(
+      "<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }"
+    );
+    courseUI.document.write(
+      "a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>"
+    );
+    courseUI.document.write("</head><body>");
+    courseUI.document.write("<div class ='container'>");
+
+    courseUI.document.write("<h2>Alumni</h2>");
+    if ("alumni" in alumniData) {
+      for (let i = 0; i < alumniData.alumni.length; i++) {
+        courseUI.document.write("<p>" + alumniData.alumni[i].name + "<br/>");
+        courseUI.document.write(
+          "<a href=" +
+            alumniData.alumni[i].url +
+            ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+        );
+      }
+    } else {
+      courseUI.document.write("<p>Oops, There is no data for Alumni.<p/>");
+    }
+    courseUI.document.write("</div>");
+    courseUI.document.write("</body></html>");
   }
 
-  if (course.rules.rule != null) {
-    // check the course has specific information as rule.
-    courseUI.document.write("<p>Rule: " + course.rules.rule + "</p>");
-  }
-  // display the link for the Uni SA's course page
-  courseUI.document.write(
-    "<p>More information about the course: <a href=" +
-      course.url +
-      ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+  function displayIndustryUI() {
+    // display UI for industry information with the related event
+    // source data is came from "src\assets\lbvt.json"
+    const industryData = lbvt_data.repository.industries;
+    var courseUI = window.open("", "_blank", "width=600, height=400");
+    courseUI.document.write("<html><head><title>Industry</title>");
+    courseUI.document.write(
+      "<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }"
+    );
+    courseUI.document.write(
+      ".Partner{ margin-top: 20px;margin-left: 50px; } .Associations{margin-top: 20px;margin-left: 50px;}"
+    );
+    courseUI.document.write(
+      "a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>"
+    );
+    courseUI.document.write("</head><body>");
+    courseUI.document.write("<div class ='container'>");
+
+    courseUI.document.write("<h2><b>Industry</b></h2>");
+    courseUI.document.write(
+      "<p>You can check partner companies from list below.</p>"
+    );
+    if ("partner" in industryData) {
+      courseUI.document.write("<h3><b>Partner companies</b></h3>");
+      courseUI.document.write("<div class = Partner>");
+      for (let i = 0; i < industryData.partner.length; i++) {
+        // display all partner companies which are on the Uni SA's web page
+        if (industryData.partner[i].url != null) {
+          // display all partners url links, Only if we could found the page.
+          courseUI.document.write(
+            "<p>" +
+              "Name: <a href=" +
+              industryData.partner[i].url +
+              ' target="_blank" rel="noopener noreferrer">' +
+              industryData.partner[i].name +
+              "</a></p>"
+          );
+        } else {
+          courseUI.document.write(
+            "<p>" + "Name: " + industryData.partner[i].name + "<br/>"
+          );
+        }
+      }
       courseUI.document.write("</div>");
-  courseUI.document.write("</body></html>");
-  };
-  
-  // case for no match in the general courses
-  return null;
-}
-  
-  
-  */
+      courseUI.document.write("<h3><b>Related associations</b></h3>");
+      courseUI.document.write("<div class = Associations>");
+      for (let i = 0; i < industryData.associations.association.length; i++) {
+        // display the related associations for the program
+
+        if (industryData.associations.association[i].url != null) {
+          courseUI.document.write(
+            "<p>Name: <a href=" +
+              industryData.associations.association[i].url +
+              ' target="_blank" rel="noopener noreferrer">' +
+              industryData.associations.association[i].name +
+              "</a></p>"
+          );
+        } else {
+          courseUI.document.write(
+            "<p>" +
+              "Name: " +
+              industryData.associations.association[i].name +
+              "</p>"
+          );
+        }
+      }
+      courseUI.document.write("</div>");
+    } else {
+      courseUI.document.write("<p>Oops, There is no data for Industry.<p/>");
+    }
+    courseUI.document.write("</div>");
+    courseUI.document.write("</body></html>");
+  }
+
+  function displayWelcomeUI() {
+    // display welcome message and youtube videos which are related to LBVT in UniSA's youtube account
+    // source data is came from "src\assets\lbvt.json"
+    const welcomeData = lbvt_data.repository.welcome;
+    var courseUI = window.open("", "_blank", "width=800, height=650");
+    courseUI.document.write(
+      '<html><head><title>Welcome</title><meta http-equiv="Permissions-Policy" content="*">'
+    );
+    courseUI.document.write(
+      "<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }"
+    );
+    courseUI.document.write(".Videos{ margin-top: 20px; margin-left: 50px;}");
+    courseUI.document.write(
+      "a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>"
+    );
+    courseUI.document.write("</head><body>");
+    courseUI.document.write("<div class ='container'>");
+
+    courseUI.document.write("<h2>Welcome to " + welcomeData.name + "</h2>");
+    courseUI.document.write(
+      "<p>You can check videos that are related to the program.</p>"
+    );
+
+    courseUI.document.write("<h3>Video</h3>");
+    courseUI.document.write("<div class ='Videos'>");
+    if ("videos" in welcomeData) {
+      // need to change here after modify py code
+      for (let i = 0; i < welcomeData.videos.video.length; i++) {
+        courseUI.document.write(
+          "<p><b>" + welcomeData.videos.video[i].name + "</b></p>"
+        );
+        courseUI.document.write(
+          '<iframe width="560" height="315" src="' +
+            welcomeData.videos.video[i].embd +
+            '" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+        );
+        //courseUI.document.write("<p>Your browser doesn't support HTML video. Here is a <a href="+ welcomeData.videos.video[i].url + ">link to the video</a> instead.</p>");
+      }
+    } else {
+      courseUI.document.write(
+        "<p>Oops, There is no data for video to display.</p>"
+      );
+    }
+    courseUI.document.write("</div>");
+    courseUI.document.write("</div>");
+    courseUI.document.write("</body></html>");
+  }
   return (
     <div>
       {/*Put the model to background.
