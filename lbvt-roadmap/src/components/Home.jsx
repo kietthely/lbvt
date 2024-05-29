@@ -396,7 +396,7 @@ const Home = () => {
     }
   };
 
-    function displayCourseUI(evt, connectedCourses, id) {
+  function displayCourseUI(evt, connectedCourses, id) {
     const evt_data = evt[id];
     console.log(evt);
     if (evt_data.id != null) {
@@ -415,19 +415,23 @@ const Home = () => {
 
       //Section for course aim
       courseUI.document.write("<h3>Course aim</h3>");
-      //courseUI.document.write("<p>" + evt_data.id + "</p>");
+      if ( evt_data.courseAim != null){
+        courseUI.document.write("<p>" + evt_data.courseAim + "</p>");
+      }
 
       //Section for course contents
       courseUI.document.write("<h3>Course content</h3>");
-      //courseUI.document.write("<p>" + evt_data.id + "</p>");
+      if ( evt_data.courseContent != null){
+        courseUI.document.write("<p>" + evt_data.courseContent + "</p>");
+      }
 
       // section for textbook
       courseUI.document.write("<h3>Textbook(s)</h3>");
-      if (evt_data.id != null){
-        //courseUI.document.write("<p>" + evt_data.id + "</p>");
+      if (evt_data.textbook != null){
+        courseUI.document.write("<p>" + evt_data.textbook + "</p>");
       } else{
         // case for there is no info for textbook for the course
-        //courseUI.document.write("<p>N/A</p>");
+        courseUI.document.write("<p>N/A</p>");
       }
 
       // display all prerequisite information
@@ -462,7 +466,9 @@ const Home = () => {
 
       //Section for Assessment
       courseUI.document.write("<h3>Assessment(s)</h3>");
-      //courseUI.document.write("<p>" + evt_data.id + "</p>");
+      if (evt_data.assessment != null){
+        courseUI.document.write("<p>" + evt_data.assessment + "</p>");
+      }
 
       // Section for course coordinators
       courseUI.document.write("<h3>Course coordinator(s)</h3>");
@@ -555,22 +561,27 @@ const Home = () => {
 
         //Section for course aim
         courseUI.document.write("<h3>Course aim</h3>");
-        //courseUI.document.write("<p>" + environmentElective.intermediate.course[i].courseAim + "</p>");
+        if (environmentElective.intermediate.course[i].courseAim != null) {
+          courseUI.document.write("<p>" + environmentElective.intermediate.course[i].courseAim + "</p>");
+        }
 
         //Section for course contents
         courseUI.document.write("<h3>Course content</h3>");
-        //courseUI.document.write("<p>" + environmentElective.intermediate.course[i].courseContent + "</p>");
+        if (environmentElective.intermediate.course[i].courseContent != null){
+          courseUI.document.write("<p>" + environmentElective.intermediate.course[i].courseContent + "</p>");
+        }
+      
 
         // section for textbook
         courseUI.document.write("<h3>Textbook(s)</h3>");
-        /* need to write a code after json has made
+
         if (environmentElective.intermediate.course[i].textbook != null){
-          //courseUI.document.write("<p>" + environmentElective.intermediate.course[i].textbook + "</p>");
+          courseUI.document.write("<p>" + environmentElective.intermediate.course[i].textbook + "</p>");
         } else{
           // case for there is no info for textbook for the course
-          //courseUI.document.write("<p>N/A</p>");
+          courseUI.document.write("<p>N/A</p>");
         }
-        */
+        
 
         // section for prerequisite 
         courseUI.document.write("<h3>Prerequisite(s)</h3>");
@@ -588,7 +599,9 @@ const Home = () => {
 
         //Section for Assessment
         courseUI.document.write("<h3>Assessment(s)</h3>");
-        //courseUI.document.write("<p>" + environmentElective.intermediate.course[i].assessment + "</p>");
+        if (environmentElective.intermediate.course[i].assessment != null){
+          courseUI.document.write("<p>" + environmentElective.intermediate.course[i].assessment + "</p>");
+        }
 
         // section for course coordinator
         courseUI.document.write("<h3>Course coordinator(s)</h3>");
@@ -637,23 +650,26 @@ const Home = () => {
 
         //Section for course aim
         courseUI.document.write("<h3>Course aim</h3>");
-        //courseUI.document.write("<p>" + environmentElective.advanced.course[i].courseAim + "</p>");
+        if (environmentElective.advanced.course[i].courseAim != null){
+          courseUI.document.write("<p>" + environmentElective.advanced.course[i].courseAim + "</p>");
+        }
+
         
         //Section for course contents
         courseUI.document.write("<h3>Course content</h3>");
-        //courseUI.document.write("<p>" + environmentElective.advanced.course[i].courseContent + "</p>");
+        if (environmentElective.advanced.course[i].courseContent != null){
+          courseUI.document.write("<p>" + environmentElective.advanced.course[i].courseContent + "</p>");
+        }
         
         // section for textbook
         courseUI.document.write("<h3>Textbook(s)</h3>");
 
-        /* need to write a code after json has made
         if (environmentElective.advanced.course[i].textbook != null){
            //courseUI.document.write("<p>" + environmentElective.advanced.course[i].textbook + "</p>");
           } else{
             // case for there is no info for textbook for the course
-            //courseUI.document.write("<p>N/A</p>");
-            }
-        */
+            courseUI.document.write("<p>N/A</p>");
+          }
         
         // section for prerequisite
         courseUI.document.write("<h3>Prerequisite(s)</h3>");
@@ -671,8 +687,9 @@ const Home = () => {
         
         // section for assessments
         courseUI.document.write("<h3>Assessment(s)</h3>");
-        //courseUI.document.write("<p>" + environmentElective.advanced.course[i].assessment + "</p>");
-
+        if (environmentElective.advanced.course[i].assessment!= null){
+          courseUI.document.write("<p>" + environmentElective.advanced.course[i].assessment + "</p>");
+        }
 
         // section for course coordinator
         courseUI.document.write("<h3>Course coordinator(s)</h3>");
@@ -713,7 +730,7 @@ const Home = () => {
     courseUI.document.write("</div>");
     courseUI.document.write("</div>");
     courseUI.document.write('</body></html>');
-}
+  }
 
   function displayAlumniUI() {
     // display UI for Alumni information with the related event
