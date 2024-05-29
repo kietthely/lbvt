@@ -146,6 +146,7 @@ const Home = () => {
       gltf.scene.traverse(function (object) {
         if (object.name.startsWith("building")) {
           buildings[object.name] = object;
+          console.log(buildings);
         }
       });
       scene.add(gltf.scene);
@@ -180,25 +181,21 @@ const Home = () => {
       //   outlinePass.selectedObjects = [selectedObject];
       // }
       const intersects = raycaster.intersectObjects(scene.children, true);
-      let buildingObject;
       if (intersects.length > 0) {
         let selectedObject = intersects[0].object;
         while (selectedObject) {
           if (/^building_\d+$/.test(selectedObject.name)) {
+            console.log(selectedObject.userData);
             outlinePass.selectedObjects = [selectedObject];
-            buildingObject = selectedObject;
             break;
           } else if (selectedObject.name === "elective_lbvt") {
             outlinePass.selectedObjects = [selectedObject];
-            buildingObject = selectedObject;
             break;
           } else if (selectedObject.name === "alumni_lbvt") {
             outlinePass.selectedObjects = [selectedObject];
-            buildingObject = selectedObject;
             break;
           } else if (selectedObject.name === "industry_lbvt") {
             outlinePass.selectedObjects = [selectedObject];
-            buildingObject = selectedObject;
             break;
           }
           selectedObject = selectedObject.parent;
@@ -719,6 +716,138 @@ const Home = () => {
       controls.current.update();
     }
   };
+  /*
+  function displayCourseUI(evt, connectedCourses, id) {
+    const evt_data = evt[id];
+    //console.log(evt);
+    if (evt_data.id != null) {
+      var courseUI = window.open("", "_blank", "width=700, height=600");
+      courseUI.document.write(
+        "<html><head><title>" + evt_data.name + "</title>"
+      );
+      //courseUI.document.write('<link rel="stylesheet" type="text/css" href="./Home.css">'); reading css or scss file did not work with window.open. Writing css directly in here only worked
+      courseUI.document.write(
+        "<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }"
+      );
+      courseUI.document.write(
+        "a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>"
+      );
+      courseUI.document.write("</head><body>");
+      courseUI.document.write("<div class ='container'>");
+
+      courseUI.document.write("<h3>" + evt_data.name + "</h3>");
+      courseUI.document.write("<p>" + "Course ID: " + evt_data.id + "</p>");
+
+      for (let courseCoordinator of evt_data.courseCoordinators
+        .courseCoordinator) {
+        if (courseCoordinator.name != null) {
+          // To avoid displaying null value for Electives
+          courseUI.document.write(
+            "<p>" +
+              "Course coordinator: " +
+              "<a href=" +
+              courseCoordinator.url +
+              ' target="_blank" rel="noopener noreferrer">' +
+              courseCoordinator.name +
+              "</a></p>"
+          );
+        }
+      }
+      // display all prerequisite information
+      for (let i = 0; i < evt_data.prerequisites.prerequisite.length; i++) {
+        if (evt_data.prerequisites.prerequisite[0].id) {
+          var prerequisite = getPrerequisite(
+            evt_data.prerequisites.prerequisite[i].id
+          );
+          courseUI.document.write(
+            "<p>" +
+              "Prerequisite : " +
+              prerequisite.id +
+              " " +
+              "<a href=" +
+              prerequisite.url +
+              ' target="_blank" rel="noopener noreferrer">' +
+              prerequisite.name +
+              "</a>" +
+              "</p>"
+          );
+        } else {
+          courseUI.document.write("<p>" + "Prerequisite : N/A </p>");
+        }
+      }
+      let courseList = "";
+      for (let course of connectedCourses) {
+        courseList +=
+          "<br>" +
+          course.id +
+          " " +
+          "<a href=" +
+          course.url +
+          ' target="_blank" rel="noopener noreferrer">' +
+          course.name +
+          "</a>" +
+          " ";
+      }
+      if (courseList.length > 0) {
+        courseUI.document.write(
+          "<p>" +
+            evt_data.name +
+            " is a prerequisite to learn " +
+            courseList +
+            "</p>"
+        );
+      }
+
+      courseUI.document.write(
+        "<p>" +
+          "Course web page: " +
+          "<a href=" +
+          evt_data.url +
+          ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+      );
+
+      if (evt_data.notes.note) {
+        courseUI.document.write(
+          "<p>" + "Note: " + evt_data.notes.note + "</p>"
+        );
+      }
+
+      if (evt_data.rules.rule) {
+        courseUI.document.write(
+          "<p>" + "Rule: " + evt_data.rules.rule + "</p>"
+        );
+      }
+
+      courseUI.document.write("</div>");
+      courseUI.document.write("</div>");
+      courseUI.document.write("</body></html>");
+    }
+  }
+
+  if (course.notes.note != null) {
+    // check the course has specific information as note.
+    courseUI.document.write("<p>Note: " + course.notes.note + "</p>");
+  }
+
+  if (course.rules.rule != null) {
+    // check the course has specific information as rule.
+    courseUI.document.write("<p>Rule: " + course.rules.rule + "</p>");
+  }
+  // display the link for the Uni SA's course page
+  courseUI.document.write(
+    "<p>More information about the course: <a href=" +
+      course.url +
+      ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+      courseUI.document.write("</div>");
+  courseUI.document.write("</body></html>");
+  };
+  
+  // case for no match in the general courses
+  return null;
+}
+  
+  
+  */
   return (
     <div>
       {/*Put the model to background.

@@ -489,6 +489,13 @@
         "url": "https://study.unisa.edu.au/electives/iee",
         "electiveCourses": {
           "environmental": {
+            "notes": {
+              "note": "Not all electives will be offered every year. Other options not listed here may only be taken with the prior agreement of the Program Director."
+            },
+            "rules": {
+              "rule": "Students must complete at least three Advanced Environmental Electives."
+            },
+            "url": "https://study.unisa.edu.au/degrees/bachelor-of-environmental-science",
             "advanced": {
               "course": [
                 {
@@ -713,20 +720,64 @@
       }
     },
     "industries": {
-      "industry": [
+      "partner": [
         {
-          "name": "Home",
+          "name": "Uni SA research Home",
           "url": "https://www.unisa.edu.au/research/#industry-expertise"
         },
         {
-          "name": "Australian Constructors Association",
-          "url": "https://www.constructors.com.au/"
+          "name": "Uni SA Engineering & construction",
+          "url": "https://www.unisa.edu.au/connect/industries/engineering-construction/"
         },
         {
-          "name": "Australian Geological Survey Organization Network",
-          "url": "https://www.geoscience.gov.au/"
+          "name": "Smr",
+          "url": "https://www.smr-automotive.com/en"
+        },
+        {
+          "name": "INCONMAT AUSTRALIA",
+          "url": null
+        },        
+        {
+          "name": "ecas",
+          "url": null
+        },
+        {
+          "name": "LOCKHEED MARTIN",
+          "url": "https://www.lockheedmartin.com/en-au/index.html"
+        },
+        {
+          "name": "SA Power Networks",
+          "url": "https://www.sapowernetworks.com.au/"
+        },
+        {
+          "name": "SA Water",
+          "url": "https://www.sawater.com.au/"
+        },
+        {
+          "name": "SAAB",
+          "url": "https://www.saab.com/markets/australia"
+        },
+        {
+          "name": "ULC Engineering",
+          "url": null
+        },
+        {
+          "name": "CITY OF Salisbury",
+          "url": null
         }
-      ]
+      ],
+      "associations": {
+        "association" : [
+          {
+            "name": "Australian Constructors Association",
+            "url": "https://www.constructors.com.au/"
+          },
+          {
+            "name": "Australian Geological Survey Organization Network",
+            "url": "https://www.geoscience.gov.au/"
+          }
+        ]
+      }
     },
     "alumnus": {
       "alumni": [
@@ -739,6 +790,38 @@
           "url": "https://www.unisa.edu.au/connect/alumni-network/alumni-news/"
         }
       ]
+    },
+    "welcome": {
+      "name": "Bachelor of Environmental Science",
+      "videos":{
+        "video": [
+          {
+            "name": "Study Environmental Science at UniSA",
+            "embd": "https://www.youtube.com/embed/JeFbAGlFaic?si=cikOWoy4n0DY15lG",
+            "url": "https://www.youtube.com/watch?v=JeFbAGlFaic"
+          },
+          {
+            "name": "Hear from Kiara Sparks, Environmental Science student",
+            "embd": "https://www.youtube.com/embed/IKnCz9KYZfo?si=dCzP9piJsVCDsybd",
+            "url": "https://www.youtube.com/watch?v=IKnCz9KYZfo"
+          },
+          {
+            "name": "Environmental Science - University of South Australia",
+            "embd": "https://www.youtube.com/embed/oISf32xz3Dw?si=tLldU32HOdINHtiW",
+            "url": "https://www.youtube.com/watch?v=oISf32xz3Dw"
+          },
+          {
+            "name": "Geospatial Science - University of South Australia",
+            "embd": "https://www.youtube.com/embed/p1tOqnmrX5s?si=xT3lbkC-Neg_ZAT-",
+            "url": "https://www.youtube.com/watch?v=p1tOqnmrX5s"
+          },
+          {
+            "name": "UniSA Mawson Lakes Campus | International student selfie tour",
+            "embd": "https://www.youtube.com/embed/m5ZqHMmztek?si=cwDB8H70BOxM0aM2",
+            "url": "https://www.youtube.com/watch?v=m5ZqHMmztek"
+          }
+        ]
+      }
     }
   }
 }
