@@ -110,18 +110,18 @@ const Home = () => {
     outlinePass.edgeThickness = 2.0;
     composer.addPass(outlinePass);
 
-    // Camera controls by mouse
+    // camera controls by mouse
     controls.current = new OrbitControls(cam, renderer.domElement);
     controls.current.target.set(5, controls.current.target.y, 25); // set initial target.x and target.z
     controls.current.update(); // apply the changes
-    // Restrict left mouse movement
+    // restrict left mouse movement
     controls.current.minPolarAngle = Math.PI / 6; // 30 degrees
     controls.current.maxPolarAngle = Math.PI / 2; // 90 degrees
-    // Restrict right mouse movement
+    // restrict right mouse movement
     controls.current.enablePan = true; // Enable panning
     controls.current.screenSpacePanning = false;
 
-    // Restrict camera target view
+    // restrict camera target view
     controls.current.addEventListener("change", () => {
       const maxPanDistance = 125; // Maximum panning distance
       setCamera({ ...cam });
@@ -141,7 +141,7 @@ const Home = () => {
       });
       scene.add(gltf.scene);
     });
-
+    // Render the scene models
     const animate = function () {
       requestAnimationFrame(animate);
       composer.render();
