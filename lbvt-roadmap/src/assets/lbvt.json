@@ -31,7 +31,11 @@
                 "prerequisites": { "prerequisite": [{ "id": null }] },
                 "url": "https://study.unisa.edu.au/courses/010899/2024",
                 "notes": { "note": null },
-                "rules": { "rule": null }
+                "rules": { "rule": null },
+                "courseAim": "To introduce the concept of biodiversity and provide an understanding of how organisms function in their environment.",
+                "courseContent": "This course examines the measurement, classification and identification of biodiversity and the biological processes and principles that underlie its functioning and evolution. Specific topics include the classification of organisms, cell structure and function, photosynthesis and respiration, mitosis, meiosis, evolution, plant structure and, function, invertebrate and vertebrate structure and function, and relevance of and current threats to biodiversity. You will also practice the skills of scientific report-writing and the use of a microscope.",
+                "textbook": "Knox, B, Ladiges, P, Evans, B and Saint R 2014, Biology: An Australian Focus, 5th edition, McGraw-Hill, Sydney",
+                "assessment": "Continuous assessment, Examination, Project, Quiz"
               },
               {
                 "id": "EART1010",
