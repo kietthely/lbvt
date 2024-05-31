@@ -415,19 +415,25 @@ const Home = () => {
 
       //Section for course aim
       courseUI.document.write("<h3>Course aim</h3>");
-      if ( evt_data.courseAim != null){
+      if ( evt_data.courseAim != ""){
         courseUI.document.write("<p>" + evt_data.courseAim + "</p>");
+      } else{
+        // case for there is no info 
+        courseUI.document.write("<p>N/A</p>");
       }
 
       //Section for course contents
       courseUI.document.write("<h3>Course content</h3>");
-      if ( evt_data.courseContent != null){
+      if ( evt_data.courseContent != ""){
         courseUI.document.write("<p>" + evt_data.courseContent + "</p>");
+      } else{
+        // case for there is no info 
+        courseUI.document.write("<p>N/A</p>");
       }
 
       // section for textbook
       courseUI.document.write("<h3>Textbook(s)</h3>");
-      if (evt_data.textbook != null){
+      if (evt_data.textbook != ""){
         courseUI.document.write("<p>" + evt_data.textbook + "</p>");
       } else{
         // case for there is no info for textbook for the course
@@ -466,8 +472,11 @@ const Home = () => {
 
       //Section for Assessment
       courseUI.document.write("<h3>Assessment(s)</h3>");
-      if (evt_data.assessment != null){
+      if (evt_data.assessment != ""){
         courseUI.document.write("<p>" + evt_data.assessment + "</p>");
+      } else{
+        // case for there is no info 
+        courseUI.document.write("<p>N/A</p>");
       }
 
       // Section for course coordinators
@@ -481,7 +490,9 @@ const Home = () => {
               courseCoordinator.url +
               ' target="_blank" rel="noopener noreferrer">' + courseCoordinator.name + '</a></p>'
           );
-        } 
+        } else {
+          courseUI.document.write("<p>N/A</p>");
+        }
       }
 
       //section for note
@@ -505,6 +516,7 @@ const Home = () => {
       courseUI.document.write('</body></html>');
     }
   }
+    
   function displayElectiveUI(){
     // display UI for elective information with the related event
 
@@ -577,6 +589,7 @@ const Home = () => {
       addElectiveUI(courseUI,iboeElective.CommunityEngagementAndSustainability);
       courseUI.document.write("</div>");
 
+
       // section for Management elective
       courseUI.document.write("<h3><a href=" + electiveData.url + 'target="_blank" rel="noopener noreferrer">Management</a></h3>');  
       courseUI.document.write("<div class='Management' display: block;>");  
@@ -616,19 +629,25 @@ const Home = () => {
 
       //Section for course aim
       courseUI.document.write("<h3>Course aim</h3>");
-      if (electiveJson.course[i].courseAim != null) {
+      if (electiveJson.course[i].courseAim != "") {
         courseUI.document.write("<p>" + electiveJson.course[i].courseAim + "</p>");
+      } else{
+        // case for there is no info 
+        courseUI.document.write("<p>N/A</p>");
       }
 
       //Section for course contents
       courseUI.document.write("<h3>Course content</h3>");
-      if (electiveJson.course[i].courseContent != null){
+      if (electiveJson.course[i].courseContent != ""){
         courseUI.document.write("<p>" + electiveJson.course[i].courseContent + "</p>");
+      } else{
+        // case for there is no info 
+        courseUI.document.write("<p>N/A</p>");
       }
     
       // section for textbook
       courseUI.document.write("<h3>Textbook(s)</h3>");
-      if (electiveJson.course[i].textbook != null){
+      if (electiveJson.course[i].textbook != ""){
         courseUI.document.write("<p>" + electiveJson.course[i].textbook + "</p>");
       } else{
         // case for there is no info for textbook for the course
@@ -651,8 +670,11 @@ const Home = () => {
 
       //Section for Assessment
       courseUI.document.write("<h3>Assessment(s)</h3>");
-      if (electiveJson.course[i].assessment != null){
+      if (electiveJson.course[i].assessment != ""){
         courseUI.document.write("<p>" + electiveJson.course[i].assessment + "</p>");
+      } else{
+        // case for there is no info 
+        courseUI.document.write("<p>N/A</p>");
       }
 
       // section for course coordinator
@@ -687,7 +709,6 @@ const Home = () => {
 
     }
     courseUI.document.write("</div>"); 
-
   }
 
   function displayAlumniUI() {
