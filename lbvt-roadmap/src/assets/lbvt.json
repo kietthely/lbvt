@@ -53,7 +53,11 @@
                 "prerequisites": { "prerequisite": [{ "id": null }] },
                 "url": "https://study.unisa.edu.au/courses/101119/2024",
                 "notes": { "note": null },
-                "rules": { "rule": null }
+                "rules": { "rule": null },
+                "courseAim": "To introduce students to the study of the Earth using a systems approach, examining the interactions between the solid Earth, the atmosphere, hydrosphere and biosphere.",
+                "courseContent": "Introduction to Earth Systems; plate tectonics and the rock cycle; hydrosphere, the water cycle, oceans, lakes and rivers; atmosphere composition, circulation, weather patterns and climate change; evolution of life and the interaction between the biosphere, hydrosphere and atmosphere; earth resources and sustainability.",
+                "textbook": "Marshak, S 2018, Earth (Portrait of a Planet), 6th edition ISE, W.W. Norton and Company, New York",
+                "assessment": "Examination, Problem solving exercise, Quiz, Report, Skills demonstration, Test/Quiz"
               },
               {
                 "id": "ENVT1013",
@@ -75,7 +79,11 @@
                 "prerequisites": { "prerequisite": [{ "id": null }] },
                 "url": "https://study.unisa.edu.au/courses/008664/2024",
                 "notes": { "note": null },
-                "rules": { "rule": null }
+                "rules": { "rule": null },
+                "courseAim": "This course provides students with an interdisciplinary approach to understand and critically evaluate environmental problems and issues, with particular reference to climate change. It uses both a local and global scale to examine relationships between society and our environment. The course aims to promote a sense of personal responsibility towards the attainment of just and sustainable societies and to develop critical thinking skills to assist in this process.",
+                "courseContent": "The concept of sustainability, the role of society in environmental problems and their solutions, conservation psychology, implications of climate change on a local and global scale, circular economies, ecological economics.",
+                "textbook": "",
+                "assessment": "Examination, Learning log/Journal, Presentation, Professional plan, Report, Test/Quiz"
               },
               {
                 "id": "GEOE1018",
@@ -93,7 +101,11 @@
                 "prerequisites": { "prerequisite": [{ "id": null }] },
                 "url": "https://study.unisa.edu.au/courses/101550/2024",
                 "notes": { "note": null },
-                "rules": { "rule": null }
+                "rules": { "rule": null },
+                "courseAim": "To provide an integrated understanding and application of modern surveying and spatial technologies.",
+                "courseContent": "This course incorporates a broad overview of mapping, surveying, cartography, Geographic Information Systems (GIS), Global Navigation Satellite Systems (GNSS), and spatial technology integration.",
+                "textbook": "",
+                "assessment": "Group assignment, Reflective report, Test/Quiz"
               }
             ]
           },
@@ -115,7 +127,11 @@
                 "prerequisites": { "prerequisite": [{ "id": "BIOL1014" }] },
                 "url": "https://study.unisa.edu.au/courses/010900/2024",
                 "notes": { "note": null },
-                "rules": { "rule": null }
+                "rules": { "rule": null },
+                "courseAim": "To introduce the principles of ecology and biodiversity and familiarise students with flora and fauna of Australian ecosystems through practical methods of studying plants and animals in the field, the lab and the greenhouse.",
+                "courseContent": "The study of healthy ecosystems begins with an introduction to practical field sampling of plant and animal populations and the physical environment where they survive. Complex ecosystems are described by their structure and function. Ecosystem management topics apply principles of conserving and maintaining integrity through management of fire, pests, biodiversity management and restoration. Basic theory includes topics on ecology and evolution in, Australian ecosystems. Practical lab skills include plant propagation, assessment, and biological survey methods.",
+                "textbook": "Knox, B, Ladiges, P, Evans, B and Saint R 2014, Biology: An Australian Focus, 5th edition, McGraw-Hill, Sydney",
+                "assessment": "Critical analysis, Quantitative exercise, Report, Technical documentation, Test/Quiz"
               },
               {
                 "id": "EART1011",
@@ -133,7 +149,11 @@
                 "prerequisites": { "prerequisite": [{ "id": null }] },
                 "url": "https://study.unisa.edu.au/courses/101121/2024",
                 "notes": { "note": null },
-                "rules": { "rule": null }
+                "rules": { "rule": null },
+                "courseAim": "To develop an appreciation and understanding of the importance of soil as a resource and as part of the ecosystem by considering its constitution, properties and classification.",
+                "courseContent": "Soil and soil forming processes. Weathering and regolith processes. Components of soils and soil properties, soil types. Soil Chemistry. Soil classification. The Australian soil classification system. Evolution of Australian soil. Characteristic Australian soil landscapes. Soil as a resource, processes of soil degradation, remediation and sustainable management.",
+                "textbook": "",
+                "assessment": "Essay, Examination, Report, Test/Quiz"
               },
               {
                 "id": "ENVT1016",
@@ -151,7 +171,11 @@
                 "prerequisites": { "prerequisite": [{ "id": null }] },
                 "url": "https://study.unisa.edu.au/courses/105607/2024",
                 "notes": { "note": null },
-                "rules": { "rule": null }
+                "rules": { "rule": null },
+                "courseAim": "To prepare the students for the design of research projects in ecological, geospatial, earth, and social sciences and train them in the analysis and presentation of data.",
+                "courseContent": "This applied course will introduce students to ethics in science, the scientific method, research design, and to statistical analyses in ecological, geospatial, earth, and social sciences. It will explain the value of statistics using relevant examples in these disciplines. Populations/samples/data will be defined, and students will learn how to describe samples and test hypotheses. Data analysis will include: tests on frequencies, comparing related and unrelated samples, social surveys, regression and correlation. In weekly lectures and practical sessions, the students will also learn to manipulate, analyse, present, and interpret data. Statistical and spreadsheet software will be used. Additional topics will cover an initiation to proposal writing, searching the library databases for peer-reviewed literature, and some aspects of science communication.",
+                "textbook": "Hawkins, D 2019, Biomeasurement, A Student's Guide to Biological Statistics, 4th edition, Oxford University Press",
+                "assessment": "Problem solving exercise, Project, Test/Quiz"
               },
               {
                 "id": "GEOE2026",
@@ -169,7 +193,11 @@
                 "prerequisites": { "prerequisite": [{ "id": "GEOE1018" }] },
                 "url": "https://study.unisa.edu.au/courses/105610/2024",
                 "notes": { "note": null },
-                "rules": { "rule": null }
+                "rules": { "rule": null },
+                "courseAim": "To enable students to appraise primary and secondary spatial data types and collection methods to subsequently apply appropriate analysis and presentation techniques to natural and built environmental projects.",
+                "courseContent": "This course incorporates techniques of acquiring and building spatial data in the field and office environments, and then the analysis and presentation of various spatial data (e.g. raster and network) in GIS software packages.",
+                "textbook": "Heywood, I, Cornelius, S, Carver, S 2011, An Introduction to Geographical Information Systems, 4th edition, Pearson",
+                "assessment": "Portfolio, Project"
               }
             ]
           }
@@ -195,7 +223,11 @@
                 },
                 "url": "https://study.unisa.edu.au/courses/012566/2024",
                 "notes": { "note": null },
-                "rules": { "rule": null }
+                "rules": { "rule": null },
+                "courseAim": "This course is designed to teach the application of ecological theory to future ecosystem managers and scientists. A large proportion of the assessment is based on field experience and practical sessions, which provide practice in survey methods, field techniques, the scientific approach, decision-making, and professional writing for the scientific community.",
+                "courseContent": "The scientific method and scientific writing, population ecology, community ecology, biodiversity, succession, ecotones, vegetation associations, animal ecology and behaviour, physiological ecology, food webs and energy flow, nutrient cycles, restoration ecology, evolution and mutualisms, ecological research.",
+                "textbook": "",
+                "assessment": "Quiz, Report, Research paper"
               },
               {
                 "id": "EART3012",
@@ -217,7 +249,11 @@
                 "prerequisites": { "prerequisite": [{ "id": null }] },
                 "url": "https://study.unisa.edu.au/courses/010163/2024",
                 "notes": { "note": null },
-                "rules": { "rule": null }
+                "rules": { "rule": null },
+                "courseAim": "The aim of this course is to provide students with the knowledge and skills to develop an understanding and appreciation of the processes and materials of the physical environment and the interaction between these and human activity and constructions.",
+                "courseContent": "Formation, characteristics and engineering properties of sedimentary, igneous and metamorphic rocks; geological structures and structural mapping; sediments and soil, weathering processes and products, classification of weathered rock; coastal environments and processes; earthquakes and seismic waves; geophysical techniques and remote sensing.",
+                "textbook": "Marshak, S 2018, Earth: Portrait of a Planet, 6th edition, W.W. Norton & Company, Inc",
+                "assessment": "Examination, Report, Test/Quiz"
               },
               {
                 "id": "ENVT3016",
@@ -235,7 +271,11 @@
                 "prerequisites": { "prerequisite": [{ "id": "ENVT1013" }] },
                 "url": "https://study.unisa.edu.au/courses/012751/2024",
                 "notes": { "note": null },
-                "rules": { "rule": null }
+                "rules": { "rule": null },
+                "courseAim": "To provide students with the essential skills they need to engage and communicate with various audience groups to meet specific objectives related to connecting people and their environments. Through understanding key objectives, target audiences and the resources involved, as well as the pros and cons of different communication channels, students will be able to select appropriate communication techniques, such as guided walks, talks, drama, displays, signs, brochures, social media, and other electronic media.",
+                "courseContent": "The course focuses on the development of thematic interpretation. Topics covered include: understanding your audience, developing compelling storyline, selecting appropriate techniques to engage an audience, master planning, evaluation and marketing.",
+                "textbook": "",
+                "assessment": "Concept design, Contribution, Critical analysis, Learning log/Journal, Presentation, Professional plan, Test"
               },
               {
                 "id": "GEOE2022",
@@ -253,7 +293,11 @@
                 "prerequisites": { "prerequisite": [{ "id": "GEOE2026" }] },
                 "url": "https://study.unisa.edu.au/courses/101126/2024",
                 "notes": { "note": null },
-                "rules": { "rule": null }
+                "rules": { "rule": null },
+                "courseAim": "To provide education in the area of remote sensing technology and its application in the environmental sciences.",
+                "courseContent": "This applied science course introduces students to the science, art and uses of remotely sensed data with a focus on Passive Multispectral Satellite Remote Sensing. Topics covered include: Sensors used in remote sensing. Atmospheric transmission. Factors affecting spectral reflectance and emittance of objects on the earth's surface. Field measurements of reflectance. Image radiometric calibration. Image geometric calibration. Spectral signatures. Digital image display. Processing and Analysis of multispectral images. Simple filtering techniques. Spectral Indices, Unsupervised and supervised classification. Ground truth collection. Accuracy assessment. Change detection. Terrain analysis. Applications of remote sensing to environmental problems.",
+                "textbook": "Tempfli, K., Kerle, N., Huurneman, G.C. & Janssen, L.L.F. (Eds.). 2009, Principles of remote sensing: An introductory textbook, The International Institute for Geo-Information Science and Earth Observation (ITC)., Online",
+                "assessment": "Creative work, Presentation, Proposal, Test/Quiz"
               }
             ]
           },
@@ -275,7 +319,11 @@
                 "prerequisites": { "prerequisite": [{ "id": null }] },
                 "url": "https://study.unisa.edu.au/courses/167985/2024",
                 "notes": { "note": null },
-                "rules": { "rule": null }
+                "rules": { "rule": null },
+                "courseAim": "To introduce students to major environmental chemistry concepts and practical methods, and to basic chemistry content relevant to these topics.",
+                "courseContent": "・Water, solutes and waterways・Sediment and soils・Urban water and pollution・Atmosphere, energy and climate・Foundation chemistry principles relevant to each of the above topics and to the practicals・comprehensive introduction to field and laboratory methods of environmental chemistry",
+                "textbook": "John, R 2017, Chemistry Companion, Publicious Pty Ltd",
+                "assessment": "Case study, Examination, Presentation, Report, Test/Quiz"
               },
               {
                 "id": "GEOE3019",
@@ -293,7 +341,11 @@
                 "prerequisites": { "prerequisite": [{ "id": "GEOE2026" }] },
                 "url": "https://study.unisa.edu.au/courses/155790/2024",
                 "notes": { "note": null },
-                "rules": { "rule": null }
+                "rules": { "rule": null },
+                "courseAim": "This course is designed for students to enhance their acquired knowledge to communicate geospatial information effectively and efficiently through a web browser. Students will gain skills in internet map creation, cartographic web map design, and communication with online maps.",
+                "courseContent": "This course is organized around active-learning projects. Course content includes: ・Web development and design as a means of cartographic delivery and communication.・Historical elements ・System architectures for web maps ・Web map elements ・Design theory for web maps ・Map tiles (basemaps) ・Thematic layers (data overlays) ・Interaction concepts - Human-Map Interactivity ・Evaluation of web maps’ usability ・Web map projections ・Web cartographer’s toolkit　・Web map production (APIs, HTML, CSS, and JavaScript web map libraries) ・Copyrights",
+                "textbook": "",
+                "assessment": "Assessment plan, Essay, Portfolio, Presentation, Report, Summary, Test/Quiz"
               },
               {
                 "id": "EE1",
@@ -310,7 +362,11 @@
                 },
                 "rules": {
                   "rule": "Students must complete at least three Advanced Environmental Electives."
-                }
+                },
+                "courseAim": "",
+                "courseContent": "",
+                "textbook": "",
+                "assessment": ""
               },
               {
                 "id": "EE2",
@@ -327,7 +383,11 @@
                 },
                 "rules": {
                   "rule": "Students must complete at least three Advanced Environmental Electives."
-                }
+                },
+                "courseAim": "",
+                "courseContent": "",
+                "textbook": "",
+                "assessment": ""
               }
             ]
           }
@@ -348,7 +408,11 @@
                 "notes": {
                   "note": "The Undergraduate Elective is a course that students freely choose from any area of the University, generally outside of their specialist field of study. Students must choose one Undergraduate Elective based on availability and fulfilment of any prerequisites."
                 },
-                "rules": { "rule": null }
+                "rules": { "rule": null },
+                "courseAim": "",
+                "courseContent": "",
+                "textbook": "",
+                "assessment": ""
               },
               {
                 "id": "EE3",
@@ -365,7 +429,11 @@
                 },
                 "rules": {
                   "rule": "Students must complete at least three Advanced Environmental Electives."
-                }
+                },
+                "courseAim": "",
+                "courseContent": "",
+                "textbook": "",
+                "assessment": ""
               },
               {
                 "id": "EE4",
@@ -382,7 +450,11 @@
                 },
                 "rules": {
                   "rule": "Students must complete at least three Advanced Environmental Electives."
-                }
+                },
+                "courseAim": "",
+                "courseContent": "",
+                "textbook": "",
+                "assessment": ""
               },
               {
                 "id": "EE5",
@@ -399,7 +471,11 @@
                 },
                 "rules": {
                   "rule": "Students must complete at least three Advanced Environmental Electives."
-                }
+                },
+                "courseAim": "",
+                "courseContent": "",
+                "textbook": "",
+                "assessment": ""
               }
             ]
           },
@@ -431,7 +507,11 @@
                 "notes": {
                   "note": "Students must have completed 72 units of study in a relevant program."
                 },
-                "rules": { "rule": null }
+                "rules": { "rule": null },
+                "courseAim": "To provide students with the skills and confidence necessary to create and implement a project for the solution of a natural resource management problem and to act as a consultant in presenting the project to the management agency.",
+                "courseContent": "Students work cooperatively with management agencies and staff supervisors to apply what they have learned throughout the program to address specific resource management issues using a multidisciplinary approach. Within the framework of a project brief, students work to: define values and issues, collect and analyse data, investigate and plan problem solving strategies, prepare comprehensive guidelines including financing strategies, and present a proposal pitch. This course will typically include a 75-hour field experience or industry placement.",
+                "textbook": "",
+                "assessment": "Presentation, Problem solving exercise, Proposal, Report"
               },
               {
                 "id": "ENVT3031",
@@ -455,7 +535,11 @@
                 },
                 "url": "https://study.unisa.edu.au/courses/156301/2024",
                 "notes": { "note": null },
-                "rules": { "rule": null }
+                "rules": { "rule": null },
+                "courseAim": "To introduce the principles of ecosystem monitoring, and to equip students to critically evaluate monitoring programs and design effective approaches for monitoring the natural environment.",
+                "courseContent": "The course will introduce the theory and tools of effective monitoring of the natural environment. It will discuss the purpose, implementation and evaluation of monitoring programs. Students will critically evaluate monitoring programs and learn to apply monitoring principles in case studies. This course includes two daytime field trips.",
+                "textbook": "",
+                "assessment": "Report, Test/Quiz"
               },
               {
                 "id": "EE6",
@@ -472,7 +556,11 @@
                 },
                 "rules": {
                   "rule": "Students must complete at least three Advanced Environmental Electives."
-                }
+                },
+                "courseAim": "",
+                "courseContent": "",
+                "textbook": "",
+                "assessment": ""
               }
             ]
           }
@@ -522,7 +610,11 @@
                   "prerequisites": { "prerequisite": [{ "id": "EART3012" }] },
                   "url": "https://study.unisa.edu.au/courses/105609/2024",
                   "notes": { "note": null },
-                  "rules": { "rule": null }
+                  "rules": { "rule": null },
+                  "courseAim": "To provide students with the ability to map and interpret the geological and environmental evolution of landscapes.",
+                  "courseContent": "Interpretation and construction of geological and regolith maps; mapping and interpreting the evolution of land surface features such as soil and weathering profiles, water courses, and dispersal of environmental contaminants; sampling and analytical considerations prescribed in the Natural Environmental Protection Measure; collection and analysis of metal and trace element chemical data to identify regions of concern to environmental and human health.",
+                  "textbook": "",
+                  "assessment": "Presentation, Problem solving exercise, Project, Report, Skills demonstration, Test"
                 },
                 {
                   "id": "ENVT2004",
@@ -544,7 +636,11 @@
                   "prerequisites": { "prerequisite": [{ "id": "ENVT3016" }] },
                   "url": "https://study.unisa.edu.au/courses/012570/2024",
                   "notes": { "note": null },
-                  "rules": { "rule": null }
+                  "rules": { "rule": null },
+                  "courseAim": "Students can apply the skills and knowledge to make effective contributions to sustainable planning and administration of parks and protected areas, with particular focus on ecotourism and community engagement.",
+                  "courseContent": "Historical perspectives and future trends; Visitor Experience (ecotourism planning, risk management, infrastructure), park and ecotourism planning (understanding experiences and motivations, site planning, global trends, visitor monitoring, carrying capacity, “climate proofing”), park and tourist management (direct and indirect techniques, volunteers, partnerships, marketing).",
+                  "textbook": "",
+                  "assessment": "e-portfolio, Peer review, Presentation, Problem solving exercise, Reflection, Summary"
                 },
                 {
                   "id": "ENVT2015",
@@ -562,7 +658,11 @@
                   "prerequisites": { "prerequisite": [{ "id": null }] },
                   "url": "https://study.unisa.edu.au/courses/169532/2024",
                   "notes": { "note": null },
-                  "rules": { "rule": null }
+                  "rules": { "rule": null },
+                  "courseAim": "The course provides an introduction to environmental microbiology including bacterial classification, metabolic diversity and biogeochemical cycling of elements. The course will also focus on applied aspects of microbiology such as monitoring, wastewater treatment, and bioremediation of contaminated sites.",
+                  "courseContent": "Principals of bacterial taxonomy and cellular structure. Microbial functional diversity, genetic diversity, and antimicrobial resistance. Biogeochemical cycling of nutrients and contaminants, with a focus on microbial processes. Water and wastewater monitoring and treatment processes, with a focus on biological treatment processes and disinfection. Bioremediation of contaminated soil and sediment",
+                  "textbook": "",
+                  "assessment": "Essay, Examination, Presentation, Report"
                 },
                 {
                   "id": "ENVT3028",
@@ -580,7 +680,11 @@
                   "prerequisites": { "prerequisite": [{ "id": "BIOL2023" }] },
                   "url": "https://study.unisa.edu.au/courses/105613/2024",
                   "notes": { "note": null },
-                  "rules": { "rule": null }
+                  "rules": { "rule": null },
+                  "courseAim": "The aim of Restoration Ecology is to train students in planning and research relevant to the achievement of vegetation cover and wildlife habitat objectives in degraded landscapes.",
+                  "courseContent": "Restoration Ecology presents current theories of restoration in science and practice. The ecological approach links ecological theory in lectures to practical restoration in the field. Examples of successful restoration are presented as case studies used to monitor the effectiveness of on-ground works and prescribed management regimes. Students practice applying ecological theory to habitat designs on degraded land.",
+                  "textbook": "Andel J. van & Aronson J. (eds) 2012, Restoration ecology: the new frontier. 2nd edn. (electronic resource) , Wiley-Blackwell, Chichester, W. Sussex, UK",
+                  "assessment": "Continuous assessment, Presentation, Proposal, Research assignment, Viva Voce"
                 },
                 {
                   "id": "ENVT4031",
@@ -598,7 +702,11 @@
                   "prerequisites": { "prerequisite": [{ "id": null }] },
                   "url": "https://study.unisa.edu.au/courses/167264/2024",
                   "notes": { "note": null },
-                  "rules": { "rule": null }
+                  "rules": { "rule": null },
+                  "courseAim": "To provide students with an understanding of the sources, chemistry and impacts of environmental pollution and the major considerations involved with planning and undertaking environmental monitoring.",
+                  "courseContent": "Introduction to key pollution concepts. Introduction to toxicity and ecotoxicology principles. Detailed information on major classes of environmental pollution, including emerging contaminants. The science of monitoring for environmental quality assessment. Introduction to environmental legislation and risk assessment perspectives. Intensive practical experience with environmental sampling, processing and instrumental analysis methods for a range of environmental systems and contaminants",
+                  "textbook": "",
+                  "assessment": "Examination, Presentation, Proposal, Report"
                 },
                 {
                   "id": "ENVT4032",
@@ -620,7 +728,11 @@
                   "prerequisites": { "prerequisite": [{ "id": null }] },
                   "url": "https://study.unisa.edu.au/courses/171251/2024",
                   "notes": { "note": null },
-                  "rules": { "rule": null }
+                  "rules": { "rule": null },
+                  "courseAim": "To analyse key issues in fire management in Australia’s natural environment, with key consideration to the role of cultural burning.",
+                  "courseContent": "Fire in the natural environment; effects of fire on flora, fauna, ecosystems and human communities; combustion; fuel; fire behaviour; fire effects; European management of fire; traditional Aboriginal management of fire; cultural burning.",
+                  "textbook": "",
+                  "assessment": "Group assignment, Problem solving exercise, Reflective journal"
                 }
               ]
             },
@@ -642,7 +754,11 @@
                   "prerequisites": { "prerequisite": [{ "id": "BIOL2023" }] },
                   "url": "https://study.unisa.edu.au/courses/008663/2024",
                   "notes": { "note": null },
-                  "rules": { "rule": null }
+                  "rules": { "rule": null },
+                  "courseAim": "To acquire knowledge of the principles of conservation biology and be able to apply them to conservation problems. This will develop a sound understanding of the field which is expected for work in the fields of biodiversity conservation, environmental and park management.",
+                  "courseContent": "Why conserve? Biodiversity, threats to biodiversity, extinction, conservation genetics, risk assessments, protected areas and management, conservation planning, global issues of conservation management, wildlife management.",
+                  "textbook": "",
+                  "assessment": "Essay, Presentation, Report, Test/Quiz"
                 },
                 {
                   "id": "BIOL4001",
@@ -662,7 +778,11 @@
                   "notes": {
                     "note": "Prerequisite: None, but it is recommended that students have completed introductory courses in biology and earth systems before attempting this course."
                   },
-                  "rules": { "rule": null }
+                  "rules": { "rule": null },
+                  "courseAim": "To introduce the diversity of coastal environments and to provide an understanding of the dynamic ecological and physical processes in order to facilitate their effective and sustainable management.",
+                  "courseContent": "This course introduces the diversity of coastal habitats, looking at their formation, biota and ecosystem dynamics. It outlines the key physical, biological, geological and anthropogenic processes impacting coastal environments. The diverse threats to coastal environments are developed and their synergies highlighted, leading to discussions of holistic coastal management.",
+                  "textbook": "",
+                  "assessment": "Continuous assessment, Quiz, Report"
                 },
                 {
                   "id": "ENVT2014",
@@ -680,7 +800,11 @@
                   "prerequisites": { "prerequisite": [{ "id": null }] },
                   "url": "https://study.unisa.edu.au/courses/105608/2024",
                   "notes": { "note": null },
-                  "rules": { "rule": null }
+                  "rules": { "rule": null },
+                  "courseAim": "Environmental and Social Impact Assessment (ESIA) is widely applied throughout the world to assess and predict potential adverse social and environmental impacts and to develop suitable mitigation measures for major development projects. At a broader level, strategic EISA can be used by governments to plan where and what sort of developments might be best located in different places. The course aims to provide an overview of these and a detailed examination of the processes involved in ESIA and how these can be used effectively in environmental management. The course will also examine key environmental management legislation in South Australia and at the Commonwealth level, with an overall aim of producing critically aware practitioners who are able to manage ESIA at a strategic or project level.",
+                  "courseContent": "The history of development of Environmental and Social Impact Assessment (ESIA) techniques in an international perspective, including the role of State and Commonwealth governments and international organisations. Strategic Environmental Assessment. Project level environmental impact assessment including: screening, scoping, impact identification, baseline studies, magnitude and significance of impacts, risk assessment. The Mitigation Hierarchy, offsetting policy and effectiveness. Social Impact Assessment, engaging with stakeholders and social conflict. ESIA project management through assessment, review and approval processes. Science, uncertainty and adaptive management in ESIA. Cumulative impact assessment. Critical appraisal of the value of ESIA approaches to environmental problems.",
+                  "textbook": "",
+                  "assessment": "Contribution, Critical analysis, Presentation, Problem solving exercise, Report"
                 },
                 {
                   "id": "ENVT2016",
@@ -698,7 +822,11 @@
                   "prerequisites": { "prerequisite": [{ "id": "ENVT1013" }] },
                   "url": "https://study.unisa.edu.au/courses/173170/2024",
                   "notes": { "note": null },
-                  "rules": { "rule": null }
+                  "rules": { "rule": null },
+                  "courseAim": "This course provides a critical overview of sustainable development and what this requires of government, business and society (including local communities, institutions, and non-governmental organisations), particularly in the context of a changing climate. The interdisciplinary examination aims to highlight the need for a balance between environmental, economic, and social dimensions (the three pillars) of sustainable development.",
+                  "courseContent": "Students will be introduced to key concepts associated with sustainable development, including its origins, scientific evidence, and policies.  Focus will then be placed on exploring political and legal processes to achieving sustainable development, as well as obstacles to this outcome.  The role of a changing climate in shaping the achievement of sustainable development will be explored.  Case studies will be used to examine the concepts and principles of sustainable development, how their application differs among world regions and countries (which - among other things - experience contrasting climates and climate change), and how they might be incorporated into national and international development projects.",
+                  "textbook": "",
+                  "assessment": "Essay, Examination, Group presentation"
                 }
               ]
             }
@@ -717,7 +845,11 @@
               "notes": {
                 "note": "The Undergraduate Elective is a course that students freely choose from any area of the University, generally outside of their specialist field of study. Students must choose one Undergraduate Elective based on availability and fulfilment of any prerequisites."
               },
-              "rules": { "rule": null }
+              "rules": { "rule": null },
+              "courseAim": "",
+              "courseContent": "",
+              "textbook": "",
+              "assessment": ""
             }
           }
         }
@@ -829,3 +961,4 @@
     }
   }
 }
+
