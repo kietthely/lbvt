@@ -404,13 +404,13 @@ const Home = () => {
       courseUI.document.write('<html><head><title>' + evt_data.name + '</title>');
       //courseUI.document.write('<link rel="stylesheet" type="text/css" href="./Home.css">'); reading css or scss file did not work with window.open. Writing css directly in here only worked
       courseUI.document.write('<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;}');
-      courseUI.document.write('h2{ color: blue; font-size: 30px; font-weight: bold; line-height:1.25;} h3{ color: blue; font-size: 20px; font-weight: bold; line-height:1.25;} p{color:black; font-size: 14px; line-height:1.5;}');
+      courseUI.document.write('h2{ color: blue; font-size: 24px; font-weight: bold; line-height:1.25;} h3{ color: blue; font-size: 18px; font-weight: bold; line-height:1.25;} p{color:black; font-size: 14px; line-height:1.5;}');
       courseUI.document.write('a:visited { color: blue } a:hover { color: lightseagreen } a:active { color: gray } a:link {color: blue;} </style>');
       courseUI.document.write('</head><body>');
       courseUI.document.write("<div class ='container'>");
 
       // Section for course name and ID
-      courseUI.document.write("<h2>" + evt_data.name + "</h2>");
+      courseUI.document.write("<h2><a href=" + evt_data.url + ' target="_blank" rel="noopener noreferrer">' + evt_data.name+ "</a></h2>");
       courseUI.document.write("<p>" + "Course ID: " + evt_data.id + "</p>");
 
       //Section for course aim
@@ -500,16 +500,6 @@ const Home = () => {
         );
       }
 
-      // section for link to course webpage
-      courseUI.document.write("<h3>More information</h3>");
-      courseUI.document.write(
-        "<p>" +
-          "Course web page: " +
-          "<a href=" +
-          evt_data.url +
-          ' target="_blank" rel="noopener noreferrer">Link</a></p>'
-      );
-
       courseUI.document.write("</div>");
       courseUI.document.write("</div>");
       courseUI.document.write('</body></html>');
@@ -517,7 +507,6 @@ const Home = () => {
   }
   function displayElectiveUI(){
     // display UI for elective information with the related event
-    // source data is came from "src\assets\lbvt.json"
 
     const electiveData = lbvt_data.repository.assistances.elective;
     var undergraduateElective = electiveData.electiveCourses.undergraduate;
@@ -526,7 +515,7 @@ const Home = () => {
     courseUI.document.write('<html><head><title>Electives</title>');
     courseUI.document.write('<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;}');
     courseUI.document.write('.Intermediate{margin-top: 20px;margin-left: 50px; } .Advanced{margin-top: 20px;margin-left: 50px; } .subHeader{margin-top: 20px;}');
-    courseUI.document.write('h2{ color: blue; font-size: 30px; font-weight: bold; line-height:1.25;} h3{ color: blue; font-size: 20px; font-weight: bold; line-height:1.25;} p{color:black; font-size: 14px; line-height:1.5;}');
+    courseUI.document.write('h2{ color: blue; font-size: 24px; font-weight: bold; line-height:1.25;} h3{ color: blue; font-size: 18px; font-weight: bold; line-height:1.25;} p{color:black; font-size: 14px; line-height:1.5;}');
     courseUI.document.write('a:visited { color: blue } a:hover { color: lightseagreen } a:active { color: gray } a:link {color: blue;} </style>');
     courseUI.document.write('</head><body>');
     courseUI.document.write("<div class ='container'>");
@@ -534,202 +523,171 @@ const Home = () => {
     courseUI.document.write("<p>You can find the courses' information for electives.</p>");
 
     if ("environmental" in electiveData.electiveCourses){ 
-      // only for LBVT course. section for environment electives
+      // For LBVT program.
 
       // section for undergraduate elective
       courseUI.document.write("<div id='undergraduate'>"); 
-      courseUI.document.write("<h3>Undergraduate elective</h3>");
+      courseUI.document.write("<h3><a href="+undergraduateElective.course.url + ' target="_blank" rel="noopener noreferrer">Undergraduate elective</a></h3>');
       courseUI.document.write("<p>"+ undergraduateElective.course.notes.note+"</p>");
-      courseUI.document.write("<p>You can find the course from <a href="+undergraduateElective.course.url + ' target="_blank" rel="noopener noreferrer">here.</a></p>');
       courseUI.document.write("<hr>");
       courseUI.document.write("</div>");
 
+      // json data to access course data
       var environmentElective = electiveData.electiveCourses.environmental;
 
-      courseUI.document.write("<div className='environmental'>");
-      courseUI.document.write("<h3>Environment electives</h3>");  
+      // section for Environmental elective
+      courseUI.document.write("<div class='environmental'>");
+      courseUI.document.write("<h3><a href=" + environmentElective.url + ' target="_blank" rel="noopener noreferrer">Environment electives</a></h3>');  
+      courseUI.document.write("<p>Note: "+environmentElective.notes.note + "</p>");
+      courseUI.document.write("<p>Rule: "+ environmentElective.rules.rule+ "</p>");
 
       // section for intermediate electives
       courseUI.document.write("<div class='subHeader'>")
       courseUI.document.write("<h3>Intermediate Elective</h3>");
       courseUI.document.write("</div>")
       courseUI.document.write("<div class ='Intermediate' display: block;>");
-      for (let i = 0; i < environmentElective.intermediate.course.length; i++){
-
-        courseUI.document.write("<h2>"+environmentElective.intermediate.course[i].name+"</h2>");
-        courseUI.document.write("<p>course ID: "+environmentElective.intermediate.course[i].id +"</p>");
-
-        //Section for course aim
-        courseUI.document.write("<h3>Course aim</h3>");
-        if (environmentElective.intermediate.course[i].courseAim != null) {
-          courseUI.document.write("<p>" + environmentElective.intermediate.course[i].courseAim + "</p>");
-        }
-
-        //Section for course contents
-        courseUI.document.write("<h3>Course content</h3>");
-        if (environmentElective.intermediate.course[i].courseContent != null){
-          courseUI.document.write("<p>" + environmentElective.intermediate.course[i].courseContent + "</p>");
-        }
-      
-
-        // section for textbook
-        courseUI.document.write("<h3>Textbook(s)</h3>");
-
-        if (environmentElective.intermediate.course[i].textbook != null){
-          courseUI.document.write("<p>" + environmentElective.intermediate.course[i].textbook + "</p>");
-        } else{
-          // case for there is no info for textbook for the course
-          courseUI.document.write("<p>N/A</p>");
-        }
-        
-
-        // section for prerequisite 
-        courseUI.document.write("<h3>Prerequisite(s)</h3>");
-        for (let j = 0; j < environmentElective.intermediate.course[i].prerequisites.prerequisite.length; j++){
-          // displaying all prerequisite for the course
-          if (environmentElective.intermediate.course[i].prerequisites.prerequisite[j].id != null){ 
-            // get the prerequisite course information then set the course name and url as a link
-            var prerequisite = getPrerequisite(environmentElective.intermediate.course[i].prerequisites.prerequisite[j].id);
-            courseUI.document.write("<p> "+ prerequisite.id + " " + "<a href="+ prerequisite.url +' target="_blank" rel="noopener noreferrer">'+ prerequisite.name + "</a></p>");
-            } else {
-            // case for there is no prerequisite
-            courseUI.document.write("<p>N/A</p>");
-          }
-        }
-
-        //Section for Assessment
-        courseUI.document.write("<h3>Assessment(s)</h3>");
-        if (environmentElective.intermediate.course[i].assessment != null){
-          courseUI.document.write("<p>" + environmentElective.intermediate.course[i].assessment + "</p>");
-        }
-
-        // section for course coordinator
-        courseUI.document.write("<h3>Course coordinator(s)</h3>");
-        if (environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator.length > 1){
-          // display all information for course coordinators in the course
-          for (let j = 0; j <environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator.length; j++){
-            courseUI.document.write("<p><a href="+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[j].url +' target="_blank" rel="noopener noreferrer">'+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[j].name +"</a></p>");
-          }
-        } else {
-          // case for there is only 1 course coordinator (this section must have course coordinator. not like a EE1 or UG1)
-          courseUI.document.write("<p><a href="+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[0].url +' target="_blank" rel="noopener noreferrer">'+environmentElective.intermediate.course[i].courseCoordinators.courseCoordinator[0].name +"</a></p>");
-        } 
-
-        //section for note
-        if (environmentElective.intermediate.course[i].notes.note) {
-          courseUI.document.write("<h3>Note(s)</h3>");
-          courseUI.document.write(
-            "<p>" + environmentElective.intermediate.course[i].notes.note + "</p>"
-          );
-        }
-
-        // section for rule
-        if (environmentElective.intermediate.course[i].rules.rule) {
-          courseUI.document.write("<h3>Rule(s)</h3>");
-          courseUI.document.write(
-            "<p>" + environmentElective.intermediate.course[i].rules.rule + "</p>"
-          );
-        }
-        // section for link to course webpage
-        courseUI.document.write("<h3>More information</h3>");
-        courseUI.document.write("<p>Course web page: <a href="+environmentElective.intermediate.course[i].url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
-        courseUI.document.write("<hr>");
-
-      }
-      courseUI.document.write("</div>");   
+      addElectiveUI(courseUI, environmentElective.intermediate);
+      courseUI.document.write("</div>");
 
       // section for Advanced Elective
       courseUI.document.write("<div class='subHeader'>")
       courseUI.document.write("<h3>Advanced Elective</h3>"); 
       courseUI.document.write("</div>")
       courseUI.document.write("<div class='Advanced' display: block;>"); 
-      for (let i = 0; i < environmentElective.advanced.course.length; i++){
-      // display all courses for advanced elective
-        courseUI.document.write("<h2>"+environmentElective.advanced.course[i].name+"</h2>");
-        courseUI.document.write("<p>course ID: "+environmentElective.advanced.course[i].id +"</p>");
+      addElectiveUI(courseUI, environmentElective.advanced);
+      courseUI.document.write("</div>");
 
-        //Section for course aim
-        courseUI.document.write("<h3>Course aim</h3>");
-        if (environmentElective.advanced.course[i].courseAim != null){
-          courseUI.document.write("<p>" + environmentElective.advanced.course[i].courseAim + "</p>");
-        }
+      courseUI.document.write("</div>");
 
-        
-        //Section for course contents
-        courseUI.document.write("<h3>Course content</h3>");
-        if (environmentElective.advanced.course[i].courseContent != null){
-          courseUI.document.write("<p>" + environmentElective.advanced.course[i].courseContent + "</p>");
-        }
-        
-        // section for textbook
-        courseUI.document.write("<h3>Textbook(s)</h3>");
+      // section for IBOE program
+    } else if ("CommunityEngagementAndSustainability" in electiveData.electiveCourses){
 
-        if (environmentElective.advanced.course[i].textbook != null){
-           //courseUI.document.write("<p>" + environmentElective.advanced.course[i].textbook + "</p>");
-          } else{
-            // case for there is no info for textbook for the course
-            courseUI.document.write("<p>N/A</p>");
-          }
-        
-        // section for prerequisite
-        courseUI.document.write("<h3>Prerequisite(s)</h3>");
-        for (let j = 0; j < environmentElective.advanced.course[i].prerequisites.prerequisite.length; j++){
-          // displaying all prerequisite for the course
-          if (environmentElective.advanced.course[i].prerequisites.prerequisite[j].id != null){ 
-            // get the prerequisite course information then set the course name and url as a link
-              prerequisite = getPrerequisite(environmentElective.advanced.course[i].prerequisites.prerequisite[j].id);
-              courseUI.document.write("<p>Prerequisite: "+ prerequisite.id + " " + "<a href="+ prerequisite.url +' target="_blank" rel="noopener noreferrer">'+prerequisite.name + "</a></p>");
-            } else {
-              // case for there is no prerequisite
-              courseUI.document.write("<p>Prerequisite: N/A</p>");
-            }
-          }
-        
-        // section for assessments
-        courseUI.document.write("<h3>Assessment(s)</h3>");
-        if (environmentElective.advanced.course[i].assessment!= null){
-          courseUI.document.write("<p>" + environmentElective.advanced.course[i].assessment + "</p>");
-        }
-
-        // section for course coordinator
-        courseUI.document.write("<h3>Course coordinator(s)</h3>");
-        if (environmentElective.advanced.course[i].courseCoordinators.courseCoordinator.length > 1){
-          // display all information for course coordinators in the course
-          for (let j = 0; j <environmentElective.advanced.course[i].courseCoordinators.courseCoordinator.length; j++){
-            courseUI.document.write("<p><a href="+environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[j].url +' target="_blank" rel="noopener noreferrer">'+environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[j].name +"</a></p>");
-          }
-        } else {
-          // case for there is only 1 course coordinator
-          courseUI.document.write("<p><a href="+environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[0].url +' target="_blank" rel="noopener noreferrer">'+environmentElective.advanced.course[i].courseCoordinators.courseCoordinator[0].name +"</a></p>");
-        }
-
-        //section for note
-        if (environmentElective.advanced.course[i].notes.note) {
-          courseUI.document.write("<h3>Note(s)</h3>");
-          courseUI.document.write("<p>" + environmentElective.advanced.course[i].notes.note + "</p>");
-        }
-        
-        // section for rule
-        if (environmentElective.advanced.course[i].rules.rule) {
-          courseUI.document.write("<h3>Rule(s)</h3>");
-          courseUI.document.write("<p>" + environmentElective.advanced.course[i].rules.rule + "</p>");
-        }
-
-        // section for link to course webpage
-        courseUI.document.write("<h3>More information</h3>");
-        courseUI.document.write("<p>Course web page:  <a href="+environmentElective.advanced.course[i].url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
-        courseUI.document.write("<hr>");
+      courseUI.document.write("<div class='iboeElective'>");
+      
+      // display the rule for the IBOE electives
+      for (let i = 0; i < electiveData.rules.rule.length; i++){
+        courseUI.document.write("<p>Rule"+ i+": "+ environmentElective.rules.rule[i]+ "</p>");
       }
-      courseUI.document.write("</div'>"); 
 
-      courseUI.document.write("<p>Note for environment elective: "+environmentElective.notes.note + "</p>");
-      courseUI.document.write("<p>Rule for environment elective: "+ environmentElective.rules.rule+ "</p>");
-      courseUI.document.write("<p>More information about environment electives: <a href="+environmentElective.url +' target="_blank" rel="noopener noreferrer">Link</a></p>');
+      const iboeElective = electiveData.electiveCourses;
+
+      // section for Community Engagement And Sustainability elective
+      courseUI.document.write("<h3><a href=" + electiveData.url + 'target="_blank" rel="noopener noreferrer">Community Engagement and Sustainability</a></h3>'); 
+      courseUI.document.write("<div class='CommunityEngagementAndSustainability' display: block;>");  
+      addElectiveUI(courseUI,iboeElective.CommunityEngagementAndSustainability);
+      courseUI.document.write("</div>");
+
+      // section for Management elective
+      courseUI.document.write("<h3><a href=" + electiveData.url + 'target="_blank" rel="noopener noreferrer">Management</a></h3>');  
+      courseUI.document.write("<div class='Management' display: block;>");  
+      addElectiveUI(courseUI,iboeElective.Management);
+      courseUI.document.write("</div>");
+
+      // section for Counseling And Interpersonal Skills elective
+      courseUI.document.write("<h3><a href=" + electiveData.url + 'target="_blank" rel="noopener noreferrer">Counseling and Interpersonal Skills</a></h3>');  
+      courseUI.document.write("<div class='CounselingAndInterpersonalSkills' display: block;>");  
+      addElectiveUI(courseUI,iboeElective.CounselingAndInterpersonalSkills);
+      courseUI.document.write("</div>");
+
+      // section for Aboriginal Cultures elective
+      courseUI.document.write("<h3><a href=" + electiveData.url + 'target="_blank" rel="noopener noreferrer">Aboriginal Cultures</a></h3>'); 
+      courseUI.document.write("<div class='AboriginalCultures' display: block;>");  
+      addElectiveUI(courseUI,iboeElective.AboriginalCultures);
+      courseUI.document.write("</div>");
+
+      // section for Biology for Education elective
+      courseUI.document.write("<h3><a href=" + electiveData.url + 'target="_blank" rel="noopener noreferrer">Biology for Education</a></h3>');
+      courseUI.document.write("<div class='BiologyForEducation' display: block;>");  
+      addElectiveUI(courseUI,iboeElective.BiologyForEducation);
+      courseUI.document.write("</div>");
+
       courseUI.document.write("</div>");
     }
     courseUI.document.write("</div>");
     courseUI.document.write("</div>");
     courseUI.document.write('</body></html>');
+  }
+
+  function addElectiveUI(courseUI, electiveJson){
+    for (let i = 0; i < electiveJson.course.length; i++){
+
+      courseUI.document.write("<h3><a href="+electiveJson.course[i].url +' target="_blank" rel="noopener noreferrer">'+ electiveJson.course[i].name + '</a></h3>');
+      courseUI.document.write("<p>course ID: "+electiveJson.course[i].id +"</p>");
+
+      //Section for course aim
+      courseUI.document.write("<h3>Course aim</h3>");
+      if (electiveJson.course[i].courseAim != null) {
+        courseUI.document.write("<p>" + electiveJson.course[i].courseAim + "</p>");
+      }
+
+      //Section for course contents
+      courseUI.document.write("<h3>Course content</h3>");
+      if (electiveJson.course[i].courseContent != null){
+        courseUI.document.write("<p>" + electiveJson.course[i].courseContent + "</p>");
+      }
+    
+      // section for textbook
+      courseUI.document.write("<h3>Textbook(s)</h3>");
+      if (electiveJson.course[i].textbook != null){
+        courseUI.document.write("<p>" + electiveJson.course[i].textbook + "</p>");
+      } else{
+        // case for there is no info for textbook for the course
+        courseUI.document.write("<p>N/A</p>");
+      }
+      
+      // section for prerequisite 
+      courseUI.document.write("<h3>Prerequisite(s)</h3>");
+      for (let j = 0; j < electiveJson.course[i].prerequisites.prerequisite.length; j++){
+        // displaying all prerequisite for the course
+        if (electiveJson.course[i].prerequisites.prerequisite[j].id != null){ 
+          // get the prerequisite course information then set the course name and url as a link
+          var prerequisite = getPrerequisite(electiveJson.course[i].prerequisites.prerequisite[j].id);
+          courseUI.document.write("<p> "+ prerequisite.id + " " + "<a href="+ prerequisite.url +' target="_blank" rel="noopener noreferrer">'+ prerequisite.name + "</a></p>");
+          } else {
+          // case for there is no prerequisite
+          courseUI.document.write("<p>N/A</p>");
+        }
+      }
+
+      //Section for Assessment
+      courseUI.document.write("<h3>Assessment(s)</h3>");
+      if (electiveJson.course[i].assessment != null){
+        courseUI.document.write("<p>" + electiveJson.course[i].assessment + "</p>");
+      }
+
+      // section for course coordinator
+      courseUI.document.write("<h3>Course coordinator(s)</h3>");
+      if (electiveJson.course[i].courseCoordinators.courseCoordinator.length > 1){
+        // display all information for course coordinators in the course
+        for (let j = 0; j < electiveJson.course[i].courseCoordinators.courseCoordinator.length; j++){
+          courseUI.document.write("<p><a href="+electiveJson.course[i].courseCoordinators.courseCoordinator[j].url +' target="_blank" rel="noopener noreferrer">'+electiveJson.course[i].courseCoordinators.courseCoordinator[j].name +"</a></p>");
+        }
+      } else {
+        // case for there is only 1 course coordinator (this section must have course coordinator. not like a EE1 or UG1)
+        courseUI.document.write("<p><a href="+electiveJson.course[i].courseCoordinators.courseCoordinator[0].url +' target="_blank" rel="noopener noreferrer">'+electiveJson.course[i].courseCoordinators.courseCoordinator[0].name +"</a></p>");
+      } 
+
+      //section for note
+      if (electiveJson.course[i].notes.note) {
+        courseUI.document.write("<h3>Note(s)</h3>");
+        courseUI.document.write(
+          "<p>" + electiveJson.course[i].notes.note + "</p>"
+        );
+      }
+
+      // section for rule
+      if (electiveJson.course[i].rules.rule) {
+        courseUI.document.write("<h3>Rule(s)</h3>");
+        courseUI.document.write(
+          "<p>" + electiveJson.course[i].rules.rule + "</p>"
+        );
+      }
+      // write a line to split next course
+      courseUI.document.write("<hr>");
+
+    }
+    courseUI.document.write("</div>"); 
+
   }
 
   function displayAlumniUI() {
@@ -739,7 +697,7 @@ const Home = () => {
     var courseUI = window.open('', '_blank', 'width=600, height=400'); 
     courseUI.document.write('<html><head><title>Alumni</title>');
     courseUI.document.write('<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;}');
-    courseUI.document.write('h2{ color: blue; font-size: 30px; font-weight: bold; line-height:1.25;} h3{ color: blue; font-size: 20px; font-weight: bold; line-height:1.25;} p{color:black; font-size: 14px; line-height:1.5;}');
+    courseUI.document.write('h2{ color: blue; font-size: 24px; font-weight: bold; line-height:1.25;} h3{ color: blue; font-size: 18px; font-weight: bold; line-height:1.25;} p{color:black; font-size: 14px; line-height:1.5;}');
     courseUI.document.write('a:visited { color: blue } a:hover { color: lightseagreen } a:active { color: gray } a:link {color: blue;} </style>');
     courseUI.document.write('</head><body>');
     courseUI.document.write("<div class ='container'>");
@@ -763,7 +721,7 @@ const Home = () => {
     var courseUI = window.open('', '_blank', 'width=600, height=800'); 
     courseUI.document.write('<html><head><title>Industry</title>');
     courseUI.document.write('<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;}');
-    courseUI.document.write('h2{ color: blue; font-size: 30px; font-weight: bold; line-height:1.25;} h3{ color: blue; font-size: 20px; font-weight: bold; line-height:1.25;} p{color:black; font-size: 14px; line-height:1.5;}');
+    courseUI.document.write('h2{ color: blue; font-size: 24px; font-weight: bold; line-height:1.25;} h3{ color: blue; font-size: 18px; font-weight: bold; line-height:1.25;} p{color:black; font-size: 14px; line-height:1.5;}');
     courseUI.document.write('.Partner{ margin-top: 20px;margin-left: 50px; } .Associations{margin-top: 20px;margin-left: 50px;}');
     courseUI.document.write('a:visited { color: blue } a:hover { color: lightseagreen } a:active { color: gray } a:link {color: blue;} </style>');
     courseUI.document.write('</head><body>');
@@ -784,6 +742,10 @@ const Home = () => {
         }
       }
       courseUI.document.write('</div>');
+    } else {
+      courseUI.document.write("<p>Oops, There is no data for Industry.<p/>");
+    }
+    if ("associations" in industryData){
       courseUI.document.write("<h3>Related associations</h3>");
       courseUI.document.write('<div class = Associations>');
       for (let i = 0; i < industryData.associations.association.length; i++){ // display the related associations for the program
@@ -793,10 +755,8 @@ const Home = () => {
         } else {
           courseUI.document.write("<p>" + industryData.associations.association[i].name + "</p>");
         }
-    }
-    courseUI.document.write('</div>');
-    } else {
-      courseUI.document.write("<p>Oops, There is no data for Industry.<p/>");
+      }
+      courseUI.document.write('</div>');
     }
     courseUI.document.write("</div>");
     courseUI.document.write('</body></html>');
@@ -809,7 +769,7 @@ const Home = () => {
     var courseUI = window.open('', '_blank', 'width=750, height=600');
     courseUI.document.write('<html><head><title>Welcome</title><meta http-equiv="Permissions-Policy" content="*">');
     courseUI.document.write('<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;}');
-    courseUI.document.write('h2{ color: blue; font-size: 30px; font-weight: bold; line-height:1.25;} h3{ color: blue; font-size: 20px; font-weight: bold; line-height:1.25;} p{color:black; font-size: 14px; line-height:1.5;}');
+    courseUI.document.write('h2{ color: blue; font-size: 24px; font-weight: bold; line-height:1.25;} h3{ color: blue; font-size: 18px; font-weight: bold; line-height:1.25;} p{color:black; font-size: 14px; line-height:1.5;}');
     courseUI.document.write('.Videos{ margin-top: 20px; margin-left: 50px;}');
     courseUI.document.write('a:visited { color: blue } a:hover { color: lightseagreen } a:active { color: gray } a:link {color: blue;} </style>');
     courseUI.document.write('</head><body>');
@@ -832,7 +792,7 @@ const Home = () => {
     courseUI.document.write("</div>");
     courseUI.document.write("</div>");
     courseUI.document.write('</body></html>');
-}
+  }
 function getPrerequisite(courseID){
   // search and return the prerequisite course in general course.
   // parameter: course ID as string (ex:GEOE2026)
