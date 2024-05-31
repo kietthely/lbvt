@@ -733,7 +733,14 @@
         <elective>
             <name>Elective</name>
             <url>https://study.unisa.edu.au/degrees/bachelor-outdoor-and-environmental-leadership/dom</url>
-            <electiveCourses>
+            <notes>
+                <note></note>
+            <notes>
+            <rules>
+                <rule>For the Electives, students will be advised to choose a coherent series of courses from either the Community Engagement and Sustainability, Management, Counselling and Interpersonal Skills, Aboriginal Cultures or Biology elective listings. Other options may be approved by the Program Director however students must meet minimum level 3 requirements in their final year.</rule>
+                <rule>To undertake field/clinical placements students are required to have current criminal history and screening checks as published by the Clinical Placement Unit (unisa.edu.au/CPU). These checks will list disclosable court outcomes that may prevent field / clinical placement involvement and subsequently may prevent completion of the program.</rule>
+            </rules>
+			<electiveCourses>
                 <CommunityEngagementAndSustainability>                 
                     <course>
                         <id>BIOL2022</id> 
