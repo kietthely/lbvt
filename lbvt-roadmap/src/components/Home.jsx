@@ -53,7 +53,7 @@ function findConnection(courseId, courses) {
 
   return connectedCourses;
 }
-const Home = () => {
+const Home = (program) => {
   // private variables
   const ref = useRef();
   const [camera, setCamera] = useState(null);
@@ -91,11 +91,21 @@ const Home = () => {
     let line = new Three.Line(lineGeometry, lineMaterial);
     scene.add(line);
 
-    const updateLine = () => {
-      // let lineGeometry = new THREE.Geometry();
-      // outlinePass.selectedObjects.forEach(object => {
-      //   lineGeometry.vertices.push(object.position);
-      // });
+    const updateLine = (buildingObject, buildings, connectedCourses) => {
+      connectedCourses.forEach((courseIndex) => {
+        const building = buildings[`building_${courseIndex}`];
+
+        if (building) {
+          // traverse all the way from the mesh to the first group of the object
+          building.traverse(function (object) {
+            // this is each building object
+            // connect the building to the selected building
+            // console.log(building.name);
+          });
+        }
+        // happens connectedCourses amount of times
+        console.log("here");
+      });
     };
     // cast ambient light - sunlight
     const ambientLight = new Three.AmbientLight(0xffffff, 4);
@@ -230,8 +240,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            console.log("building 1");
-            updateLine();
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -253,7 +264,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            updateLine();
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -275,7 +288,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            updateLine();
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -297,7 +312,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            updateLine();
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -320,7 +337,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            updateLine();
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -343,7 +362,8 @@ const Home = () => {
               }
             });
 
-            updateLine();
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -365,7 +385,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            updateLine();
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -387,7 +409,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            updateLine();
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -412,6 +436,8 @@ const Home = () => {
               }
             });
 
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -433,6 +459,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -454,6 +483,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -475,6 +507,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -498,6 +533,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -519,6 +557,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -540,6 +581,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -561,6 +605,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -584,6 +631,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -605,6 +655,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -626,6 +679,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -647,6 +703,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -670,6 +729,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -691,6 +753,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -712,6 +777,9 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -721,6 +789,7 @@ const Home = () => {
 
           // for Elective
           case "elective_lbvt":
+            displayElectiveUI();
             break;
 
           // for Alumni
@@ -737,8 +806,6 @@ const Home = () => {
             displayWelcomeUI();
             break;
           default:
-            console.log(intersects[0].object);
-            updateLine();
             break;
         }
       }
@@ -809,9 +876,247 @@ const Home = () => {
       controls.current.update();
     }
   };
+  function displayElectiveUI() {
+    // display UI for elective information with the related event
+    // source data is came from "src\assets\lbvt.json"
+
+    //<Link to={"/Elective"} className=""></Link> <-- does not work
+
+    const electiveData = lbvt_data.repository.assistances.elective;
+    var undergraduateElective = electiveData.electiveCourses.undergraduate;
+
+    var courseUI = window.open("", "_blank", "width=600, height=400");
+    courseUI.document.write("<html><head><title>Electives</title>");
+    courseUI.document.write(
+      "<style>.container{ border: 2px solid #000; padding: 10px;border-radius: 5px;background-color: #fff;margin-top: 100px;margin-left: 50px;position: relative;justify-content: center;} a:link { color: blue }"
+    );
+    courseUI.document.write(
+      ".Intermediate{margin-top: 20px;margin-left: 50px; } .Advanced{margin-top: 20px;margin-left: 50px; } "
+    );
+    courseUI.document.write(
+      "a:visited { color: gray } a:hover { color: lightseagreen } a:active { color: gray }</style>"
+    );
+    courseUI.document.write("</head><body>");
+    courseUI.document.write("<div class ='container'>");
+    courseUI.document.write("<h2>Elective</h2>");
+    courseUI.document.write(
+      "<p>You can find the courses' information for electives.</p>"
+    );
+
+    courseUI.document.write("<div id='undergraduate'>"); // section for undergraduate elective
+    courseUI.document.write("<h3>Undergraduate elective</h3>");
+    courseUI.document.write(
+      "<p>" + undergraduateElective.course.notes.note + "</p>"
+    );
+    courseUI.document.write(
+      "You can find the course from <a href=" +
+        undergraduateElective.course.url +
+        ' target="_blank" rel="noopener noreferrer">here.</a></p>'
+    );
+    courseUI.document.write("</div>");
+
+    if ("environmental" in electiveData.electiveCourses) {
+      // only for LBVT course. section for environment electives
+
+      var environmentElective = electiveData.electiveCourses.environmental;
+      //console.log("has enviromnemtal")
+      courseUI.document.write("<div className='environmental'>");
+      courseUI.document.write("<h3>Environment electives</h3>");
+
+      // section for intermediate electives
+      courseUI.document.write("<p><b>Intermediate Elective</b></p>");
+      courseUI.document.write("<div class ='Intermediate' display: block;>");
+      for (let i = 0; i < environmentElective.intermediate.course.length; i++) {
+        courseUI.document.write(
+          "<h4>" + environmentElective.intermediate.course[i].name + "</h4>"
+        );
+        courseUI.document.write(
+          "<p>course ID: " +
+            environmentElective.intermediate.course[i].id +
+            "</p>"
+        );
+
+        if (
+          environmentElective.intermediate.course[i].courseCoordinators
+            .courseCoordinator.length > 1
+        ) {
+          // display all information for course coordinators in the course
+          for (
+            let j = 0;
+            j <
+            environmentElective.intermediate.course[i].courseCoordinators
+              .courseCoordinator.length;
+            j++
+          ) {
+            courseUI.document.write(
+              "<p>Course coordinator: <a href=" +
+                environmentElective.intermediate.course[i].courseCoordinators
+                  .courseCoordinator[j].url +
+                ' target="_blank" rel="noopener noreferrer">' +
+                environmentElective.intermediate.course[i].courseCoordinators
+                  .courseCoordinator[j].name +
+                "</a></p>"
+            );
+          }
+        } else {
+          // case for there is only 1 course coordinator
+          courseUI.document.write(
+            "<p>Course coordinator: <a href=" +
+              environmentElective.intermediate.course[i].courseCoordinators
+                .courseCoordinator[0].url +
+              ' target="_blank" rel="noopener noreferrer">' +
+              environmentElective.intermediate.course[i].courseCoordinators
+                .courseCoordinator[0].name +
+              "</a></p>"
+          );
+        }
+
+        for (
+          let j = 0;
+          j <
+          environmentElective.intermediate.course[i].prerequisites.prerequisite
+            .length;
+          j++
+        ) {
+          // displaying all prerequisite for the course
+          if (
+            environmentElective.intermediate.course[i].prerequisites
+              .prerequisite[j].id != null
+          ) {
+            // get the prerequisite course information then set the course name and url as a link
+            var prerequisite = getPrerequisite(
+              environmentElective.intermediate.course[i].prerequisites
+                .prerequisite[j].id
+            );
+            courseUI.document.write(
+              "<p>Prerequisite: <a href=" +
+                prerequisite.url +
+                ' target="_blank" rel="noopener noreferrer">' +
+                prerequisite.name +
+                " (" +
+                prerequisite.id +
+                ")</a></p>"
+            );
+          } else {
+            // case for there is no prerequisite
+            courseUI.document.write("<p>Prerequisite: N/A</p>");
+          }
+        }
+        courseUI.document.write(
+          "<p>More information about the course: <a href=" +
+            environmentElective.intermediate.course[i].url +
+            ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+        );
+      }
+      courseUI.document.write("</div>");
+
+      courseUI.document.write("<p><b>Advanced Elective</b></p>");
+      courseUI.document.write("<div class='Advanced' display: block;>"); // section for advanced electives
+      for (let i = 0; i < environmentElective.advanced.course.length; i++) {
+        // display all courses for advanced elective
+        courseUI.document.write(
+          "<h4>" + environmentElective.advanced.course[i].name + "</h4>"
+        );
+        courseUI.document.write(
+          "<p>course ID: " + environmentElective.advanced.course[i].id + "</p>"
+        );
+
+        if (
+          environmentElective.advanced.course[i].courseCoordinators
+            .courseCoordinator.length > 1
+        ) {
+          // display all information for course coordinators in the course
+          for (
+            let j = 0;
+            j <
+            environmentElective.advanced.course[i].courseCoordinators
+              .courseCoordinator.length;
+            j++
+          ) {
+            courseUI.document.write(
+              "<p>Course coordinator: <a href=" +
+                environmentElective.advanced.course[i].courseCoordinators
+                  .courseCoordinator[j].url +
+                ' target="_blank" rel="noopener noreferrer">' +
+                environmentElective.advanced.course[i].courseCoordinators
+                  .courseCoordinator[j].name +
+                "</a></p>"
+            );
+          }
+        } else {
+          // case for there is only 1 course coordinator
+          courseUI.document.write(
+            "<p>Course coordinator: <a href=" +
+              environmentElective.advanced.course[i].courseCoordinators
+                .courseCoordinator[0].url +
+              ' target="_blank" rel="noopener noreferrer">' +
+              environmentElective.advanced.course[i].courseCoordinators
+                .courseCoordinator[0].name +
+              "</a></p>"
+          );
+        }
+
+        for (
+          let j = 0;
+          j <
+          environmentElective.advanced.course[i].prerequisites.prerequisite
+            .length;
+          j++
+        ) {
+          // displaying all prerequisite for the course
+          if (
+            environmentElective.advanced.course[i].prerequisites.prerequisite[j]
+              .id != null
+          ) {
+            // get the prerequisite course information then set the course name and url as a link
+            prerequisite = getPrerequisite(
+              environmentElective.advanced.course[i].prerequisites.prerequisite[
+                j
+              ].id
+            );
+            courseUI.document.write(
+              "<p>Prerequisite: <a href=" +
+                prerequisite.url +
+                ' target="_blank" rel="noopener noreferrer">' +
+                prerequisite.name +
+                " (" +
+                prerequisite.id +
+                ")</a></p>"
+            );
+          } else {
+            // case for there is no prerequisite
+            courseUI.document.write("<p>Prerequisite: N/A</p>");
+          }
+        }
+        courseUI.document.write(
+          "<p>More information about the course: <a href=" +
+            environmentElective.advanced.course[i].url +
+            ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+        );
+      }
+      courseUI.document.write("</div'>");
+
+      courseUI.document.write(
+        "<p><b>Note: " + environmentElective.notes.note + "</b></p>"
+      );
+      courseUI.document.write(
+        "<p><b>Rule: " + environmentElective.rules.rule + "</b></p>"
+      );
+      courseUI.document.write(
+        "<p>More information about environment electives: <a href=" +
+          environmentElective.url +
+          ' target="_blank" rel="noopener noreferrer">Link</a></p>'
+      );
+      courseUI.document.write("</div>");
+    }
+    courseUI.document.write("</div>");
+    courseUI.document.write("</div>");
+    courseUI.document.write("</body></html>");
+  }
+
   function displayCourseUI(evt, connectedCourses, id) {
     const evt_data = evt.find((item) => item.id === id);
-    console.log(evt_data);
+
     if (evt_data.id != null) {
       var courseUI = window.open("", "_blank", "width=700, height=600");
       courseUI.document.write(
