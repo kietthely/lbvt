@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import { useSearchParams } from "react-router-dom";
 import * as Three from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import ControlPanel from "./ControlPanel";
@@ -53,12 +53,28 @@ function findConnection(courseId, courses) {
 
   return connectedCourses;
 }
-const Home = (program) => {
+const Home = () => {
   // private variables
   const ref = useRef();
   const [camera, setCamera] = useState(null);
   const controls = useRef();
+  // extract folder name from url
+  const [programData, setProgramData] = useState(null);
+  const [searchParams] = useSearchParams();
+  const program = searchParams.get("program") || "lbvt";
+  useEffect(() => {
+    const loadProgramData = async () => {
+      try {
+        const data = await import(`../assets/${program}.json`);
+        setProgramData(data.default);
+      } catch (error) {
+        console.error("Something wrong with my website folder:", error);
+      }
+    };
 
+    loadProgramData();
+  }, [program]);
+  console.log(programData);
   // lbvt data
   const courses_data = lbvt_data.repository.program.courses;
   // turn into a list for easy traversal
