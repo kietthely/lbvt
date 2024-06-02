@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <repository>
 	<schema></schema>
 	<version>1.0.0</version>
@@ -310,7 +309,7 @@
                         </rules>
                         <courseAim>The aim of this course is to provide students with the knowledge and skills to develop an understanding and appreciation of the processes and materials of the physical environment and the interaction between these and human activity and constructions.</courseAim>
                         <courseContent>Formation, characteristics and engineering properties of sedimentary, igneous and metamorphic rocks; geological structures and structural mapping; sediments and soil, weathering processes and products, classification of weathered rock; coastal environments and processes; earthquakes and seismic waves; geophysical techniques and remote sensing.</courseContent>
-                        <textbook>Marshak, S 2018, Earth: Portrait of a Planet, 6th edition, W.W. Norton & Company, Inc</textbook>
+                        <textbook>Marshak, S 2018, Earth: Portrait of a Planet, 6th edition, W.W. Norton &amp; Company, Inc</textbook>
                         <assessment>Examination, Report, Test/Quiz</assessment>
                     </course>
                     <course>
@@ -366,7 +365,7 @@
                         </rules>
                         <courseAim>To provide education in the area of remote sensing technology and its application in the environmental sciences.</courseAim>
                         <courseContent>This applied science course introduces students to the science, art and uses of remotely sensed data with a focus on Passive Multispectral Satellite Remote Sensing. Topics covered include: Sensors used in remote sensing. Atmospheric transmission. Factors affecting spectral reflectance and emittance of objects on the earth's surface. Field measurements of reflectance. Image radiometric calibration. Image geometric calibration. Spectral signatures. Digital image display. Processing and Analysis of multispectral images. Simple filtering techniques. Spectral Indices, Unsupervised and supervised classification. Ground truth collection. Accuracy assessment. Change detection. Terrain analysis. Applications of remote sensing to environmental problems.</courseContent>
-                        <textbook>Tempfli, K., Kerle, N., Huurneman, G.C. & Janssen, L.L.F. (Eds.). 2009, Principles of remote sensing: An introductory textbook, The International Institute for Geo-Information Science and Earth Observation (ITC)., Online</textbook>
+                        <textbook>Tempfli, K., Kerle, N., Huurneman, G.C. &amp; Janssen, L.L.F. (Eds.). 2009, Principles of remote sensing: An introductory textbook, The International Institute for Geo-Information Science and Earth Observation (ITC)., Online</textbook>
                         <assessment>Creative work, Presentation, Proposal, Test/Quiz</assessment>
                     </course>
                 </sp2>
@@ -842,7 +841,7 @@
                             </rules>
                             <courseAim>The aim of Restoration Ecology is to train students in planning and research relevant to the achievement of vegetation cover and wildlife habitat objectives in degraded landscapes.</courseAim>
                             <courseContent>Restoration Ecology presents current theories of restoration in science and practice. The ecological approach links ecological theory in lectures to practical restoration in the field. Examples of successful restoration are presented as case studies used to monitor the effectiveness of on-ground works and prescribed management regimes. Students practice applying ecological theory to habitat designs on degraded land.</courseContent>
-                            <textbook>Andel J. van & Aronson J. (eds) 2012, Restoration ecology: the new frontier. 2nd edn. (electronic resource) , Wiley-Blackwell, Chichester, W. Sussex, UK</textbook>
+                            <textbook>Andel J. van &amp; Aronson J. (eds) 2012, Restoration ecology: the new frontier. 2nd edn. (electronic resource) , Wiley-Blackwell, Chichester, W. Sussex, UK</textbook>
                             <assessment>Continuous assessment, Presentation, Proposal, Research assignment, Viva Voce</assessment>
                         </course>
                         <course>
