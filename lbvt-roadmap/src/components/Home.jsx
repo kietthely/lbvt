@@ -239,6 +239,8 @@ const Home = () => {
             outlinePass.selectedObjects = [selectedObject];
             buildingObject = selectedObject;
             break;
+          } else {
+            outlinePass.selectedObjects = [];
           }
           selectedObject = selectedObject.parent;
         }
@@ -953,6 +955,7 @@ const Home = () => {
             displayWelcomeUI();
             break;
           default:
+            outlinePass.selectedObjects = [];
             break;
         }
       }
