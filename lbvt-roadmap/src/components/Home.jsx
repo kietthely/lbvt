@@ -1115,12 +1115,7 @@ const Home = () => {
       // check the course has specific information as rule.
       courseUI.document.write("<p>Rule: " + evt_data.rules.rule + "</p>");
     }
-    // display the link for the Uni SA's course page
-    courseUI.document.write(
-      "<p>More information about the course: <a href=" +
-        evt_data.url +
-        ' target="_blank" rel="noopener noreferrer">Link</a></p>'
-    );
+
     courseUI.document.write("</div>");
     courseUI.document.write("</body></html>");
   }
