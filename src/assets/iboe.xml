@@ -1,0 +1,1706 @@
+<repository>
+	<schema></schema>
+	<version>1.0.0</version>
+	<agency>University of South Australia</agency>
+    <program>
+        <programCode>IBOE</programCode>
+        <programName>Bachelor of Outdoor and Environmental Leadership</programName>
+        <duration>3</duration> <!-- to modify the map. if we need to accept multiple program, we need to consider about the program with different year, don't we?-->
+
+        <courses> <!--Information for courses in each building-->
+            <year1>
+                <sp2>
+                    <course>
+                        <id>BIOL1014</id> 
+                        <name>Biodiversity for the Environment</name> 
+                        <courseId>010889</courseId> <!--Do we need it? this is like a 010889 in the unisa's webpage. but it could be miss-leading in future-->
+                        <courseCoordinators> <!--in case of several course corrdinators-->
+                            <courseCoordinator>
+                                <name>Associate Professor Gunnar Keppel</name> 
+                                <url>https://people.unisa.edu.au/Gunnar.Keppel?_gl=1*rzpfkx*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> <!-- url for him/her page in Uni SA-->
+                            </courseCoordinator>
+                            <courseCoordinator>
+                                <name>Dr Farzana Kastury</name>
+                                <url>https://people.unisa.edu.au/Farzana.Kastury?_gl=1*rzpfkx*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url>
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> <!--in case of several course prerequisite-->
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/010899/2024</url> <!--URL for course page in Uni SA-->
+                        <notes> <!--For the extra information about the course. ex electives -->
+                            <note></note>
+                        </notes> 
+                        <rules> <!--For the extra information about the rule for course. -->
+                            <rule></rule>
+                        </rules> 
+                        <courseAim>To introduce the concept of biodiversity and provide an understanding of how organisms function in their environment.</courseAim>
+                        <courseContent>This course examines the measurement, classification and identification of biodiversity and the biological processes and principles that underlie its functioning and evolution. Specific topics include the classification of organisms, cell structure and function, photosynthesis and respiration, mitosis, meiosis, evolution, plant structure and, function, invertebrate and vertebrate structure and function, and relevance of and current threats to biodiversity. You will also practice the skills of scientific report-writing and the use of a microscope.</courseContent>
+                        <textbook>Knox, B, Ladiges, P, Evans, B and Saint R 2014, Biology: An Australian Focus, 5th edition, McGraw-Hill, Sydney</textbook>
+                        <assessment>Continuous assessment, Examination, Project, Quiz</assessment>
+                    </course>
+                    <course>
+                        <id>EART1010</id> 
+                        <name>Earth and Climate Systems</name> 
+                        <courseId>101119</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Associate Professor Justin Payne</name> 
+                                <url>https://people.unisa.edu.au/Justin.Payne?_gl=1*yhcc*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/101119/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To introduce students to the study of the Earth using a systems approach, examining the interactions between the solid Earth, the atmosphere, hydrosphere and biosphere.</courseAim>
+                        <courseContent>Introduction to Earth Systems; plate tectonics and the rock cycle; hydrosphere, the water cycle, oceans, lakes and rivers; atmosphere composition, circulation, weather patterns and climate change; evolution of life and the interaction between the biosphere, hydrosphere and atmosphere; earth resources and sustainability.</courseContent>
+                        <textbook>Marshak, S 2018, Earth (Portrait of a Planet), 6th edition ISE, W.W. Norton and Company, New York</textbook>
+                        <assessment>Examination, Problem solving exercise, Quiz, Report, Skills demonstration, Test/Quiz</assessment>   
+                    </course>
+                    <course>
+                        <id>ENVT1013</id> 
+                        <name>Environment, Society and Climate</name> 
+                        <courseId>008664</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Brianna Le Busque</name> 
+                                <url>https://people.unisa.edu.au/Brianna.LeBusque?_gl=1*1hej83t*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                            <courseCoordinator>
+                                <name>Dr Mira Cooper (Beknazarova)</name> 
+                                <url>https://people.unisa.edu.au/Mira.Cooper?_gl=1*1hej83t*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/008664/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>This course provides students with an interdisciplinary approach to understand and critically evaluate environmental problems and issues, with particular reference to climate change. It uses both a local and global scale to examine relationships between society and our environment. The course aims to promote a sense of personal responsibility towards the attainment of just and sustainable societies and to develop critical thinking skills to assist in this process.</courseAim>
+                        <courseContent>The concept of sustainability, the role of society in environmental problems and their solutions, conservation psychology, implications of climate change on a local and global scale, circular economies, ecological economics.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Examination, Learning log/Journal, Presentation, Professional plan, Report, Test/Quiz</assessment>  
+                        
+                    </course>
+                    <course>
+                        <id>HLTH2024</id> 
+                        <name>Foundations of Outdoor Leadership</name> 
+                        <courseId>152961</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Mr Nicholas Glover</name> 
+                                <url>https://people.unisa.edu.au/Nicholas.Glover?_gl=1*3p4kou*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/152961/2024</url> 
+                        <notes>
+                            <note>Students are recommended to have prior experience in lightweight camping. Students must complete the Paddle Australia `Basic Skills Kayaking' course prior to undertaking the canoeing/kayaking field trip. This can be completed at UniSA or externally.</note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>Provide foundational knowledge and skills for the organization and leadership of outdoor journeys as media for personal, social, cultural and environmental learning for the purposes of outdoor education, outdoor recreation, nature-based tourism or adventure therapy.</courseAim>
+                        <courseContent>Expedition planning models, preparation, implementation and evaluation of light-weight expeditions; introduction to group theory; theory and practice of leadership; basic skills in canoeing or kayaking, light-weight camping and bushwalking; interpreting weather, theory and practice of risk assessment, philosophy and practice of minimal impact camping, environmental investigations; field recording.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Presentation, Professional plan, Reflection, Skills demonstration, Test/Quiz</assessment>
+                    </course>
+                </sp2>
+                <sp5>
+                    <course>
+                        <id>BIOL1015</id> 
+                        <name>Sustainable Ecosystems</name> 
+                        <courseId>010900</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Associate Professor S. "Topa" Petit</name> 
+                                <url>https://people.unisa.edu.au/Sophie.Petit?_gl=1*13a1n72*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>BIOL1014</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/010900/2024</url>
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To introduce the principles of ecology and biodiversity and familiarise students with flora and fauna of Australian ecosystems through practical methods of studying plants and animals in the field, the lab and the greenhouse.</courseAim>
+                        <courseContent>The study of healthy ecosystems begins with an introduction to practical field sampling of plant and animal populations and the physical environment where they survive. Complex ecosystems are described by their structure and function. Ecosystem management topics apply principles of conserving and maintaining integrity through management of fire, pests, biodiversity management and restoration. Basic theory includes topics on ecology and evolution in, Australian ecosystems. Practical lab skills include plant propagation, assessment, and biological survey methods.</courseContent>
+                        <textbook>Knox, B, Ladiges, P, Evans, B and Saint R 2014, Biology: An Australian Focus, 5th edition, McGraw-Hill, Sydney</textbook>
+                        <assessment>Critical analysis, Quantitative exercise, Report, Technical documentation, Test/Quiz</assessment>
+                    </course>
+                    <course>
+                        <id>EART1011</id> 
+                        <name>Soils in the Australian Landscape</name> 
+                        <courseId>101121</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Casey Doolette</name> 
+                                <url>https://people.unisa.edu.au/Casey.Doolette?_gl=1*lmimgb*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/101121/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To develop an appreciation and understanding of the importance of soil as a resource and as part of the ecosystem by considering its constitution, properties and classification.</courseAim>
+                        <courseContent>Soil and soil forming processes. Weathering and regolith processes. Components of soils and soil properties, soil types. Soil Chemistry. Soil classification. The Australian soil classification system. Evolution of Australian soil. Characteristic Australian soil landscapes. Soil as a resource, processes of soil degradation, remediation and sustainable management.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Essay, Examination, Report, Test/Quiz</assessment>
+                    </course>
+                    <course>
+                        <id>ENVT1017</id> 
+                        <name>Caring for Country</name> 
+                        <courseId>106072</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Ms Carly Heinrich</name> 
+                                <url>https://people.unisa.edu.au/Carly.Heinrich?_gl=1*nq46kb*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/106072/2024</url>
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To introduce students to Indigenous Australian approaches to the environment, the law, land and resource management.</courseAim>
+                        <courseContent>Students will develop understanding on caring for the country by exploring the environment and wilderness, systems of knowledge, the archaeological record, 'The Dreaming', resource management, land rights, native title and wik, mining and pastoralism, heritage and protection, relationships between environmental stakeholders, ecotourism and cultural tourism, ethics and intellectual property.</courseContent>
+                        <textbook>Pascoe, B 2018, Dark Emu, Magabala Books, Perth</textbook>
+                        <assessment>Critical analysis, Essay, Presentation</assessment>
+                    </course>
+                    <course>
+                        <id>HLTH1017</id> 
+                        <name>Group and Team Leadership</name> 
+                        <courseId>012630</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Mr Scott Adams</name> 
+                                <url>https://people.unisa.edu.au/Scott.Adams?_gl=1*15l69by*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/012630/2024</url>
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To introduce students to the dynamics of small group functioning and to enhance their ability to operate effectively with a group or team.</courseAim>
+                        <courseContent>The nature of group dynamics and its significance to life contexts; group formation and development; the process of team building; structural and functional variables in groups and their impact on group effectiveness; building a team culture; the impact of an individual values orientation, paradigms and behaviour on group function; strategies for implementing change in groups; understanding individual behaviour from the perspective choice and responsibility, working with emotional intelligence; contributing to team growth and leadership: key personal habits and goal setting. Influencing others – working collaboratively, managing change and resolving conflict. Models and tools for systematic observation and analysis of group functioning. Students will be required to attend practical classes at Mawson Lakes.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Essay, Project, Report</assessment>
+                    </course>
+                </sp5>
+            </year1>
+            <year2>
+                <sp2>
+                    <course>
+                        <id>BIOL4001</id> 
+                        <name>Coastal Environments</name> 
+                        <courseId>012568</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Associate Professor Craig Styan</name> 
+                                <url>https://people.unisa.edu.au/Craig.Styan?_gl=1*uwxcun*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/012568/2024</url> 
+                        <notes>
+                            <note>It is recommended that students have completed introductory courses in biology and earth systems before attempting this course.</note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To introduce the diversity of coastal environments and to provide an understanding of the dynamic ecological and physical processes in order to facilitate their effective and sustainable management.</courseAim>
+                        <courseContent>This course introduces the diversity of coastal habitats, looking at their formation, biota and ecosystem dynamics. It outlines the key physical, biological, geological and anthropogenic processes impacting coastal environments. The diverse threats to coastal environments are developed and their synergies highlighted, leading to discussions of holistic coastal management.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Continuous assessment, Quiz, Report</assessment>
+                    </course>
+                    <course>
+                        <id>ENVT3016</id> 
+                        <name>Environmental Interpretation and Community Engagement</name> 
+                        <courseId>012751</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Professor Delene Weber</name> 
+                                <url>https://people.unisa.edu.au/Delene.Weber?_gl=1*1adv6w0*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>ENVT1013</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/012751/2024</url>
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To provide students with the essential skills they need to engage and communicate with various audience groups to meet specific objectives related to connecting people and their environments. Through understanding key objectives, target audiences and the resources involved, as well as the pros and cons of different communication channels, students will be able to select appropriate communication techniques, such as guided walks, talks, drama, displays, signs, brochures, social media, and other electronic media.</courseAim>
+                        <courseContent>The course focuses on the development of thematic interpretation. Topics covered include: understanding your audience, developing compelling storyline, selecting appropriate techniques to engage an audience, master planning, evaluation and marketing.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Concept design, Contribution, Critical analysis, Learning log/Journal, Presentation, Professional plan, Test</assessment> 
+                    </course>
+                    <course>
+                        <id>BIOL2045</id> 
+                        <name>Life on Earth A</name> 
+                        <courseId>100174</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Mr Shaun O'Sullivan</name> 
+                                <url>https://people.unisa.edu.au/Shaun.OSullivan?_gl=1*gx6t0u*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/100174/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To develop student knowledge and understanding of the origins of life on earth, particularly invertebrate animals and plant life, and for students to synthesise meaning in the domain of organismal adaptation to diverse habitats.</courseAim>
+                        <courseContent>Species diversity of invertebrates; interactions between species; comparative anatomy and physiology of invertebrates; invertebrate ecology; development of plant life on earth.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Practical / Practical Examination, Report, Test</assessment>
+                    </course>
+                    <course>
+                        <id>E1</id> 
+                        <name>Elective 1</name> 
+                        <courseId></courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name></name> 
+                                <url></url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally></offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/degrees/bachelor-outdoor-and-environmental-leadership/dom</url> 
+                        <notes>
+                            <note>For the Electives, students will be advised to choose a coherent series of courses from either the Community Engagement and Sustainability, Management, Counselling and Interpersonal Skills, Aboriginal Cultures or Biology elective listings. Other options may be approved by the Program Director however students must meet minimum level 3 requirements in their final year.</note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim></courseAim>
+                        <courseContent></courseContent>
+                        <textbook></textbook>
+                        <assessment></assessment>
+                    </course>
+                </sp2>
+                <sp5>
+                    <course>
+                        <id>BIOL2046</id> 
+                        <name>Life on Earth B</name> 
+                        <courseId>100175</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Mr Shaun O'Sullivan</name> 
+                                <url>https://people.unisa.edu.au/Shaun.OSullivan?_gl=1*pze79t*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>BIOL1014</id>
+                            </prerequisite>
+                            <prerequisite>
+                                <id>BIOL1015</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/100175/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules> 
+                        <courseAim>To introduce students to the evolutionary history and diversity of vertebrate animals.</courseAim>
+                        <courseContent>A study of the biology of vertebrates at the individual, population and community levels. An introduction to the theory-based view of vertebrate life.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Learning log/Journal, Skills demonstration, Test/Quiz</assessment>
+                    </course>
+                    <course>
+                        <id>HLTH3052</id> 
+                        <name>Outdoor, Wilderness and Adventure Education</name> 
+                        <courseId>152980</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Scott Polley</name> 
+                                <url>https://people.unisa.edu.au/Scott.Polley?_gl=1*19l6q26*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/152980/2024</url>
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules> 
+                        <courseAim>Develop foundational knowledge of research, theory, philosophy and practices that support the effective use of Outdoor, Wilderness and Adventure Education to promote personal development, health and wellbeing, group development, environmental learning, social justice and sustainable living.</courseAim>
+                        <courseContent>The significance of wilderness, adventure and adventurous journeys are examined from multidisciplinary perspectives; the potential of wilderness and adventure for education, personal development, recreation, health and well-being, group development, environmental learning, social justice; sustainable living; tourism and therapy; wilderness as inspiration; personal connections and creative responses to wilderness and adventure; social and ecological pressure on wilderness areas; western and Aboriginal concepts of wilderness; concepts of outdoor education.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Annotated bibliography, Critical analysis, Presentation, Reflection, Skills demonstration</assessment> 
+                    </course>
+                    <course>
+                        <id>HLTH3051</id> 
+                        <name>Leadership in Terrestrial Environments</name> 
+                        <courseId>152920</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Mr Nicholas Glover</name> 
+                                <url>https://people.unisa.edu.au/Nicholas.Glover?_gl=1*1stubd5*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>HLTH2024</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/152920/2024</url>
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>Develop and demonstrate advanced skills and knowledge required for professional outdoor leadership in a terrestrial environment.</courseAim>
+                        <courseContent>Outdoor Leadership in terrestrial environments, including instruction, outdoor activity skills, planning, organization, management evaluation, risk management, critical evaluation of practice.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Portfolio, Project, Skills demonstration</assessment>  
+                    </course>
+                    <course>
+                        <id>E2</id> 
+                        <name>Elective 2</name> 
+                        <courseId></courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name></name> 
+                                <url></url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally></offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/degrees/bachelor-outdoor-and-environmental-leadership/dom</url> 
+                        <notes>
+                            <note>For the Electives, students will be advised to choose a coherent series of courses from either the Community Engagement and Sustainability, Management, Counselling and Interpersonal Skills, Aboriginal Cultures or Biology elective listings. Other options may be approved by the Program Director however students must meet minimum level 3 requirements in their final year.</note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim></courseAim>
+                        <courseContent></courseContent>
+                        <textbook></textbook>
+                        <assessment></assessment>
+                    </course>
+                </sp5>
+            </year2>
+            <year3>
+                <sp2>
+                    <course>
+                        <id>HLTH3050</id> 
+                        <name>Leadership in Aquatic Environments</name> 
+                        <courseId>152960</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Scott Polley</name> 
+                                <url>https://people.unisa.edu.au/Scott.Polley?_gl=1*1dethdu*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>HLTH2024</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/152960/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules> 
+                        <courseAim>For students to develop and demonstrate advanced skills and knowledge required for professional outdoor leadership in an aquatic environment.</courseAim>
+                        <courseContent>Outdoor Leadership in Aquatic environments including instruction, outdoor activity skills, planning, organization, management evaluation, risk management, critical evaluation of practice.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Assignment, Portfolio, Practical examination</assessment> 
+                    </course>
+                    <course>
+                        <id>ENVT2004</id> 
+                        <name>Park and Ecotourism Management</name> 
+                        <courseId>012570</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Brianna Le Busque</name> 
+                                <url>https://people.unisa.edu.au/Brianna.LeBusque?_gl=1*180ndp6*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                            <courseCoordinator>
+                                <name>Professor Delene Weber</name> 
+                                <url>https://people.unisa.edu.au/Delene.Weber?_gl=1*180ndp6*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>ENVT3016</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/012570/2024</url>
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules> 
+                        <courseAim>Students can apply the skills and knowledge to make effective contributions to sustainable planning and administration of parks and protected areas, with particular focus on ecotourism and community engagement.</courseAim>
+                        <courseContent>Historical perspectives and future trends; Visitor Experience (ecotourism planning, risk management, infrastructure), park and ecotourism planning (understanding experiences and motivations, site planning, global trends, visitor monitoring, carrying capacity, “climate proofing”), park and tourist management (direct and indirect techniques, volunteers, partnerships, marketing).</courseContent>
+                        <textbook></textbook>
+                        <assessment>e-portfolio, Peer review, Presentation, Problem solving exercise, Reflection, Summary</assessment> 
+                    </course>
+                    <course>
+                        <id>E3</id> 
+                        <name>Elective 3</name> 
+                        <courseId></courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name></name> 
+                                <url></url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally></offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/degrees/bachelor-outdoor-and-environmental-leadership/dom</url> 
+                        <notes>
+                            <note>For the Electives, students will be advised to choose a coherent series of courses from either the Community Engagement and Sustainability, Management, Counselling and Interpersonal Skills, Aboriginal Cultures or Biology elective listings. Other options may be approved by the Program Director however students must meet minimum level 3 requirements in their final year.</note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim></courseAim>
+                        <courseContent></courseContent>
+                        <textbook></textbook>
+                        <assessment></assessment>
+                    </course>
+                    <course>
+                        <id>E4</id> 
+                        <name>Elective 4</name> 
+                        <courseId></courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name></name> 
+                                <url></url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally></offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/degrees/bachelor-outdoor-and-environmental-leadership/dom</url> 
+                        <notes>
+                            <note>For the Electives, students will be advised to choose a coherent series of courses from either the Community Engagement and Sustainability, Management, Counselling and Interpersonal Skills, Aboriginal Cultures or Biology elective listings. Other options may be approved by the Program Director however students must meet minimum level 3 requirements in their final year.</note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim></courseAim>
+                        <courseContent></courseContent>
+                        <textbook></textbook>
+                        <assessment></assessment>
+                    </course>
+                </sp2>
+                <sp5>
+                    <course>
+                        <id>HLTH3068</id> 
+                        <name>Professional Practice in Outdoor Leadership</name> 
+                        <courseId>165661</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Scott Polley</name> 
+                                <url>https://people.unisa.edu.au/Scott.Polley?_gl=1*x91evp*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/165661/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes>
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To develop skills of outdoor leadership through a structured industry placement.</courseAim>
+                        <courseContent>Employment and career planning; professional practice placement expectations and preparation; professional development; experiential placement in two or more settings conducting Outdoor Education; critical evaluation of pedagogies and practices in Outdoor Education.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Placement, Portfolio, Report</assessment>
+                    </course>
+                    <course>
+                        <id>SPRC3018</id> 
+                        <name>Leadership in Recreation and Sport</name> 
+                        <courseId>153480</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Nick Takos</name> 
+                                <url>https://people.unisa.edu.au/Nick.Takos?_gl=1*1ez1mhc*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                            <courseCoordinator>
+                                <name>Mr Nicky Ng</name> 
+                                <url>https://people.unisa.edu.au/Nicky.Ng?_gl=1*1ez1mhc*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/153480/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes>
+                        <rules>
+                            <rule>Successful completion of 72 units in any program.</rule>
+                        </rules>
+                        <courseAim>To introduce students to leadership skills and knowledge, that will enable them to realise the potential in themselves to be confident and effective leaders in face-to-face recreation and sport settings.</courseAim>
+                        <courseContent>Theories of leadership and motivation and their practical applications; leadership skills development including speech and presentation skills.</courseContent>
+                        <textbook>O'Boyle, I, Murray, D &amp; Cummins, P 2015, Leadership in Sport Management, Routledge</textbook>
+                        <assessment>Essay, Presentation, Test/Quiz</assessment>
+                    </course>
+                    <course>
+                        <id>E5</id> 
+                        <name>Elective 5</name> 
+                        <courseId></courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name></name> 
+                                <url></url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally></offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/degrees/bachelor-outdoor-and-environmental-leadership/dom</url> 
+                        <notes>
+                            <note>For the Electives, students will be advised to choose a coherent series of courses from either the Community Engagement and Sustainability, Management, Counselling and Interpersonal Skills, Aboriginal Cultures or Biology elective listings. Other options may be approved by the Program Director however students must meet minimum level 3 requirements in their final year.</note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim></courseAim>
+                        <courseContent></courseContent>
+                        <textbook></textbook>
+                        <assessment></assessment>
+                    </course>
+                    <course>
+                        <id>E6</id> 
+                        <name>Elective 6</name> 
+                        <courseId></courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name></name> 
+                                <url></url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally></offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/degrees/bachelor-outdoor-and-environmental-leadership/dom</url> 
+                        <notes>
+                            <note>For the Electives, students will be advised to choose a coherent series of courses from either the Community Engagement and Sustainability, Management, Counselling and Interpersonal Skills, Aboriginal Cultures or Biology elective listings. Other options may be approved by the Program Director however students must meet minimum level 3 requirements in their final year.</note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim></courseAim>
+                        <courseContent></courseContent>
+                        <textbook></textbook>
+                        <assessment></assessment>
+                    </course>
+                </sp5>
+            </year3>
+        </courses>
+    </program>
+    <assistances> <!--Information for assistance building-->
+        <library>
+            <name>Library</name>
+            <url>https://www.library.unisa.edu.au/</url>
+        </library>
+        <refferencing>
+            <name>Refferencing</name>
+            <url>https://lo.unisa.edu.au/course/view.php?id=3839</url>
+        </refferencing>
+        <elective>
+            <name>Elective</name>
+            <url>https://study.unisa.edu.au/degrees/bachelor-outdoor-and-environmental-leadership/dom</url>
+            <notes>
+                <note></note>
+            </notes>
+            <rules>
+                <rule>For the Electives, students will be advised to choose a coherent series of courses from either the Community Engagement and Sustainability, Management, Counselling and Interpersonal Skills, Aboriginal Cultures or Biology elective listings. Other options may be approved by the Program Director however students must meet minimum level 3 requirements in their final year.</rule>
+                <rule>To undertake field/clinical placements students are required to have current criminal history and screening checks as published by the Clinical Placement Unit (unisa.edu.au/CPU). These checks will list disclosable court outcomes that may prevent field / clinical placement involvement and subsequently may prevent completion of the program.</rule>
+            </rules>
+			<electiveCourses>
+                <CommunityEngagementAndSustainability>                 
+                    <course>
+                        <id>BIOL2022</id> 
+                        <name>Conservation Biology</name> 
+                        <courseId>008663</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Associate Professor Gunnar Keppel</name> 
+                                <url>https://people.unisa.edu.au/Gunnar.Keppel?_gl=1*1e6d87y*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>BIOL2023</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/008663/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To acquire knowledge of the principles of conservation biology and be able to apply them to conservation problems. This will develop a sound understanding of the field which is expected for work in the fields of biodiversity conservation, environmental and park management.</courseAim>
+                        <courseContent>Why conserve? Biodiversity, threats to biodiversity, extinction, conservation genetics, risk assessments, protected areas and management, conservation planning, global issues of conservation management, wildlife management.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Essay, Presentation, Report, Test/Quiz</assessment> 
+                    </course>
+                    <course>
+                        <id>BIOL2023</id> 
+                        <name>Ecology</name> 
+                        <courseId>012566</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Associate Professor Gunnar Keppel</name> 
+                                <url>https://people.unisa.edu.au/Gunnar.Keppel?_gl=1*1e6d87y*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>BIOL1014</id>
+                            </prerequisite>
+                            <prerequisite>
+                                <id>BIOL1015</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/012566/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>This course is designed to teach the application of ecological theory to future ecosystem managers and scientists. A large proportion of the assessment is based on field experience and practical sessions, which provide practice in survey methods, field techniques, the scientific approach, decision-making, and professional writing for the scientific community.</courseAim>
+                        <courseContent>The scientific method and scientific writing, population ecology, community ecology, biodiversity, succession, ecotones, vegetation associations, animal ecology and behaviour, physiological ecology, food webs and energy flow, nutrient cycles, restoration ecology, evolution and mutualisms, ecological research.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Quiz, Report, Research paper</assessment>    
+                    </course>
+                    <course>
+                        <id>ENVT3020</id> 
+                        <name>Environmental Conflict and Public Consultation</name> 
+                        <courseId>012748</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Annette Bardsley</name> 
+                                <url></url>  <!--No link info in the course page-->
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>ENVT1013</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/012748/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To provide a comprehensive understanding of global, national and local level socio-ecological conflicts and their resolution. To equip students with theoretical aspects of conflict resolution as well as with practical skills and techniques for non-adversarial conflict resolution. The course also aims to provide students with theoretical knowledge and practical skills in designing and implementing complex community consultation projects.</courseAim>
+                        <courseContent>Students will learn about special characteristics of socio-ecological conflicts and about reframing conflict for their successful resolution. Different conflict resolution approaches such as Adversarial Dispute Resolution and Alternate Dispute Resolution will be explored. Students will get an opportunity to apply these theories through exciting hands-on activities such as organised role-play. The course also allows students to gain a theoretical understanding as well as in-depth practical knowledge of designing and implementing effective community consultation projects.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Case study, Continuous assessment, Group presentation, Test</assessment> 
+                    </course>
+                    <course>
+                        <id>POLI2019</id> 
+                        <name>Sustainable Development: A Global Perspective</name> 
+                        <courseId>101129</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Keri Hopeward</name> 
+                                <url>https://people.unisa.edu.au/Keri.Hopeward?_gl=1*193s6b6*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                            <courseCoordinator>
+                                <name>Associate Professor Craig Styan</name> 
+                                <url>https://people.unisa.edu.au/Craig.Styan?_gl=1*193s6b6*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>ENVT1013</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/101129/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>This course provides an integrated overview of sustainable development from a global perspective, with the aim of conceptualizing how sustainable development can be achieved in government, business and society. Students are introduced to the global and national debates and will examine the origins, scientific evidence, issues, policies, political and legal processes, as well as, the obstacles to achieving sustainable development. The interdisciplinary approach highlights the need for a balance between the environmental, economic and social dimensions (“the three pillars”) of sustainable development through an analysis of the indicators, trends and changing patterns of consumption, production and distribution of resources. Case studies demonstrate the concepts and principles of sustainable development and how they might be incorporated in national and international development projects.</courseAim>
+                        <courseContent>Economic development has, in recent times, been achieved at the expense of degraded natural systems, diminished resources, changes to the climate, loss of biodiversity and increased health risks from pollution. Sustainable Development (SD) is a key challenge for the present generation so that its needs can be met without compromising the ability of future generations to meet their needs. The solutions are complex and will require coordinated interaction by governments, local communities, business, institutions and non-governmental organizations. SD thus requires a systematic focus on environmental protection, stewardship of resources, achieving business models for shared economic benefit, working with communities and households to support social progress and a change of attitude, awareness, behaviour and lifestyle. The syllabus for this course will critically review the plethora of SD definitions and associated key concepts (intergenerational equity, the growth paradigm, the closed loop cycle, precautionary principle); compare the movement toward sustainability in different world regions and countries,; and analyse the environmental, economic and social dimensions of sustainable development. ; International examples.on globalisation (communications, international trade), poverty alleviation (foreign aid, women’s empowerment), economic measures of progress and SD indicators, urban and local food production, and resource use (industrialisation, pollution, climate change) provide insight into );); goals and strategies for sustainable development, the roles of public and private enterprises, and professional and social responsibilities.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Essay, Examination, Group presentation</assessment>
+                    </course>
+                    <course>
+                        <id>EDUC4186</id> 
+                        <name>Community Service Learning Project 1</name> 
+                        <courseId>101716</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Professor Deirdre Tedmanson</name> 
+                                <url>https://people.unisa.edu.au/Deirdre.Tedmanson?_gl=1*113hvs*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/101716/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules> 
+                        <courseAim>This course will provide students with an opportunity to undertake a community service project in order to develop an appreciation for how their discpline knowledge intersects with community (as distinct from corporate) need.</courseAim>
+                        <courseContent>Students will work in multi-disciplinary teams to manage real projects and solve real problems experienced by community organisations. They will work with the community partner to understand their needs, scope the project and develop viable and sustainable solutions. Students will complete a learning journal throughout the course which reflects on the progress of the project, their use of the knowledge and skills taught throughout their degree, and the relevance of the service learning project experience to their future careers.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Reflective journal, Report, Research proposal</assessment>
+                    </course>
+                    <course>
+                        <id>ENVT3028</id> 
+                        <name>Restoration Ecology</name> 
+                        <courseId>105613</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Associate Professor S. "Topa" Petit</name> 
+                                <url>https://people.unisa.edu.au/Sophie.Petit?_gl=1*18bsg23*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>BIOL2023</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/105613/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>The aim of Restoration Ecology is to train students in planning and research relevant to the achievement of vegetation cover and wildlife habitat objectives in degraded landscapes.</courseAim>
+                        <courseContent>Restoration Ecology presents current theories of restoration in science and practice. The ecological approach links ecological theory in lectures to practical restoration in the field. Examples of successful restoration are presented as case studies used to monitor the effectiveness of on-ground works and prescribed management regimes. Students practice applying ecological theory to habitat designs on degraded land.</courseContent>
+                        <textbook>Andel J. van &amp; Aronson J. (eds) 2012, Restoration ecology: the new frontier. 2nd edn. (electronic resource) , Wiley-Blackwell, Chichester, W. Sussex, UK</textbook>
+                        <assessment>Continuous assessment, Presentation, Proposal, Research assignment, Viva Voce</assessment>
+                    </course>
+                </CommunityEngagementAndSustainability>
+                <Management>                 
+                    <course>
+                        <id>BUSS3087</id> 
+                        <name>Managing Decision Making</name> 
+                        <courseId>160041</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Sandra Barker</name> 
+                                <url>https://people.unisa.edu.au/Sandra.Barker?_gl=1*1mba88c*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                            <courseCoordinator>
+                                <name>Dr Vienne Sung</name> 
+                                <url></url> <!--No link info in the course page-->
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/160041/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule>Successful completion of 54 units of undergraduate study.</rule>
+                        </rules>
+                        <courseAim>The aim of this course is to allow students to investigate and experience the different types of management problems and decisions that exist in organisations today by developing skills in problem solving, analysis and communication.</courseAim>
+                        <courseContent>Types of problems and decisions; types of problem solvers and decision makers (decision styles, worldviews); approaches to problem solving and decision making; creativity and innovation in problem solving and decision making; tools and techniques to support problem solving and decision making; collaborative and individual decision making.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Critical analysis, Model, Reflection, Report, Test/Quiz, Viva Voce</assessment>
+                    </course>
+                    <course>
+                        <id>BUSS3050</id> 
+                        <name>Organisational Leadership</name> 
+                        <courseId>101057</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Xiao Lin</name> 
+                                <url>https://people.unisa.edu.au/Xiao.Lin?_gl=1*kiy12a*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/101057/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule>Successful completion of 54 units for students undertaking a Bachelor degree.</rule>
+                        </rules> 
+                        <courseAim>To develop students' understanding of organisational learning and leadership and to apply theories to real world contexts.</courseAim>
+                        <courseContent>Leadership and Leading Changes; Traits, Behaviours, and Relationships; Leader Personality, Traits, and Emotions; Courage and Moral Leadership; Followership; Motivation and Empowerment; Leading Teams; Power and Social Influence; Shaping Organisational Culture.</courseContent>
+                        <textbook>Daft, RL 2022, The leadership experience, 8th edn, Cengage Learning, Australia</textbook>
+                        <assessment>Critical analysis, Examination, Report</assessment>
+                    </course>
+                    <course>
+                        <id>INFS2022</id> 
+                        <name>Project Management: Principles and Strategies</name> 
+                        <courseId>013624</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr ABM Abdullah</name> 
+                                <url>https://people.unisa.edu.au/ABM.Abdullah?_gl=1*126hlrb*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url>  
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/013624/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules> 
+                        <courseAim>To enable students to develop an understanding of the nature and functions of administrative information systems project management and its role in the corporate business environment, with particular emphasis on the practical learning experience in effectively managing, and completing an industry project plan.</courseAim>
+                        <courseContent>Introduction of project management concepts; project evaluation and risk, project planning and control; the principles of planning and scheduling techniques. Project proposals; Role of the project manager; Resource negotiation and conflict resolution techniques; Budgeting and cost estimating; Resource allocation; Advanced techniques for monitoring and control of project operations and relationships including soft systems methodologies. Project strategy and governance.</courseContent>
+                        <textbook>Pinto, J 2019, Project Management: Achieving Competitive Advantage, 5th edition e-book, Pearson, USA</textbook>
+                        <assessment>Contribution, Critical analysis, Proposal</assessment>
+                    </course>
+                    <course>
+                        <id>BUSS3023</id> 
+                        <name>Strategic Management</name> 
+                        <courseId>006461</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Samir Shrivastava</name> 
+                                <url>https://people.unisa.edu.au/Samir.Shrivastava?_gl=1*b9xlul*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                            <courseCoordinator>
+                                <name>Professor You-il Lee</name> 
+                                <url>https://people.unisa.edu.au/You-il.Lee?_gl=1*b9xlul*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                            <courseCoordinator>
+                                <name>Mr Paul Lee</name> 
+                                <url>https://people.unisa.edu.au/Paul.Lee?_gl=1*19ttwsf*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/006461/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule>72 units</rule>
+                        </rules>
+                        <courseAim>The aim of this capstone course is to provide students with the opportunity to apply and integrate knowledge and skills that they have acquired throughout their program of study within a strategic management context.</courseAim>
+                        <courseContent>Frameworks for environmental analysis; business strategy formulation; internal analysis of resources and capabilities; corporate strategy (diversification and vertical integration); strategies for international business and global competition; strategy implementation; assessing and controlling organisational performance; innovation and entrepreneurship; strategic alliances; mergers and acquisitions.  Course will place major emphasis on individual assessment of collaborative and communication skills of students as participants in a strategy decision.</courseContent>
+                        <textbook>Hanson, D, Backhouse, K, Leaney, D, Hitt, MA, Ireland, RD, &amp; Hoskisson, RE 2022, Strategic Management: Competitiveness and Globalisation, 7th Asia-Pacific Edn, Cengage, South Melbourne, VIC, Australia</textbook>
+                        <assessment>Examination, Report</assessment>
+                    </course>
+                    <course>
+                        <id>BUSS2046</id> 
+                        <name>Organisational Behaviour</name> 
+                        <courseId>012021</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Mr Alick Kay</name> 
+                                <url>https://people.unisa.edu.au/Alick.Kay?_gl=1*pqli4g*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>BUSS2068</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/012021/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To introduce students to contemporary organisational issues and to develop a critical approach of the concepts presented through analysis and evaluation.</courseAim>
+                        <courseContent>The nature of organisational behaviour, individual behaviour in organisations; personality; perception; motivation concepts; decision-making; managing and understanding groups and teams; influence and power; managing organisations through change and stress management.</courseContent>
+                        <textbook>Griffin, RW, Phillips, JM, Gully, SM, Creed, A, Gribble, L &amp; Watson, M 2024, Organisational behaviour: engaging people and organisations , 2nd Edition, Cengage Learning, Melbourne, Australia</textbook>
+                        <assessment>Case study, Examination, Presentation, Report</assessment>
+                    </course>
+                    <course>
+                        <id>BUSS2043</id> 
+                        <name>Foundations of Human Resource Management</name> 
+                        <courseId>012071</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Subha Parida</name> 
+                                <url>https://people.unisa.edu.au/Subha.Parida?_gl=1*17gm26d*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                            <courseCoordinator>
+                                <name>Mrs Christine Choy</name> 
+                                <url></url> <!--No link info in the course page-->
+                            </courseCoordinator>
+                            <courseCoordinator>
+                                <name>Mr Eric Lau</name> 
+                                <url></url> <!--No link info in the course page-->
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/012071/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules> 
+                        <courseAim>To provide students with an appreciation of current theoretical, sociological and practitioner-based issue and developments in the technical aspects of human resource management.</courseAim>
+                        <courseContent>The effects of sociological, legal, economic, ethical, political, strategic and environmental changes, issues and developments on human resource management processes, practices, programs and policies.</courseContent>
+                        <textbook>Alan Nankervis/Marian Baird/Dr Jane Coffey/John Shields 2022, Human Resource Management, 11th Edition, Cengage, AU/NZ</textbook>
+                        <assessment>Case study, Examination, Presentation</assessment>
+                    </course>
+                </Management>
+                <CounselingAndInterpersonalSkills>                 
+                    <course>
+                        <id>BEHL2009</id> 
+                        <name>Group Work</name> 
+                        <courseId>013123</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Jane Cowie</name> 
+                                <url>https://people.unisa.edu.au/Jane.Cowie?_gl=1*1j8iua6*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/013123/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To enable students to analyse approaches to group work and to develop the leadership and membership skills required for professional practice in social work and human services.</courseAim>
+                        <courseContent>Students will engage in practice-based learning in order to develop their skills in facilitating groups. They will develop understanding of different approaches to and purposes of group work, the typology of groups, group dynamics and the stages of group development. They will apply knowledge of leadership theories, roles and skills. Students will learn how to plan a group, work with diversity, manage conflict and evaluate the effectiveness of a group. This knowledge will be applied to working in different contexts and with a range of clients. They will also consider the use of information and computer technology in facilitating groups. Students will be required to demonstrate self-awareness by critically reflecting on their leadership and membership skills.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Assessment plan, Presentation, Reflection, Test/Quiz</assessment>
+                    </course>
+                    <course>
+                        <id>BEHL1022</id> 
+                        <name>Counselling Foundations</name> 
+                        <courseId>101414</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Eden Thain</name> 
+                                <url>https://people.unisa.edu.au/Eden.Thain?_gl=1*sciik4*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/101414/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To introduce students to psychological concepts and practices found in counselling, psychotherapy, and human relationships.</courseAim>
+                        <courseContent>In this course students will be introduced to basic counselling/psychotherapy theories, concepts and issues, will develop basic communication skills embedded in a counselling context, and will develop an understanding of psychological concepts related to interpersonal perception and learning. Students will also be provided with an overview of different behavioural and cognitive approaches to counselling examples of counselling theory applied to contemporary social and cultural phenomena.</courseContent>
+                        <textbook>Richard S. Sharf 2016, Theories of Psychotherapy and Counseling: Concepts and Cases , 6th, Cengage Learning, Boston: MA</textbook>
+                        <assessment>Contribution, Examination, Learning log/Journal</assessment>
+                    </course>
+                    <course>
+                        <id>WELF2020</id> 
+                        <name>Interviewing Skills in Social Work and Human Services</name> 
+                        <courseId>105821</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Jane Cowie</name> 
+                                <url>https://people.unisa.edu.au/Jane.Cowie?_gl=1*1tdom8m*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>WELF1014</id>
+                            </prerequisite>
+                            <prerequisite>
+                                <id>WELF1019</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/105821/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules> 
+                        <courseAim>To enable students to develop and demonstrate effective human service interviewing skills and their appropriate application.</courseAim>
+                        <courseContent>Students will engage in practice based learning to develop their skills and knowledge in interviewing and the processes associated with human service interviews.They will learn vital skills such as establishing the interview environment, attending, active listening, empathic responding and influencing. Students will learn to manage the focus of an interview and move through the stages of a human service interview such as building an empathic relationship, listening for clients’ stories and strengths, goal setting, re-storying and action. Students will learn to apply these skills to working in diverse contexts and with a diverse range of clients. This course employs a client-centred, anti-oppressive and strength-based framework. Students will also be required to demonstrate self-awareness by critically reflecting on their interviewing skills.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Critical analysis, Skills demonstration, Test/Quiz</assessment>
+                    </course>
+                    <course>
+                        <id>EDUC4186</id> 
+                        <name>Community Service Learning Project 1</name> 
+                        <courseId>101716</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Professor Deirdre Tedmanson</name> 
+                                <url>https://people.unisa.edu.au/Deirdre.Tedmanson?_gl=1*12t5itm*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/101716/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>This course will provide students with an opportunity to undertake a community service project in order to develop an appreciation for how their discpline knowledge intersects with community (as distinct from corporate) need.</courseAim>
+                        <courseContent>Students will work in multi-disciplinary teams to manage real projects and solve real problems experienced by community organisations. They will work with the community partner to understand their needs, scope the project and develop viable and sustainable solutions. Students will complete a learning journal throughout the course which reflects on the progress of the project, their use of the knowledge and skills taught throughout their degree, and the relevance of the service learning project experience to their future careers.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Reflective journal, Report, Research proposal</assessment>
+                    </course>
+                    <course>
+                        <id>BEHL3018</id> 
+                        <name>Counselling Interventions</name> 
+                        <courseId>101745</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Nadine Pelling</name> 
+                                <url>https://people.unisa.edu.au/Nadine.Pelling?_gl=1*l0mj2n*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>BEHL2013</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/101745/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To further develop students' counselling and interpersonal skills to include influencing skills and intervention strategies.</courseAim>
+                        <courseContent>Students will further develop their knowledge of the counselling process and their counselling skills. They will be introduced to advanced microskills and provided the opportunity to practice those skills. They will be introduced to basic influencing skills (focusing, empathic confrontation, stress management, and therapeutic lifestyle changes) and will learn the patterns of skill usage appropriate for different cultural groups, and their application in different areas of practice. Students will also be introduced to the five stages of the interview: relationship, story and strengths, goals, restory, action.Students will have the opportunity to practice these skills in a safe environment.</courseContent>
+                        <textbook>Ivey, A, Ivey, M &amp; Zalaquett, C 2022, Intentional interviewing and counseling: facilitating client development in a multicultural society, 10th edition, Brooks/cole, Belmont, CA</textbook>
+                        <assessment>Learning log/Journal, Test</assessment>
+                    </course>
+                    <course>
+                        <id>BEHL2013</id> 
+                        <name>Counselling Skills</name> 
+                        <courseId>101746</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Nadine Pelling</name> 
+                                <url>https://people.unisa.edu.au/Nadine.Pelling?_gl=1*l0mj2n*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>BEHL1022</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/101746/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules> 
+                        <courseAim>To develop students' knowledge of the counselling process and to core counselling microskills, and to provide small group practice in the use of these.</courseAim>
+                        <courseContent>In this course students will further develop their knowledge of current research and best practice in counselling. Students will build up their knowledge of the counselling process and will further develop counselling microskills (including attending behaviour, open and closed questions, client observation skills, encouraging, paraphrasing and summarising, reflection of feeling). Students will have the opportunity to practice these skills in a safe environment.</courseContent>
+                        <textbook>Ivey, A, Ivey, M, &amp; Zalaquett, C 2022, Intentional interviewing and counseling: facilitating client development in a multicultural society, 10th edition, Brooks/Cole, Belmont</textbook>
+                        <assessment>Learning log/Journal, Test/Quiz</assessment>
+                    </course>
+                </CounselingAndInterpersonalSkills>
+                <AboriginalCultures>                 
+                    <course>
+                        <id>SOCU3035</id> 
+                        <name>Aboriginal Rights and Interculturality</name> 
+                        <courseId>155601</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Associate Professor Karen Sinclair</name> 
+                                <url>https://people.unisa.edu.au/Karen.Sinclair?_gl=1*4gfakk*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>HUMS1035</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/155601/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To provide students with an understanding of Aboriginal rights and intercultural frameworks to work effectively within cross-cultural Aboriginal contexts and enable them to apply this knowledge to professional practice.</courseAim>
+                        <courseContent>Students will build on their knowledge of the historical and contemporary relationships between Aboriginal and non-Aboriginal Australians and the impact on the health and wellbeing of Aboriginal Australians and communities today. The topics include understanding and developing strategies to challenge racism in professional practice; understanding white privilege and understanding ones’ own personal values and the impact on professional practice; development of skills to work effectively within cross cultural contexts; to understand and incorporate self-reflective analysis into the ongoing professional practice.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Case study, Portfolio, Reflective report</assessment>
+                    </course>
+                    <course>
+                        <id>PHIL3008</id> 
+                        <name>Aboriginal Philosophy: Contesting Knowledge in Social Science</name> 
+                        <courseId>164541</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Frances Wyld</name> 
+                                <url>https://people.unisa.edu.au/Frances.Wyld?_gl=1*1d64poe*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>HUMS1035</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/164541/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules> 
+                        <courseAim>To extend students' knowledge of Aboriginal theory and philosophy and critically analyse how the social sciences impact upon the understanding of Aboriginal knowledges.</courseAim>
+                        <courseContent>Students will develop advanced knowledge and understanding of theories and philosophy through the nature and content of Aboriginal knowledge systems, a chronology of key historical moments in the acquisition of knowledge, the impact of colonialism on Aboriginal knowledges, the future of Aboriginal knowledges and the universalisation of key concepts in philosophy and theory.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Case study, Essay, Report</assessment> 
+                    </course>
+                    <course>
+                        <id>HUMS2017</id> 
+                        <name>Comparative Indigenous Studies</name> 
+                        <courseId>011054</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Frances Wyld</name> 
+                                <url>https://people.unisa.edu.au/Frances.Wyld?_gl=1*1d64poe*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/011054/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules> 
+                        <courseAim>To extend students' knowledge and understanding of Indigenous issues impacting on the First Nations people of North America, Australia and the Pacific Region.</courseAim>
+                        <courseContent>Students will build on their knowledge of the impacts of  and responses to colonisation by First Nations peoples in North America, Australia and the Pacific region through exploration and analysis of  approaches to comparative studies, pre-colonial cultures, colonialism, culture and ideology, diversity of social, economic and political structures, racism, assimilation, resistance, poverty, land rights, sovereignty and treaties, and contemporary political movements.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Essay, Report, Review</assessment>
+                    </course>
+                    <course>
+                        <id>COMM2060</id> 
+                        <name>Communication and Reciprocity</name> 
+                        <courseId>100789</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Frances Wyld</name> 
+                                <url>https://people.unisa.edu.au/Frances.Wyld?_gl=1*1d64poe*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/100789/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To further develop students' understanding of communication culture relating to Aboriginal Australia and skill development to operate effectively and ethically in intercultural contexts.</courseAim>
+                        <courseContent>Students will build on their knowledge and skills to support critical thinking to reconcile theory and practice in a professional setting. This knowledge and skills will be achieved by the exploration of historical colonial policies and processes, the diversity and complexity of cultures and contemporary issues, the politics and history of Aboriginal cultural and intellectual property, rights and representation, Aboriginal arts and media practice, racism, social justice and the politics of privilege, self-determination, human rights and international obligations, and application of Aboriginal protocol to professional practice.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Annotated bibliography, Essay, Presentation</assessment>
+                    </course>
+                    <course>
+                        <id>HUMS1034</id> 
+                        <name>Contemporary Aboriginal Issues</name> 
+                        <courseId>007078</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Cameron Raynes</name> 
+                                <url>https://people.unisa.edu.au/Cameron.Raynes?_gl=1*1ir5k4j*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/007078/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules> 
+                        <courseAim>To develop students' knowledge of diversity of the contemporary social and political situations in Australia which impact on Aboriginal peoples.</courseAim>
+                        <courseContent>Students will develop broad  understanding and knowledge of historical and contemporary issues that have and still impact on Aboriginal peoples. Students will explore social justice and human rights, reconciliation, diversity of Aboriginal social and political situations, Australian racism, power and powerlessness, employment, health, housing, Aboriginal Australians and the criminal justice system, Stolen Generations, media, native title and sovereignty, and self-determination.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Essay, Presentation, Quiz</assessment>
+                    </course>
+                    <course>
+                        <id>HUMS1035</id> 
+                        <name>Aboriginal Cultures</name> 
+                        <courseId>009996</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Frances Wyld</name> 
+                                <url>https://people.unisa.edu.au/Frances.Wyld?_gl=1*1d64poe*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/009996/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To develop students' knowledge of traditional Aboriginal cultures as they developed over time in a variety of ecological situations.</courseAim>
+                        <courseContent>Students will develop a broad understanding of  Aboriginal Australian social, economic and political systems by learning about the social groups and kinship and the concepts of culture, land and boundaries, spiritual construct and its art forms, ethnocentrism and race.</courseContent>
+                        <textbook>Australian Institute of Aboriginal and Torres Strait Islander Studies 2018, The Little Yellow Red Black Book: an introduction to Indigenous Australia, 4th, Aboriginal Studies Press, Canberra</textbook>
+                        <assessment>Case study, Quiz, Reflection</assessment>
+                    </course>
+                </AboriginalCultures>
+                <BiologyForEducation>                 
+                    <course>
+                        <id>BIOL3026</id> 
+                        <name>Human Ecology and Global Change</name> 
+                        <courseId>010896</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Chris Della Vedova</name> 
+                                <url>https://people.unisa.edu.au/Chris.DellaVedova?_gl=1*1837ka0*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>BIOL2046</id>
+                            </prerequisite>
+                            <prerequisite>
+                                <id>BIOL2045</id>
+                            </prerequisite>
+                            <prerequisite>
+                                <id>BIOL2059</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/010896/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To provide students with an understanding of how humans evolved to become the most influential organism on the planet, changing landscapes and climate.</courseAim>
+                        <courseContent>Human evolution, the advent of technology and agriculture, building of societies, changes to human nutrition, demographics and disease. Impacts of humans on the planet, focussing on biological systems.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Essay, Presentation, Report</assessment>
+                    </course>
+                    <course>
+                        <id>BIOL3027</id> 
+                        <name>Global Change and Human Health</name> 
+                        <courseId>010897</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Professor Craig Williams</name> 
+                                <url>https://people.unisa.edu.au/Craig.Williams?_gl=1*q86t4d*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/010897/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules> 
+                        <courseAim>To interpret how changes to the Earth’s human populations, biological systems, climate, and ecosystems have impacted human health and to consider possible actions to safeguard health through future strategy and practice change.</courseAim>
+                        <courseContent> Links between changes to the planet’s human populations, biological systems, climate and ecosystems and human health are explored across five domains: 1) effects of extreme weather; 2) changes to infectious diseases; 3) threats to food and water supply; 4) changes to chronic diseases; 5) the impact of social inequities and conflict on human health. Conceptual health frameworks will be described and applied to contemporary public and environmental health challenges.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Critical analysis, Report, Test/Quiz</assessment>
+                    </course>
+                    <course>
+                        <id>BIOL1012</id> 
+                        <name>Biology B</name> 
+                        <courseId>010906</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Erin Lousberg</name> 
+                                <url>https://people.unisa.edu.au/Erin.Lousberg?_gl=1*1yyljdj*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/010906/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To continue to develop an understanding of biological systems, focussing specifically on the development of cells to tissues and how tissues function and communicate in a multicellular organism. </courseAim>
+                        <courseContent>Reproduction and development; cell cycle regulation and cellular communication, regulation of homeostasis; breakdown and transport of nutrients; osmoregulation; immunology; embryology.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Report, Test/Quiz</assessment> 
+                    </course>
+                    <course>
+                        <id>BIOL1007</id> 
+                        <name>Biology A</name> 
+                        <courseId>008333</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Revecca Kakavanos-Plew</name> 
+                                <url>https://people.unisa.edu.au/Revecca.Plew?_gl=1*vovlit*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                            <courseCoordinator>
+                                <name>Dr Sarah List</name> 
+                                <url>https://people.unisa.edu.au/Sarah.List?_gl=1*vovlit*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id></id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/008333/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules> 
+                        <courseAim>To develop a strong foundation in molecular and cellular aspects of biology, specifically the chemicals of life, macromolecules, both pro- and eukaryotic cells in addition to basic cell physiology.  </courseAim>
+                        <courseContent>Chemicals of life; macromolecules; prokaryotic and eukaryotic cells; viruses; mitosis &amp; meiosis; DNA replication, transcription, translation; inheritance; regulation of gene expression; harvesting chemical energy; life on earth and evolution; introduction to basic laboratory skills.</courseContent>
+                        <textbook></textbook>
+                        <assessment>Report, Test, Test/Quiz</assessment> 
+                    </course>
+                    <course>
+                        <id>BIOL2059</id> 
+                        <name>Evolution</name> 
+                        <courseId>157321</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Dr Erin Lousberg</name> 
+                                <url>https://people.unisa.edu.au/Erin.Lousberg?_gl=1*1yyljdj*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>true</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>BIOL1007</id>
+                            </prerequisite>
+                            <prerequisite>
+                                <id>BIOL1012</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/157321/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>To provide students with an understanding of evolutionary theory and processes in the context of molecules, biologically-active compounds, plants and animals (including humans).</courseAim>
+                        <courseContent>Evolutionary theory responsible for the variation, relatedness and adaptation of organisms to their environments in the context of plants and animals. Evidence for evolution, co-evolution, sexual selection and evolutionary development and pressures leading to change. Application of evolutionary concepts to problem solving in conservation, health, and global environmental change.</courseContent>
+                        <textbook>Herron, J.C. and Freeman, S. 2013, Evolutionary Analysis, 5th Edition, Pearson</textbook>
+                        <assessment>Examination, Presentation, Report</assessment> 
+                    </course>
+                    <course>
+                        <id>ENVT3028</id> 
+                        <name>Restoration Ecology</name> 
+                        <courseId>105613</courseId> 
+                        <courseCoordinators> 
+                            <courseCoordinator>
+                                <name>Associate Professor S. "Topa" Petit</name> 
+                                <url>https://people.unisa.edu.au/Sophie.Petit?_gl=1*pafu7z*_gcl_au*MjEyOTU4ODc0LjE3MTE0NTU5NjI.</url> 
+                            </courseCoordinator>
+                        </courseCoordinators>
+                        <offeredExternally>false</offeredExternally>
+                        <prerequisites> 
+                            <prerequisite>
+                                <id>BIOL2023</id>
+                            </prerequisite>
+                        </prerequisites>
+                        <url>https://study.unisa.edu.au/courses/105613/2024</url> 
+                        <notes>
+                            <note></note>
+                        </notes> 
+                        <rules>
+                            <rule></rule>
+                        </rules>
+                        <courseAim>The aim of Restoration Ecology is to train students in planning and research relevant to the achievement of vegetation cover and wildlife habitat objectives in degraded landscapes.</courseAim>
+                        <courseContent>Restoration Ecology presents current theories of restoration in science and practice. The ecological approach links ecological theory in lectures to practical restoration in the field. Examples of successful restoration are presented as case studies used to monitor the effectiveness of on-ground works and prescribed management regimes. Students practice applying ecological theory to habitat designs on degraded land.</courseContent>
+                        <textbook>Andel J. van &amp; Aronson J. (eds) 2012, Restoration ecology: the new frontier. 2nd edn. (electronic resource) , Wiley-Blackwell, Chichester, W. Sussex, UK</textbook>
+                        <assessment>Continuous assessment, Presentation, Proposal, Research assignment, Viva Voce</assessment>
+                    </course>
+                </BiologyForEducation>
+            </electiveCourses>
+        </elective>
+    </assistances>
+    <industries>    <!--Information for industry building-->
+        <partner>
+            <name>Uni SA research Home</name>
+            <url>https://www.unisa.edu.au/research/#industry-expertise</url>
+        </partner>
+        <partner>
+            <name>Uni SA Community social services</name>
+            <url>https://www.unisa.edu.au/connect/industries/community-social-services/</url>
+        </partner>
+        <partner>
+            <name>ANGLICARESA</name>
+            <url>https://anglicaresa.com.au/</url>
+        </partner>
+        <partner>
+            <name>Uniting Communities</name>
+            <url>https://www.unitingcommunities.org/</url>
+        </partner>
+        <partner>
+            <name>Foodbank</name>
+            <url>https://www.foodbank.org.au/</url>
+        </partner>
+        <partner>
+            <name>Australian Refugee Association</name>
+            <url>https://www.australianrefugee.org/</url>
+        </partner>
+        <partner>
+            <name>TACSI</name>
+            <url>https://www.tacsi.org.au/</url>
+        </partner>
+        <partner>
+            <name>CareerTrackers</name>
+            <url>https://careertrackers.org.au/</url>
+        </partner>
+
+        <associations>
+            <association>
+                <name></name>
+                <url></url>
+            </association>
+        </associations> 
+    </industries>
+    <alumnus> <!--Information for alumni building-->
+        <alumni>
+            <name>Home</name>
+            <url>https://www.unisa.edu.au/connect/alumni-network/</url>
+        </alumni>
+        <alumni>
+            <name>News</name>
+            <url>https://www.unisa.edu.au/connect/alumni-network/alumni-news/</url>
+        </alumni>
+    </alumnus>
+    <welcome> <!--Information for the welcome building.-->
+        <name>Bachelor of Outdoor and Environmental Leadership</name> <!--program name to display on the page-->
+        <videos>
+            <video>
+                <name>Study Outdoor and Environmental Leadership at UniSA</name>
+                <embd>https://www.youtube.com/embed/DBpITlohB5U?si=CatknfmC8SStcM1e</embd> <!--For embeding directly on the page-->
+                <url>https://www.youtube.com/watch?v=DBpITlohB5U</url> <!--For watching youtube video on youtube-->
+            </video>
+            <video>
+                <name>UniSA City East facilities campus tour</name>
+                <embd>https://www.youtube.com/embed/KoNkCU_AhWk?si=LWl8kRRM3MBU1C8i</embd> <!--For embeding directly on the page-->
+                <url>https://www.youtube.com/watch?v=KoNkCU_AhWk</url> <!--For watching youtube video on youtube-->
+            </video>
+
+        </videos>
+    </welcome>
+</repository>
