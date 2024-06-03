@@ -234,6 +234,10 @@ const Home = () => {
             outlinePass.selectedObjects = [selectedObject];
             buildingObject = selectedObject;
             break;
+          } else if (selectedObject.name === "great_hall") {
+            outlinePass.selectedObjects = [selectedObject];
+            buildingObject = selectedObject;
+            break;
           }
           selectedObject = selectedObject.parent;
         }
@@ -925,6 +929,8 @@ const Home = () => {
       controls.current.update();
     }
   };
+  const rotateCameraLeft = () => {};
+  const rotateCameraRight = () => {};
   function displayElectiveUI() {
     // display UI for elective information with the related event
     // source data is came from "src\assets\lbvt.json"
@@ -1391,7 +1397,7 @@ const Home = () => {
 
   function displayElectiveUI() {
     // display UI for elective information with the related event
-
+    // lbvt_data is iboe here not lbvt -> based on program=?name
     const electiveData = lbvt_data.repository.assistances.elective;
     var undergraduateElective = electiveData.electiveCourses.undergraduate;
 
@@ -1468,12 +1474,14 @@ const Home = () => {
       "CommunityEngagementAndSustainability" in electiveData.electiveCourses
     ) {
       courseUI.document.write("<div class='iboeElective'>");
-
+      console.log(electiveData.rules.length);
       // display the rule for the IBOE electives
-      for (let i = 0; i < electiveData.rules.rule.length; i++) {
-        courseUI.document.write(
-          "<p>Rule" + i + ": " + environmentElective.rules.rule[i] + "</p>"
-        );
+      if (electiveData.rules != null) {
+        for (let i = 0; i < electiveData.rules.rule.length; i++) {
+          courseUI.document.write(
+            "<p>Rule" + i + ": " + environmentElective.rules.rule[i] + "</p>"
+          );
+        }
       }
 
       const iboeElective = electiveData.electiveCourses;
@@ -1724,6 +1732,7 @@ const Home = () => {
   }
 
   function displayIndustryUI() {
+    console.log(lbvt_data);
     // display UI for industry information with the related event
     // source data is came from "src\assets\lbvt.json"
     const industryData = lbvt_data.repository.industries;
@@ -1802,6 +1811,7 @@ const Home = () => {
   }
 
   function displayWelcomeUI() {
+    console.log(lbvt_data);
     // display UI for the welcome message, and youtube videos which are related to LBVT in UniSA's youtube account
     // source data is came from "src\assets\lbvt.json"
     const welcomeData = lbvt_data.repository.welcome;
@@ -1882,6 +1892,8 @@ const Home = () => {
           moveCameraTop={moveCameraTop}
           moveCameraBottom={moveCameraBottom}
           resetCamera={resetCamera}
+          rotateCameraLeft={rotateCameraLeft}
+          rotateCameraRight={rotateCameraRight}
         />
 
         {camera && <CameraSlider camera={camera} setCamera={setCamera} />}

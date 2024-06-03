@@ -3,7 +3,7 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
-    ". button1 ."
+    "button6 button1 button7"
     "button3 . button2"
     ". button4 button5";
   gap: 10px;

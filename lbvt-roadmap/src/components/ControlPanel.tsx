@@ -15,6 +15,8 @@ const ControlPanel = ({
   moveCameraTop,
   moveCameraBottom,
   resetCamera,
+  rotateCameraLeft,
+  rotateCameraRight,
 }) => (
   <div className="control-panel">
     <Button
@@ -49,6 +51,20 @@ const ControlPanel = ({
       onClick={resetCamera}
       className="btn-control button5"
       title="Reset Camera"
+    >
+      <FontAwesomeIcon icon={faSync} />
+    </Button>
+    <Button
+      onClick={rotateCameraLeft}
+      className="btn-control button6"
+      title="Rotate Camera Left"
+    >
+      <FontAwesomeIcon icon={faSync} />
+    </Button>
+    <Button
+      onClick={rotateCameraRight}
+      className="btn-control button7"
+      title="Rotate Camera Right"
     >
       <FontAwesomeIcon icon={faSync} />
     </Button>

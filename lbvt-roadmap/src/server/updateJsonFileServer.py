@@ -10,7 +10,7 @@ def upload_file():
     for file in files:
         if file.filename.endswith('.xml'):
             xml_content = file.read()
-            data_dict = xmltodict.parse(xml_content, force_list={'courseCoordinator','prerequisite'})
+            data_dict = xmltodict.parse(xml_content, force_list={'courseCoordinator','prerequisite', 'rule'})
             json_data = json.dumps(data_dict)
             with open('../assets/lbvt.json', 'w') as json_file:
                 json_file.write(json_data)

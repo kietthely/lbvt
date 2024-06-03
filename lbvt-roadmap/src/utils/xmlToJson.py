@@ -7,7 +7,7 @@ def convert_xml_to_json(xml_file):
         xml_content = file.read()
     # Parse xml content
     # Some elements have only 1 child but they are supposed to be a list
-    data_dict = xmltodict.parse(xml_content, force_list={'courseCoordinator','prerequisite'})
+    data_dict = xmltodict.parse(xml_content, force_list={'courseCoordinator','prerequisite', 'rule'})
     json_data = json.dumps(data_dict)
     return json_data
 # Put your xml file path here
