@@ -1495,7 +1495,6 @@ const Home = () => {
   }
 
   function displayIndustryUI() {
-    console.log(lbvt_data);
     // display UI for industry information with the related event
     // source data is came from "src\assets\lbvt.json"
     const industryData = lbvt_data.repository.industries;
@@ -1550,25 +1549,28 @@ const Home = () => {
       courseUI.document.write("<p>Oops, There is no data for Industry.<p/>");
     }
     if ("associations" in industryData) {
-      courseUI.document.write("<h3>Related associations</h3>");
-      courseUI.document.write("<div class = Associations>");
-      for (let i = 0; i < industryData.associations.association.length; i++) {
-        // display the related associations for the program
+      if (industryData.associations.association[0].name != null){
 
-        if (industryData.associations.association[i].url != null) {
-          courseUI.document.write(
-            "<p><a href=" +
-              industryData.associations.association[i].url +
-              ' target="_blank" rel="noopener noreferrer">' +
-              industryData.associations.association[i].name +
-              "</a></p>"
-          );
-        } else {
-          courseUI.document.write(
-            "<p>" + industryData.associations.association[i].name + "</p>"
+        courseUI.document.write("<h3>Related associations</h3>");
+        courseUI.document.write("<div class = Associations>");
+        for (let i = 0; i < industryData.associations.association.length; i++) {
+          // display the related associations for the program
+
+          if (industryData.associations.association[i].url != null) {
+            courseUI.document.write(
+              "<p><a href=" +
+                industryData.associations.association[i].url +
+                ' target="_blank" rel="noopener noreferrer">' +
+                industryData.associations.association[i].name +
+                "</a></p>"
+            );
+          } else {
+            courseUI.document.write(
+              "<p>" + industryData.associations.association[i].name + "</p>"
           );
         }
       }
+    }
       courseUI.document.write("</div>");
     }
     courseUI.document.write("</div>");
