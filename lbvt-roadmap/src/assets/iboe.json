@@ -1310,11 +1310,40 @@
       }
     },
     "industries": {
-      "partner": {
-        "name": "Uni SA research Home",
-        "url": "https://www.unisa.edu.au/research/#industry-expertise"
-      },
-      "associations": { "association": { "name": null, "url": null } }
+      "partner": [
+        {
+          "name": "Uni SA research Home",
+          "url": "https://www.unisa.edu.au/research/#industry-expertise"
+        },
+        {
+          "name": "Uni SA Community & social services",
+          "url": "https://www.unisa.edu.au/connect/industries/community-social-services/"
+        },
+        {
+          "name": "ANGLICARESA",
+          "url": "https://anglicaresa.com.au/"
+        },
+        {
+          "name": "Foodbank",
+          "url": "https://www.foodbank.org.au/"
+        },
+        {
+          "name": "Australian Refugee Association",
+          "url": "https://www.australianrefugee.org/"
+        },
+        {
+          "name": "TACSI",
+          "url": "https://www.tacsi.org.au/"
+        }
+      ],
+      "associations": {
+        "association": [ 
+          { 
+            "name": null, 
+            "url": null 
+          } 
+      ]
+      }
     },
     "alumnus": {
       "alumni": [
