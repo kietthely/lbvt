@@ -126,8 +126,6 @@ const Home = () => {
     // cast ambient light - sunlight
     const ambientLight = new Three.AmbientLight(0xffffff, 4);
     scene.add(ambientLight);
-    // add fog
-    scene.fog = new Three.FogExp2(0xffffff, 0.04);
 
     // set scene size
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -1131,7 +1129,7 @@ const Home = () => {
   }
 
   function displayCourseUI(evt, connectedCourses, id) {
-    const evt_data = evt[id];
+    const evt_data = evt.find((item) => item.id === id);
     console.log(evt);
     if (evt_data.id != null) {
       var courseUI = window.open("", "_blank", "width=700, height=600");
