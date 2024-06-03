@@ -8,8 +8,6 @@ import CameraSlider from "./CameraSlider";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { OutlinePass } from "three/examples/jsm/postprocessing/OutlinePass.js";
-import lbvt_data from "../assets/lbvt.json";
-import findConnections from "../utils/connectionCourses";
 
 import _ from "lodash";
 function getCoursesData(courses_data) {
@@ -29,6 +27,7 @@ function getCoursesData(courses_data) {
       course_data_list.push(course);
     }
   }
+
   return course_data_list;
 }
 function findConnection(courseId, courses) {
@@ -59,14 +58,26 @@ const Home = () => {
   const [camera, setCamera] = useState(null);
   const controls = useRef();
   // extract folder name from url
-  const [programData, setProgramData] = useState(null);
+  const [lbvt_data, setProgramData] = useState(null);
   const [searchParams] = useSearchParams();
   const program = searchParams.get("program") || "lbvt";
+  // update course data once done loading program param
+  const [course_data_list, setCourseDataList] = useState(null);
+
   useEffect(() => {
     const loadProgramData = async () => {
       try {
         const data = await import(`../assets/${program}.json`);
+
         setProgramData(data.default);
+        // lbvt data
+        let courses_data = null;
+        if (data.default) {
+          courses_data = data.default.repository.program.courses;
+        }
+        // turn into a list for easy traversal
+        const course_data = getCoursesData(courses_data);
+        setCourseDataList(course_data);
       } catch (error) {
         console.error("Something wrong with my website folder:", error);
       }
@@ -74,12 +85,10 @@ const Home = () => {
 
     loadProgramData();
   }, [program]);
-  console.log(programData);
-  // lbvt data
-  const courses_data = lbvt_data.repository.program.courses;
-  // turn into a list for easy traversal
-  const course_data_list = getCoursesData(courses_data);
+
   useEffect(() => {
+    if (!course_data_list) return;
+    console.log(course_data_list);
     // initialize world
     var scene, cam, renderer;
     scene = new Three.Scene();
@@ -166,7 +175,7 @@ const Home = () => {
     // load the scene
     const buildings = {};
     const loader = new GLTFLoader();
-    loader.load("/models/lbvt.glb", function (gltf) {
+    loader.load(`/models/${program}.glb`, function (gltf) {
       gltf.scene.traverse(function (object) {
         if (object.name.startsWith("building")) {
           buildings[object.name] = object;
@@ -231,6 +240,7 @@ const Home = () => {
       }
 
       let connectedCourses;
+
       // check if clicking on buildings
       if (buildingObject) {
         switch (buildingObject.name) {
@@ -305,6 +315,7 @@ const Home = () => {
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
+
             displayCourseUI(
               course_data_list,
               connectedCourses,
@@ -312,6 +323,7 @@ const Home = () => {
             );
             break;
           case "building_4":
+            console.log(course_data_list[3].id);
             connectedCourses = findConnection(
               course_data_list[3].id,
               course_data_list
@@ -800,7 +812,30 @@ const Home = () => {
               course_data_list[22].id
             );
             break;
+          case "building_24":
+            connectedCourses = findConnection(
+              course_data_list[23].id,
+              course_data_list
+            );
+            connectedCourses.forEach((courseIndex) => {
+              const building = buildings[`building_${courseIndex}`];
 
+              if (building) {
+                building.traverse(function (object) {
+                  object.fog = false; // ignore fog effect
+                });
+                outlinePass.selectedObjects.push(building);
+              }
+            });
+
+            // selected building + a list of connected buildings
+            updateLine(buildingObject, buildings, connectedCourses);
+            displayCourseUI(
+              course_data_list,
+              connectedCourses,
+              course_data_list[23].id
+            );
+            break;
           // for Elective
           case "elective_lbvt":
             displayElectiveUI();
@@ -828,7 +863,7 @@ const Home = () => {
     return () => {
       window.removeEventListener("click", onMouseClick);
     };
-  }, []);
+  }, [course_data_list]);
 
   // consistently update the camera
   useEffect(() => {
