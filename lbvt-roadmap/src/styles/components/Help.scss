@@ -5,13 +5,44 @@
     background-color: #fff; 
     margin-top: 100px;
     margin-left: 50px;
-    //display: flex;
     position: relative;
     justify-content: center;
 
 }
 
-.contents{
-    //position: absolute;
-    
+h2{ 
+    color: blue; 
+    font-size: 24px; 
+    font-weight: bold; 
+    line-height:1.25;
+} 
+
+h3{ 
+    color: blue; 
+    font-size: 18px; 
+    font-weight: bold; 
+    line-height:1.25;
+} 
+p{
+    color:black; 
+    font-size: 14px; 
+    line-height:1.5;
+}
+
+a:visited { 
+    color: blue
+} 
+a:hover { 
+    color: lightseagreen 
+} 
+a:active { 
+    color: blue
+} 
+
+a:link {
+    color: gray;
+}
+
+.link{
+    color: blue;
 }
