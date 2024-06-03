@@ -40,7 +40,7 @@ function findConnection(courseId, courses) {
     ) {
       for (let prerequisite of course.prerequisites.prerequisite) {
         if (prerequisite.id === courseId) {
-          connectedCourses.add(i + 1); 
+          connectedCourses.add(i + 1);
           //connectedCourses.add(course); // testing
           let newConnections = findConnection(course.id, courses);
           newConnections.forEach((connectedCourseIndex) =>
@@ -271,7 +271,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[0].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[0].id,
+              course_data_list
+            );
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
@@ -295,7 +298,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[1].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[1].id,
+              course_data_list
+            );
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
@@ -319,7 +325,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[2].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[2].id,
+              course_data_list
+            );
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
 
@@ -345,7 +354,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[3].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[3].id,
+              course_data_list
+            );
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
@@ -370,7 +382,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[4].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[4].id,
+              course_data_list
+            );
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
             displayCourseUI(
@@ -394,7 +409,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[5].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[5].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -419,7 +437,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[6].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[6].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -444,7 +465,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[7].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[7].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -471,7 +495,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[8].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[8].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -496,7 +523,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[9].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[9].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -521,7 +551,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[10].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[10].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -546,7 +579,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[11].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[11].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -573,7 +609,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[12].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[12].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -598,7 +637,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[13].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[13].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -623,7 +665,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[14].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[14].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -648,7 +693,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[15].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[15].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -675,7 +723,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[16].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[16].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -700,7 +751,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[17].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[17].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -725,7 +779,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[18].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[18].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -750,7 +807,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[19].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[19].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -777,7 +837,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[20].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[20].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -802,7 +865,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[21].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[21].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -827,7 +893,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[22].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[22].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -852,7 +921,10 @@ const Home = () => {
                 outlinePass.selectedObjects.push(building);
               }
             });
-            futurePrerequisites = findFuturePrerequisite(course_data_list[23].id,course_data_list);
+            futurePrerequisites = findFuturePrerequisite(
+              course_data_list[23].id,
+              course_data_list
+            );
 
             // selected building + a list of connected buildings
             updateLine(buildingObject, buildings, connectedCourses);
@@ -1037,7 +1109,6 @@ const Home = () => {
       let courseList = "";
       console.log(size(connectedCourses));
       if (size(connectedCourses) > 0) {
-
         for (let course of connectedCourses) {
           courseList +=
             "<br>" +
@@ -1202,7 +1273,9 @@ const Home = () => {
     courseUI.document.write("</head><body>");
     courseUI.document.write("<div class ='container'>");
     courseUI.document.write("<h2>Electives</h2>");
-    courseUI.document.write("<p>You can find the courses' information for electives.</p>");
+    courseUI.document.write(
+      "<p>You can find the courses' information for electives.</p>"
+    );
     courseUI.document.write("<hr>");
 
     if ("environmental" in electiveData.electiveCourses) {
@@ -1257,8 +1330,9 @@ const Home = () => {
       courseUI.document.write("</div>");
 
       // section for IBOE program
-    } else if ("CommunityEngagementAndSustainability" in electiveData.electiveCourses) {
-
+    } else if (
+      "CommunityEngagementAndSustainability" in electiveData.electiveCourses
+    ) {
       const iboeElective = electiveData.electiveCourses;
       //courseUI.document.write("<div id='iboe'>");
 
@@ -1267,7 +1341,7 @@ const Home = () => {
       if (electiveData.rules.rule[0] != null) {
         for (let i = 0; i < electiveData.rules.rule.length; i++) {
           courseUI.document.write(
-            "<p>Rule" + (i+1) + ": " + electiveData.rules.rule[i] + "</p>"
+            "<p>Rule" + (i + 1) + ": " + electiveData.rules.rule[i] + "</p>"
           );
         }
       }
@@ -1335,7 +1409,6 @@ const Home = () => {
       courseUI.document.write("<div class ='electives' display: block;>");
       addElectiveUI(courseUI, iboeElective.BiologyForEducation);
       courseUI.document.write("</div>");
-
     }
     courseUI.document.write("</div>");
     courseUI.document.write("</div>");
@@ -1405,7 +1478,7 @@ const Home = () => {
           var prerequisite = getPrerequisite(
             electiveJson.course[i].prerequisites.prerequisite[j].id
           );
-          
+
           if (prerequisite != null) {
             courseUI.document.write(
               "<p> " +
@@ -1417,7 +1490,7 @@ const Home = () => {
                 prerequisite.name +
                 "</a></p>"
             );
-          } else{
+          } else {
             courseUI.document.write("<p>N/A</p>");
           }
         } else {
@@ -1444,7 +1517,11 @@ const Home = () => {
       ) {
         // display all information for course coordinators in the course
         for (
-          let j = 0;j < electiveJson.course[i].courseCoordinators.courseCoordinator.length; j++) {
+          let j = 0;
+          j <
+          electiveJson.course[i].courseCoordinators.courseCoordinator.length;
+          j++
+        ) {
           courseUI.document.write(
             "<p><a href=" +
               electiveJson.course[i].courseCoordinators.courseCoordinator[j]
@@ -1507,7 +1584,11 @@ const Home = () => {
     courseUI.document.write("</head><body>");
     courseUI.document.write("<div class ='container'>");
 
-    courseUI.document.write("<h2><a href=" +homeUrl + ' target="_blank" rel="noopener noreferrer">Alumni</a></h2>');
+    courseUI.document.write(
+      "<h2><a href=" +
+        homeUrl +
+        ' target="_blank" rel="noopener noreferrer">Alumni</a></h2>'
+    );
     if ("alumni" in alumniData) {
       for (let i = 0; i < alumniData.alumni.length; i++) {
         courseUI.document.write(
@@ -1548,12 +1629,20 @@ const Home = () => {
     courseUI.document.write("</head><body>");
     courseUI.document.write("<div class ='container'>");
 
-    courseUI.document.write("<h2><a href=" +homeUrl + ' target="_blank" rel="noopener noreferrer">Industry</a></h2>');
+    courseUI.document.write(
+      "<h2><a href=" +
+        homeUrl +
+        ' target="_blank" rel="noopener noreferrer">Industry</a></h2>'
+    );
     courseUI.document.write(
       "<p>You can check partner companies from list below.</p>"
     );
     if ("partner" in industryData) {
-      courseUI.document.write("<h3><a href=" +partnerUrl + ' target="_blank" rel="noopener noreferrer">Partner companies</a></h3>');
+      courseUI.document.write(
+        "<h3><a href=" +
+          partnerUrl +
+          ' target="_blank" rel="noopener noreferrer">Partner companies</a></h3>'
+      );
       courseUI.document.write("<div class = Partner>");
       for (let i = 2; i < industryData.partner.length; i++) {
         // display all partner companies which are on the Uni SA's web page
@@ -1580,8 +1669,7 @@ const Home = () => {
       courseUI.document.write("<p>Oops, There is no data for Industry.<p/>");
     }
     if ("associations" in industryData) {
-      if (industryData.associations.association[0].name != null){
-
+      if (industryData.associations.association[0].name != null) {
         courseUI.document.write("<h3>Related associations</h3>");
         courseUI.document.write("<div class = Associations>");
         for (let i = 0; i < industryData.associations.association.length; i++) {
@@ -1598,10 +1686,10 @@ const Home = () => {
           } else {
             courseUI.document.write(
               "<p>" + industryData.associations.association[i].name + "</p>"
-          );
+            );
+          }
         }
       }
-    }
       courseUI.document.write("</div>");
     }
     courseUI.document.write("</div>");
@@ -1684,9 +1772,9 @@ const Home = () => {
           }
         }
       }
-  
-    return futurePrerequisites;
-  }
+
+      return futurePrerequisites;
+    }
   }
 
   return (
@@ -1700,6 +1788,7 @@ const Home = () => {
         style={{ position: "fixed", zIndex: -1 }}
       />
       <div className="control-panel-container">
+        {camera && <CameraSlider camera={camera} setCamera={setCamera} />}
         <ControlPanel
           moveCameraLeft={moveCameraLeft}
           moveCameraRight={moveCameraRight}
@@ -1709,12 +1798,9 @@ const Home = () => {
           rotateCameraLeft={rotateCameraLeft}
           rotateCameraRight={rotateCameraRight}
         />
-
-        {camera && <CameraSlider camera={camera} setCamera={setCamera} />}
       </div>
     </div>
   );
 };
 
 export default Home;
-
