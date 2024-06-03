@@ -1474,7 +1474,6 @@ const Home = () => {
       "CommunityEngagementAndSustainability" in electiveData.electiveCourses
     ) {
       courseUI.document.write("<div class='iboeElective'>");
-      console.log(electiveData.rules.length);
       // display the rule for the IBOE electives
       if (electiveData.rules != null) {
         for (let i = 0; i < electiveData.rules.rule.length; i++) {
@@ -1886,6 +1885,7 @@ const Home = () => {
         style={{ position: "fixed", zIndex: -1 }}
       />
       <div className="control-panel-container">
+        {camera && <CameraSlider camera={camera} setCamera={setCamera} />}
         <ControlPanel
           moveCameraLeft={moveCameraLeft}
           moveCameraRight={moveCameraRight}
@@ -1895,8 +1895,6 @@ const Home = () => {
           rotateCameraLeft={rotateCameraLeft}
           rotateCameraRight={rotateCameraRight}
         />
-
-        {camera && <CameraSlider camera={camera} setCamera={setCamera} />}
       </div>
     </div>
   );

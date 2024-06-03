@@ -44,8 +44,8 @@ function CameraSlider({ camera, setCamera }) {
 
   return (
     <div className="slider-container">
-      <Button className="btn-control" onClick={handleZoomOut}>
-        <FontAwesomeIcon icon={faMinus} />
+      <Button className="btn-control" onClick={handleZoomIn}>
+        <FontAwesomeIcon icon={faPlus} />
       </Button>
       <input
         type="range"
@@ -56,8 +56,8 @@ function CameraSlider({ camera, setCamera }) {
         onChange={handleSliderChange}
         className="slider"
       />
-      <Button className="btn-control" onClick={handleZoomIn}>
-        <FontAwesomeIcon icon={faPlus} />
+      <Button className="btn-control" onClick={handleZoomOut}>
+        <FontAwesomeIcon icon={faMinus} />
       </Button>
     </div>
   );

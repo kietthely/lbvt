@@ -54,7 +54,7 @@ const ControlPanel = ({
     >
       <FontAwesomeIcon icon={faSync} />
     </Button>
-    <Button
+    {/* <Button
       onClick={rotateCameraLeft}
       className="btn-control button6"
       title="Rotate Camera Left"
@@ -67,7 +67,7 @@ const ControlPanel = ({
       title="Rotate Camera Right"
     >
       <FontAwesomeIcon icon={faSync} />
-    </Button>
+    </Button> */}
   </div>
 );
 
