@@ -1462,6 +1462,7 @@ const Home = () => {
     // display UI for Alumni information with the related event
     // source data is came from "src\assets\lbvt.json"
     const alumniData = lbvt_data.repository.alumnus;
+    const homeUrl = alumniData.alumni[0].url;
     var courseUI = window.open("", "_blank", "width=600, height=400");
     courseUI.document.write("<html><head><title>Alumni</title>");
     courseUI.document.write(
@@ -1476,7 +1477,7 @@ const Home = () => {
     courseUI.document.write("</head><body>");
     courseUI.document.write("<div class ='container'>");
 
-    courseUI.document.write("<h2>Alumni</h2>");
+    courseUI.document.write("<h2><a href=" +homeUrl + ' target="_blank" rel="noopener noreferrer">Alumni</a></h2>');
     if ("alumni" in alumniData) {
       for (let i = 0; i < alumniData.alumni.length; i++) {
         courseUI.document.write(
@@ -1499,6 +1500,8 @@ const Home = () => {
     // display UI for industry information with the related event
     // source data is came from "src\assets\lbvt.json"
     const industryData = lbvt_data.repository.industries;
+    const homeUrl = industryData.partner[0].url;
+    const partnerUrl = industryData.partner[1].url;
     var courseUI = window.open("", "_blank", "width=600, height=800");
     courseUI.document.write("<html><head><title>Industry</title>");
     courseUI.document.write(
@@ -1516,12 +1519,12 @@ const Home = () => {
     courseUI.document.write("</head><body>");
     courseUI.document.write("<div class ='container'>");
 
-    courseUI.document.write("<h2>Industry</h2>");
+    courseUI.document.write("<h2><a href=" +homeUrl + ' target="_blank" rel="noopener noreferrer">Industry</a></h2>');
     courseUI.document.write(
       "<p>You can check partner companies from list below.</p>"
     );
     if ("partner" in industryData) {
-      courseUI.document.write("<h3>Partner companies</h3>");
+      courseUI.document.write("<h3><a href=" +partnerUrl + ' target="_blank" rel="noopener noreferrer">Partner companies</a></h3>');
       courseUI.document.write("<div class = Partner>");
       for (let i = 2; i < industryData.partner.length; i++) {
         // display all partner companies which are on the Uni SA's web page
