@@ -1831,29 +1831,30 @@ const Home = () => {
         return courses_data.year1.sp2.course[i];
       }
     }
-    return (
-      <div>
-        {/*Put the model to background.
+  }
+  return (
+    <div>
+      {/*Put the model to background.
     Allows other components to be on top of the model.
   */}
-        <div
-          ref={ref}
-          className="ref"
-          style={{ position: "fixed", zIndex: -1 }}
+      <div
+        ref={ref}
+        className="ref"
+        style={{ position: "fixed", zIndex: -1 }}
+      />
+      <div className="control-panel-container">
+        <ControlPanel
+          moveCameraLeft={moveCameraLeft}
+          moveCameraRight={moveCameraRight}
+          moveCameraTop={moveCameraTop}
+          moveCameraBottom={moveCameraBottom}
+          resetCamera={resetCamera}
         />
-        <div className="control-panel-container">
-          <ControlPanel
-            moveCameraLeft={moveCameraLeft}
-            moveCameraRight={moveCameraRight}
-            moveCameraTop={moveCameraTop}
-            moveCameraBottom={moveCameraBottom}
-            resetCamera={resetCamera}
-          />
 
-          {camera && <CameraSlider camera={camera} setCamera={setCamera} />}
-        </div>
+        {camera && <CameraSlider camera={camera} setCamera={setCamera} />}
       </div>
-    );
-  }
+    </div>
+  );
 };
+
 export default Home;
