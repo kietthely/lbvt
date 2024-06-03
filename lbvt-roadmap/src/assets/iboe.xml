@@ -1641,6 +1641,35 @@
             <name>Uni SA research Home</name>
             <url>https://www.unisa.edu.au/research/#industry-expertise</url>
         </partner>
+        <partner>
+            <name>Uni SA Community social services</name>
+            <url>https://www.unisa.edu.au/connect/industries/community-social-services/</url>
+        </partner>
+        <partner>
+            <name>ANGLICARESA</name>
+            <url>https://anglicaresa.com.au/</url>
+        </partner>
+        <partner>
+            <name>Uniting Communities</name>
+            <url>https://www.unitingcommunities.org/</url>
+        </partner>
+        <partner>
+            <name>Foodbank</name>
+            <url>https://www.foodbank.org.au/</url>
+        </partner>
+        <partner>
+            <name>Australian Refugee Association</name>
+            <url>https://www.australianrefugee.org/</url>
+        </partner>
+        <partner>
+            <name>TACSI</name>
+            <url>https://www.tacsi.org.au/</url>
+        </partner>
+        <partner>
+            <name>CareerTrackers</name>
+            <url>https://careertrackers.org.au/</url>
+        </partner>
+
         <associations>
             <association>
                 <name></name>
