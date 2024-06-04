@@ -1176,17 +1176,6 @@ const Home = () => {
       courseUI.document.write("</div>");
       courseUI.document.write("</body></html>");
     }
-
-    if (evt_data.notes.note != null) {
-      // check the course has specific information as note.
-      courseUI.document.write("<p>Note: " + evt_data.notes.note + "</p>");
-    }
-
-    if (evt_data.rules.rule != null) {
-      // check the course has specific information as rule.
-      courseUI.document.write("<p>Rule: " + evt_data.rules.rule + "</p>");
-    }
-
     courseUI.document.write("</div>");
     courseUI.document.write("</body></html>");
   }
